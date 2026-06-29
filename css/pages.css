@@ -109,7 +109,8 @@
 .mk-unidade h3 { font-size: 1.3rem; }
 .mk-unidade__uf { color: var(--gray); font-weight: 600; }
 .mk-unidade__contato { margin-top: 1rem; display: grid; gap: .8rem; }
-.mk-unidade__contato li { font-size: .95rem; color: #444; }
+.mk-unidade__contato li { font-size: .95rem; color: #444; overflow-wrap: anywhere; }
+.mk-unidade__contato a { overflow-wrap: anywhere; }
 .mk-unidade__contato li span { display: block; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--red); font-weight: 700; margin-bottom: .15rem; }
 .mk-unidade__contato a:hover { color: var(--red); }
 @media (max-width: 860px) { .mk-unidade-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -135,13 +136,14 @@
 
 /* ---------- Contato ---------- */
 .ct-top { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(28px, 4vw, 56px); align-items: start; }
+.ct-top > * { min-width: 0; }
 .ct-channels h2 { margin: .6rem 0 1.4rem; }
 .ct-list { display: grid; gap: 1.1rem; margin-bottom: 1.8rem; }
 .ct-list li { display: grid; gap: .2rem; padding-bottom: 1.1rem; border-bottom: 1px solid var(--line); }
 .ct-list li span { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--red); font-weight: 700; }
-.ct-list li a { font-size: 1.05rem; font-weight: 600; }
+.ct-list li a { font-size: 1.05rem; font-weight: 600; overflow-wrap: anywhere; }
 .ct-list li a:hover { color: var(--red); }
-.ct-social { display: flex; gap: 1.2rem; }
+.ct-social { display: flex; flex-wrap: wrap; gap: .8rem 1.2rem; }
 .ct-social a { font-weight: 600; }
 .ct-social a:hover { color: var(--red); }
 .ct-widget__box { background: var(--ink); color: #fff; border-radius: var(--radius); padding: clamp(28px, 4vw, 44px); min-height: 220px; display: flex; flex-direction: column; justify-content: center; }

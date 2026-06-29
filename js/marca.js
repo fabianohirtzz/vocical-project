@@ -11,9 +11,6 @@
   function p(path) { return path ? base + path : path; }
   function telLink(t) { return 'https://wa.me/' + ('55' + t.replace(/\D/g, '')); }
 
-  // título da aba / SEO simples
-  document.title = m.nome + ' — Grupo Vocical';
-
   function hero() {
     var cidades = (m.unidades || []).map(function (u) { return u.cidade + '/' + u.uf; }).join(' · ');
     return '<section class="mk-hero surface--dark grain">' +

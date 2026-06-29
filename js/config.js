@@ -19,7 +19,7 @@ window.VOCICAL = {
       slug: 'vocical', nome: 'Vocical', uf: 'SP',
       logo: 'Imagens/Logos Unidades/Vocical/vocical---preto.png',
       logoBranco: 'Imagens/Logos Unidades/Vocical/vocical---branco.png',
-      capa: 'Imagens/Vocical',
+      capaFoto: 'Imagens/vocical.jpg',
       unidades: [
         { cidade: 'Votuporanga', uf: 'SP', endereco: 'Avenida Prestes Maia, 2059', telefone: '(17) 3411-1010', email: 'vendas.vocical@grupovocical.com.br' }
       ]
@@ -28,7 +28,7 @@ window.VOCICAL = {
       slug: 'jacical', nome: 'Jacical', uf: 'SP',
       logo: 'Imagens/Logos Unidades/Jacical/logo-jacical---preto.png',
       logoBranco: 'Imagens/Logos Unidades/Jacical/logo-jacical---branco.png',
-      capa: 'Imagens/Jacical',
+      capaFoto: 'Imagens/jacical-capa.jpg',
       unidades: [
         { cidade: 'Jales', uf: 'SP', endereco: 'R. Silvio Alves Balbino, 525 - Parque Industrial II', telefone: '(17) 3624-3430', email: 'vendas.jacical@grupovocical.com.br' }
       ]
@@ -37,7 +37,7 @@ window.VOCICAL = {
       slug: 'ello-forte', nome: 'Ello Forte', uf: 'SP',
       logo: 'Imagens/Logos Unidades/Ello Forte Ribeirao Preto/ello-forte-RP---preto.png',
       logoBranco: 'Imagens/Logos Unidades/Ello Forte Ribeirao Preto/ello-forte-RP---branco.png',
-      capa: 'Imagens/Ello Forte RP',
+      capaFoto: 'Imagens/Ello Forte RP/capa-lo.jpg',
       unidades: [
         { cidade: 'Ribeirão Preto', uf: 'SP', endereco: 'Av. Thomaz Alberto Whately, 5105 - Jardim Aeroporto', telefone: '(16) 3969-4242', email: 'vendas.vendas11.elloforterp@grupovocical.com.br' },
         { cidade: 'São Carlos', uf: 'SP', endereco: 'Av. João Orlando Ruggiero, 6201 - Jardim Embaré', telefone: '(16) 3374-4000', email: 'vendas.ellofortesc@grupovocical.com.br' }
@@ -47,7 +47,7 @@ window.VOCICAL = {
       slug: 'rp-cimento-cal', nome: 'Rio Preto Cimento e Cal', uf: 'SP',
       logo: 'Imagens/Logos Unidades/Rio Preto Cimento e Cal/logo-rio-preto---transparente.png',
       logoBranco: 'Imagens/Logos Unidades/Rio Preto Cimento e Cal/logo-rio-preto---transparente.png',
-      capa: 'Imagens/Vocical',
+      capaFoto: 'Imagens/back3.jpg',
       pendenteConteudo: true,
       unidades: [
         { cidade: 'São José do Rio Preto', uf: 'SP', endereco: '', telefone: '', email: '' }
@@ -57,7 +57,7 @@ window.VOCICAL = {
       slug: 'robracon', nome: 'Robracon', uf: 'MT',
       logo: 'Imagens/Logos Unidades/Robracon/ROBRACON---COLORIDO.png',
       logoBranco: 'Imagens/Logos Unidades/Robracon/ROBRACON---BRANCO.png',
-      capa: 'Imagens/Robracon CBA',
+      capaFoto: 'Imagens/Robracon CBA/capa-robracon-cba.jpg',
       unidades: [
         { cidade: 'Cuiabá', uf: 'MT', endereco: 'Rua B, 818 - Distrito Industrial', telefone: '(65) 3666-0332', email: 'vendas.robracon@grupovocical.com.br' },
         { cidade: 'Rondonópolis', uf: 'MT', endereco: 'Av. Josefa Machado de Rezende, 2999 - Parque Sagrada Família', telefone: '(66) 3422-8878', email: 'vendas.robracon@grupovocical.com.br' },
@@ -68,7 +68,7 @@ window.VOCICAL = {
       slug: 'distribuidoras', nome: 'Distribuidoras', uf: 'SP',
       logo: 'Imagens/Logos Unidades/Vocical/vocical---preto.png',
       logoBranco: 'Imagens/Logos Unidades/Vocical/vocical---branco.png',
-      capa: 'Imagens/Distribuidoras',
+      capaFoto: 'Imagens/Distribuidoras/capa-distribuidoras.jpg',
       unidades: [
         { cidade: 'Itu', uf: 'SP', endereco: 'R. Remígio Fragnani - Nossa Sra. Aparecida', telefone: '(11) 4022-5207', email: 'vendas.itu@grupovocical.com.br' },
         { cidade: 'Piracicaba', uf: 'SP', endereco: 'Av. 31 de Março, 763 - Paulicéia', telefone: '(19) 99214-5313', email: 'vendas.piracicaba@grupovocical.com.br' },
