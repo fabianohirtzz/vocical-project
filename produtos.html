@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-base="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Produtos — Grupo Vocical | Materiais de construção, aço, drywall e coberturas</title>
+  <meta name="description" content="Catálogo do Grupo Vocical: materiais de construção, aço, estruturais, coberturas, drywall e agronegócio. Mais corte e dobra de vergalhão, aço e chapa sob medida.">
+  <link rel="canonical" href="https://grupovocical.com.br/produtos/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Produtos — Grupo Vocical">
+  <meta property="og:description" content="Linha completa para cada etapa da obra: materiais, aço, estruturais, coberturas, drywall e agronegócio.">
+  <meta property="og:url" content="https://grupovocical.com.br/produtos/">
+  <meta property="og:image" content="https://grupovocical.com.br/Imagens/produtos-banner.jpg">
+  <meta name="theme-color" content="#a60303">
+  <link rel="icon" type="image/png" href="Imagens/logo-mobile.png">
+  <noscript><style>[data-reveal]{opacity:1 !important;transform:none !important}</style></noscript>
+  <link rel="preload" href="fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/archivoblack-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main id="conteudo">
+    <!-- HERO -->
+    <section class="page-hero surface--dark grain">
+      <div class="page-hero__bg"><img src="Imagens/produtos-banner.jpg" alt="" aria-hidden="true"></div>
+      <div class="container page-hero__inner">
+        <span class="kicker">Catálogo</span>
+        <h1 class="display page-hero__title">Linha completa para <span class="accent">cada etapa</span> da obra</h1>
+        <p class="lede page-hero__lede">Seis categorias que cobrem da fundação ao acabamento, mais serviços de corte e dobra sob medida. A disponibilidade pode variar por unidade.</p>
+      </div>
+    </section>
+
+    <!-- NAV DE CATEGORIAS -->
+    <nav class="cat-nav" aria-label="Categorias de produto">
+      <div class="container cat-nav__inner" id="cat-nav"></div>
+    </nav>
+
+    <!-- CATEGORIAS -->
+    <div class="section cat-wrap">
+      <div class="container" id="cat-list"></div>
+    </div>
+
+    <!-- SERVIÇOS / CORTE E DOBRA -->
+    <section class="section surface--dark grain servicos">
+      <div class="container">
+        <div class="sec-head" data-reveal>
+          <span class="kicker">Serviços sob medida</span>
+          <h2>Corte e dobra e conformação conforme o seu projeto</h2>
+        </div>
+        <div class="grid servicos__grid">
+          <article class="servico" data-reveal>
+            <div class="servico__img"><img src="Imagens/corte-e-dobra-vocical.jpg" alt="Corte e dobra de vergalhão e aço armado" loading="lazy"></div>
+            <h3>Corte e dobra de vergalhão e aço</h3>
+            <p class="muted">Pilares, colunas, telas, sapatas, treliças, vigas e estribos conforme o projeto.</p>
+          </article>
+          <article class="servico" data-reveal>
+            <div class="servico__img"><img src="Imagens/serralheria.jpg" alt="Corte e dobra de chapa" loading="lazy"></div>
+            <h3>Corte e dobra de chapa</h3>
+            <p class="muted">Peças para telhas, calhas, rufos, perfis e reforços, do desenho à peça final.</p>
+          </article>
+          <article class="servico" data-reveal>
+            <div class="servico__img"><img src="Imagens/servicos2.jpg" alt="Corte a laser e plasma" loading="lazy"></div>
+            <h3>Corte a laser e plasma</h3>
+            <p class="muted">Componentes metálicos conforme o seu desenho, disponíveis nas unidades Robracon.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONVERSÃO -->
+    <section class="section surface--red conversao">
+      <div class="container conversao__inner" data-reveal>
+        <h2 class="conversao__title">Encontrou o que precisa? Peça seu orçamento</h2>
+        <p class="conversao__sub">Fale com o time do Grupo Vocical e receba atendimento consultivo e resposta ágil.</p>
+        <a class="btn btn--light btn--lg" id="prod-cta" target="_blank" rel="noopener"><span class="btn__ic" aria-hidden="true">›</span> Fale Conosco</a>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/catalogo.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/produtos.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var b = document.getElementById('prod-cta'); if (b) b.href = (window.VOCICAL || {}).CTA_URL || '#';
+    });
+  </script>
+</body>
+</html>

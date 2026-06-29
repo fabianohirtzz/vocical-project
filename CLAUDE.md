@@ -62,8 +62,17 @@ vocical-project/
   Distribuidoras = 3 sub-unidades (Itu, Piracicaba, Itapetininga).
 - Catálogo de produtos (página): categorizar **exatamente** como o site atual (6 categorias).
 
+## Backlog / pendências de conteúdo
+- **Fotos faltando no acervo (grandes):** Coberturas (telhas) e Agronegócio (arame/rural)
+  só têm thumbnail 150px — pedir ao parceiro fotos ≥800px. Cards usam stopgap suave.
+- **Rio Preto Cimento e Cal:** sem JSON de conteúdo — precisa do parceiro p/ a página da marca.
+- Imagens grandes podem ser otimizadas/comprimidas antes do deploy final na erehost.
+- Melhoria: mapa Google das unidades.
+
 ## Estado atual
-**Passo 3 de 7 — Design** (cronologia freela-method).
-Direção aprovada: meio-termo equilibrado (base clara + impacto industrial), hub +
-6 páginas de marca + produtos + sobre + contato. Próximo: escrever spec de design,
-revisão do parceiro, depois plano de build (Passo 4).
+**Passo 4 de 7 — Build incremental** (cronologia freela-method).
+✅ Incremento 1 concluído e publicado: base visual + header/footer + HOME completa.
+   Preview: https://fabianohirtzz.github.io/vocical-project/
+   QA (web-qa-reviewer): aprovado, sem itens de severidade alta; médios corrigidos.
+Próximo incremento: página de Produtos (catálogo 6 categorias igual ao site atual),
+depois 6 páginas de marca, sobre e contato.
