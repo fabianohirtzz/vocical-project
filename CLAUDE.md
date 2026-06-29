@@ -54,11 +54,13 @@ vocical-project/
 - Preview/proposta sempre com `noindex` até o cliente aprovar o domínio final.
 - Nunca apagar/sobrescrever artefatos do cliente (a pasta Imagens é dele).
 
-## Dependência de conteúdo (importante)
-- **Produtos por unidade variam**: cada página de marca mostra só os produtos que
-  aquela unidade trabalha, seguindo o site atual. Precisa do mapeamento
-  "unidade → produtos" (export do WordPress ou páginas atuais por unidade).
-- Catálogo de produtos: categorizar **exatamente** como o site atual (6 categorias).
+## Fontes de conteúdo
+- `referencia-conteudo.md` — home/produtos/contato do site atual (catálogo geral).
+- `referencia-unidades.md` — conteúdo por unidade extraído dos JSONs Elementor em
+  `Paginas Unidades/`. **Fonte de verdade para produtos/serviços/contato de cada marca.**
+  Cada unidade lista só as categorias/produtos que trabalha (mix varia por unidade).
+  Distribuidoras = 3 sub-unidades (Itu, Piracicaba, Itapetininga).
+- Catálogo de produtos (página): categorizar **exatamente** como o site atual (6 categorias).
 
 ## Estado atual
 **Passo 3 de 7 — Design** (cronologia freela-method).

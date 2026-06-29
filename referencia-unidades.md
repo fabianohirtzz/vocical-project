@@ -1,0 +1,645 @@
+# Referência de Conteúdo por Unidade (export Elementor do site atual)
+
+Extraído dos JSONs em `Paginas Unidades/`. Fonte de verdade para o subconjunto de produtos/serviços e contato de cada unidade.
+
+
+## Distribuidoras  (title: Distribuidoras)
+
+- `animated-headline/before_text` Distribuidoras
+- `animated-headline/highlighted_text` Ituana, Piracicabana e Itapetininga
+- `animated-headline/rotating_text` Better Bigger Faster
+- `text-editor/editor` Essenciais da obra com atendimento direto: cimento, argamassas, telhas, caixas d’água, tubos & conexões e aço.
+- `button/text` Fale Conosco
+- `icon-list/rep:text` R. Remígio Fragnani - Nossa Sra. Aparecida - Itu/SP
+- `icon-list/rep:text` Seg à Sex: 07h às 17h30
+- `icon-list/rep:text` vendas.itu@grupovocical.com.br
+- `icon-list/rep:text` (11) 4022-5207
+- `icon-list/rep:text` Av. 31 de Março, 763 - Paulicéia - Piracicaba/SP
+- `icon-list/rep:text` vendas.piracicaba@grupovocical.com.br
+- `icon-list/rep:text` (19) 99214-5313
+- `icon-list/rep:text` R. Moisés Nalesso, 5500 - Vila Sao Gonçalo, Itapetininga - SP
+- `icon-list/rep:text` vendas.itapetininga@grupovocical.com.br
+- `icon-list/rep:text` (15) 3272-1534
+- `animated-headline/before_text` Ituana — Itú/SP: o básico forte que
+- `animated-headline/highlighted_text` faz a obra andar!
+- `text-editor/editor` Atendimento ágil para quem precisa abastecer o dia a dia do canteiro com regularidade. Mix com foco em Materiais de Construção , Aço Construção Civil (itens de estoque) e Coberturas , além das soluções de caixas d’água, tanques, cisternas e biodigestores . Categorias e grupos de produtos: Materiais de Construção: Argamassa • Caixa d’Água • Cal • Cimento • Gesso • Impermeabilizante • Louças • Rejunte • Tubos e Conexões Aço Construção Civil: Arame • Prego • Treliça • Vergalhão • Tela Soldada Coberturas: Telha de Fibrocimento • Telha Galvalume • Telha Termoacústica • Telha Transparente (Mix pode variar por unidade.)
+- `icon-list/rep:text` Atendimento consultivo B2B - ajuda na escolha do mix por etapa.
+- `icon-list/rep:text` Orçamento rápido - responda seu pedido e siga com a obra.
+- `icon-list/rep:text` Retira na unidade - praticidade para compras recorrentes.
+- `button/text` Fale pelo Whatsapp
+- `animated-headline/before_text` Piracicabana — Piracicaba/SP: reposição certa,
+- `animated-headline/highlighted_text` quando você precisa!
+- `text-editor/editor` Distribuidora focada em agilidade de cotação e disponibilidade para manter a obra abastecida. Destaque para cimento e argamassas , tubos & conexões , caixas d’água e derivados Fortlev e itens de aço para a estrutura. Categorias e grupos de produtos: Materiais de Construção: Argamassa • Caixa d’Água • Cal • Cimento • Gesso • Impermeabilizante • Louças • Rejunte • Tubos e Conexões Aço Construção Civil: Arame • Prego • Treliça • Vergalhão • Tela Soldada Coberturas: Telha de Fibrocimento • Telha Galvalume • Telha Termoacústica • Telha Transparente (Mix pode variar por unidade.)
+- `icon-list/rep:text` Atendimento consultivo B2B - suporte rápido por WhatsApp/e-mail.
+- `icon-list/rep:text` Orçamento rápido - cotação sem complicação.
+- `icon-list/rep:text` Retira na unidade - ideal para urgências.
+- `animated-headline/before_text` Itapetininga — Itapetininga/SP: soluções essenciais
+- `animated-headline/highlighted_text` com previsibilidade!
+- `text-editor/editor` Para revendas, construtoras e gestão de obras que precisam de regularidade de fornecimento e produtos de giro. Forte em Materiais de Construção , tubos & conexões , caixas d’água, cisternas, tanques e biodigestores , além de vergalhão, treliça, tela soldada, arames e pregos . Categorias e grupos de produtos: Materiais de Construção: Argamassa • Caixa d’Água • Cal • Cimento • Gesso • Impermeabilizante • Louças • Rejunte • Tubos e Conexões Aço Construção Civil: Arame • Prego • Treliça • Vergalhão • Tela Soldada Coberturas: Telha de Fibrocimento • Telha Galvalume • Telha Termoacústica • Telha Transparente (Mix pode variar por unidade.)
+- `icon-list/rep:text` Atendimento consultivo B2B -ajuda na composição do pedido.
+- `icon-list/rep:text` Orçamento rápido - simplifique sua compra.
+- `icon-list/rep:text` Retira na unidade - agilize sua logística.
+- `animated-headline/highlighted_text` Materiais de Construção
+- `text-editor/editor` Disponibilidade pode variar por unidade.
+- `heading/title` Sacarias
+- `text-editor/editor` Cimento, Cal, Argamassa, Gesso, Rejunte.
+- `heading/title` Impermeabilizantes
+- `text-editor/editor` Aditivos para chapisco e argamassa, mantas líquidas e emulsões asfálticas.
+- `heading/title` Tubos & Conexões
+- `text-editor/editor` Tubos soldáveis (20 a 60 mm), tubos para esgoto SN (DN 40 a 200), joelhos 90°, curvas 45°, "T"/reduções, luvas de correr, registros de esfera e adesivos para PVC.
+- `heading/title` Caixas d’água
+- `text-editor/editor` Caixas d’água, tanques, cisternas, biodigestores e acessórios (tampas, flanges, boias) em diferentes capacidades.
+- `heading/title` Elétrica Básica
+- `text-editor/editor` Eletroduto, Luva Pressão, Caixa de Luz
+- `button/text` Fale Conosco e Faça seu Pedido!
+- `animated-headline/highlighted_text` Aço Construção Civil
+- `heading/title` Vergalhões
+- `text-editor/editor` Barras de 12m do CA50 (6,3, 8, 10, 12,5, 16, 20, 25 e 32mm) e CA60 (4,2 e 5mm)
+- `heading/title` Treliça
+- `text-editor/editor` Treliças H8 e H12 (6 e 12 m), disponíveis nos modelos leve e padrão. Produto ideal para estruturas pré-moldadas e reforço de lajes, conforme especificações do projeto.
+- `heading/title` Tela Soldada
+- `text-editor/editor` EQ45 (20×20) – leve, EQ61 (15×15) – média, EQ92 (15×15) – reforçada, EQ138 (10×10) – pesada
+- `heading/title` Arames
+- `text-editor/editor` Arames recozidos, torcidos e galvanizados, em diversos diâmetros.
+- `heading/title` Pregos
+- `animated-headline/highlighted_text` Coberturas
+- `heading/title` Telha Fibrocimento
+- `text-editor/editor` Telhas onduladas de fibrocimento para aplicações residenciais, comerciais e rurais. Diversas medidas disponíveis. Acessórios compatíveis: cumeeiras, rufos, espigões e fixadores.
+- `heading/title` Tapume Ecológico
+- `text-editor/editor` Onduline, solicite as medidas disponíveis!
+- `animated-headline/highlighted_text` Portas e Térmicos
+- `heading/title` Portas
+- `text-editor/editor` Portas Fortlev ou Plasflex, de 60cm à 90cm (consulte variações)
+- `heading/title` Térmicos
+- `text-editor/editor` Imper Fita, Multiuso Alumínio de 10cm e 20cm com rolo de 10m.
+
+## Ello Forte RP  (title: Ello Forte RP)
+
+- `animated-headline/before_text` Ello Forte
+- `animated-headline/highlighted_text` Ribeirão Preto/SP
+- `animated-headline/rotating_text` Better Bigger Faster
+- `text-editor/editor` Cimento, aço e suprimentos de serralheria com orçamento rápido e atendimento consultivo.
+- `icon-list/rep:text` Av. Thomaz Alberto Whately, 5105 - Jardim Aeroporto
+- `icon-list/rep:text` Seg à Sex: 07h30 às 11h00 | 12h30 às 17h48
+- `icon-list/rep:text` vendas.vendas11.elloforterp@grupovocical.com.br
+- `icon-list/rep:text` (16) 3969-4242
+- `button/text` Fale Conosco
+- `icon-box/title_text` Corte e Dobra de Vergalhão e Aço Armado
+- `icon-box/description_text` Pilares/Colunas, Tela Soldada, Sapatas, Treliças, Vigas e Estribos conforme projeto.
+- `icon-box/title_text` Orçamento Rápido
+- `icon-box/description_text` Resposta ágil para pedidos recorrentes e demandas pontuais da obra.
+- `icon-box/title_text` Atendimento Consultivo B2B
+- `icon-box/description_text` Apoio no quantitativo, alternativas de produto e orçamento técnico rápido.
+- `animated-headline/before_text` Soluções que fazem
+- `animated-headline/highlighted_text` a obra andar!
+- `text-editor/editor` A Ello Forte , unidade de Ribeirão Preto/SP do Grupo Vocical , atende operações profissionais com foco em material de construção , aço para construção civil e suprimentos para serralheria/indústria . Destaques para cimento e vergalhão , além do corte e dobra de vergalhão/aço armado conforme o seu projeto. Atendimento ágil, direto ao ponto e pensado no cronograma da obra.
+- `button/text` Quer Saber Mais? Fale Conosco!
+- `animated-headline/highlighted_text` Materiais de Construção
+- `heading/title` Sacarias
+- `text-editor/editor` Cimento, Cal, Argamassa, Gesso, Rejunte.
+- `heading/title` Impermeabilizantes
+- `text-editor/editor` Aditivos para chapisco e argamassa, mantas líquidas e emulsões asfálticas.
+- `button/text` Fale Conosco e Faça seu Pedido!
+- `animated-headline/highlighted_text` Aço Construção Civil
+- `heading/title` Vergalhões
+- `text-editor/editor` Barras de 12m do CA50 (6,3, 8, 10, 12,5, 16, 20, 25 e 32mm) e CA60 (4,2 e 5mm)
+- `heading/title` Treliça
+- `text-editor/editor` Treliças H8 e H12 (6 e 12 m), disponíveis nos modelos leve e padrão. Produto ideal para estruturas pré-moldadas e reforço de lajes, conforme especificações do projeto.
+- `heading/title` Tela Soldada
+- `text-editor/editor` EQ45 (20×20) – leve, EQ61 (15×15) – média, EQ92 (15×15) – reforçada, EQ138 (10×10) – pesada
+- `heading/title` Sapata
+- `text-editor/editor` Sapatas armadas: isolada quadrada, isolada retangular, corrida, com arranque para pilar e de divisa.
+- `heading/title` Coluna
+- `text-editor/editor` Colunas prontas de 6m com ferros de 6,3mm, 8mm e 10mm com estribos 7x14, 7x17, 10x20. Produção sob medida conforme o projeto - verificar disponibilidade.
+- `heading/title` Estribos
+- `text-editor/editor` Estribos armados sob medida, fabricados em diversas bitolas e comprimentos, de acordo com o projeto da obra.
+- `heading/title` Arames
+- `text-editor/editor` Arames recozidos, torcidos e galvanizados, em diversos diâmetros.
+- `animated-headline/highlighted_text` Materiais Estruturais para Indústrias e Serralherias
+- `heading/title` Tubo Metalon
+- `text-editor/editor` Bobina de Calha, Tubos Metalon, Cantoneiras, Perfis, Guias e Barras Chatas.
+- `heading/title` Barra Chata
+- `text-editor/editor` Barras chatas nas principais bitolas para aplicações estruturais e de serralheria: 19×3mm • 25×3mm • 30×3mm • 40×4,75mm • 50×6,3mm • 100×8mm Consulte demais medidas disponíveis.
+- `heading/title` Perfis
+- `text-editor/editor` Perfis metálicos: U dobrado, Z leve, T e L. Também trabalhamos com perfis para esquadrias, como guia, requadro, batente e caixa.
+- `heading/title` Chapa
+- `text-editor/editor` Chapas lisas em aço carbono, galvanizadas e tipo xadrez — ideais para estruturas metálicas, pisos e reforços.
+- `heading/title` Corte e Dobra de Chapa
+- `text-editor/editor` Corte e dobra de chapas conforme projeto, com precisão e sob medida para atender diferentes aplicações.
+- `heading/title` Cantoneira
+- `text-editor/editor` Cantoneiras de abas iguais ou desiguais, indicadas para reforço, fixação e estruturas metálicas leves.
+- `heading/title` Bobina Galvalume/Galvanizada
+- `text-editor/editor` Bobinas de aço galvalume ou galvanizado, utilizadas na conformação de calhas, painéis e perfis leves.
+- `heading/title` Parafusos
+- `text-editor/editor` Parafusos metálicos: autobrocantes (cabeça sextavada ou ponta broca), autoatarraxantes (panela/Philips) e para telha metálica com arruela vedante.
+- `animated-headline/highlighted_text` Coberturas
+- `heading/title` Telha Fibrocimento
+- `text-editor/editor` Telhas onduladas de fibrocimento para aplicações residenciais, comerciais e rurais. Diversas medidas disponíveis. Acessórios compatíveis: cumeeiras, rufos, espigões e fixadores.
+
+## Ello Forte SC  (title: Ello Forte SC)
+
+- `animated-headline/before_text` Ello Forte
+- `animated-headline/highlighted_text` São Carlos/SP
+- `animated-headline/rotating_text` Better Bigger Faster
+- `text-editor/editor` Materiais de construção, aço e conformação sob medida para quem constrói.
+- `icon-list/rep:text` Av. João Orlando Ruggiero, 6201 - Jardim Embaré
+- `icon-list/rep:text` Seg à Sex: 07h30 às 11h00 | 12h30 às 17h48
+- `icon-list/rep:text` vendas.ellofortesc@grupovocical.com.br
+- `icon-list/rep:text` (16) 3374-4000
+- `button/text` Fale Conosco
+- `icon-box/title_text` Corte e Dobra de Vergalhão e Aço Armado
+- `icon-box/description_text` Pilares/Colunas, Tela Soldada, Sapatas, Treliças, Vigas e Estribos conforme projeto.
+- `icon-box/title_text` Orçamento Rápido
+- `icon-box/description_text` Resposta ágil para pedidos recorrentes e demandas pontuais da obra.
+- `icon-box/title_text` Atendimento Consultivo B2B
+- `icon-box/description_text` Apoio no quantitativo, alternativas de produto e orçamento técnico rápido.
+- `animated-headline/before_text` O básico bem-feito que
+- `animated-headline/highlighted_text` faz a obra andar!
+- `text-editor/editor` Atendemos operações profissionais com foco nos materiais que não podem faltar : Materiais de Construção (cimento, cal, argamassas, rejuntes, impermeabilizantes) e Aço Construção Civil (vergalhões, colunas e treliças). Orçamento ágil, atendimento direto ao ponto e suporte na escolha do mix ideal para cada etapa.
+- `button/text` Quer Saber Mais? Fale Conosco!
+- `animated-headline/highlighted_text` Materiais de Construção
+- `heading/title` Sacarias
+- `text-editor/editor` Cimento, Cal, Argamassa, Gesso, Rejunte.
+- `heading/title` Impermeabilizantes
+- `text-editor/editor` Aditivos para chapisco e argamassa, mantas líquidas e emulsões asfálticas.
+- `button/text` Fale Conosco e Faça seu Pedido!
+- `animated-headline/highlighted_text` Aço Construção Civil
+- `heading/title` Vergalhões
+- `text-editor/editor` Barras de 12m do CA50 (6,3, 8, 10, 12,5, 16, 20, 25 e 32mm) e CA60 (4,2 e 5mm)
+- `heading/title` Treliça
+- `text-editor/editor` Treliças H8 e H12 (6 e 12 m), disponíveis nos modelos leve e padrão. Produto ideal para estruturas pré-moldadas e reforço de lajes, conforme especificações do projeto.
+- `heading/title` Tela Soldada
+- `text-editor/editor` EQ45 (20×20) – leve, EQ61 (15×15) – média, EQ92 (15×15) – reforçada, EQ138 (10×10) – pesada
+- `heading/title` Sapata
+- `text-editor/editor` Sapata isolada quadrada armada, isolada retangular armada, corrida armada, Sapata com arranque para pilar, Sapata de divisa.
+- `heading/title` Coluna
+- `text-editor/editor` Colunas prontas de 6m com ferros de 6,3mm, 8mm e 10mm com estribos 7x14, 7x17, 10x20. Produção sob medida conforme o projeto - verificar disponibilidade.
+- `heading/title` Estribos
+- `text-editor/editor` Estribos armados sob medida, fabricados em diversas bitolas e comprimentos, de acordo com o projeto da obra.
+- `heading/title` Arames
+- `text-editor/editor` Arames recozidos, torcidos e galvanizados, em diversos diâmetros.
+- `animated-headline/highlighted_text` Coberturas
+- `heading/title` Telha Fibrocimento
+- `text-editor/editor` Telhas onduladas de fibrocimento para aplicações residenciais, comerciais e rurais. Diversas medidas disponíveis. Acessórios compatíveis: cumeeiras, rufos, espigões e fixadores.
+
+## Jacical  (title: Jacical)
+
+- `animated-headline/before_text` Jacical
+- `animated-headline/highlighted_text` Jales/SP
+- `animated-headline/rotating_text` Better Bigger Faster
+- `text-editor/editor` Do cimento às telhas e ao aço conformado: soluções ágeis para obras em Jales e região.
+- `icon-list/rep:text` R. Silvio Alves Balbino, 525 - Parque Industrial II
+- `icon-list/rep:text` Seg à Sex: 07h30 às 11h00 | 12h30 às 17h48
+- `icon-list/rep:text` vendas.jacical@grupovocical.com.br
+- `icon-list/rep:text` (17) 3624-3430
+- `button/text` Fale Conosco
+- `icon-box/title_text` Corte e Dobra de Vergalhão e Aço Armado
+- `icon-box/description_text` Pilares/Colunas, Tela Soldada, Sapatas, Treliças, Vigas e Estribos conforme projeto.
+- `icon-box/title_text` Corte e Dobra de Chapa
+- `icon-box/description_text` Peças para telhas, calhas, rufos, perfis e reforços, do desenho à peça final.
+- `icon-box/title_text` Atendimento Consultivo B2B
+- `icon-box/description_text` Apoio no quantitativo, alternativas de produto e orçamento técnico rápido.
+- `animated-headline/before_text` Tudo que você precisa, com quem
+- `animated-headline/highlighted_text` entende de obra!
+- `text-editor/editor` A Jacical , unidade de Jales/SP do Grupo Vocical , atende operações profissionais com um mix completo em material de construção , aço para construção civil , coberturas e suprimentos industriais . Destaque para cimento, telhas e aço , além de corte e dobra sob medida conforme o projeto. Orçamento ágil, atendimento consultivo e foco em resultado.
+- `button/text` Quer Saber Mais? Fale Conosco!
+- `animated-headline/highlighted_text` Materiais de Construção
+- `heading/title` Sacarias
+- `text-editor/editor` Cimento, Cal, Argamassa, Gesso, Rejunte.
+- `heading/title` Impermeabilizantes
+- `text-editor/editor` Aditivos para chapisco e argamassa, mantas líquidas e emulsões asfálticas.
+- `heading/title` Tubos & Conexões
+- `text-editor/editor` Tubos soldáveis (20 a 60 mm), tubos para esgoto SN (DN 40 a 200), joelhos 90°, curvas 45°, “T”/reduções, luvas de correr, registros de esfera e adesivos para PVC.
+- `heading/title` Caixas d’água
+- `text-editor/editor` Caixas d’água, tanques, cisternas, biodigestores e acessórios (tampas, flanges, boias) em diferentes capacidades.
+- `heading/title` Louças
+- `text-editor/editor` Assentos, caixas acopladas, lavatórios, cubas e tanques.
+- `button/text` Fale Conosco e Faça seu Pedido!
+- `animated-headline/highlighted_text` Aço Construção Civil
+- `heading/title` Vergalhões
+- `text-editor/editor` Barras de 12m do CA50 (6,3, 8, 10, 12,5, 16, 20, 25 e 32mm) e CA60 (4,2 e 5mm)
+- `heading/title` Treliça
+- `text-editor/editor` Treliças H8 e H12 (6 e 12 m), disponíveis nos modelos leve e padrão. Produto ideal para estruturas pré-moldadas e reforço de lajes, conforme especificações do projeto.
+- `heading/title` Tela Soldada
+- `text-editor/editor` EQ45 (20×20) – leve, EQ61 (15×15) – média, EQ92 (15×15) – reforçada, EQ138 (10×10) – pesada
+- `heading/title` Sapata
+- `text-editor/editor` Sapatas armadas: isolada quadrada, isolada retangular, corrida, com arranque para pilar e de divisa.
+- `heading/title` Coluna
+- `text-editor/editor` Colunas prontas de 6m com ferros de 6,3mm, 8mm e 10mm com estribos 7×14, 7×17, 10×20. Produção sob medida conforme o projeto – verificar disponibilidade.
+- `heading/title` Estribos
+- `text-editor/editor` Estribos armados sob medida, fabricados em diversas bitolas e comprimentos, de acordo com o projeto da obra.
+- `heading/title` Arames
+- `text-editor/editor` Arames recozidos, torcidos e galvanizados, em diversos diâmetros.
+- `heading/title` Pregos
+- `text-editor/editor` Pregos para construção civil nos mais diversos tamanhos: com cabeça, sem cabeça ou cabeça dupla.
+- `animated-headline/highlighted_text` Materiais Estruturais para Indústrias e Serralherias
+- `heading/title` Tubo Metalon
+- `text-editor/editor` Bobina de Calha, Tubos Metalon, Cantoneiras, Perfis, Guias e Barras Chatas.
+- `heading/title` Barra Chata
+- `text-editor/editor` Barras chatas nas principais bitolas para aplicações estruturais e de serralheria: 19×3mm • 25×3mm • 30×3mm • 40×4,75mm • 50×6,3mm • 100×8mm Consulte demais medidas disponíveis.
+- `heading/title` Perfis
+- `text-editor/editor` Perfis metálicos: U dobrado, Z leve, T e L. Também trabalhamos com perfis para esquadrias, como guia, requadro, batente e caixa.
+- `heading/title` Chapa
+- `text-editor/editor` Chapas lisas em aço carbono, galvanizadas e tipo xadrez — ideais para estruturas metálicas, pisos e reforços.
+- `text-editor/editor` Corte e dobra de chapas conforme projeto, com precisão e sob medida para atender diferentes aplicações.
+- `heading/title` Cantoneira
+- `text-editor/editor` Cantoneiras de abas iguais ou desiguais, indicadas para reforço, fixação e estruturas metálicas leves.
+- `heading/title` Bobina Galvalume/Galvanizada
+- `text-editor/editor` Bobinas de aço galvalume ou galvanizado, utilizadas na conformação de calhas, painéis e perfis leves.
+- `heading/title` Parafusos
+- `text-editor/editor` Parafusos metálicos: autobrocantes (cabeça sextavada ou ponta broca), autoatarraxantes (panela/Philips) e para telha metálica com arruela vedante.
+- `animated-headline/highlighted_text` Coberturas
+- `heading/title` Telhas Galvalume
+- `text-editor/editor` Telhas Galvalume nos modelos trapezoidal e ondulado, com alta resistência à corrosão e excelente custo-benefício. Acessórios disponíveis: cumeeiras, rufos, arremates e fixadores com vedação.
+- `heading/title` Telha Termoacústica
+- `text-editor/editor` Telhas tipo sanduíche com núcleo isolante (EPS), ideais para conforto térmico e acústico. Perfis: trapezoidal ou ondulado. Acessórios: cumeeiras, rufos e arremates.
+- `heading/title` Telha Fibrocimento
+- `text-editor/editor` Telhas onduladas de fibrocimento para aplicações residenciais, comerciais e rurais. Diversas medidas disponíveis. Acessórios compatíveis: cumeeiras, rufos, espigões e fixadores.
+- `heading/title` Telha Transparente
+- `text-editor/editor` Telhas transparentes em policarbonato (trapezoidal ou ondulado), fibra de vidro ou PVC translúcido. Ideais para coberturas com entrada de luz natural, como áreas externas, garagens e galpões.
+- `animated-headline/highlighted_text` Agronegócio
+- `heading/title` Arame Farpado
+- `text-editor/editor` Arame farpado galvanizado, ideal para cercas rurais, delimitação de pastos e perímetros. Alta durabilidade para uso em áreas externas e expostas às intempéries.
+- `heading/title` Arame Ovalado
+- `text-editor/editor` Arame ovalado galvanizado para amarração, esticamento de cercas e fixação em mourões. Reforço ideal para cercamentos, travamentos e contenção em propriedades rurais.
+
+## Robracon CBA  (title: Robracon CBA)
+
+- `animated-headline/before_text` Robracon
+- `animated-headline/highlighted_text` Cuiabá/MT
+- `animated-headline/rotating_text` Better Bigger Faster
+- `text-editor/editor` Aço, chapas, drywall e corte a laser/plasma sob medida, do orçamento à peça pronta.
+- `icon-list/rep:text` Rua B, 818 — Distrito Industrial
+- `icon-list/rep:text` Seg à Sex: 07h às 11h00 | 12h30 às 17h18
+- `icon-list/rep:text` vendas.robracon@grupovocical.com.br
+- `icon-list/rep:text` (65) 3666-0332
+- `button/text` Fale Conosco
+- `icon-box/title_text` Corte e Dobra de Vergalhão e Aço Armado
+- `icon-box/description_text` Pilares/Colunas, Tela Soldada, Sapatas, Treliças, Vigas e Estribos conforme projeto.
+- `icon-box/title_text` Corte e Dobra de Chapa
+- `icon-box/description_text` Peças para telhas, calhas, rufos, perfis e reforços, do desenho à peça final.
+- `icon-box/title_text` Corte a Laser/Plasma
+- `icon-box/description_text` Peças metálicas conforme o seu desenho, produção ágil para Indústria, Construção, Transporte e Campo.
+- `icon-box/title_text` Atendimento Consultivo B2B
+- `icon-box/description_text` Apoio no quantitativo, alternativas de produto e orçamento técnico rápido.
+- `animated-headline/before_text` Aço, Drywall e Corte a laser/plasma para quem
+- `animated-headline/highlighted_text` constrói de verdade!
+- `text-editor/editor` Unidade do Grupo Vocical , a Robracon atende operações profissionais com foco em Aço Construção Civil , conformação de chapas e Drywall (exclusivo desta unidade), além de linhas essenciais de Material de Construção e Coberturas . Agora, também oferecemos corte a laser/plasma , produzimos componentes metálicos conforme o seu projeto : chapas recortadas, flanges, tampas, reforços, consoles, painéis e peças especiais. Orçamento ágil, atendimento consultivo e prazos combinados.
+- `button/text` Quer Saber Mais? Fale Conosco!
+- `animated-headline/highlighted_text` Material de Construção
+- `heading/title` Sacarias
+- `text-editor/editor` Cimento, Cal, Argamassa, Gesso, Rejunte.
+- `heading/title` Impermeabilizantes
+- `text-editor/editor` Aditivos para chapisco e argamassa, mantas líquidas e emulsões asfálticas.
+- `heading/title` Tubos & Conexões
+- `text-editor/editor` Tubos soldáveis (20 a 60 mm), tubos para esgoto SN (DN 40 a 200), joelhos 90°, curvas 45°, "T"/reduções, luvas de correr, registros de esfera e adesivos para PVC.
+- `heading/title` Caixas d’água
+- `text-editor/editor` Caixas d’água, tanques, cisternas, biodigestores e acessórios (tampas, flanges, boias) em diferentes capacidades.
+- `heading/title` Louças
+- `text-editor/editor` Assentos, caixas acopladas, lavatórios, cubas e tanques.
+- `button/text` Fale Conosco e Faça seu Pedido!
+- `animated-headline/highlighted_text` Aço Construção Civil
+- `heading/title` Vergalhões
+- `text-editor/editor` Barras de 12m do CA50 (6,3, 8, 10, 12,5, 16, 20, 25 e 32mm) e CA60 (4,2 e 5mm)
+- `heading/title` Treliça
+- `text-editor/editor` Treliças H8 e H12 (6 e 12 m), disponíveis nos modelos leve e padrão. Produto ideal para estruturas pré-moldadas e reforço de lajes, conforme especificações do projeto.
+- `heading/title` Tela Soldada
+- `text-editor/editor` EQ45 (20×20) – leve, EQ61 (15×15) – média, EQ92 (15×15) – reforçada, EQ138 (10×10) – pesada
+- `heading/title` Sapata
+- `text-editor/editor` Sapatas armadas: isolada quadrada, isolada retangular, corrida, com arranque para pilar e de divisa.
+- `heading/title` Coluna
+- `text-editor/editor` Colunas prontas de 6m com ferros de 6,3mm, 8mm e 10mm com estribos 7x14, 7x17, 10x20. Produção sob medida conforme o projeto - verificar disponibilidade.
+- `heading/title` Estribos
+- `text-editor/editor` Estribos armados sob medida, fabricados em diversas bitolas e comprimentos, de acordo com o projeto da obra.
+- `heading/title` Arames
+- `text-editor/editor` Arames recozidos, torcidos e galvanizados, em diversos diâmetros.
+- `heading/title` Pregos
+- `text-editor/editor` Pregos para construção civil nos mais diversos tamanhos: com cabeça, sem cabeça ou cabeça dupla.
+- `animated-headline/highlighted_text` Material para Indústrias
+- `heading/title` Tubo Metalon
+- `text-editor/editor` Bobina de Calha, Tubos Metalon, Cantoneiras, Perfis, Guias e Barras Chatas.
+- `heading/title` Barra Chata
+- `text-editor/editor` Barras chatas nas principais bitolas para aplicações estruturais e de serralheria: 19×3mm • 25×3mm • 30×3mm • 40×4,75mm • 50×6,3mm • 100×8mm Consulte demais medidas disponíveis.
+- `heading/title` Perfis
+- `text-editor/editor` Perfis metálicos: U dobrado, Z leve, T e L. Também trabalhamos com perfis para esquadrias, como guia, requadro, batente e caixa.
+- `heading/title` Chapa
+- `text-editor/editor` Chapas lisas em aço carbono, galvanizadas e tipo xadrez — ideais para estruturas metálicas, pisos e reforços.
+- `text-editor/editor` Corte e dobra de chapas conforme projeto, com precisão e sob medida para atender diferentes aplicações.
+- `heading/title` Cantoneira
+- `text-editor/editor` Cantoneiras de abas iguais ou desiguais, indicadas para reforço, fixação e estruturas metálicas leves.
+- `heading/title` Bobina Galvalume/Galvanizada
+- `text-editor/editor` Bobinas de aço galvalume ou galvanizado, utilizadas na conformação de calhas, painéis e perfis leves.
+- `heading/title` Parafusos
+- `text-editor/editor` Parafusos metálicos: autobrocantes (cabeça sextavada ou ponta broca), autoatarraxantes (panela/Philips) e para telha metálica com arruela vedante.
+- `animated-headline/highlighted_text` Tudo para Drywall
+- `heading/title` Placa Drywall ST
+- `text-editor/editor` Placa standard (ST) para uso geral em ambientes secos. Disponível em diversos tamanhos. Consulte disponibilidade.
+- `heading/title` Placa RU
+- `text-editor/editor` Placa RU resistente à umidade, ideal para cozinhas, banheiros e áreas molhadas.
+- `heading/title` Placa Glasroc
+- `text-editor/editor` Placa Glasroc com núcleo reforçado, indicada para fachadas e áreas externas sujeitas à umidade e intempéries.
+- `text-editor/editor` Perfil de proteção para cantos e encontros de placas, garantindo alinhamento, acabamento e resistência a impactos.
+- `heading/title` Perfil
+- `text-editor/editor` Guias e montantes metálicos para estruturação de paredes e forros em drywall, com alta estabilidade e precisão no prumo.
+- `heading/title` Gesso
+- `text-editor/editor` Gesso em pó para tratamento de juntas, acabamentos e correções antes da pintura final.
+- `text-editor/editor` Parafusos para drywall, com rosca fina e ponta adequada para fixação rápida em perfil metálico.
+- `heading/title` Presilhas e Regulador
+- `text-editor/editor` Presilhas, reguladores e suportes para montagem de forros. Consulte modelos disponíveis.
+- `heading/title` Fita Telada
+- `text-editor/editor` Fita telada para tratamento de juntas em drywall. Linha profissional, com excelente aderência e acabamento.
+- `animated-headline/highlighted_text` Coberturas
+- `heading/title` Telhas Galvalume
+- `text-editor/editor` Telhas Galvalume nos modelos trapezoidal e ondulado, com alta resistência à corrosão e excelente custo-benefício. Acessórios disponíveis: cumeeiras, rufos, arremates e fixadores com vedação.
+- `heading/title` Telha Termoacústica
+- `text-editor/editor` Telhas tipo sanduíche com núcleo isolante (EPS), ideais para conforto térmico e acústico. Perfis: trapezoidal ou ondulado. Acessórios: cumeeiras, rufos e arremates.
+- `heading/title` Telha Fibrocimento
+- `text-editor/editor` Telhas onduladas de fibrocimento para aplicações residenciais, comerciais e rurais. Diversas medidas disponíveis. Acessórios compatíveis: cumeeiras, rufos, espigões e fixadores.
+- `heading/title` Telha Transparente
+- `text-editor/editor` Telhas transparentes em policarbonato (trapezoidal ou ondulado), fibra de vidro ou PVC translúcido. Ideais para coberturas com entrada de luz natural, como áreas externas, garagens e galpões.
+- `animated-headline/highlighted_text` Agronegócio
+- `heading/title` Arame Farpado
+- `text-editor/editor` Arame farpado galvanizado, ideal para cercas rurais, delimitação de pastos e perímetros. Alta durabilidade para uso em áreas externas e expostas às intempéries.
+- `heading/title` Arame Ovalado
+- `text-editor/editor` Arame ovalado galvanizado para amarração, esticamento de cercas e fixação em mourões. Reforço ideal para cercamentos, travamentos e contenção em propriedades rurais.
+
+## Robracon ROO  (title: Robracon ROO (1))
+
+- `animated-headline/before_text` Robracon
+- `animated-headline/highlighted_text` Rondonópolis/MT
+- `animated-headline/rotating_text` Better Bigger Faster
+- `text-editor/editor` Aço, chapas e drywall sob medida, do orçamento à peça pronta.
+- `icon-list/rep:text` Av. Josefa Machado de Rezende, 2999 - Parque Sagrada Família
+- `icon-list/rep:text` Seg à Sex: 07h às 11h00 | 12h30 às 17h18
+- `icon-list/rep:text` vendas.robracon@grupovocical.com.br
+- `icon-list/rep:text` (66) 3422-8878
+- `button/text` Fale Conosco
+- `icon-box/title_text` Corte e Dobra de Vergalhão e Aço Armado
+- `icon-box/description_text` Pilares/Colunas, Tela Soldada, Sapatas, Treliças, Vigas e Estribos conforme projeto.
+- `icon-box/title_text` Corte e Dobra de Chapa
+- `icon-box/description_text` Peças para telhas, calhas, rufos, perfis e reforços, do desenho à peça final.
+- `icon-box/title_text` Corte a Laser/Plasma
+- `icon-box/description_text` Cortes precisos em chapas e componentes metálicos conforme desenho (peças industriais, serralheria e calhas).
+- `icon-box/title_text` Atendimento Consultivo B2B
+- `icon-box/description_text` Apoio no quantitativo, alternativas de produto e orçamento técnico rápido.
+- `animated-headline/before_text` Aço e drywall para quem
+- `animated-headline/highlighted_text` constrói de verdade!
+- `text-editor/editor` Unidade do Grupo Vocical em Rondonópolis/MT, a Robracon atende operações profissionais com foco em aço para construção civil , conformação de chapas e Drywall (exclusivo desta unidade), além de linhas essenciais de material de construção e coberturas . Destaques para corte e dobra conforme projeto, atendimento consultivo e rapidez no orçamento.
+- `button/text` Quer Saber Mais? Fale Conosco!
+- `animated-headline/highlighted_text` Material de Construção
+- `heading/title` Sacarias
+- `text-editor/editor` Cimento, Cal, Argamassa, Gesso, Rejunte.
+- `heading/title` Impermeabilizantes
+- `text-editor/editor` Aditivos para chapisco e argamassa, mantas líquidas e emulsões asfálticas.
+- `heading/title` Tubos & Conexões
+- `text-editor/editor` Tubos soldáveis (20 a 60 mm), tubos para esgoto SN (DN 40 a 200), joelhos 90°, curvas 45°, "T"/reduções, luvas de correr, registros de esfera e adesivos para PVC.
+- `heading/title` Caixas d’água
+- `text-editor/editor` Caixas d’água, tanques, cisternas, biodigestores e acessórios (tampas, flanges, boias) em diferentes capacidades.
+- `heading/title` Louças
+- `text-editor/editor` Assentos, caixas acopladas, lavatórios, cubas e tanques.
+- `button/text` Fale Conosco e Faça seu Pedido!
+- `animated-headline/highlighted_text` Aço Construção Civil
+- `heading/title` Vergalhões
+- `text-editor/editor` Barras de 12m do CA50 (6,3, 8, 10, 12,5, 16, 20, 25 e 32mm) e CA60 (4,2 e 5mm)
+- `heading/title` Treliça
+- `text-editor/editor` Treliças H8 e H12 (6 e 12 m), disponíveis nos modelos leve e padrão. Produto ideal para estruturas pré-moldadas e reforço de lajes, conforme especificações do projeto.
+- `heading/title` Tela Soldada
+- `text-editor/editor` EQ45 (20×20) – leve, EQ61 (15×15) – média, EQ92 (15×15) – reforçada, EQ138 (10×10) – pesada
+- `heading/title` Sapata
+- `text-editor/editor` Sapatas armadas: isolada quadrada, isolada retangular, corrida, com arranque para pilar e de divisa.
+- `heading/title` Coluna
+- `text-editor/editor` Colunas prontas de 6m com ferros de 6,3mm, 8mm e 10mm com estribos 7x14, 7x17, 10x20. Produção sob medida conforme o projeto - verificar disponibilidade.
+- `heading/title` Estribos
+- `text-editor/editor` Estribos armados sob medida, fabricados em diversas bitolas e comprimentos, de acordo com o projeto da obra.
+- `heading/title` Arames
+- `text-editor/editor` Arames recozidos, torcidos e galvanizados, em diversos diâmetros.
+- `heading/title` Pregos
+- `text-editor/editor` Pregos para construção civil nos mais diversos tamanhos: com cabeça, sem cabeça ou cabeça dupla.
+- `animated-headline/highlighted_text` Material para Indústrias
+- `heading/title` Tubo Metalon
+- `text-editor/editor` Bobina de Calha, Tubos Metalon, Cantoneiras, Perfis, Guias e Barras Chatas.
+- `heading/title` Barra Chata
+- `text-editor/editor` Barras chatas nas principais bitolas para aplicações estruturais e de serralheria: 19×3mm • 25×3mm • 30×3mm • 40×4,75mm • 50×6,3mm • 100×8mm Consulte demais medidas disponíveis.
+- `heading/title` Perfis
+- `text-editor/editor` Perfis metálicos: U dobrado, Z leve, T e L. Também trabalhamos com perfis para esquadrias, como guia, requadro, batente e caixa.
+- `heading/title` Chapa
+- `text-editor/editor` Chapas lisas em aço carbono, galvanizadas e tipo xadrez — ideais para estruturas metálicas, pisos e reforços.
+- `text-editor/editor` Corte e dobra de chapas conforme projeto, com precisão e sob medida para atender diferentes aplicações.
+- `heading/title` Cantoneira
+- `text-editor/editor` Cantoneiras de abas iguais ou desiguais, indicadas para reforço, fixação e estruturas metálicas leves.
+- `heading/title` Bobina Galvalume/Galvanizada
+- `text-editor/editor` Bobinas de aço galvalume ou galvanizado, utilizadas na conformação de calhas, painéis e perfis leves.
+- `heading/title` Parafusos
+- `text-editor/editor` Parafusos metálicos: autobrocantes (cabeça sextavada ou ponta broca), autoatarraxantes (panela/Philips) e para telha metálica com arruela vedante.
+- `animated-headline/highlighted_text` Tudo para Drywall
+- `heading/title` Placa Drywall ST
+- `text-editor/editor` Placa standard (ST) para uso geral em ambientes secos. Disponível em diversos tamanhos. Consulte disponibilidade.
+- `heading/title` Placa RU
+- `text-editor/editor` Placa RU resistente à umidade, ideal para cozinhas, banheiros e áreas molhadas.
+- `heading/title` Placa Glasroc
+- `text-editor/editor` Placa Glasroc com núcleo reforçado, indicada para fachadas e áreas externas sujeitas à umidade e intempéries.
+- `text-editor/editor` Perfil de proteção para cantos e encontros de placas, garantindo alinhamento, acabamento e resistência a impactos.
+- `heading/title` Perfil
+- `text-editor/editor` Guias e montantes metálicos para estruturação de paredes e forros em drywall, com alta estabilidade e precisão no prumo.
+- `heading/title` Gesso
+- `text-editor/editor` Gesso em pó para tratamento de juntas, acabamentos e correções antes da pintura final.
+- `text-editor/editor` Parafusos para drywall, com rosca fina e ponta adequada para fixação rápida em perfil metálico.
+- `heading/title` Presilhas e Regulador
+- `text-editor/editor` Presilhas, reguladores e suportes para montagem de forros. Consulte modelos disponíveis.
+- `heading/title` Fita Telada
+- `text-editor/editor` Fita telada para tratamento de juntas em drywall. Linha profissional, com excelente aderência e acabamento.
+- `animated-headline/highlighted_text` Coberturas
+- `heading/title` Telhas Galvalume
+- `text-editor/editor` Telhas Galvalume nos modelos trapezoidal e ondulado, com alta resistência à corrosão e excelente custo-benefício. Acessórios disponíveis: cumeeiras, rufos, arremates e fixadores com vedação.
+- `heading/title` Telha Termoacústica
+- `text-editor/editor` Telhas tipo sanduíche com núcleo isolante (EPS), ideais para conforto térmico e acústico. Perfis: trapezoidal ou ondulado. Acessórios: cumeeiras, rufos e arremates.
+- `heading/title` Telha Fibrocimento
+- `text-editor/editor` Telhas onduladas de fibrocimento para aplicações residenciais, comerciais e rurais. Diversas medidas disponíveis. Acessórios compatíveis: cumeeiras, rufos, espigões e fixadores.
+- `heading/title` Telha Transparente
+- `text-editor/editor` Telhas transparentes em policarbonato (trapezoidal ou ondulado), fibra de vidro ou PVC translúcido. Ideais para coberturas com entrada de luz natural, como áreas externas, garagens e galpões.
+- `animated-headline/highlighted_text` Agronegócio
+- `heading/title` Arame Farpado
+- `text-editor/editor` Arame farpado galvanizado, ideal para cercas rurais, delimitação de pastos e perímetros. Alta durabilidade para uso em áreas externas e expostas às intempéries.
+- `heading/title` Arame Ovalado
+- `text-editor/editor` Arame ovalado galvanizado para amarração, esticamento de cercas e fixação em mourões. Reforço ideal para cercamentos, travamentos e contenção em propriedades rurais.
+
+## Robracon SNP  (title: Robracon SNP)
+
+- `animated-headline/before_text` Robracon
+- `animated-headline/highlighted_text` Sinop/MT
+- `animated-headline/rotating_text` Better Bigger Faster
+- `text-editor/editor` Aço e chapas sob medida, telhas e essenciais da obra, orçamento ágil para B2B.
+- `icon-list/rep:text` R. João Pedro Moreira de Carvalho, 2357 - Jardim Jacarandas
+- `icon-list/rep:text` Seg à Sex: 07h30 às 11h00 | 12h30 às 17h48
+- `icon-list/rep:text` vendas.robracon@grupovocical.com.br
+- `icon-list/rep:text` (66) 3029-9659
+- `button/text` Fale Conosco
+- `icon-box/title_text` Corte e Dobra de Vergalhão e Aço Armado
+- `icon-box/description_text` Pilares/Colunas, Tela Soldada, Sapatas, Treliças, Vigas e Estribos conforme projeto.
+- `icon-box/title_text` Corte e Dobra de Chapa
+- `icon-box/description_text` Peças para telhas, calhas, rufos, perfis e reforços, do desenho à peça final.
+- `icon-box/title_text` Corte a Laser/Plasma
+- `icon-box/description_text` Cortes precisos em chapas e componentes metálicos conforme desenho (peças industriais, serralheria e calhas).
+- `icon-box/title_text` Atendimento Consultivo B2B
+- `icon-box/description_text` Apoio no quantitativo, alternativas de produto e orçamento técnico rápido.
+- `animated-headline/before_text` Fornecimento para
+- `animated-headline/highlighted_text` obras, serralherias e revendas
+- `text-editor/editor` Unidade do Grupo Vocical em Sinop/MT, a Robracon atende operações profissionais com foco em Aço Construção Civil , conformação de chapas , Coberturas e linhas essenciais de Material de Construção . Atuamos com corte e dobra conforme projeto , atendimento consultivo e orçamento rápido. Quando o prazo aperta, operamos carga direta do fabricante ao cliente (quando aplicável) , garantindo fluidez no cronograma.
+- `button/text` Quer Saber Mais? Fale Conosco!
+- `animated-headline/highlighted_text` Material de Construção
+- `heading/title` Sacarias
+- `text-editor/editor` Cimento, Cal, Argamassa, Gesso, Rejunte.
+- `heading/title` Impermeabilizantes
+- `text-editor/editor` Aditivos para chapisco e argamassa, mantas líquidas e emulsões asfálticas.
+- `heading/title` Tubos & Conexões
+- `text-editor/editor` Tubos soldáveis (20 a 60 mm), tubos para esgoto SN (DN 40 a 200), joelhos 90°, curvas 45°, "T"/reduções, luvas de correr, registros de esfera e adesivos para PVC.
+- `heading/title` Caixas d’água
+- `text-editor/editor` Caixas d’água, tanques, cisternas, biodigestores e acessórios (tampas, flanges, boias) em diferentes capacidades.
+- `heading/title` Louças
+- `text-editor/editor` Assentos, caixas acopladas, lavatórios, cubas e tanques.
+- `button/text` Fale Conosco e Faça seu Pedido!
+- `animated-headline/highlighted_text` Aço Construção Civil
+- `heading/title` Vergalhões
+- `text-editor/editor` Barras de 12m do CA50 (6,3, 8, 10, 12,5, 16, 20, 25 e 32mm) e CA60 (4,2 e 5mm)
+- `heading/title` Treliça
+- `text-editor/editor` Treliças H8 e H12 (6 e 12 m), disponíveis nos modelos leve e padrão. Produto ideal para estruturas pré-moldadas e reforço de lajes, conforme especificações do projeto.
+- `heading/title` Tela Soldada
+- `text-editor/editor` EQ45 (20×20) – leve, EQ61 (15×15) – média, EQ92 (15×15) – reforçada, EQ138 (10×10) – pesada
+- `heading/title` Sapata
+- `text-editor/editor` Sapatas armadas: isolada quadrada, isolada retangular, corrida, com arranque para pilar e de divisa.
+- `heading/title` Coluna
+- `text-editor/editor` Colunas prontas de 6m com ferros de 6,3mm, 8mm e 10mm com estribos 7x14, 7x17, 10x20. Produção sob medida conforme o projeto - verificar disponibilidade.
+- `heading/title` Estribos
+- `text-editor/editor` Estribos armados sob medida, fabricados em diversas bitolas e comprimentos, de acordo com o projeto da obra.
+- `heading/title` Arames
+- `text-editor/editor` Arames recozidos, torcidos e galvanizados, em diversos diâmetros.
+- `heading/title` Pregos
+- `text-editor/editor` Pregos para construção civil nos mais diversos tamanhos: com cabeça, sem cabeça ou cabeça dupla.
+- `animated-headline/highlighted_text` Material para Indústrias
+- `heading/title` Tubo Metalon
+- `text-editor/editor` Bobina de Calha, Tubos Metalon, Cantoneiras, Perfis, Guias e Barras Chatas.
+- `heading/title` Barra Chata
+- `text-editor/editor` Barras chatas nas principais bitolas para aplicações estruturais e de serralheria: 19×3mm • 25×3mm • 30×3mm • 40×4,75mm • 50×6,3mm • 100×8mm Consulte demais medidas disponíveis.
+- `heading/title` Perfis
+- `text-editor/editor` Perfis metálicos: U dobrado, Z leve, T e L. Também trabalhamos com perfis para esquadrias, como guia, requadro, batente e caixa.
+- `heading/title` Chapa
+- `text-editor/editor` Chapas lisas em aço carbono, galvanizadas e tipo xadrez — ideais para estruturas metálicas, pisos e reforços.
+- `text-editor/editor` Corte e dobra de chapas conforme projeto, com precisão e sob medida para atender diferentes aplicações.
+- `heading/title` Cantoneira
+- `text-editor/editor` Cantoneiras de abas iguais ou desiguais, indicadas para reforço, fixação e estruturas metálicas leves.
+- `heading/title` Bobina Galvalume/Galvanizada
+- `text-editor/editor` Bobinas de aço galvalume ou galvanizado, utilizadas na conformação de calhas, painéis e perfis leves.
+- `heading/title` Parafusos
+- `text-editor/editor` Parafusos metálicos: autobrocantes (cabeça sextavada ou ponta broca), autoatarraxantes (panela/Philips) e para telha metálica com arruela vedante.
+- `animated-headline/highlighted_text` Tudo para Drywall
+- `heading/title` Placa Drywall ST
+- `text-editor/editor` Placa standard (ST) para uso geral em ambientes secos. Disponível em diversos tamanhos. Consulte disponibilidade.
+- `heading/title` Placa RU
+- `text-editor/editor` Placa RU resistente à umidade, ideal para cozinhas, banheiros e áreas molhadas.
+- `heading/title` Placa Glasroc
+- `text-editor/editor` Placa Glasroc com núcleo reforçado, indicada para fachadas e áreas externas sujeitas à umidade e intempéries.
+- `text-editor/editor` Perfil de proteção para cantos e encontros de placas, garantindo alinhamento, acabamento e resistência a impactos.
+- `heading/title` Perfil
+- `text-editor/editor` Guias e montantes metálicos para estruturação de paredes e forros em drywall, com alta estabilidade e precisão no prumo.
+- `heading/title` Gesso
+- `text-editor/editor` Gesso em pó para tratamento de juntas, acabamentos e correções antes da pintura final.
+- `text-editor/editor` Parafusos para drywall, com rosca fina e ponta adequada para fixação rápida em perfil metálico.
+- `heading/title` Presilhas e Regulador
+- `text-editor/editor` Presilhas, reguladores e suportes para montagem de forros. Consulte modelos disponíveis.
+- `heading/title` Fita Telada
+- `text-editor/editor` Fita telada para tratamento de juntas em drywall. Linha profissional, com excelente aderência e acabamento.
+- `animated-headline/highlighted_text` Coberturas
+- `heading/title` Telhas Galvalume
+- `text-editor/editor` Telhas Galvalume nos modelos trapezoidal e ondulado, com alta resistência à corrosão e excelente custo-benefício. Acessórios disponíveis: cumeeiras, rufos, arremates e fixadores com vedação.
+- `heading/title` Telha Termoacústica
+- `text-editor/editor` Telhas tipo sanduíche com núcleo isolante (EPS), ideais para conforto térmico e acústico. Perfis: trapezoidal ou ondulado. Acessórios: cumeeiras, rufos e arremates.
+- `heading/title` Telha Fibrocimento
+- `text-editor/editor` Telhas onduladas de fibrocimento para aplicações residenciais, comerciais e rurais. Diversas medidas disponíveis. Acessórios compatíveis: cumeeiras, rufos, espigões e fixadores.
+- `heading/title` Telha Transparente
+- `text-editor/editor` Telhas transparentes em policarbonato (trapezoidal ou ondulado), fibra de vidro ou PVC translúcido. Ideais para coberturas com entrada de luz natural, como áreas externas, garagens e galpões.
+- `animated-headline/highlighted_text` Agronegócio
+- `heading/title` Arame Farpado
+- `text-editor/editor` Arame farpado galvanizado para cercas rurais • Arame farpado para delimitação de pastos e perímetros • Arame farpado de alta durabilidade para áreas externas
+- `heading/title` Arame Ovalado
+- `text-editor/editor` Arame ovalado galvanizado para amarração e esticamento de cercas • Arame ovalado para fixação em mourões e travamentos • Arame ovalado para contenção e reforço de cercamentos • Arame ovalado para uso geral em propriedades rurais
+
+## Vocical  (title: Vocical)
+
+- `animated-headline/before_text` Vocical
+- `animated-headline/highlighted_text` Votuporanga/SP
+- `animated-headline/rotating_text` Better Bigger Faster
+- `text-editor/editor` Materiais de construção, aço e conformação sob medida para quem constrói.
+- `icon-list/rep:text` Avenida Prestes Maia, 2059 - Votuporanga/SP
+- `icon-list/rep:text` Seg à Sex: 07h30 às 11h00 | 12h30 às 17h48
+- `icon-list/rep:text` vendas.vocical@grupovocical.com.br
+- `icon-list/rep:text` (17) 3411-1010
+- `button/text` Fale Conosco
+- `icon-box/title_text` Corte e Dobra de Vergalhão e Aço Armado
+- `icon-box/description_text` Pilares/Colunas, Tela Soldada, Sapatas, Treliças, Vigas e Estribos conforme projeto.
+- `icon-box/title_text` Corte e Dobra de Chapa
+- `icon-box/description_text` Peças para telhas, calhas, rufos, perfis e reforços, do desenho à peça final.
+- `icon-box/title_text` Atendimento Consultivo B2B
+- `icon-box/description_text` Apoio no quantitativo, alternativas de produto e orçamento técnico rápido.
+- `animated-headline/before_text` Tudo que você precisa, com quem
+- `animated-headline/highlighted_text` entende de obra!
+- `text-editor/editor` Desde 1987, a Vocical Distribuidora — unidade de Votuporanga/SP do Grupo Vocical — atende operações profissionais com um mix completo: do material de construção ao aço para construção civil , além de coberturas e suprimentos para indústrias . Trabalhamos com orçamento ágil, atendimento consultivo e produção sob medida em corte e dobra , conforme o seu projeto.
+- `button/text` Quer Saber Mais? Fale Conosco!
+- `animated-headline/highlighted_text` Material de Construção
+- `heading/title` Sacarias
+- `text-editor/editor` Cimento, Cal, Argamassa, Gesso, Rejunte.
+- `heading/title` Impermeabilizantes
+- `text-editor/editor` Aditivos para chapisco e argamassa, mantas líquidas e emulsões asfálticas.
+- `heading/title` Tubos & Conexões
+- `text-editor/editor` Tubos soldáveis (20 a 60 mm), tubos para esgoto SN (DN 40 a 200), joelhos 90°, curvas 45°, “T”/reduções, luvas de correr, registros de esfera e adesivos para PVC.
+- `heading/title` Caixas d’água
+- `text-editor/editor` Caixas d’água, tanques, cisternas, biodigestores e acessórios (tampas, flanges, boias) em diferentes capacidades.
+- `heading/title` Louças
+- `text-editor/editor` Assentos, caixas acopladas, lavatórios, cubas e tanques.
+- `button/text` Fale Conosco e Faça seu Pedido!
+- `animated-headline/highlighted_text` Aço Construção Civil
+- `heading/title` Vergalhões
+- `text-editor/editor` Barras de 12m do CA50 (6,3, 8, 10, 12,5, 16, 20, 25 e 32mm) e CA60 (4,2 e 5mm)
+- `heading/title` Treliça
+- `text-editor/editor` Treliças H8 e H12 (6 e 12 m), disponíveis nos modelos leve e padrão. Produto ideal para estruturas pré-moldadas e reforço de lajes, conforme especificações do projeto.
+- `heading/title` Tela Soldada
+- `text-editor/editor` EQ45 (20×20) – leve, EQ61 (15×15) – média, EQ92 (15×15) – reforçada, EQ138 (10×10) – pesada
+- `heading/title` Sapata
+- `text-editor/editor` Sapatas armadas: isolada quadrada, isolada retangular, corrida, com arranque para pilar e de divisa.
+- `heading/title` Coluna
+- `text-editor/editor` Colunas prontas de 6m com ferros de 6,3mm, 8mm e 10mm com estribos 7×14, 7×17, 10×20. Produção sob medida conforme o projeto – verificar disponibilidade.
+- `heading/title` Estribos
+- `text-editor/editor` Estribos armados sob medida, fabricados em diversas bitolas e comprimentos, de acordo com o projeto da obra.
+- `heading/title` Arames
+- `text-editor/editor` Arames recozidos, torcidos e galvanizados, em diversos diâmetros.
+- `heading/title` Pregos
+- `text-editor/editor` Pregos para construção civil nos mais diversos tamanhos: com cabeça, sem cabeça ou cabeça dupla.
+- `animated-headline/highlighted_text` Material para Indústrias
+- `heading/title` Tubo Metalon
+- `text-editor/editor` Bobina de Calha, Tubos Metalon, Cantoneiras, Perfis, Guias e Barras Chatas.
+- `heading/title` Barra Chata
+- `text-editor/editor` Barras chatas nas principais bitolas para aplicações estruturais e de serralheria: 19×3mm • 25×3mm • 30×3mm • 40×4,75mm • 50×6,3mm • 100×8mm Consulte demais medidas disponíveis.
+- `heading/title` Perfis
+- `text-editor/editor` Perfis metálicos: U dobrado, Z leve, T e L. Também trabalhamos com perfis para esquadrias, como guia, requadro, batente e caixa.
+- `heading/title` Chapa
+- `text-editor/editor` Chapas lisas em aço carbono, galvanizadas e tipo xadrez — ideais para estruturas metálicas, pisos e reforços.
+- `text-editor/editor` Corte e dobra de chapas conforme projeto, com precisão e sob medida para atender diferentes aplicações.
+- `heading/title` Cantoneira
+- `text-editor/editor` Cantoneiras de abas iguais ou desiguais, indicadas para reforço, fixação e estruturas metálicas leves.
+- `heading/title` Bobina Galvalume/Galvanizada
+- `text-editor/editor` Bobinas de aço galvalume ou galvanizado, utilizadas na conformação de calhas, painéis e perfis leves.
+- `heading/title` Parafusos
+- `text-editor/editor` Parafusos metálicos: autobrocantes (cabeça sextavada ou ponta broca), autoatarraxantes (panela/Philips) e para telha metálica com arruela vedante.
+- `animated-headline/highlighted_text` Coberturas
+- `heading/title` Telhas Galvalume
+- `text-editor/editor` Telhas Galvalume nos modelos trapezoidal e ondulado, com alta resistência à corrosão e excelente custo-benefício. Acessórios disponíveis: cumeeiras, rufos, arremates e fixadores com vedação.
+- `heading/title` Telha Termoacústica
+- `text-editor/editor` Telhas tipo sanduíche com núcleo isolante (EPS), ideais para conforto térmico e acústico. Perfis: trapezoidal ou ondulado. Acessórios: cumeeiras, rufos e arremates.
+- `heading/title` Telha Fibrocimento
+- `text-editor/editor` Telhas onduladas de fibrocimento para aplicações residenciais, comerciais e rurais. Diversas medidas disponíveis. Acessórios compatíveis: cumeeiras, rufos, espigões e fixadores.
+- `heading/title` Telha Transparente
+- `text-editor/editor` Telhas transparentes em policarbonato (trapezoidal ou ondulado), fibra de vidro ou PVC translúcido. Ideais para coberturas com entrada de luz natural, como áreas externas, garagens e galpões.
+- `animated-headline/highlighted_text` Agronegócio
+- `heading/title` Arame Farpado
+- `text-editor/editor` Arame farpado galvanizado, ideal para cercas rurais, delimitação de pastos e perímetros. Alta durabilidade para uso em áreas externas e expostas às intempéries.
+- `heading/title` Arame Ovalado
+- `text-editor/editor` Arame ovalado galvanizado para amarração, esticamento de cercas e fixação em mourões. Reforço ideal para cercamentos, travamentos e contenção em propriedades rurais.

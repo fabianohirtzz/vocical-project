@@ -82,9 +82,12 @@ Mais o bloco de serviços de corte e dobra. Navegação por âncoras/abas entre 
   Freela (sem travessões, sem emojis, números concretos). O parceiro vai exportar mais
   conteúdo do WordPress.
 - **Imagens:** pasta `Imagens/` (209, por marca/unidade/produto). Otimizar e dar `alt`.
-- **DEPENDÊNCIA:** mapeamento **unidade → produtos** (nem toda unidade trabalha todos
-  os produtos). Extrair do site atual / export do WordPress antes de fechar as páginas
-  de marca. Até lá, o template é construído para receber subconjuntos por unidade.
+- **Mapeamento unidade → produtos: RESOLVIDO.** Os JSONs Elementor em
+  `Paginas Unidades/` foram extraídos para `referencia-unidades.md` (UTF-8). Cada
+  unidade traz: hero, contato por sub-unidade, serviços e a lista explícita
+  "Categorias e grupos de produtos" que trabalha. *Distribuidoras* = 3 sub-unidades
+  (Itu, Piracicaba, Itapetininga), cada uma com endereço/e-mail/telefone próprios.
+  Cada página de marca usa o subconjunto da sua fonte.
 
 ## 8. Conversão (CTA)
 
