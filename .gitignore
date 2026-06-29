@@ -12,3 +12,8 @@ desktop.ini
 *.log
 *.tmp
 node_modules/
+
+# QA / Playwright (capturas locais)
+.playwright-mcp/
+*-view.jpeg
+home-desktop.jpeg
