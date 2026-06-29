@@ -69,10 +69,19 @@ vocical-project/
 - Imagens grandes podem ser otimizadas/comprimidas antes do deploy final na erehost.
 - Melhoria: mapa Google das unidades.
 
+## Arquitetura de código (referência rápida)
+- CSS: `base.css` (tokens/reset/componentes) → `site.css` (header/footer/whats) →
+  `pages.css` (seções compartilhadas + páginas internas) → `home.css` (só home).
+- JS: `config.js` (dados: marcas, unidades, categorias, parceiros, CTA_URL) →
+  `marcas-data.js` (tagline/sobre/serviços/categorias por marca) →
+  `catalogo.js` (catálogo mestre) → `layout.js` (header/footer/whats/reveal) →
+  renderers de página (`home.js`, `produtos.js`, `marca.js`) → `main.js` (count-up).
+- Páginas de marca: 1 template (`marca.js`) + 6 HTML enxutos em `/marcas/` com
+  `data-marca="<slug>"` e `data-base="../"`. Tudo data-driven.
+
 ## Estado atual
 **Passo 4 de 7 — Build incremental** (cronologia freela-method).
-✅ Incremento 1 concluído e publicado: base visual + header/footer + HOME completa.
+✅ TODAS as páginas construídas e publicadas: home, produtos, 6 marcas, sobre, contato.
    Preview: https://fabianohirtzz.github.io/vocical-project/
-   QA (web-qa-reviewer): aprovado, sem itens de severidade alta; médios corrigidos.
-Próximo incremento: página de Produtos (catálogo 6 categorias igual ao site atual),
-depois 6 páginas de marca, sobre e contato.
+   Home: QA aprovado. Demais páginas: verificadas (0 erros console, sem img quebrada).
+Próximo: revisão do parceiro (ajustes em partes), depois QA final → deploy erehost.
