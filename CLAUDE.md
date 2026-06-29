@@ -39,9 +39,11 @@ vocical-project/
 - Deploy final: **erehost** (host próprio do cliente, via FTP)
 
 ## Integrações
-- **Widget próprio de atendimento/chat (lead)** — entra depois. Reservar o lugar e
-  apontar todos os CTAs de conversão para ele. Por ora, CTAs como placeholder neutro.
-- WhatsApp comercial: (66) 99939-3953
+- **Widget próprio de atendimento/chat (lead)** — destino final de todos os CTAs.
+  **Por enquanto, todos os CTAs apontam para:**
+  `https://grupovocical.com.br/produtos/?utm_content=meutrack_533fa7c4ec8b`
+  Centralizar esse destino num único ponto do JS para troca fácil quando vier o widget.
+- WhatsApp comercial: (66) 99939-3953 (canal secundário)
 - E-mail: contato@grupovocical.com.br
 - Redes: Instagram @grupo.vocical · Facebook /grupovocical · LinkedIn /company/grupo-vocical
 - Analytics/Search Console: configurar no pós-lançamento.
@@ -52,7 +54,14 @@ vocical-project/
 - Preview/proposta sempre com `noindex` até o cliente aprovar o domínio final.
 - Nunca apagar/sobrescrever artefatos do cliente (a pasta Imagens é dele).
 
+## Dependência de conteúdo (importante)
+- **Produtos por unidade variam**: cada página de marca mostra só os produtos que
+  aquela unidade trabalha, seguindo o site atual. Precisa do mapeamento
+  "unidade → produtos" (export do WordPress ou páginas atuais por unidade).
+- Catálogo de produtos: categorizar **exatamente** como o site atual (6 categorias).
+
 ## Estado atual
-**Passo 2 de 7 — Estrutura & contexto** (cronologia freela-method).
-Briefing fechado e confirmado. Próximo: configurar git remoto + GitHub Pages, depois
-Passo 3 (Design — definir arquitetura visual e confirmar tokens com o parceiro).
+**Passo 3 de 7 — Design** (cronologia freela-method).
+Direção aprovada: meio-termo equilibrado (base clara + impacto industrial), hub +
+6 páginas de marca + produtos + sobre + contato. Próximo: escrever spec de design,
+revisão do parceiro, depois plano de build (Passo 4).
