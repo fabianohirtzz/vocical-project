@@ -4,46 +4,112 @@
   var V = window.VOCICAL || {};
   var base = document.documentElement.getAttribute('data-base') || '';   // '' na raiz, '../' nas subpastas
   function p(path) { return base + path; }
+  function enc(path) { return path.split('/').map(encodeURIComponent).join('/'); }  // espaços em pastas
 
   /* ---------------- HEADER ---------------- */
   function renderHeader() {
     var el = document.getElementById('site-header');
     if (!el) return;
+
+    // arquivo atual p/ marcar o item de nav ativo
+    var path = location.pathname;
+    var file = path.substring(path.lastIndexOf('/') + 1) || 'index.html';
+
+    var NAV = [
+      { label: 'Início',         href: p('index.html'),    file: 'index.html' },
+      { label: 'Produtos',       href: p('produtos.html'), file: 'produtos.html' },
+      { label: 'Nossa História', href: p('sobre.html'),    file: 'sobre.html' },
+      { label: 'Contato',        href: p('contato.html'),  file: 'contato.html' }
+    ];
+    function navLinks() {
+      return NAV.map(function (n) {
+        return '<a href="' + n.href + '"' + (n.file === file ? ' class="is-active"' : '') + '>' + n.label + '</a>';
+      }).join('');
+    }
+    function uniRows() {
+      return (V.UNIDADES_NAV || []).map(function (u) {
+        return '<a class="uni__item" href="' + p('marcas/' + u.slug + '.html') + '">' +
+          '<span class="uni__logo"><img src="' + enc(p(u.logo)) + '" alt="' + u.nome + '" loading="lazy"></span>' +
+          '<span class="uni__txt"><span class="uni__name">' + u.nome + '</span>' +
+          '<span class="uni__city">' + u.cidade + '</span></span></a>';
+      }).join('');
+    }
+
+    el.className = 'nb';
     el.innerHTML =
-      '<a class="hd__skip sr-only" href="#conteudo">Pular para o conteúdo</a>' +
-      '<div class="hd__bar">' +
-        '<div class="container hd__inner">' +
-          '<a class="hd__brand" href="' + p('index.html') + '" aria-label="Grupo Vocical — início">' +
-            '<img src="' + p('Imagens/logo-vocical.png') + '" alt="Grupo Vocical" class="hd__logo">' +
-          '</a>' +
-          '<nav class="hd__nav" id="hd-nav" aria-label="Navegação principal">' +
-            '<a href="' + p('index.html') + '">Início</a>' +
-            '<a href="' + p('index.html') + '#marcas">Marcas</a>' +
-            '<a href="' + p('produtos.html') + '">Produtos</a>' +
-            '<a href="' + p('sobre.html') + '">Sobre</a>' +
-            '<a href="' + p('contato.html') + '">Contato</a>' +
-            '<a class="btn btn--cta hd__cta" href="' + V.CTA_URL + '" target="_blank" rel="noopener">Fale Conosco</a>' +
-          '</nav>' +
-          '<button class="hd__burger" id="hd-burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="hd-nav">' +
+      '<div class="nb__inner">' +
+        '<div class="nb__left">' +
+          '<a class="nb__brand" href="' + p('index.html') + '" aria-label="Grupo Vocical — início">' +
+            '<img class="nb__logo" src="' + p('Imagens/logo-header.png') + '" alt="Grupo Vocical"></a>' +
+          '<span class="nb__since">Desde 1987</span>' +
+        '</div>' +
+        '<nav class="nb__nav" aria-label="Navegação principal">' + navLinks() + '</nav>' +
+        '<div class="nb__right">' +
+          '<div class="uni" id="uni">' +
+            '<button class="uni__btn" id="uni-btn" aria-haspopup="true" aria-expanded="false" aria-controls="uni-panel">Unidades' +
+              '<svg class="chev" width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+            '</button>' +
+            '<div class="uni__panel" id="uni-panel" role="menu"><p class="uni__head">Nossas unidades</p>' + uniRows() + '</div>' +
+          '</div>' +
+          '<button class="nb__burger" id="nb-burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="drawer">' +
             '<span></span><span></span><span></span>' +
           '</button>' +
         '</div>' +
       '</div>';
 
-    var burger = document.getElementById('hd-burger');
-    var nav = document.getElementById('hd-nav');
-    burger.addEventListener('click', function () {
-      var open = document.body.classList.toggle('nav-open');
-      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-      burger.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
-    });
-    nav.addEventListener('click', function (e) {
-      if (e.target.tagName === 'A') {
-        document.body.classList.remove('nav-open');
-        burger.setAttribute('aria-expanded', 'false');
-      }
-    });
-    // sombra ao rolar
+    // drawer mobile (injetado uma vez no body)
+    if (!document.getElementById('drawer')) {
+      var d = document.createElement('div');
+      d.className = 'drawer'; d.id = 'drawer';
+      d.innerHTML =
+        '<div class="drawer__scrim" id="drawer-scrim"></div>' +
+        '<aside class="drawer__panel" role="dialog" aria-label="Menu">' +
+          '<div class="drawer__top">' +
+            '<img class="nb__logo" src="' + p('Imagens/logo-header.png') + '" alt="Grupo Vocical">' +
+            '<button class="drawer__close" id="drawer-close" aria-label="Fechar menu">&times;</button>' +
+          '</div>' +
+          '<nav class="drawer__nav" id="drawer-nav" aria-label="Navegação">' + navLinks() + '</nav>' +
+          '<div class="drawer__units"><p class="uni__head">Nossas unidades</p>' + uniRows() + '</div>' +
+        '</aside>';
+      document.body.appendChild(d);
+    }
+
+    // dropdown Unidades
+    var uni = document.getElementById('uni');
+    var uniBtn = document.getElementById('uni-btn');
+    if (uni && uniBtn) {
+      uniBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = uni.classList.toggle('open');
+        uniBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      document.addEventListener('click', function (e) {
+        if (!uni.contains(e.target)) { uni.classList.remove('open'); uniBtn.setAttribute('aria-expanded', 'false'); }
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') { uni.classList.remove('open'); uniBtn.setAttribute('aria-expanded', 'false'); }
+      });
+    }
+
+    // drawer
+    var burger = document.getElementById('nb-burger');
+    var dClose = document.getElementById('drawer-close');
+    var dScrim = document.getElementById('drawer-scrim');
+    var dNav = document.getElementById('drawer-nav');
+    function setDrawer(open) {
+      document.body.classList.toggle('drawer-open', open);
+      if (burger) burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    if (burger) burger.addEventListener('click', function () { setDrawer(true); });
+    if (dClose) dClose.addEventListener('click', function () { setDrawer(false); });
+    if (dScrim) dScrim.addEventListener('click', function () { setDrawer(false); });
+    if (dNav) dNav.addEventListener('click', function (e) { if (e.target.tagName === 'A') setDrawer(false); });
+
+    // altura do header p/ a 1ª tela (.hero-screen no index)
+    var setNbH = function () { document.documentElement.style.setProperty('--nb-h', el.offsetHeight + 'px'); };
+    setNbH(); window.addEventListener('resize', setNbH);
+
+    // pill/sombra ao rolar
     var onScroll = function () { document.body.classList.toggle('is-scrolled', window.scrollY > 8); };
     window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
   }

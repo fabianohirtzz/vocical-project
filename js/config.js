@@ -87,6 +87,21 @@ window.VOCICAL = {
     { slug: 'agronegocio', nome: 'Agronegócio', desc: 'Arames farpados e ovalados galvanizados para cercas.', img: 'Imagens/Produtos/arame-farpado.jpg' }
   ],
 
+  /* Unidades para o dropdown do header (11 unidades, logo transparente de cada). */
+  UNIDADES_NAV: [
+    { nome: 'Vocical',                    cidade: 'Votuporanga/SP',           slug: 'vocical',        logo: 'Imagens/Logos Unidades/Vocical/logo-vocical---transparente.png' },
+    { nome: 'Jacical',                    cidade: 'Jales/SP',                 slug: 'jacical',        logo: 'Imagens/Logos Unidades/Jacical/Logo-Jacical---Transparente.png' },
+    { nome: 'Ello Forte',                 cidade: 'Ribeirão Preto/SP',        slug: 'ello-forte',     logo: 'Imagens/Logos Unidades/Ello Forte Ribeirao Preto/ello-forte-RP---transparente.png' },
+    { nome: 'Ello Forte',                 cidade: 'São Carlos/SP',            slug: 'ello-forte',     logo: 'Imagens/Logos Unidades/Ello Forte Sao Carlos/ello-forte---fundo-transparente.png' },
+    { nome: 'Rio Preto Cimento e Cal',    cidade: 'São José do Rio Preto/SP', slug: 'rp-cimento-cal', logo: 'Imagens/Logos Unidades/Rio Preto Cimento e Cal/logo-rio-preto---transparente.png' },
+    { nome: 'Robracon',                   cidade: 'Cuiabá/MT',                slug: 'robracon',       logo: 'Imagens/Logos Unidades/Robracon/ROBRACON---COLORIDO.png' },
+    { nome: 'Robracon',                   cidade: 'Rondonópolis/MT',          slug: 'robracon',       logo: 'Imagens/Logos Unidades/Robracon/ROBRACON---COLORIDO.png' },
+    { nome: 'Robracon',                   cidade: 'Sinop/MT',                 slug: 'robracon',       logo: 'Imagens/Logos Unidades/Robracon/ROBRACON---COLORIDO.png' },
+    { nome: 'Distribuidora Ituana',       cidade: 'Itu/SP',                   slug: 'distribuidoras', logo: 'Imagens/Logos Unidades/Distribuidoras/Ituana/logo-ituana-transparente.png' },
+    { nome: 'Distribuidora Piracicabana', cidade: 'Piracicaba/SP',            slug: 'distribuidoras', logo: 'Imagens/Logos Unidades/Distribuidoras/Piracicabana/logo-piracicabana-transparente.png' },
+    { nome: 'Distribuidora Itapetininga', cidade: 'Itapetininga/SP',          slug: 'distribuidoras', logo: 'Imagens/Logos Unidades/Distribuidoras/Itapetininga/logo-itapetininga-transparente.png' }
+  ],
+
   /* Fornecedores parceiros. */
   PARCEIROS: [
     { nome: 'Gerdau', logo: 'Imagens/Marcas/gerdau.png' },

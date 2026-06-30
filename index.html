@@ -24,64 +24,8 @@
   <link rel="stylesheet" href="css/hero-preview.css">
 </head>
 <body>
-  <!-- ============ HEADER (pill flutuante) ============ -->
-  <header class="nb">
-    <div class="nb__inner">
-      <div class="nb__left">
-        <a class="nb__brand" href="index.html" aria-label="Grupo Vocical — início">
-          <img class="nb__logo" src="Imagens/logo-site-1.png" alt="Grupo Vocical">
-        </a>
-        <span class="nb__since">Desde 1987</span>
-      </div>
-
-      <nav class="nb__nav" aria-label="Navegação principal">
-        <a href="index.html" class="is-active">Início</a>
-        <a href="produtos.html">Produtos</a>
-        <a href="sobre.html">Nossa História</a>
-        <a href="contato.html">Contato</a>
-      </nav>
-
-      <div class="nb__right">
-        <div class="uni" id="uni">
-          <button class="uni__btn" id="uni-btn" aria-haspopup="true" aria-expanded="false" aria-controls="uni-panel">
-            Unidades
-            <svg class="chev" width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-          <div class="uni__panel" id="uni-panel" role="menu"></div>
-        </div>
-
-        <button class="nb__burger" id="nb-burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="drawer">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- ============ DRAWER mobile ============ -->
-  <div class="drawer" id="drawer">
-    <div class="drawer__scrim" id="drawer-scrim"></div>
-    <aside class="drawer__panel" role="dialog" aria-label="Menu">
-      <div class="drawer__top">
-        <img class="nb__logo" src="Imagens/logo-site-1.png" alt="Grupo Vocical">
-        <button class="drawer__close" id="drawer-close" aria-label="Fechar menu">&times;</button>
-      </div>
-      <nav class="drawer__nav" id="drawer-nav" aria-label="Navegação">
-        <a href="index.html" class="is-active">Início</a>
-        <a href="produtos.html">Produtos</a>
-        <a href="sobre.html">Nossa História</a>
-        <a href="contato.html">Contato</a>
-      </nav>
-      <div class="drawer__units" id="drawer-units"></div>
-      <a class="btn-arrow" href="#orcamento" style="align-self:flex-start">
-        <span class="btn-arrow__label">Solicitar orçamento</span>
-        <span class="btn-arrow__circ" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7v8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </span>
-      </a>
-    </aside>
-  </div>
+  <!-- Header novo (pill + dropdown Unidades + drawer) injetado pelo layout.js -->
+  <header id="site-header"></header>
 
   <main id="conteudo" tabindex="-1">
 
