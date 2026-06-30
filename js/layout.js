@@ -62,24 +62,24 @@
           '<img src="' + p('Imagens/logo-vocical-branco.png') + '" alt="Grupo Vocical" class="ft__logo">' +
           '<p class="muted">Distribuição de materiais de construção, aço e soluções para obra e indústria desde 1987. 11 unidades em São Paulo e Mato Grosso.</p>' +
           '<div class="ft__social">' +
-            '<a href="' + s.instagram + '" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>' +
-            '<a href="' + s.facebook + '" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>' +
-            '<a href="' + s.linkedin + '" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>' +
+            '<a href="' + s.instagram + '" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>' +
+            '<a href="' + s.facebook + '" target="_blank" rel="noopener noreferrer" aria-label="Facebook">Facebook</a>' +
+            '<a href="' + s.linkedin + '" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>' +
           '</div>' +
         '</div>' +
         '<div class="ft__col">' +
-          '<h4 class="ft__h">Navegação</h4>' +
+          '<p class="ft__h">Navegação</p>' +
           '<ul><li><a href="' + p('index.html') + '">Início</a></li>' +
           '<li><a href="' + p('produtos.html') + '">Produtos</a></li>' +
           '<li><a href="' + p('sobre.html') + '">Sobre</a></li>' +
           '<li><a href="' + p('contato.html') + '">Contato</a></li></ul>' +
         '</div>' +
         '<div class="ft__col">' +
-          '<h4 class="ft__h">Marcas</h4>' +
+          '<p class="ft__h">Marcas</p>' +
           '<ul>' + marcasLinks + '</ul>' +
         '</div>' +
         '<div class="ft__col">' +
-          '<h4 class="ft__h">Contato</h4>' +
+          '<p class="ft__h">Contato</p>' +
           '<ul>' +
             '<li><a href="mailto:' + V.EMAIL + '">' + V.EMAIL + '</a></li>' +
             '<li><a href="' + V.WHATSAPP + '" target="_blank" rel="noopener">WhatsApp ' + V.WHATSAPP_LABEL + '</a></li>' +

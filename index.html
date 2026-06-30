@@ -21,61 +21,151 @@
   <link rel="stylesheet" href="css/site.css">
   <link rel="stylesheet" href="css/pages.css">
   <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/hero-preview.css">
 </head>
 <body>
-  <header id="site-header"></header>
-
-  <main id="conteudo">
-
-    <!-- HERO -->
-    <section class="hero surface--dark grain">
-      <div class="hero__bg"><img src="Imagens/back1.jpg" alt="" aria-hidden="true"></div>
-      <div class="container hero__inner">
-        <span class="kicker">Grupo Vocical · desde 1987</span>
-        <h1 class="display hero__title">O material da sua obra com <span class="accent">pronta-entrega</span> e atendimento de quem entende</h1>
-        <p class="lede hero__lede">Distribuição de materiais de construção, aço, drywall e coberturas para lojas, construtoras, serralherias e indústrias. 11 unidades em São Paulo e Mato Grosso, com corte e dobra e frota própria.</p>
-        <div class="hero__actions">
-          <a class="btn btn--cta" id="hero-cta" target="_blank" rel="noopener"><span class="btn__ic" aria-hidden="true">›</span> Fale Conosco</a>
-          <a class="btn btn--ghost" href="produtos.html">Ver produtos</a>
-        </div>
+  <!-- ============ HEADER (pill flutuante) ============ -->
+  <header class="nb">
+    <div class="nb__inner">
+      <div class="nb__left">
+        <a class="nb__brand" href="index.html" aria-label="Grupo Vocical — início">
+          <img class="nb__logo" src="Imagens/logo-site-1.png" alt="Grupo Vocical">
+        </a>
+        <span class="nb__since">Desde 1987</span>
       </div>
+
+      <nav class="nb__nav" aria-label="Navegação principal">
+        <a href="index.html" class="is-active">Início</a>
+        <a href="produtos.html">Produtos</a>
+        <a href="sobre.html">Nossa História</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+
+      <div class="nb__right">
+        <div class="uni" id="uni">
+          <button class="uni__btn" id="uni-btn" aria-haspopup="true" aria-expanded="false" aria-controls="uni-panel">
+            Unidades
+            <svg class="chev" width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="uni__panel" id="uni-panel" role="menu"></div>
+        </div>
+
+        <button class="nb__burger" id="nb-burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="drawer">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ DRAWER mobile ============ -->
+  <div class="drawer" id="drawer">
+    <div class="drawer__scrim" id="drawer-scrim"></div>
+    <aside class="drawer__panel" role="dialog" aria-label="Menu">
+      <div class="drawer__top">
+        <img class="nb__logo" src="Imagens/logo-site-1.png" alt="Grupo Vocical">
+        <button class="drawer__close" id="drawer-close" aria-label="Fechar menu">&times;</button>
+      </div>
+      <nav class="drawer__nav" id="drawer-nav" aria-label="Navegação">
+        <a href="index.html" class="is-active">Início</a>
+        <a href="produtos.html">Produtos</a>
+        <a href="sobre.html">Nossa História</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+      <div class="drawer__units" id="drawer-units"></div>
+      <a class="btn-arrow" href="#orcamento" style="align-self:flex-start">
+        <span class="btn-arrow__label">Solicitar orçamento</span>
+        <span class="btn-arrow__circ" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7v8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+    </aside>
+  </div>
+
+  <main id="conteudo" tabindex="-1">
+
+    <!-- HERO (porte do modelo, ocupa a 1ª tela) -->
+    <section class="hero-screen">
+      <section class="hero2">
+        <div class="hero2__grid" aria-hidden="true"></div>
+        <div class="hero2__inner">
+          <h1 class="hero2__title" id="hero-title">
+            <span class="t-line">Eleve o padrão da sua obra,</span>
+            <span class="t-line accent">da estrutura</span>
+            <span class="t-line accent">à cobertura.</span>
+          </h1>
+
+          <p class="hero2__lede">
+            Materiais de construção, aço, drywall e coberturas com corte e dobra e frota
+            própria. Atendimento consultivo para lojas, construtoras, serralherias e indústrias.
+          </p>
+
+          <div class="hero2__cta">
+            <a class="btn-arrow btn-arrow--lg" id="hero-cta" target="_blank" rel="noopener" href="#orcamento">
+              <span class="btn-arrow__label">Solicitar orçamento</span>
+              <span class="btn-arrow__circ" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7v8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </a>
+            <span class="hero2__trust">
+              <span><i aria-hidden="true"></i> Corte e dobra sob projeto</span>
+              <span><i aria-hidden="true"></i> Frota própria</span>
+              <span><i aria-hidden="true"></i> Pronta-entrega</span>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <!-- MARQUEE de marcas no rodapé da 1ª tela -->
+      <section class="bslider">
+        <div class="bslider__cap">
+          <span class="bslider__rule bslider__rule--l" aria-hidden="true"></span>
+          <span>Marcas de <b>confiança e história</b></span>
+          <span class="bslider__rule bslider__rule--r" aria-hidden="true"></span>
+        </div>
+        <div class="marquee">
+          <div class="marquee__track" id="marquee-track"></div>
+        </div>
+      </section>
     </section>
 
     <!-- NÚMEROS -->
-    <section class="stats surface--char">
-      <div class="container stats__grid">
-        <div class="stat"><span class="stat__num display">1987</span><span class="stat__label">ano de fundação</span></div>
-        <div class="stat"><span class="stat__num display" data-count="35" data-suffix="+">0</span><span class="stat__label">anos de mercado</span></div>
-        <div class="stat"><span class="stat__num display" data-count="11">0</span><span class="stat__label">unidades</span></div>
-        <div class="stat"><span class="stat__num display">SP+MT</span><span class="stat__label">estados de atuação</span></div>
-      </div>
-    </section>
+    <section class="medidor surface--char">
+  <div class="container medidor__row">
+    <div class="medidor__item"><span class="num--mass medidor__num">1987</span><span class="medidor__label">fundação</span></div>
+    <div class="medidor__item"><span class="num--mass medidor__num" data-count="35" data-suffix="+">0</span><span class="medidor__label">anos de mercado</span></div>
+    <div class="medidor__item"><span class="num--mass medidor__num" data-count="11">0</span><span class="medidor__label">unidades</span></div>
+    <div class="medidor__item"><span class="num--mass medidor__num">SP+MT</span><span class="medidor__label">atuação</span></div>
+    <div class="medidor__item"><span class="num--mass medidor__num">100%</span><span class="medidor__label">frota própria</span></div>
+  </div>
+</section>
 
     <!-- SOBRE O GRUPO -->
-    <section class="section sobre">
-      <div class="container sobre__grid">
-        <div class="sobre__media" data-reveal>
-          <img src="Imagens/sobre-banner.jpg" alt="Operação do Grupo Vocical" loading="lazy">
-        </div>
-        <div class="sobre__text" data-reveal>
-          <span class="kicker">Quem somos</span>
-          <h2>Mais de três décadas abastecendo a construção e a indústria</h2>
-          <p>O Grupo Vocical distribui produtos e soluções para construção civil e indústrias desde 1987. São 11 unidades em São Paulo e Mato Grosso atendendo diversos estados, com um mix completo de materiais de construção, aço, estruturais, coberturas, drywall e agronegócio.</p>
-          <p>Atendemos lojas de material de construção, construtoras, incorporadoras, serralherias, calheiros, gesseiros e indústrias com foco em disponibilidade, prazo e atendimento consultivo.</p>
-          <a class="btn btn--dark" href="sobre.html">Nossa história</a>
-        </div>
-      </div>
-    </section>
+    <section class="section sobre surface--paper">
+  <div class="container sobre__grid">
+    <div class="sobre__media duotone" data-reveal="left">
+      <img src="Imagens/vocical2.jpg" alt="Operação do Grupo Vocical" loading="lazy">
+    </div>
+    <div class="sobre__text" data-reveal="up">
+      <span class="eyebrow">Quem somos</span>
+      <h2 class="display--mass sobre__title">Três décadas movendo a <span class="accent">construção</span> do interior</h2>
+      <p>O Grupo Vocical distribui produtos e soluções para construção civil e indústrias desde 1987. São 11 unidades em São Paulo e Mato Grosso atendendo diversos estados, com um mix completo de materiais de construção, aço, estruturais, coberturas, drywall e agronegócio.</p>
+      <p>Atendemos lojas de material de construção, construtoras, incorporadoras, serralherias, calheiros, gesseiros e indústrias com foco em disponibilidade, prazo e atendimento consultivo.</p>
+      <a class="btn btn--dark" href="sobre.html">Nossa história</a>
+    </div>
+  </div>
+</section>
 
     <!-- MARCAS -->
-    <section class="section surface--paper marcas" id="marcas">
+    <section class="section surface--dark grain marcas" id="marcas">
       <div class="container">
         <div class="sec-head" data-reveal>
-          <span class="kicker">As marcas do grupo</span>
-          <h2>Seis marcas, onze unidades, um só padrão de atendimento</h2>
+          <span class="eyebrow">As marcas do grupo</span>
+          <h2 class="display--mass">Seis marcas, onze unidades, um só padrão de atendimento</h2>
           <p class="lede">Cada marca atende sua região com o mix que faz a obra andar. Escolha a unidade mais perto de você.</p>
         </div>
-        <div class="grid marcas-grid" id="marcas-grid"></div>
+        <div class="hairline-grid marcas-grid" id="marcas-grid"></div>
       </div>
     </section>
 
@@ -83,11 +173,11 @@
     <section class="section produtos">
       <div class="container">
         <div class="sec-head" data-reveal>
-          <span class="kicker">O que distribuímos</span>
-          <h2>Linha completa para <span class="accent">cada etapa</span> da obra</h2>
+          <span class="eyebrow">O que distribuímos</span>
+          <h2 class="display--mass">Linha completa para <span class="accent">cada etapa</span> da obra</h2>
           <p class="lede">Seis categorias que cobrem da fundação ao acabamento. A disponibilidade pode variar por unidade.</p>
         </div>
-        <div class="grid produtos-grid" id="produtos-grid"></div>
+        <div class="hairline-grid produtos-grid" id="produtos-grid"></div>
         <div class="produtos__cta" data-reveal>
           <a class="btn btn--dark" href="produtos.html">Ver catálogo completo</a>
         </div>
@@ -96,39 +186,36 @@
 
     <!-- SERVIÇOS -->
     <section class="section surface--dark grain servicos">
-      <div class="container">
-        <div class="sec-head" data-reveal>
-          <span class="kicker">Além da distribuição</span>
-          <h2>Serviços que economizam tempo no canteiro</h2>
-        </div>
-        <div class="grid servicos__grid">
-          <article class="servico" data-reveal>
-            <div class="servico__img"><img src="Imagens/corte-e-dobra-vocical.jpg" alt="Corte e dobra de vergalhão e aço" loading="lazy"></div>
-            <h3>Corte e dobra de vergalhão e aço</h3>
-            <p class="muted">Pilares, colunas, telas, sapatas, treliças, vigas e estribos conforme o projeto, prontos para a obra.</p>
-          </article>
-          <article class="servico" data-reveal>
-            <div class="servico__img"><img src="Imagens/serralheria.jpg" alt="Corte e dobra de chapa e telha" loading="lazy"></div>
-            <h3>Corte e dobra de chapa e telha</h3>
-            <p class="muted">Chapas, calhas e telhas onduladas ou trapezoidais cortadas sob medida para cada aplicação.</p>
-          </article>
-          <article class="servico" data-reveal>
-            <div class="servico__img"><img src="Imagens/servicos1.jpg" alt="Logística com frota própria" loading="lazy"></div>
-            <h3>Logística com frota própria</h3>
-            <p class="muted">Entrega com previsibilidade para manter o abastecimento regular do seu canteiro.</p>
-          </article>
-        </div>
-      </div>
-    </section>
+  <div class="container servicos__grid">
+    <div class="servicos__head" data-reveal="left">
+      <span class="eyebrow">Além da distribuição</span>
+      <h2 class="display--mass">Serviços que economizam tempo no <span class="accent">canteiro</span></h2>
+    </div>
+    <div class="servicos__list">
+      <article class="servico" data-reveal="up">
+        <h3>Corte e dobra de vergalhão e aço</h3>
+        <p class="muted">Pilares, colunas, telas, sapatas, treliças, vigas e estribos conforme o projeto, prontos para a obra.</p>
+      </article>
+      <article class="servico" data-reveal="up">
+        <h3>Corte e dobra de chapa e telha</h3>
+        <p class="muted">Chapas, calhas e telhas onduladas ou trapezoidais cortadas sob medida para cada aplicação.</p>
+      </article>
+      <article class="servico" data-reveal="up">
+        <h3>Logística com frota própria</h3>
+        <p class="muted">Entrega com previsibilidade para manter o abastecimento regular do seu canteiro.</p>
+      </article>
+    </div>
+  </div>
+</section>
 
     <!-- PARCEIROS -->
     <section class="section parceiros">
       <div class="container">
-        <div class="sec-head center" data-reveal>
-          <span class="kicker">Marcas que distribuímos</span>
-          <h2>As principais indústrias do setor</h2>
+        <div class="sec-head" data-reveal="up">
+          <span class="eyebrow">Marcas que distribuímos</span>
+          <h2 class="display--mass">As principais indústrias do setor</h2>
         </div>
-        <div class="parceiros-grid" id="parceiros-grid" data-reveal></div>
+        <div class="ticker"><div class="ticker__track" id="parceiros-grid"></div></div>
       </div>
     </section>
 
@@ -136,8 +223,8 @@
     <section class="section surface--paper unidades">
       <div class="container">
         <div class="sec-head" data-reveal>
-          <span class="kicker">Onde estamos</span>
-          <h2>11 unidades em São Paulo e Mato Grosso</h2>
+          <span class="eyebrow">Onde estamos</span>
+          <h2 class="display--mass">11 unidades em São Paulo e Mato Grosso</h2>
           <p class="lede">Encontre a unidade mais próxima e fale direto com o time de vendas.</p>
         </div>
         <div class="unidades-list" id="unidades-list"></div>
@@ -146,9 +233,11 @@
 
     <!-- CONVERSÃO -->
     <section class="section surface--red conversao">
-      <div class="container conversao__inner" data-reveal>
-        <h2 class="conversao__title">Precisa de material para a obra ou um orçamento técnico?</h2>
-        <p class="conversao__sub">Fale com o time do Grupo Vocical e receba atendimento consultivo e resposta ágil.</p>
+      <div class="container conversao__grid" data-reveal="up">
+        <div class="conversao__text">
+          <h2 class="display--mass conversao__title">Precisa de material para a obra ou um orçamento técnico?</h2>
+          <p class="conversao__sub">Fale com o time do Grupo Vocical e receba atendimento consultivo e resposta ágil.</p>
+        </div>
         <a class="btn btn--light btn--lg" id="conv-cta" target="_blank" rel="noopener"><span class="btn__ic" aria-hidden="true">›</span> Fale Conosco</a>
       </div>
     </section>
@@ -159,6 +248,7 @@
 
   <script src="js/config.js"></script>
   <script src="js/layout.js"></script>
+  <script src="js/hero-preview.js"></script>
   <script src="js/home.js"></script>
   <script src="js/main.js"></script>
   <script>

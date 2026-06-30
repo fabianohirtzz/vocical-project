@@ -24,7 +24,7 @@
       entries.forEach(function (en) {
         if (en.isIntersecting) { animateCount(en.target); io.unobserve(en.target); }
       });
-    }, { threshold: .5 });
+    }, { threshold: .15 });
     nums.forEach(function (n) { io.observe(n); });
   });
 })();

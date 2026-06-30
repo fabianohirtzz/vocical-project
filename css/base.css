@@ -31,6 +31,9 @@
   /* Sombras */
   --shadow:    0 18px 50px -20px rgba(13,13,13,.28);
   --shadow-sm: 0 6px 20px -12px rgba(13,13,13,.35);
+
+  /* Motion */
+  --ease-weight: cubic-bezier(.2,.7,.2,1);
 }
 
 /* ---------- Reset ---------- */
@@ -56,6 +59,15 @@ ul { list-style: none; padding: 0; }
 /* ---------- Tipografia ---------- */
 h1, h2, h3, h4 { line-height: 1.05; font-weight: 700; letter-spacing: -.01em; }
 .display { font-family: var(--display); font-weight: 400; letter-spacing: -.02em; line-height: .98; }
+
+/* Tipo como massa — manchetes que sangram, números de instrumento */
+.display--mass {
+  font-family: var(--display); font-weight: 400;
+  line-height: .9; letter-spacing: -.03em;
+  font-size: clamp(2.8rem, 8vw, 7rem);
+  text-transform: none;
+}
+.num--mass { font-family: var(--display); line-height: .85; letter-spacing: -.02em; }
 
 h1, .h1 { font-size: clamp(2.4rem, 6vw, 4.6rem); }
 h2, .h2 { font-size: clamp(1.9rem, 4.2vw, 3.2rem); }
@@ -89,6 +101,42 @@ h3, .h3 { font-size: clamp(1.3rem, 2.4vw, 1.8rem); }
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 .surface--dark > .container, .surface--red > .container, .surface--char > .container { position: relative; z-index: 1; }
+
+/* Foto tratada como bloco duotone charcoal->vermelho + grão. Uso:
+   <div class="duotone"><img src="..." alt="..."></div> */
+.duotone { position: relative; overflow: hidden; background: var(--ink); }
+.duotone > img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  filter: grayscale(1) contrast(1.05) brightness(.82);
+  mix-blend-mode: luminosity;
+}
+.duotone::before {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(150deg, var(--red) 0%, var(--charcoal) 62%, var(--ink) 100%);
+  mix-blend-mode: multiply; opacity: .9;
+}
+.duotone::after {
+  content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none; opacity: .06;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Grade de células soldadas — linguagem de catálogo industrial.
+   Cada célula define seu próprio fundo. */
+.hairline-grid { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.surface--dark .hairline-grid, .surface--char .hairline-grid { background: var(--line-dark); border-color: var(--line-dark); }
+.cell { background: var(--white); transition: background .2s var(--ease-weight); }
+.surface--dark .cell, .surface--char .cell { background: var(--ink); }
+.cell:hover { background: var(--paper); }
+.surface--dark .cell:hover, .surface--char .cell:hover { background: var(--charcoal); }
+
+/* ---------- Eyebrow com régua ---------- */
+.eyebrow {
+  display: inline-flex; align-items: center; gap: .7rem;
+  font-size: .78rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--red);
+}
+.eyebrow::before { content: ""; width: 40px; height: 2px; background: currentColor; }
+.surface--dark .eyebrow, .surface--char .eyebrow { color: #ff5a5a; }
 
 /* ---------- Kicker (régua vermelha + label) ---------- */
 .kicker {
@@ -139,12 +187,22 @@ h3, .h3 { font-size: clamp(1.3rem, 2.4vw, 1.8rem); }
 .card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: #d8d8d8; }
 
 /* ---------- Reveal on scroll ---------- */
-[data-reveal] { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+[data-reveal] { opacity: 0; transition: opacity .7s var(--ease-weight), transform .7s var(--ease-weight); will-change: transform, opacity; }
+[data-reveal="up"], [data-reveal=""], [data-reveal]:not([data-reveal="left"]):not([data-reveal="right"]) { transform: translateY(34px); }
+[data-reveal="left"]  { transform: translateX(-44px); }
+[data-reveal="right"] { transform: translateX(44px); }
 [data-reveal].is-in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto; }
   [data-reveal] { opacity: 1; transform: none; }
 }
+
+/* ---------- Ticker (marquee) ---------- */
+.ticker { overflow: hidden; }
+.ticker__track { display: inline-flex; gap: clamp(2rem,5vw,5rem); align-items: center; white-space: nowrap; animation: ticker-marquee 32s linear infinite; }
+.ticker:hover .ticker__track { animation-play-state: paused; }
+@keyframes ticker-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .ticker__track { animation: none; } }
 
 /* ---------- Visualmente oculto (a11y) ---------- */
 .sr-only {

@@ -109,6 +109,13 @@
     var dnav = document.getElementById('drawer-nav');
     if (dnav) dnav.addEventListener('click', function (e) { if (e.target.tagName === 'A') setDrawer(false); });
 
+    // mede a altura do header p/ a 1ª tela (.hero-screen) caber exata na viewport
+    var nb = document.querySelector('.nb');
+    var setNbH = function () {
+      if (nb) document.documentElement.style.setProperty('--nb-h', nb.offsetHeight + 'px');
+    };
+    setNbH(); window.addEventListener('resize', setNbH);
+
     // sombra/pill ao rolar
     var onScroll = function () { document.body.classList.toggle('is-scrolled', window.scrollY > 8); };
     window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
