@@ -94,16 +94,46 @@
 
   function renderProdutos() {
     var el = document.getElementById('produtos-grid'); if (!el) return;
-    el.innerHTML = (V.CATEGORIAS || []).map(function (c, i) {
-      var num = ('0' + (i + 1)).slice(-2);
-      return '<a class="cell prod-cell" href="produtos.html#' + c.slug + '" data-reveal="up">' +
-        '<div class="prod-cell__media duotone"><img src="' + c.img + '" alt="' + c.nome + '" loading="lazy"></div>' +
-        '<div class="prod-cell__body">' +
-          '<span class="prod-cell__num num--mass">' + num + '</span>' +
-          '<h3 class="prod-cell__name">' + c.nome + '</h3>' +
-          '<p class="prod-cell__desc">' + (c.desc || '') + '</p>' +
-        '</div></a>';
+    var cats = V.CATEGORIAS || [];
+
+    var list = cats.map(function (c, i) {
+      return '<button type="button" class="slide-nav__item' + (i === 0 ? ' is-active' : '') + '" data-i="' + i + '">' +
+        '<span class="slide-nav__bar" aria-hidden="true"></span>' +
+        '<span class="slide-nav__txt">' + c.nome + '</span>' +
+      '</button>';
     }).join('');
+
+    var media = cats.map(function (c, i) {
+      return '<figure class="slide' + (i === 0 ? ' is-active' : '') + '" data-i="' + i + '">' +
+        '<img class="slide__img" src="' + c.img + '" alt="' + c.nome + '" loading="lazy">' +
+        '<span class="slide__scrim" aria-hidden="true"></span>' +
+        '<figcaption class="slide__cap">' +
+          '<span class="slide__desc">' + (c.desc || '') + '</span>' +
+          '<a class="slide__go" href="produtos.html#' + c.slug + '">Ver categoria &rarr;</a>' +
+        '</figcaption>' +
+      '</figure>';
+    }).join('');
+
+    el.innerHTML =
+      '<div class="slide-left"><div class="slide-nav" role="tablist">' + list + '</div></div>' +
+      '<div class="slide-media">' + media + '</div>';
+
+    // move o CTA "Ver catálogo" para o fim da coluna esquerda (alinha ao rodapé da imagem)
+    var cta = document.querySelector('.produtos__cta');
+    if (cta) el.querySelector('.slide-left').appendChild(cta);
+
+    var items = [].slice.call(el.querySelectorAll('.slide-nav__item'));
+    var figs  = [].slice.call(el.querySelectorAll('.slide'));
+    var canHover = window.matchMedia && window.matchMedia('(hover: hover)').matches;
+    function setActive(i) {
+      items.forEach(function (x, ix) { x.classList.toggle('is-active', ix === i); });
+      figs.forEach(function (x, ix) { x.classList.toggle('is-active', ix === i); });
+    }
+    items.forEach(function (it, i) {
+      if (canHover) it.addEventListener('pointerenter', function () { setActive(i); });
+      it.addEventListener('click', function () { setActive(i); });
+      it.addEventListener('focus', function () { setActive(i); });
+    });
   }
 
   function renderParceiros() {
@@ -118,23 +148,9 @@
     el.innerHTML = items + dup;
   }
 
-  function renderUnidades() {
-    var el = document.getElementById('unidades-list'); if (!el) return;
-    var rows = [];
-    (V.MARCAS || []).forEach(function (m) {
-      (m.unidades || []).forEach(function (u) {
-        rows.push('<a class="unidade-row" href="marcas/' + m.slug + '.html" data-reveal="up">' +
-          '<span class="unidade-row__city">' + u.cidade + '<span class="unidade-row__uf">/' + u.uf + '</span></span>' +
-          '<span class="unidade-row__brand">' + m.nome + '</span>' +
-          '<span class="unidade-row__go" aria-hidden="true">&rarr;</span>' +
-          '</a>');
-      });
-    });
-    el.innerHTML = rows.join('');
-  }
-
   document.addEventListener('DOMContentLoaded', function () {
-    renderUnidadesCards(); renderProdutos(); renderParceiros(); renderUnidades();
+    renderUnidadesCards(); renderProdutos(); renderParceiros();
+    // "Onde estamos" agora é o mapa interativo (js/mapa.js)
     // re-observa reveals criados dinamicamente
     if (window.__revealObserve) window.__revealObserve();
   });

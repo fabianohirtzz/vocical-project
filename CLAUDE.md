@@ -67,7 +67,9 @@ vocical-project/
   só têm thumbnail 150px — pedir ao parceiro fotos ≥800px. Cards usam stopgap suave.
 - **Rio Preto Cimento e Cal:** sem JSON de conteúdo — precisa do parceiro p/ a página da marca.
 - Imagens grandes podem ser otimizadas/comprimidas antes do deploy final na erehost.
-- Melhoria: mapa Google das unidades.
+- ✅ Mapa das unidades: seção "Onde estamos" da home é um mapa interativo (Brasil +
+  SP/MT em destaque, pins-logo, zoom por clique, painel de contato). Ver
+  `js/mapa.js` + `js/mapa-geo.js` (gerado) + `tools/gerar-mapa.mjs`.
 
 ## Arquitetura de código (referência rápida)
 - CSS: `base.css` (tokens/reset/componentes) → `site.css` (header/footer/whats) →
@@ -75,7 +77,8 @@ vocical-project/
 - JS: `config.js` (dados: marcas, unidades, categorias, parceiros, CTA_URL) →
   `marcas-data.js` (tagline/sobre/serviços/categorias por marca) →
   `catalogo.js` (catálogo mestre) → `layout.js` (header/footer/whats/reveal) →
-  renderers de página (`home.js`, `produtos.js`, `marca.js`) → `main.js` (count-up).
+  renderers de página (`home.js`, `produtos.js`, `marca.js`) → `mapa.js`
+  (mapa interativo de unidades, lê `mapa-geo.js`) → `main.js` (count-up).
 - Páginas de marca: 1 template (`marca.js`) + 6 HTML enxutos em `/marcas/` com
   `data-marca="<slug>"` e `data-base="../"`. Tudo data-driven.
 

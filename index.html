@@ -74,8 +74,20 @@
       </section>
     </section>
 
-    <!-- SOBRE O GRUPO + NÚMEROS -->
-    <section class="section sobre surface--paper">
+    <!-- UNIDADES DO GRUPO -->
+    <section class="section surface--char grain marcas" id="marcas">
+      <div class="container">
+        <div class="sec-head" data-reveal>
+          <span class="eyebrow">As unidades do grupo</span>
+          <h2 class="display--mass">Seis unidades, um só padrão de atendimento</h2>
+          <p class="lede">Cada unidade atende sua região com o mesmo nível de serviço. Onde a unidade tem mais de uma loja, toque na cidade para ver a fachada e o endereço.</p>
+        </div>
+        <div class="ucards" id="unidades-cards"></div>
+      </div>
+    </section>
+
+    <!-- QUEM SOMOS + NÚMEROS -->
+    <section class="section sobre surface--white">
   <div class="container">
     <div class="sobre__grid">
       <div class="sobre__media" data-reveal="left">
@@ -131,18 +143,6 @@
   </div>
 </section>
 
-    <!-- UNIDADES DO GRUPO -->
-    <section class="section surface--dark grain marcas" id="marcas">
-      <div class="container">
-        <div class="sec-head" data-reveal>
-          <span class="eyebrow">As unidades do grupo</span>
-          <h2 class="display--mass">Seis unidades, um só padrão de atendimento</h2>
-          <p class="lede">Cada unidade atende sua região com o mesmo nível de serviço. Onde a unidade tem mais de uma loja, toque na cidade para ver a fachada e o endereço.</p>
-        </div>
-        <div class="ucards" id="unidades-cards"></div>
-      </div>
-    </section>
-
     <!-- PRODUTOS -->
     <section class="section produtos">
       <div class="container">
@@ -151,57 +151,66 @@
           <h2 class="display--mass">Linha completa para <span class="accent">cada etapa</span> da obra</h2>
           <p class="lede">Seis categorias que cobrem da fundação ao acabamento. A disponibilidade pode variar por unidade.</p>
         </div>
-        <div class="hairline-grid produtos-grid" id="produtos-grid"></div>
-        <div class="produtos__cta" data-reveal>
+        <div class="slideshow" id="produtos-grid" data-reveal="up"></div>
+        <div class="produtos__cta">
           <a class="btn btn--dark" href="produtos.html">Ver catálogo completo</a>
         </div>
       </div>
     </section>
 
     <!-- SERVIÇOS -->
-    <section class="section surface--dark grain servicos">
-  <div class="container servicos__grid">
+    <section class="section surface--red grain servicos">
+  <div class="container">
     <div class="servicos__head" data-reveal="left">
       <span class="eyebrow">Além da distribuição</span>
       <h2 class="display--mass">Serviços que economizam tempo no <span class="accent">canteiro</span></h2>
     </div>
-    <div class="servicos__list">
-      <article class="servico" data-reveal="up">
-        <h3>Corte e dobra de vergalhão e aço</h3>
-        <p class="muted">Pilares, colunas, telas, sapatas, treliças, vigas e estribos conforme o projeto, prontos para a obra.</p>
+    <div class="servicos-cards">
+      <article class="scard" data-reveal="up">
+        <span class="scard__ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v18M12 3v18M17 3v18"/><path d="M4 8l16 5M4 14l16 5"/></svg>
+        </span>
+        <h3 class="scard__title">Corte e dobra de vergalhão e aço</h3>
+        <p class="scard__desc">Pilares, colunas, telas, sapatas, treliças, vigas e estribos conforme o projeto, prontos para a obra.</p>
       </article>
-      <article class="servico" data-reveal="up">
-        <h3>Corte e dobra de chapa e telha</h3>
-        <p class="muted">Chapas, calhas e telhas onduladas ou trapezoidais cortadas sob medida para cada aplicação.</p>
+      <article class="scard" data-reveal="up">
+        <span class="scard__ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 15q2-3 4 0t4 0 4 0 4 0"/><path d="M2 10q2-3 4 0t4 0 4 0 4 0"/></svg>
+        </span>
+        <h3 class="scard__title">Corte e dobra de chapa e telha</h3>
+        <p class="scard__desc">Chapas, calhas e telhas onduladas ou trapezoidais cortadas sob medida para cada aplicação.</p>
       </article>
-      <article class="servico" data-reveal="up">
-        <h3>Logística com frota própria</h3>
-        <p class="muted">Entrega com previsibilidade para manter o abastecimento regular do seu canteiro.</p>
+      <article class="scard" data-reveal="up">
+        <span class="scard__ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
+        </span>
+        <h3 class="scard__title">Logística com frota própria</h3>
+        <p class="scard__desc">Entrega com previsibilidade para manter o abastecimento regular do seu canteiro.</p>
       </article>
     </div>
   </div>
 </section>
 
-    <!-- PARCEIROS -->
-    <section class="section parceiros">
+    <!-- ONDE ESTAMOS — MAPA INTERATIVO -->
+    <section class="section surface--paper mapa-unidades" id="mapa-unidades">
       <div class="container">
-        <div class="sec-head" data-reveal="up">
-          <span class="eyebrow">Marcas que distribuímos</span>
-          <h2 class="display--mass">As principais indústrias do setor</h2>
-        </div>
-        <div class="ticker"><div class="ticker__track" id="parceiros-grid"></div></div>
-      </div>
-    </section>
-
-    <!-- UNIDADES -->
-    <section class="section surface--paper unidades">
-      <div class="container">
-        <div class="sec-head" data-reveal>
+        <div class="sec-head mapa-unidades__head" data-reveal>
           <span class="eyebrow">Onde estamos</span>
-          <h2 class="display--mass">11 unidades em São Paulo e Mato Grosso</h2>
-          <p class="lede">Encontre a unidade mais próxima e fale direto com o time de vendas.</p>
+          <h2 class="display--mass">11 unidades em<br><span class="accent">São&nbsp;Paulo</span> e <span class="accent">Mato&nbsp;Grosso</span></h2>
+          <p class="lede">Clique numa unidade no mapa para ver o contato e falar direto com o time de vendas.</p>
         </div>
-        <div class="unidades-list" id="unidades-list"></div>
+        <div class="mapa__grid">
+          <div class="mapa" id="mapa" data-reveal="left">
+            <div class="mapa__canvas" id="mapa-canvas"></div>
+            <button class="mapa__reset" id="mapa-reset" type="button" hidden>
+              <span aria-hidden="true">&larr;</span> Ver todas
+            </button>
+            <p class="mapa__hint" id="mapa-hint">Arraste e dê zoom · clique numa unidade</p>
+          </div>
+          <aside class="mapa__side" data-reveal="right">
+            <div class="mapa__info" id="mapa-info" aria-live="polite"></div>
+          </aside>
+        </div>
       </div>
     </section>
 
@@ -222,9 +231,11 @@
 
   <script src="js/config.js"></script>
   <script src="js/marcas-data.js"></script>
+  <script src="js/mapa-geo.js"></script>
   <script src="js/layout.js"></script>
   <script src="js/hero-preview.js"></script>
   <script src="js/home.js"></script>
+  <script src="js/mapa.js"></script>
   <script src="js/main.js"></script>
   <script>
     // CTA centralizado (config.js): aplica o destino aos botões da página

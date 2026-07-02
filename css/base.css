@@ -78,6 +78,8 @@ h3, .h3 { font-size: clamp(1.3rem, 2.4vw, 1.8rem); }
 .accent { color: var(--red); }
 /* sobre superfícies escuras, vermelho mais claro garante contraste AA */
 .surface--dark .accent, .surface--char .accent { color: #ff5a5a; }
+/* sobre vermelho, o acento vira quase-preto (nunca vermelho sobre vermelho) */
+.surface--red .accent { color: var(--ink); }
 
 /* ---------- Layout ---------- */
 .container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
@@ -91,7 +93,7 @@ h3, .h3 { font-size: clamp(1.3rem, 2.4vw, 1.8rem); }
 .surface--paper { background: var(--paper); color: var(--charcoal); }
 .surface--white { background: var(--white); color: var(--charcoal); }
 .surface--dark  { background: var(--ink);  color: var(--white); position: relative; }
-.surface--char  { background: var(--charcoal); color: var(--white); }
+.surface--char  { background: var(--charcoal); color: var(--white); position: relative; }
 .surface--red   { background: var(--red);  color: var(--white); }
 .surface--dark .muted, .surface--char .muted, .surface--red .muted { color: rgba(255,255,255,.7); }
 
@@ -137,6 +139,7 @@ h3, .h3 { font-size: clamp(1.3rem, 2.4vw, 1.8rem); }
 }
 .eyebrow::before { content: ""; width: 40px; height: 2px; background: currentColor; }
 .surface--dark .eyebrow, .surface--char .eyebrow { color: #ff5a5a; }
+.surface--red .eyebrow { color: #fff; }
 
 /* ---------- Kicker (régua vermelha + label) ---------- */
 .kicker {
