@@ -2,6 +2,9 @@
    Trocar CTA_URL aqui quando o widget definitivo entrar (um só ponto). */
 window.VOCICAL = {
   CTA_URL: 'https://grupovocical.com.br/produtos/?utm_content=meutrack_533fa7c4ec8b',
+  /* Endpoint do formulário Trabalhe Conosco (handler PHP na erehost).
+     Ponto único de troca; o roteamento por unidade vive no PHP, não aqui. */
+  FORM_ENDPOINT: 'enviar-trabalhe-conosco.php',
   WHATSAPP: 'https://wa.me/5566999393953',
   WHATSAPP_LABEL: '(66) 99939-3953',
   EMAIL: 'contato@grupovocical.com.br',
@@ -53,8 +56,10 @@ window.VOCICAL = {
       capaFoto: 'Imagens/back3.jpg',
       fachada: 'Imagens/back3.jpg',
       pendenteConteudo: true,
+      // Contato direto: RP tem canal próprio, todos os botões vão para a LP deles.
+      siteExterno: 'https://rpcimentoecal.com.br/lp/',
       unidades: [
-        { cidade: 'São José do Rio Preto', uf: 'SP', key: 'rio-preto', pendente: true, logoPin: 'Imagens/Logos Unidades/Rio Preto Cimento e Cal/logo-rio-preto---transparente.png', endereco: '', telefone: '', email: '', fachada: 'Imagens/back3.jpg' }
+        { cidade: 'São José do Rio Preto', uf: 'SP', key: 'rio-preto', pendente: true, siteExterno: 'https://rpcimentoecal.com.br/lp/', logoPin: 'Imagens/Logos Unidades/Rio Preto Cimento e Cal/logo-rio-preto---transparente.png', endereco: '', telefone: '', email: '', fachada: 'Imagens/back3.jpg' }
       ]
     },
     {
@@ -99,7 +104,7 @@ window.VOCICAL = {
     { nome: 'Jacical',                    cidade: 'Jales/SP',                 slug: 'jacical',        logo: 'Imagens/Logos Unidades/Jacical/Logo-Jacical---Transparente.png' },
     { nome: 'Ello Forte',                 cidade: 'Ribeirão Preto/SP',        slug: 'ello-forte',     logo: 'Imagens/Logos Unidades/Ello Forte Ribeirao Preto/ello-forte-RP---transparente.png' },
     { nome: 'Ello Forte',                 cidade: 'São Carlos/SP',            slug: 'ello-forte',     logo: 'Imagens/Logos Unidades/Ello Forte Sao Carlos/ello-forte---fundo-transparente.png' },
-    { nome: 'Rio Preto Cimento e Cal',    cidade: 'São José do Rio Preto/SP', slug: 'rp-cimento-cal', logo: 'Imagens/Logos Unidades/Rio Preto Cimento e Cal/logo-rio-preto---transparente.png' },
+    { nome: 'Rio Preto Cimento e Cal',    cidade: 'São José do Rio Preto/SP', slug: 'rp-cimento-cal', siteExterno: 'https://rpcimentoecal.com.br/lp/', logo: 'Imagens/Logos Unidades/Rio Preto Cimento e Cal/logo-rio-preto---transparente.png' },
     { nome: 'Robracon',                   cidade: 'Cuiabá/MT',                slug: 'robracon',       logo: 'Imagens/Logos Unidades/Robracon/ROBRACON---COLORIDO.png' },
     { nome: 'Robracon',                   cidade: 'Rondonópolis/MT',          slug: 'robracon',       logo: 'Imagens/Logos Unidades/Robracon/ROBRACON---COLORIDO.png' },
     { nome: 'Robracon',                   cidade: 'Sinop/MT',                 slug: 'robracon',       logo: 'Imagens/Logos Unidades/Robracon/ROBRACON---COLORIDO.png' },

@@ -47,6 +47,12 @@ vocical-project/
 - E-mail: contato@grupovocical.com.br
 - Redes: Instagram @grupo.vocical · Facebook /grupovocical · LinkedIn /company/grupo-vocical
 - Analytics/Search Console: configurar no pós-lançamento.
+- **Formulário Trabalhe Conosco:** `trabalhe-conosco.html` posta (fetch multipart)
+  para `enviar-trabalhe-conosco.php` — handler PHP standalone na erehost que roteia
+  o e-mail por unidade selecionada (mapa chave→e-mail no PHP, BCC RH central) e anexa
+  o CV. Endpoint centralizado em `config.js` (`FORM_ENDPOINT`). O select de unidades
+  é gerado do `config.js` (10 unidades, exclui Rio Preto). **Envio de e-mail só roda
+  na erehost (PHP), não no preview do GitHub Pages.**
 
 ## Regras do projeto
 - Idioma: português (BR).
@@ -84,7 +90,10 @@ vocical-project/
 
 ## Estado atual
 **Passo 4 de 7 — Build incremental** (cronologia freela-method).
-✅ TODAS as páginas construídas e publicadas: home, produtos, 6 marcas, sobre, contato.
+✅ TODAS as páginas construídas e publicadas: home, produtos, 6 marcas, sobre, contato,
+   trabalhe-conosco.
    Preview: https://fabianohirtzz.github.io/vocical-project/
    Home: QA aprovado. Demais páginas: verificadas (0 erros console, sem img quebrada).
+   Trabalhe Conosco: verificada (0 erros console, select 10 unidades, validação e
+   footer OK); envio real de e-mail depende do PHP na erehost (testar no deploy).
 Próximo: revisão do parceiro (ajustes em partes), depois QA final → deploy erehost.

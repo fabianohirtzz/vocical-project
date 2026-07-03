@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-base="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Trabalhe Conosco — Grupo Vocical | Faça parte de quem constrói confiança</title>
+  <meta name="description" content="Envie seu currículo para o Grupo Vocical. 11 unidades em São Paulo e Mato Grosso. Escolha a unidade e a área de interesse e cadastre-se no banco de talentos.">
+  <link rel="canonical" href="https://grupovocical.com.br/trabalhe-conosco/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Trabalhe Conosco — Grupo Vocical">
+  <meta property="og:description" content="Faça parte de quem constrói confiança. Envie seu currículo para a unidade mais perto de você.">
+  <meta property="og:url" content="https://grupovocical.com.br/trabalhe-conosco/">
+  <meta property="og:image" content="https://grupovocical.com.br/Imagens/trabalhe-conosco2.jpg">
+  <meta name="theme-color" content="#a60303">
+  <link rel="icon" type="image/png" href="Imagens/logo-mobile.png">
+  <noscript><style>[data-reveal]{opacity:1 !important;transform:none !important}</style></noscript>
+  <link rel="preload" href="fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/archivoblack-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main id="conteudo">
+    <!-- HERO -->
+    <section class="page-hero surface--dark grain">
+      <div class="page-hero__bg"><img src="Imagens/trabalhe-conosco2.jpg" alt="" aria-hidden="true"></div>
+      <div class="container page-hero__inner">
+        <span class="kicker">Trabalhe Conosco</span>
+        <h1 class="display page-hero__title">Faça parte de quem <span class="accent">constrói confiança</span></h1>
+        <p class="lede page-hero__lede">Um grupo com 11 unidades em São Paulo e Mato Grosso, movido por solidez, eficiência e comprometimento. Envie seu currículo e cadastre-se no nosso banco de talentos.</p>
+      </div>
+    </section>
+
+    <!-- INTRO + FORMULÁRIO -->
+    <section class="section">
+      <div class="container tc-grid">
+        <!-- Intro / contexto -->
+        <div class="tc-intro" data-reveal="left">
+          <span class="kicker">Onde você faz a diferença</span>
+          <h2 class="display--mass">Oportunidades que variam por <span class="accent">unidade</span></h2>
+          <p class="tc-intro__lede">As vagas mudam conforme a operação de cada unidade. Preencha o formulário com atenção, escolhendo a unidade e a área de interesse, para que sua candidatura chegue direto a quem cuida do processo seletivo.</p>
+          <ul class="tc-facts">
+            <li><span class="tc-facts__num num--mass">11</span><span class="tc-facts__label">unidades em SP e MT</span></li>
+            <li><span class="tc-facts__num num--mass">1987</span><span class="tc-facts__label">grupo desde</span></li>
+          </ul>
+          <p class="tc-intro__note muted">Ficou com alguma dúvida? Fale com a gente pelos canais em <a href="contato.html">Contato</a>.</p>
+        </div>
+
+        <!-- Formulário -->
+        <div class="tc-form-wrap" data-reveal="right">
+          <div class="tc-form-card">
+            <h3 class="tc-form-card__title">Envie seu currículo</h3>
+            <p class="tc-form-card__sub muted">Campos com <span class="tc-req">*</span> são obrigatórios.</p>
+
+            <form id="tc-form" class="tc-form" novalidate
+                  enctype="multipart/form-data" method="post" action="enviar-trabalhe-conosco.php">
+              <!-- honeypot anti-spam (invisível, não preencher) -->
+              <input class="tc-hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+              <div class="tc-field">
+                <label for="tc-nome">Nome <span class="tc-req">*</span></label>
+                <input type="text" id="tc-nome" name="nome" autocomplete="name" required>
+              </div>
+
+              <div class="tc-row">
+                <div class="tc-field">
+                  <label for="tc-email">E-mail <span class="tc-req">*</span></label>
+                  <input type="email" id="tc-email" name="email" autocomplete="email" required>
+                </div>
+                <div class="tc-field">
+                  <label for="tc-whatsapp">WhatsApp <span class="tc-req">*</span></label>
+                  <input type="tel" id="tc-whatsapp" name="whatsapp" autocomplete="tel" inputmode="tel" required>
+                </div>
+              </div>
+
+              <div class="tc-row">
+                <div class="tc-field">
+                  <label for="tc-unidade">Unidade <span class="tc-req">*</span></label>
+                  <select id="tc-unidade" name="unidade" required>
+                    <option value="" disabled selected>Selecione a unidade</option>
+                  </select>
+                </div>
+                <div class="tc-field">
+                  <label for="tc-cargo">Cargo de interesse <span class="tc-req">*</span></label>
+                  <select id="tc-cargo" name="cargo" required>
+                    <option value="" disabled selected>Selecione a área</option>
+                    <option value="Administrativo">Administrativo</option>
+                    <option value="Financeiro">Financeiro</option>
+                    <option value="Comercial">Comercial</option>
+                    <option value="Produção">Produção</option>
+                    <option value="Logística">Logística</option>
+                    <option value="Expedição">Expedição</option>
+                    <option value="Contabilidade">Contabilidade</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="tc-field">
+                <label for="tc-comentario">Comentário</label>
+                <textarea id="tc-comentario" name="comentario" rows="4" placeholder="Gostaria de adicionar algum comentário? Digite aqui..."></textarea>
+              </div>
+
+              <div class="tc-field">
+                <label for="tc-curriculo">Anexe seu currículo <span class="tc-req">*</span></label>
+                <input type="file" id="tc-curriculo" name="curriculo" accept=".pdf,.doc,.docx" required>
+                <span class="tc-hint">PDF, DOC ou DOCX. Máximo 5 MB.</span>
+              </div>
+
+              <button type="submit" class="btn btn--cta btn--lg tc-submit">
+                <span class="btn__ic" aria-hidden="true">›</span> Enviar candidatura
+              </button>
+
+              <p id="tc-status" class="tc-status" role="status" aria-live="polite" hidden></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/trabalhe-conosco.js"></script>
+</body>
+</html>

@@ -55,7 +55,9 @@
               '<span class="ucard__logo">' + (logo ? '<img src="' + logo + '" alt="" loading="lazy">' : '') + '</span>' +
               '<span class="ucard__bname">' + esc(m.nome) + '</span>' +
             '</span>' +
-            '<a class="ucard__cta" href="marcas/' + esc(m.slug) + '.html">Ver unidade</a>' +
+            (m.siteExterno
+              ? '<a class="ucard__cta" href="' + esc(m.siteExterno) + '" target="_blank" rel="noopener">Acessar site</a>'
+              : '<a class="ucard__cta" href="marcas/' + esc(m.slug) + '.html">Ver unidade</a>') +
           '</div>' +
         '</div>' +
       '</article>';

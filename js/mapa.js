@@ -33,7 +33,8 @@
         key: u.key, x: g.x, y: g.y,
         nome: u.nomeExib || m.nome, marca: m.nome, slug: m.slug, uf: u.uf || m.uf,
         cidade: u.cidade, endereco: u.endereco, telefone: u.telefone, email: u.email,
-        logoPin: u.logoPin || m.logo, matriz: !!u.matriz, pendente: !!u.pendente
+        logoPin: u.logoPin || m.logo, matriz: !!u.matriz, pendente: !!u.pendente,
+        siteExterno: u.siteExterno || m.siteExterno
       });
     });
   });
@@ -95,7 +96,10 @@
   function fillInfo(u) {
     info.classList.add('is-active');
     var rows = '';
-    if (u.pendente) {
+    if (u.siteExterno) {
+      rows = '<p class="mapa__info-soon">Esta unidade tem atendimento direto. ' +
+        'Fale com a equipe pela página oficial.</p>';
+    } else if (u.pendente) {
       rows = '<p class="mapa__info-soon">Unidade em implantação. Contato em breve — ' +
         'fale com a central de vendas do grupo.</p>';
     } else {
@@ -105,8 +109,14 @@
       if (u.email) rows += row('E-mail',
         '<a href="mailto:' + esc(u.email) + '">' + esc(u.email) + '</a>');
     }
-    var verMarca = '<a class="btn btn--ghost" href="marcas/' + esc(u.slug) + '.html">Ver ' + esc(u.marca) + '</a>';
-    var falar = '<a class="btn btn--cta" href="' + esc(CTA) + '" target="_blank" rel="noopener">Falar com vendas</a>';
+    var verMarca, falar;
+    if (u.siteExterno) {
+      verMarca = '';
+      falar = '<a class="btn btn--cta" href="' + esc(u.siteExterno) + '" target="_blank" rel="noopener">Acessar site</a>';
+    } else {
+      verMarca = '<a class="btn btn--ghost" href="marcas/' + esc(u.slug) + '.html">Ver ' + esc(u.marca) + '</a>';
+      falar = '<a class="btn btn--cta" href="' + esc(CTA) + '" target="_blank" rel="noopener">Falar com vendas</a>';
+    }
 
     info.innerHTML =
       '<div class="mapa__info-head">' +
