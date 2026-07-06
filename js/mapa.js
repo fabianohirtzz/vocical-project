@@ -39,8 +39,12 @@
     });
   });
 
-  /* distância (unid. SVG) até o vizinho mais próximo — governa o tamanho do
-     pin para nunca sobrepor o vizinho: pin_i = min(FATOR * nn_i * escala, teto). */
+  /* raio de cada pin (unid. SVG). Base = metade da distância ao vizinho mais
+     próximo (garante que ninguém sobreponha ninguém). Depois cada pin "cresce"
+     para dentro do espaço que os vizinhos menores deixam livre — só cresce,
+     nunca encolhe, então nenhum fica menor que a base e unidades agrupadas
+     (ex.: SP) aproveitam o máximo de tamanho possível sem sobrepor. */
+  var RCAP = 46; // teto de raio em unid. SVG (pin isolado, ex.: Sinop)
   units.forEach(function (u, i) {
     var best = Infinity;
     units.forEach(function (v, j) {
@@ -48,8 +52,19 @@
       var d = Math.hypot(u.x - v.x, u.y - v.y);
       if (d < best) best = d;
     });
-    u.nn = isFinite(best) ? best : 9999;
+    u.rSvg = Math.min(isFinite(best) ? best / 2 : RCAP, RCAP);
   });
+  for (var pass = 0; pass < 80; pass++) {
+    for (var a = 0; a < units.length; a++) {
+      var lim = RCAP;
+      for (var b = 0; b < units.length; b++) {
+        if (a === b) continue;
+        var dd = Math.hypot(units[a].x - units[b].x, units[a].y - units[b].y);
+        if (dd - units[b].rSvg < lim) lim = dd - units[b].rSvg;
+      }
+      if (lim > units[a].rSvg) units[a].rSvg = lim; // só cresce
+    }
+  }
 
   /* enquadramento inicial: foco em MT+SP (onde estão as unidades), com o
      Brasil só de contexto ao redor. Centro do aglomerado de cidades
@@ -59,9 +74,9 @@
 
   /* dimensionamento dos pins (px de tela) */
   var PIN_BASE = 40;   // deve casar com o width base de .mapa__pin-dot
-  var PIN_FACTOR = 0.9; // <=1 garante que dois vizinhos não se sobreponham
+  var PIN_GAP = 0.94;  // <1: folga entre vizinhos que se tocam (respiro visual)
   var PIN_MIN = 17;    // menor tamanho visível (visão nacional)
-  var PIN_MAX = 52;    // maior tamanho legível (zoom próximo)
+  var PIN_MAX = 54;    // maior tamanho legível (zoom próximo)
 
   /* --- SVG dos estados + pins --------------------------------------------- */
   canvas.style.width = CW + 'px';
@@ -163,7 +178,7 @@
     // cresce ao aproximar, encolhe ao afastar e não sobrepõe o vizinho.
     // Logos são 1080px nativos: ampliar não pixeliza.
     for (var i = 0; i < pins.length; i++) {
-      var diam = clamp(PIN_FACTOR * units[i].nn * t.s, PIN_MIN, PIN_MAX);
+      var diam = clamp(2 * units[i].rSvg * PIN_GAP * t.s, PIN_MIN, PIN_MAX);
       pins[i].style.setProperty('--inv', diam / (PIN_BASE * t.s));
     }
   }
