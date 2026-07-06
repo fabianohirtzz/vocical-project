@@ -264,6 +264,18 @@
 .parceiro:hover img { filter: none; opacity: 1; }
 
 /* ---------------- ONDE ESTAMOS — MAPA ---------------- */
+/* malha de fundo (mesma da hero/produtos), fade suave no topo e rodapé */
+.mapa-unidades { position: relative; overflow: hidden; }
+.mapa-unidades::before {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(13,13,13,.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(13,13,13,.06) 1px, transparent 1px);
+  background-size: 46px 46px;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 88%, transparent 100%);
+          mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 88%, transparent 100%);
+}
+.mapa-unidades > .container { position: relative; z-index: 1; }
 .mapa-unidades__head { margin-bottom: clamp(1.8rem, 3.5vw, 2.8rem); }
 .mapa__grid { display: grid; grid-template-columns: 1.55fr .9fr; gap: clamp(1.4rem, 3vw, 2.6rem); align-items: stretch; }
 
