@@ -57,6 +57,12 @@
 @media (max-width: 460px) { .sobre__stats { grid-template-columns: 1fr; } }
 
 /* ---------------- UNIDADES (cutout cards: 6 cards, foto + badges recortados) ---------------- */
+/* Cabecalho da secao: lede legivel (branco) sobre charcoal, em 2 linhas, e eyebrow no vermelho oficial da marca */
+#marcas .sec-head { max-width: 920px; }
+#marcas .sec-head h2 { max-width: 18ch; }
+#marcas .sec-head .lede { color: var(--paper); max-width: none; }
+#marcas .eyebrow { color: var(--red); }
+
 .ucards {
   display: grid; grid-template-columns: repeat(3, 1fr);
   gap: clamp(1.1rem, 2.4vw, 1.9rem);
