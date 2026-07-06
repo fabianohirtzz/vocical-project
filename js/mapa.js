@@ -51,8 +51,10 @@
     u.nn = isFinite(best) ? best : 9999;
   });
 
-  /* enquadramento inicial: Brasil (contexto), levemente puxado p/ SP+MT */
-  var HOME = { x: CW * 0.5, y: CH * 0.54, w: CW * 0.94 };
+  /* enquadramento inicial: foco em MT+SP (onde estão as unidades), com o
+     Brasil só de contexto ao redor. Centro do aglomerado de cidades
+     (x ~434-635, y ~430-708) e largura reduzida p/ os pins ficarem maiores. */
+  var HOME = { x: CW * 0.53, y: CH * 0.58, w: CW * 0.47 };
   var ZOOM_W = 190; // largura (unid. SVG) ao focar uma cidade
 
   /* dimensionamento dos pins (px de tela) */
