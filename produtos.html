@@ -25,12 +25,22 @@
   <header id="site-header"></header>
 
   <main id="conteudo">
-    <!-- HERO -->
-    <section class="page-hero surface--dark grain">
-      <div class="page-hero__bg"><img src="Imagens/produtos-banner.jpg" alt="" aria-hidden="true"></div>
+    <!-- HERO EM VÍDEO + CONTAINER-TEXT-FLIP -->
+    <section class="page-hero page-hero--video surface--dark grain">
+      <div class="page-hero__bg page-hero__bg--video">
+        <video autoplay muted loop playsinline poster="Imagens/produtos-banner.jpg">
+          <source src="videos/video-produtos.mp4" type="video/mp4">
+        </video>
+      </div>
       <div class="container page-hero__inner">
         <span class="kicker">Catálogo</span>
-        <h1 class="display page-hero__title">Linha completa para <span class="accent">cada etapa</span> da obra</h1>
+        <h1 class="display page-hero__title flip-hero">
+          <span class="flip-hero__fixed">Tudo para cada etapa da obra:</span>
+          <span class="ctf" data-flip
+                data-words='["da fundação,","a laje,","do acabamento,","a cobertura."]'>
+            <span class="ctf__inner"></span>
+          </span>
+        </h1>
         <p class="lede page-hero__lede">Seis categorias que cobrem da fundação ao acabamento, mais serviços de corte e dobra sob medida. A disponibilidade pode variar por unidade.</p>
       </div>
     </section>
@@ -54,7 +64,7 @@
         </div>
         <div class="grid servicos__grid">
           <article class="servico" data-reveal>
-            <div class="servico__img"><img src="Imagens/corte-e-dobra-vocical.jpg" alt="Corte e dobra de vergalhão e aço armado" loading="lazy"></div>
+            <div class="servico__img"><img src="Imagens/corte-e-dobra-vocical.png" alt="Corte e dobra de vergalhão e aço armado" loading="lazy"></div>
             <h3>Corte e dobra de vergalhão e aço</h3>
             <p class="muted">Pilares, colunas, telas, sapatas, treliças, vigas e estribos conforme o projeto.</p>
           </article>
@@ -88,6 +98,7 @@
   <script src="js/catalogo.js"></script>
   <script src="js/layout.js"></script>
   <script src="js/produtos.js"></script>
+  <script src="js/produtos-hero.js"></script>
   <script src="js/main.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
