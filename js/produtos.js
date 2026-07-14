@@ -13,9 +13,15 @@
     var el = document.getElementById('cat-list'); if (!el) return;
     el.innerHTML = C.map(function (c) {
       var itens = c.itens.map(function (it) {
+        var media = it.img
+          ? '<div class="prod-item__img"><img src="' + it.img + '" alt="' + it.nome + '" loading="lazy"></div>'
+          : '';
         return '<div class="prod-item" data-reveal>' +
-          '<h3 class="prod-item__name">' + it.nome + '</h3>' +
-          '<p class="prod-item__desc">' + it.desc + '</p>' +
+          '<div class="prod-item__txt">' +
+            '<h3 class="prod-item__name">' + it.nome + '</h3>' +
+            '<p class="prod-item__desc">' + it.desc + '</p>' +
+          '</div>' +
+          media +
         '</div>';
       }).join('');
       return '<section class="cat-block" id="' + c.slug + '">' +
