@@ -25,30 +25,32 @@
   <header id="site-header"></header>
 
   <main id="conteudo">
-    <!-- HERO -->
-    <section class="page-hero surface--dark grain">
-      <div class="page-hero__bg"><img src="Imagens/sobre-banner.jpg" alt="" aria-hidden="true"></div>
-      <div class="container page-hero__inner">
-        <span class="kicker">Nossa história</span>
-        <h1 class="display page-hero__title">Mais de 35 anos <span class="accent">construindo</span> junto com você</h1>
-        <p class="lede page-hero__lede">Desde 1987, o Grupo Vocical distribui produtos e soluções para construção civil e indústrias, operando por 11 unidades em São Paulo e Mato Grosso.</p>
+    <!-- HERO — Nossa história (vídeo de fundo, 100vh, números dentro) -->
+    <section class="hist-hero hist-hero--video surface--dark grain">
+      <div class="hist-hero__bg" aria-hidden="true">
+        <video autoplay muted loop playsinline poster="Imagens/sobre-banner.jpg">
+          <source src="videos/video-sobre.mp4" type="video/mp4">
+        </video>
       </div>
-    </section>
-
-    <!-- NÚMEROS -->
-    <section class="stats surface--char">
-      <div class="container stats__grid">
-        <div class="stat"><span class="stat__num display">1987</span><span class="stat__label">ano de fundação</span></div>
-        <div class="stat"><span class="stat__num display" data-count="35" data-suffix="+">0</span><span class="stat__label">anos de mercado</span></div>
-        <div class="stat"><span class="stat__num display" data-count="11">0</span><span class="stat__label">unidades</span></div>
-        <div class="stat"><span class="stat__num display">SP+MT</span><span class="stat__label">estados de atuação</span></div>
+      <div class="container hist-hero__grid">
+        <div class="hist-hero__text" data-reveal>
+          <span class="kicker">Nossa história</span>
+          <h1 class="display hist-hero__title" data-blur-text>Mais de 35 anos<br><span class="accent">construindo</span> junto com você</h1>
+          <p class="lede hist-hero__lede" data-blur-text>Desde 1987, o Grupo Vocical distribui produtos e soluções para construção civil e indústrias, operando por 11 unidades em São Paulo e Mato Grosso.</p>
+          <div class="hist-hero__stats">
+            <div class="hstat"><span class="hstat__num display">1987</span><span class="hstat__label">fundação</span></div>
+            <div class="hstat"><span class="hstat__num display" data-count="35" data-suffix="+">0</span><span class="hstat__label">anos de mercado</span></div>
+            <div class="hstat"><span class="hstat__num display" data-count="11">0</span><span class="hstat__label">unidades</span></div>
+            <div class="hstat"><span class="hstat__num display">SP+MT</span><span class="hstat__label">estados</span></div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- HISTÓRIA -->
-    <section class="section sobre">
+    <section class="section sobre surface--red">
       <div class="container sobre__grid">
-        <div class="sobre__media" data-reveal><img src="Imagens/foto-antiga.jpg" alt="Início da operação do Grupo Vocical" loading="lazy"></div>
+        <div class="sobre__media" data-reveal><img src="Imagens/fotos-antigas/foto-antiga.jpg" alt="Início da operação do Grupo Vocical" loading="lazy"></div>
         <div class="sobre__text" data-reveal>
           <span class="kicker">De onde viemos</span>
           <h2>Tradição que começou em Votuporanga</h2>
@@ -58,39 +60,302 @@
       </div>
     </section>
 
+    <!-- TIMELINE (Nossa trajetória) -->
+    <section class="section timeline surface--white">
+      <div class="container">
+        <div class="sec-head" data-reveal>
+          <span class="kicker">Nossa trajetória</span>
+          <h2>Cada unidade, um <span class="accent">marco</span></h2>
+          <p class="lede">De uma distribuidora de cimento e cal em Votuporanga a um grupo de 11 unidades. Veja como a rede cresceu, ano a ano.</p>
+        </div>
+
+        <div class="tl">
+          <div class="tl__spine" aria-hidden="true"><span class="tl__beam"></span></div>
+
+          <div class="tl__row">
+            <div class="tl__left"><span class="tl__node" aria-hidden="true"></span><span class="tl__year display">1987</span></div>
+            <div class="tl__content" data-reveal="right">
+              <span class="tl__place">Votuporanga · SP</span>
+              <h3 class="tl__title">Nasce a matriz, em Votuporanga</h3>
+              <p class="tl__desc">A história começa como Vocical Distribuidora Votuporanga de Cimento e Cal, com a proposta de entregar o básico da obra com excelência.</p>
+              <div class="tl__logos"><span class="tl__logo"><img src="Imagens/Logos Unidades/Vocical/logo-vocical---transparente.png" alt="Vocical" loading="lazy"></span></div>
+            </div>
+          </div>
+
+          <div class="tl__row">
+            <div class="tl__left"><span class="tl__node" aria-hidden="true"></span><span class="tl__year display">1989</span></div>
+            <div class="tl__content" data-reveal="right">
+              <span class="tl__place">Jales · SP</span>
+              <h3 class="tl__title">Primeira expansão, para Jales</h3>
+              <p class="tl__desc">A Jacical nasce como distribuidora forte em cimento, telhas e aço, ampliando o alcance no noroeste paulista.</p>
+              <div class="tl__logos"><span class="tl__logo"><img src="Imagens/Logos Unidades/Jacical/Logo-Jacical---Transparente.png" alt="Jacical" loading="lazy"></span></div>
+            </div>
+          </div>
+
+          <div class="tl__row">
+            <div class="tl__left"><span class="tl__node" aria-hidden="true"></span><span class="tl__year display">1991</span></div>
+            <div class="tl__content" data-reveal="right">
+              <span class="tl__place">São José do Rio Preto · SP</span>
+              <h3 class="tl__title">Chegada a Rio Preto</h3>
+              <p class="tl__desc">A Rio Preto Cimento e Cal reforça a presença no noroeste de São Paulo, com foco nos essenciais da obra.</p>
+              <div class="tl__logos"><span class="tl__logo"><img src="Imagens/Logos Unidades/Rio Preto Cimento e Cal/logo-rio-preto---transparente.png" alt="Rio Preto Cimento e Cal" loading="lazy"></span></div>
+            </div>
+          </div>
+
+          <div class="tl__row">
+            <div class="tl__left"><span class="tl__node" aria-hidden="true"></span><span class="tl__year display">2005</span></div>
+            <div class="tl__content" data-reveal="right">
+              <span class="tl__place">Rondonópolis · MT</span>
+              <h3 class="tl__title">Entrada em Mato Grosso</h3>
+              <p class="tl__desc">A Robracon leva aço, chapas e, hoje, drywall sob medida para Rondonópolis, primeira operação do grupo fora de São Paulo.</p>
+              <div class="tl__logos"><span class="tl__logo"><img src="Imagens/Logos Unidades/Robracon/ROBRACON---COLORIDO.png" alt="Robracon" loading="lazy"></span></div>
+            </div>
+          </div>
+
+          <div class="tl__row">
+            <div class="tl__left"><span class="tl__node" aria-hidden="true"></span><span class="tl__year display">2009</span></div>
+            <div class="tl__content" data-reveal="right">
+              <span class="tl__place">Ribeirão Preto · SP</span>
+              <h3 class="tl__title">Reforço no interior paulista</h3>
+              <p class="tl__desc">A Ello Forte chega a Ribeirão Preto com cimento, vergalhão e serralheria para o eixo de obras da região.</p>
+              <div class="tl__logos"><span class="tl__logo"><img src="Imagens/Logos Unidades/Ello Forte Ribeirao Preto/ello-forte-RP---transparente.png" alt="Ello Forte Ribeirão Preto" loading="lazy"></span></div>
+            </div>
+          </div>
+
+          <div class="tl__row">
+            <div class="tl__left"><span class="tl__node" aria-hidden="true"></span><span class="tl__year display">2012</span></div>
+            <div class="tl__content" data-reveal="right">
+              <span class="tl__place">São Carlos · SP</span>
+              <h3 class="tl__title">Nova base em São Carlos</h3>
+              <p class="tl__desc">A Ello Forte São Carlos amplia o atendimento com itens estruturais e de giro para o interior de São Paulo.</p>
+              <div class="tl__logos"><span class="tl__logo"><img src="Imagens/Logos Unidades/Ello Forte Sao Carlos/ello-forte---fundo-transparente.png" alt="Ello Forte São Carlos" loading="lazy"></span></div>
+            </div>
+          </div>
+
+          <div class="tl__row">
+            <div class="tl__left"><span class="tl__node" aria-hidden="true"></span><span class="tl__year display">2016</span></div>
+            <div class="tl__content" data-reveal="right">
+              <span class="tl__place">Piracicaba, Itu e Itapetininga · SP</span>
+              <h3 class="tl__title">Três distribuidoras de uma vez</h3>
+              <p class="tl__desc">Piracicaba, Itu e Itapetininga ganham distribuidoras focadas em agilidade e reposição de produtos de giro.</p>
+              <div class="tl__logos">
+                <span class="tl__logo"><img src="Imagens/Logos Unidades/Distribuidoras/Ituana/logo-ituana-transparente.png" alt="Distribuidora Ituana" loading="lazy"></span>
+                <span class="tl__logo"><img src="Imagens/Logos Unidades/Distribuidoras/Piracicabana/logo-piracicabana-transparente.png" alt="Distribuidora Piracicabana" loading="lazy"></span>
+                <span class="tl__logo"><img src="Imagens/Logos Unidades/Distribuidoras/Itapetininga/logo-itapetininga-transparente.png" alt="Distribuidora Itapetininga" loading="lazy"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tl__row">
+            <div class="tl__left"><span class="tl__node" aria-hidden="true"></span><span class="tl__year display">2018</span></div>
+            <div class="tl__content" data-reveal="right">
+              <span class="tl__place">Cuiabá · MT</span>
+              <h3 class="tl__title">Consolidação em Mato Grosso</h3>
+              <p class="tl__desc">A capital mato-grossense passa a contar com aço e chapas sob medida pela Robracon Cuiabá.</p>
+              <div class="tl__logos"><span class="tl__logo"><img src="Imagens/Logos Unidades/Robracon/ROBRACON---COLORIDO.png" alt="Robracon Cuiabá" loading="lazy"></span></div>
+            </div>
+          </div>
+
+          <div class="tl__row">
+            <div class="tl__left"><span class="tl__node" aria-hidden="true"></span><span class="tl__year display">2024</span></div>
+            <div class="tl__content" data-reveal="right">
+              <span class="tl__place">Sinop · MT</span>
+              <h3 class="tl__title">Nova frente no norte do MT</h3>
+              <p class="tl__desc">A Robracon Sinop abre a operação mais recente do grupo, com foco em atendimento B2B e corte e dobra.</p>
+              <div class="tl__logos"><span class="tl__logo"><img src="Imagens/Logos Unidades/Robracon/ROBRACON---COLORIDO.png" alt="Robracon Sinop" loading="lazy"></span></div>
+            </div>
+          </div>
+
+          <div class="tl__row tl__row--now">
+            <div class="tl__left"><span class="tl__node" aria-hidden="true"></span><span class="tl__year display">Hoje</span></div>
+            <div class="tl__content" data-reveal="right">
+              <span class="tl__place">São Paulo e Mato Grosso</span>
+              <h3 class="tl__title">11 unidades, 2 estados</h3>
+              <p class="tl__desc">O Grupo Vocical opera 11 unidades em São Paulo e Mato Grosso, atendendo também clientes em MS, MG e GO.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- O QUE NOS MOVE — valores inegociáveis (lista editorial) -->
+    <section class="section surface--dark grain move">
+      <div class="container move__grid">
+        <div class="move__head" data-reveal="left">
+          <span class="kicker">O que nos move</span>
+          <h2 class="move__title">Valores <span class="accent">inegociáveis</span></h2>
+          <p class="lede move__lede">Três compromissos que sustentam cada relação e cada entrega, da matriz em Votuporanga às unidades de Mato Grosso.</p>
+        </div>
+
+        <ul class="move__list">
+          <li class="move__row" data-reveal="up">
+            <span class="move__idx num--mass">01</span>
+            <div class="move__body">
+              <h3 class="move__name">Solidez</h3>
+              <p class="move__desc">Mais de três décadas sustentando relações de confiança com clientes e fornecedores.</p>
+            </div>
+            <span class="move__ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+            </span>
+          </li>
+
+          <li class="move__row" data-reveal="up">
+            <span class="move__idx num--mass">02</span>
+            <div class="move__body">
+              <h3 class="move__name">Eficiência</h3>
+              <p class="move__desc">Processos ágeis, comunicação clara e foco em resultado, do orçamento à expedição.</p>
+            </div>
+            <span class="move__ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+            </span>
+          </li>
+
+          <li class="move__row" data-reveal="up">
+            <span class="move__idx num--mass">03</span>
+            <div class="move__body">
+              <h3 class="move__name">Comprometimento</h3>
+              <p class="move__desc">Do primeiro contato à entrega no canteiro, assumimos o prazo combinado e fazemos acontecer.</p>
+            </div>
+            <span class="move__ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
     <!-- DIFERENCIAIS -->
     <section class="section surface--paper">
       <div class="container">
         <div class="sec-head" data-reveal><span class="kicker">Por que o Grupo Vocical</span><h2>O que sustenta cada entrega</h2></div>
         <div class="grid feat-grid">
-          <article class="feat" data-reveal><h3>11 unidades, 2 estados</h3><p class="muted">Cobertura em São Paulo e Mato Grosso, com mix adaptado à demanda de cada região.</p></article>
-          <article class="feat" data-reveal><h3>Logística de entrega</h3><p class="muted">Frota própria em parte das unidades e freteiros parceiros nas demais, para abastecer o canteiro com previsibilidade.</p></article>
-          <article class="feat" data-reveal><h3>Corte e dobra sob medida</h3><p class="muted">Vergalhão, aço armado e chapa cortados e dobrados conforme o seu projeto.</p></article>
-          <article class="feat" data-reveal><h3>Atendimento consultivo B2B</h3><p class="muted">Apoio no quantitativo, alternativas de produto e orçamento técnico rápido.</p></article>
+          <article class="feat" data-reveal>
+            <span class="feat__ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+            <h3>11 unidades, 2 estados</h3><p class="muted">Cobertura em São Paulo e Mato Grosso, com mix adaptado à demanda de cada região.</p></article>
+          <article class="feat" data-reveal>
+            <span class="feat__ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+            </span>
+            <h3>Logística de entrega</h3><p class="muted">Frota própria em parte das unidades e freteiros parceiros nas demais, para abastecer o canteiro com previsibilidade.</p></article>
+          <article class="feat" data-reveal>
+            <span class="feat__ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2"/><path d="m11.5 9.5 2-2"/><path d="m8.5 6.5 2-2"/><path d="m17.5 15.5 2-2"/></svg>
+            </span>
+            <h3>Corte e dobra sob medida</h3><p class="muted">Vergalhão, aço armado e chapa cortados e dobrados conforme o seu projeto.</p></article>
+          <article class="feat" data-reveal>
+            <span class="feat__ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+            </span>
+            <h3>Atendimento consultivo B2B</h3><p class="muted">Apoio no quantitativo, alternativas de produto e orçamento técnico rápido.</p></article>
         </div>
       </div>
     </section>
 
-    <!-- CLIENTES -->
-    <section class="section">
+    <!-- CLIENTES — carrossel image-expansion (modelo pulseawan) -->
+    <section class="section surface--dark grain quem-atende">
       <div class="container">
-        <div class="sec-head" data-reveal><span class="kicker">Quem atendemos</span><h2>Feito para quem move a obra</h2></div>
-        <div class="chips" data-reveal>
-          <span class="chip">Lojas de material de construção</span>
-          <span class="chip">Construtoras e incorporadoras</span>
-          <span class="chip">Serralherias</span>
-          <span class="chip">Calheiros</span>
-          <span class="chip">Gesseiros</span>
-          <span class="chip">Indústrias</span>
+        <div class="sec-head" data-reveal><span class="kicker">Quem atendemos</span><h2>Feito para quem <span class="accent">move a obra</span></h2></div>
+      </div>
+      <div class="container" data-reveal>
+        <div class="ie" id="ie">
+          <div class="ie__bar">
+            <span class="ie__tab">Quem atendemos</span>
+            <a class="ie__all" href="produtos.html">Ver produtos <span aria-hidden="true">›</span></a>
+          </div>
+          <div class="ie__viewport">
+            <div class="ie__track" id="ie-track">
+              <article class="ie__card">
+                <img class="ie__img" src="Imagens/loja-de-materiais-de-construcao.png" alt="Lojas de material de construção" loading="lazy">
+                <span class="ie__scrim" aria-hidden="true"></span>
+                <span class="ie__badge"><span class="ie__badge-dot" aria-hidden="true"></span>Quem atendemos</span>
+                <div class="ie__cardfoot">
+                  <h3 class="ie__cardtitle">Lojas de material de construção</h3>
+                  <p class="ie__carddesc">Reposição de giro e mix completo para a loja não perder venda.</p>
+                  <a class="ie__btn" target="_blank" rel="noopener">Fale conosco</a>
+                </div>
+              </article>
+              <article class="ie__card">
+                <img class="ie__img" src="Imagens/construtoras-e-incorporadoras.png" alt="Construtoras e incorporadoras" loading="lazy">
+                <span class="ie__scrim" aria-hidden="true"></span>
+                <span class="ie__badge"><span class="ie__badge-dot" aria-hidden="true"></span>Quem atendemos</span>
+                <div class="ie__cardfoot">
+                  <h3 class="ie__cardtitle">Construtoras e incorporadoras</h3>
+                  <p class="ie__carddesc">Aço, cimento e fechamento com prazo previsível para o cronograma da obra.</p>
+                  <a class="ie__btn" target="_blank" rel="noopener">Fale conosco</a>
+                </div>
+              </article>
+              <article class="ie__card">
+                <img class="ie__img" src="Imagens/serralheria.png" alt="Serralherias" loading="lazy">
+                <span class="ie__scrim" aria-hidden="true"></span>
+                <span class="ie__badge"><span class="ie__badge-dot" aria-hidden="true"></span>Quem atendemos</span>
+                <div class="ie__cardfoot">
+                  <h3 class="ie__cardtitle">Serralherias</h3>
+                  <p class="ie__carddesc">Perfis, chapas, tubos e vergalhão para a produção do dia a dia.</p>
+                  <a class="ie__btn" target="_blank" rel="noopener">Fale conosco</a>
+                </div>
+              </article>
+              <article class="ie__card">
+                <img class="ie__img" src="Imagens/calheiros.png" alt="Calheiros" loading="lazy">
+                <span class="ie__scrim" aria-hidden="true"></span>
+                <span class="ie__badge"><span class="ie__badge-dot" aria-hidden="true"></span>Quem atendemos</span>
+                <div class="ie__cardfoot">
+                  <h3 class="ie__cardtitle">Calheiros</h3>
+                  <p class="ie__carddesc">Bobinas e chapas para calhas, rufos e coberturas metálicas sob medida.</p>
+                  <a class="ie__btn" target="_blank" rel="noopener">Fale conosco</a>
+                </div>
+              </article>
+              <article class="ie__card">
+                <img class="ie__img" src="Imagens/gesseiros.jpg" alt="Gesseiros" loading="lazy">
+                <span class="ie__scrim" aria-hidden="true"></span>
+                <span class="ie__badge"><span class="ie__badge-dot" aria-hidden="true"></span>Quem atendemos</span>
+                <div class="ie__cardfoot">
+                  <h3 class="ie__cardtitle">Gesseiros</h3>
+                  <p class="ie__carddesc">Drywall, perfis e acessórios para forro e parede com pronta entrega.</p>
+                  <a class="ie__btn" target="_blank" rel="noopener">Fale conosco</a>
+                </div>
+              </article>
+              <article class="ie__card">
+                <img class="ie__img" src="Imagens/industrias.png" alt="Indústrias" loading="lazy">
+                <span class="ie__scrim" aria-hidden="true"></span>
+                <span class="ie__badge"><span class="ie__badge-dot" aria-hidden="true"></span>Quem atendemos</span>
+                <div class="ie__cardfoot">
+                  <h3 class="ie__cardtitle">Indústrias</h3>
+                  <p class="ie__carddesc">Aço e materiais em volume para linhas de produção e manutenção.</p>
+                  <a class="ie__btn" target="_blank" rel="noopener">Fale conosco</a>
+                </div>
+              </article>
+              <article class="ie__card">
+                <img class="ie__img" src="Imagens/agronegocio.png" alt="Agronegócio" loading="lazy">
+                <span class="ie__scrim" aria-hidden="true"></span>
+                <span class="ie__badge"><span class="ie__badge-dot" aria-hidden="true"></span>Quem atendemos</span>
+                <div class="ie__cardfoot">
+                  <h3 class="ie__cardtitle">Agronegócio</h3>
+                  <p class="ie__carddesc">Arame, telhas e materiais para construções e estruturas rurais.</p>
+                  <a class="ie__btn" target="_blank" rel="noopener">Fale conosco</a>
+                </div>
+              </article>
+            </div>
+          </div>
+          <div class="ie__foot">
+            <div class="ie__dots" id="ie-dots"></div>
+            <div class="ie__nav">
+              <button class="ie__arrow" id="ie-prev" type="button" aria-label="Anterior">‹</button>
+              <button class="ie__arrow" id="ie-next" type="button" aria-label="Próximo">›</button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- PARCEIROS -->
+    <!-- PARCEIROS — marquee contínuo (mesmo efeito da home) -->
     <section class="section surface--paper parceiros">
       <div class="container">
         <div class="sec-head center" data-reveal><span class="kicker">Marcas que distribuímos</span><h2>As principais indústrias do setor</h2></div>
-        <div class="parceiros-grid" id="parceiros-grid" data-reveal></div>
+      </div>
+      <div class="ticker" data-reveal>
+        <div class="ticker__track" id="parceiros-grid"></div>
       </div>
     </section>
 
@@ -109,14 +374,77 @@
   <script src="js/config.js"></script>
   <script src="js/layout.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/blur-text.js"></script>
+  <script src="js/timeline.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       var V = window.VOCICAL || {};
+
+      // Marcas que distribuímos — trilha do marquee (original + cópia p/ loop sem emenda)
       var el = document.getElementById('parceiros-grid');
-      if (el) el.innerHTML = (V.PARCEIROS || []).map(function (p) {
-        return '<div class="parceiro"><img src="' + p.logo + '" alt="' + p.nome + '" loading="lazy"></div>';
-      }).join('');
+      if (el) {
+        var itens = (V.PARCEIROS || []).map(function (p) {
+          return '<div class="parceiro"><img src="' + p.logo + '" alt="' + p.nome + '" loading="lazy"></div>';
+        }).join('');
+        var dup = (V.PARCEIROS || []).map(function (p) {
+          return '<div class="parceiro" aria-hidden="true"><img src="' + p.logo + '" alt="" loading="lazy"></div>';
+        }).join('');
+        el.innerHTML = itens + dup;
+      }
+
       var b = document.getElementById('sobre-cta'); if (b) b.href = V.CTA_URL || '#';
+      // CTAs dos cards do carrossel apontam para o destino único de lead
+      Array.prototype.forEach.call(document.querySelectorAll('.ie__btn'), function (btn) { btn.href = V.CTA_URL || '#'; });
+
+      // Quem atendemos — carrossel image-expansion (3 cards visíveis, resto desliza)
+      (function () {
+        var track = document.getElementById('ie-track');
+        if (!track) return;
+        var viewport = track.parentElement;
+        var cards = Array.prototype.slice.call(track.children);
+        if (!cards.length) return;
+        var prev = document.getElementById('ie-prev');
+        var next = document.getElementById('ie-next');
+        var dotsWrap = document.getElementById('ie-dots');
+        var index = 0, maxIndex = 0, step = 0;
+
+        function gap() { var cs = getComputedStyle(track); return parseFloat(cs.columnGap || cs.gap) || 0; }
+        function measure() {
+          var g = gap();
+          var cw = cards[0].getBoundingClientRect().width;
+          var vp = viewport.getBoundingClientRect().width;
+          step = cw + g;
+          var perView = Math.max(1, Math.round((vp + g) / step));
+          maxIndex = Math.max(0, cards.length - perView);
+          if (index > maxIndex) index = maxIndex;
+          buildDots();
+          apply();
+        }
+        function buildDots() {
+          if (!dotsWrap) return;
+          dotsWrap.innerHTML = '';
+          for (var i = 0; i <= maxIndex; i++) {
+            var d = document.createElement('button');
+            d.type = 'button'; d.className = 'ie__dot';
+            d.setAttribute('aria-label', 'Grupo ' + (i + 1));
+            (function (n) { d.addEventListener('click', function () { index = n; apply(); }); })(i);
+            dotsWrap.appendChild(d);
+          }
+        }
+        function apply() {
+          track.style.transform = 'translateX(' + (-index * step) + 'px)';
+          if (prev) prev.disabled = index <= 0;
+          if (next) next.disabled = index >= maxIndex;
+          if (dotsWrap) Array.prototype.forEach.call(dotsWrap.children, function (d, i) { d.classList.toggle('is-on', i === index); });
+        }
+        if (prev) prev.addEventListener('click', function () { if (index > 0) { index--; apply(); } });
+        if (next) next.addEventListener('click', function () { if (index < maxIndex) { index++; apply(); } });
+
+        var rt;
+        window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(measure, 150); });
+        requestAnimationFrame(measure);
+      })();
+
       if (window.__revealObserve) window.__revealObserve();
     });
   </script>
