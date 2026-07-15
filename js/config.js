@@ -16,6 +16,32 @@ window.VOCICAL = {
     linkedin: 'https://www.linkedin.com/company/grupo-vocical'
   },
 
+  /* Formulário de lead (widget "Vico"). Envio idêntico ao widget Zyvia atual:
+     POST no ENDPOINT com { emp, canal, tipo_cliente, produto, nome, telefone, cidade, estado }.
+     CORS aberto no endpoint — posta direto do domínio e do preview, sem proxy.
+     Ponto único de troca se um dia mudar o backend. Ver js/lead.js.
+     Os valores de `id` (produto e tipo) têm que bater EXATAMENTE com o backend. */
+  LEAD: {
+    ENDPOINT: 'https://vico2.zyvia.com.br/widget/lead',
+    EMP: '51',
+    CANAL: 'site',
+    AVATAR: 'img/vico-avatar.jpg',
+    DRY_RUN: false,   // ligado por ?leaddry=1 para QA sem gerar lead real
+    PRODUTOS: [
+      { id: 'Materiais de Construção', label: 'Mat. Construção', icon: 'materiais' },
+      { id: 'Aço Construção Civil',    label: 'Aço / Vergalhão', icon: 'aco' },
+      { id: 'Coberturas e Telhas',     label: 'Coberturas',      icon: 'coberturas' },
+      { id: 'Serralheria / Indústria', label: 'Serralheria',     icon: 'serralheria' },
+      { id: 'Drywall',                 label: 'Drywall',         icon: 'drywall' },
+      { id: 'Agronegócio',             label: 'Agronegócio',     icon: 'agro' }
+    ],
+    TIPOS: [
+      { id: 'pessoa_fisica',   label: 'Pessoa Física',   icon: 'pf' },
+      { id: 'pessoa_juridica', label: 'Pessoa Jurídica', icon: 'pj' }
+    ],
+    UFS: ['AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO']
+  },
+
   /* Marcas do grupo (6). Cada uma agrupa 1+ unidades. */
   MARCAS: [
     {

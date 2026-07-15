@@ -39,10 +39,18 @@ vocical-project/
 - Deploy final: **erehost** (host próprio do cliente, via FTP)
 
 ## Integrações
-- **Widget próprio de atendimento/chat (lead)** — destino final de todos os CTAs.
-  **Por enquanto, todos os CTAs apontam para:**
-  `https://grupovocical.com.br/produtos/?utm_content=meutrack_533fa7c4ec8b`
-  Centralizar esse destino num único ponto do JS para troca fácil quando vier o widget.
+- **Formulário de lead branded "Vico"** — botão flutuante em todas as páginas + todos
+  os CTAs abrem um modal da marca (`js/lead.js` + `css/lead.css`, avatar em
+  `img/vico-avatar.jpg`). Envio **idêntico ao widget Zyvia atual**: `POST` em
+  `https://vico2.zyvia.com.br/widget/lead` (JSON `emp/canal/tipo_cliente/produto/
+  nome/telefone/cidade/estado`), resposta `{success, vendedor_whatsapp}` monta o
+  handoff pro WhatsApp do vendedor. CORS aberto no endpoint, posta direto do domínio
+  e do preview (sem proxy PHP). Tudo centralizado em `config.js` (`LEAD.ENDPOINT/EMP/
+  CANAL/PRODUTOS/TIPOS`) — ponto único de troca. QA sem gerar lead real: `?leaddry=1`
+  (`LEAD.DRY_RUN`). Os CTAs mantêm `href=CTA_URL` como fallback se o JS falhar.
+  Ver spec em `docs/superpowers/specs/2026-07-14-formulario-lead-vico-design.md`.
+- CTA legado (`CTA_URL` em `config.js`): `https://grupovocical.com.br/produtos/?utm_content=meutrack_533fa7c4ec8b`
+  — hoje só fallback dos CTAs (o modal do Vico é o destino real).
 - WhatsApp comercial: (66) 99939-3953 (canal secundário)
 - E-mail: contato@grupovocical.com.br
 - Redes: Instagram @grupo.vocical · Facebook /grupovocical · LinkedIn /company/grupo-vocical
@@ -79,12 +87,14 @@ vocical-project/
 
 ## Arquitetura de código (referência rápida)
 - CSS: `base.css` (tokens/reset/componentes) → `site.css` (header/footer/whats) →
-  `pages.css` (seções compartilhadas + páginas internas) → `home.css` (só home).
-- JS: `config.js` (dados: marcas, unidades, categorias, parceiros, CTA_URL) →
+  `pages.css` (seções compartilhadas + páginas internas) → `home.css` (só home) →
+  `lead.css` (FAB + modal do formulário Vico, em todas as páginas).
+- JS: `config.js` (dados: marcas, unidades, categorias, parceiros, CTA_URL, LEAD) →
   `marcas-data.js` (tagline/sobre/serviços/categorias por marca) →
   `catalogo.js` (catálogo mestre) → `layout.js` (header/footer/whats/reveal) →
   renderers de página (`home.js`, `produtos.js`, `marca.js`) → `mapa.js`
-  (mapa interativo de unidades, lê `mapa-geo.js`) → `main.js` (count-up).
+  (mapa interativo de unidades, lê `mapa-geo.js`) → `lead.js` (formulário de lead
+  Vico: FAB + modal + envio, intercepta os CTAs) → `main.js` (count-up).
 - Páginas de marca: 1 template (`marca.js`) + 6 HTML enxutos em `/marcas/` com
   `data-marca="<slug>"` e `data-base="../"`. Tudo data-driven.
 
@@ -96,4 +106,10 @@ vocical-project/
    Home: QA aprovado. Demais páginas: verificadas (0 erros console, sem img quebrada).
    Trabalhe Conosco: verificada (0 erros console, select 10 unidades, validação e
    footer OK); envio real de e-mail depende do PHP na erehost (testar no deploy).
+✅ Formulário de lead branded "Vico" em todo o site (FAB + modal + todos os CTAs).
+   QA no browser aprovado (home, marca, desktop/mobile, interceptação de CTA,
+   validação, sucesso, WhatsApp condicional; 0 erros de console). Envio real ao
+   endpoint Zyvia validado por CORS/preflight (não disparado em QA para não gerar
+   lead; testar 1 envio real no deploy). WhatsApp flutuante saiu do canto (lead é o
+   principal); WhatsApp segue no header/footer/contato.
 Próximo: revisão do parceiro (ajustes em partes), depois QA final → deploy erehost.

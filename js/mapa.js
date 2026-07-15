@@ -132,7 +132,7 @@
       falar = '<a class="btn btn--cta" href="' + esc(u.siteExterno) + '" target="_blank" rel="noopener">Acessar site</a>';
     } else {
       verMarca = '<a class="btn btn--ghost" href="marcas/' + esc(u.slug) + '.html">Ver ' + esc(u.marca) + '</a>';
-      falar = '<a class="btn btn--cta" href="' + esc(CTA) + '" target="_blank" rel="noopener">Falar com vendas</a>';
+      falar = '<a class="btn btn--cta" href="' + esc(CTA) + '" data-cta target="_blank" rel="noopener">Falar com vendas</a>';
     }
 
     info.innerHTML =
