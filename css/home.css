@@ -61,7 +61,7 @@
 #marcas .sec-head { max-width: 920px; }
 #marcas .sec-head h2 { max-width: 18ch; }
 #marcas .sec-head .lede { color: var(--paper); max-width: none; }
-#marcas .eyebrow { color: var(--red); }
+#marcas .eyebrow { color: #ff5a5a; }
 
 .ucards {
   display: grid; grid-template-columns: repeat(3, 1fr);

@@ -75,11 +75,19 @@ h3, .h3 { font-size: clamp(1.3rem, 2.4vw, 1.8rem); }
 
 .lede { font-size: clamp(1.05rem, 1.5vw, 1.3rem); font-weight: 500; color: #3a3a3a; }
 .muted { color: var(--gray); }
-.accent { color: var(--red); }
-/* sobre superfícies escuras, vermelho mais claro garante contraste AA */
-.surface--dark .accent, .surface--char .accent { color: #ff5a5a; }
-/* sobre vermelho, o acento vira quase-preto (nunca vermelho sobre vermelho) */
-.surface--red .accent { color: var(--ink); }
+/* Palavra-destaque do título: chip arredondado (padrão da página Nossa História).
+   Variante A — superfície clara e heros sobre mídia: chip vermelho, texto branco. */
+.accent {
+  display: inline-block; line-height: 1; vertical-align: baseline;
+  padding: .05em .2em .11em; border-radius: 7px;
+  margin-block: .07em;   /* respiro quando dois chips empilham em linhas seguidas */
+  color: #fff; background: var(--red);
+}
+/* Variante B — sobre vermelho e vermelho-escuro: chip branco, texto vermelho
+   (regra de marca: nunca vermelho sobre vermelho). */
+.surface--dark .accent, .surface--char .accent, .surface--red .accent {
+  color: var(--red); background: #fff;
+}
 
 /* ---------- Layout ---------- */
 .container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
@@ -92,8 +100,8 @@ h3, .h3 { font-size: clamp(1.3rem, 2.4vw, 1.8rem); }
 /* ---------- Superfícies ---------- */
 .surface--paper { background: var(--paper); color: var(--charcoal); }
 .surface--white { background: var(--white); color: var(--charcoal); }
-.surface--dark  { background: var(--ink);  color: var(--white); position: relative; }
-.surface--char  { background: var(--charcoal); color: var(--white); position: relative; }
+.surface--dark  { background: var(--red-dark); color: var(--white); position: relative; }
+.surface--char  { background: var(--red-dark); color: var(--white); position: relative; }
 .surface--red   { background: var(--red);  color: var(--white); }
 .surface--dark .muted, .surface--char .muted, .surface--red .muted { color: rgba(255,255,255,.7); }
 
@@ -127,9 +135,9 @@ h3, .h3 { font-size: clamp(1.3rem, 2.4vw, 1.8rem); }
 .hairline-grid { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); }
 .surface--dark .hairline-grid, .surface--char .hairline-grid { background: var(--line-dark); border-color: var(--line-dark); }
 .cell { background: var(--white); transition: background .2s var(--ease-weight); }
-.surface--dark .cell, .surface--char .cell { background: var(--ink); }
+.surface--dark .cell, .surface--char .cell { background: var(--red-dark); }
 .cell:hover { background: var(--paper); }
-.surface--dark .cell:hover, .surface--char .cell:hover { background: var(--charcoal); }
+.surface--dark .cell:hover, .surface--char .cell:hover { background: #851212; }
 
 /* ---------- Eyebrow com régua ---------- */
 .eyebrow {
