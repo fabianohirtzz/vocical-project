@@ -1,0 +1,91 @@
+/* ============================================================
+   Contato — ajustes específicos da página
+   (carregado depois de pages.css; sobrepõe onde preciso)
+   ============================================================ */
+
+/* ---- Hero: 100vh, texto no formato da página Calculadoras ----
+   Texto branco à direita sobre scrim vermelho; imagem duotone da
+   operação de vendas. Mesmo padrão de .page-hero--calc. */
+.page-hero--contato {
+  min-height: 100vh;
+  min-height: 100dvh;
+  align-items: center;
+}
+.page-hero--contato .page-hero__bg img { object-position: center; }
+
+/* scrim: aprofunda o vermelho onde o texto fica (à direita, no desktop) */
+.page-hero--contato::before {
+  background: linear-gradient(to left,
+    rgba(115,10,10,.92) 0%, rgba(115,10,10,.5) 32%, rgba(115,10,10,0) 64%);
+}
+
+/* texto à direita, tudo branco */
+.page-hero--contato .page-hero__inner {
+  margin-left: auto; margin-right: 0;
+  max-width: 540px; text-align: left;
+  padding-block: clamp(48px, 10vh, 110px);
+}
+.page-hero--contato .kicker,
+.page-hero--contato .page-hero__title,
+.page-hero--contato .page-hero__title .accent { color: #fff; }
+.page-hero--contato .kicker::before { background: #fff; }
+.page-hero--contato .page-hero__lede { color: rgba(255,255,255,.92); }
+
+/* mobile: texto ao fundo, largura cheia, scrim de baixo p/ cima */
+@media (max-width: 760px) {
+  .page-hero--contato { align-items: flex-end; }
+  .page-hero--contato::before {
+    background: linear-gradient(to top,
+      rgba(115,10,10,.95) 0%, rgba(115,10,10,.58) 36%, rgba(115,10,10,0) 70%);
+  }
+  .page-hero--contato .page-hero__inner {
+    margin-left: 0; max-width: none;
+    padding-bottom: clamp(30px, 7vw, 48px);
+  }
+}
+
+/* ---- Redes: ícone + @/handle do perfil ---- */
+/* neutraliza o uppercase/letter-spacing herdado de .ct-list li span
+   (precisa vencer a especificidade de .ct-list li span) */
+.ct-list .ct-social,
+.ct-list .ct-social__handle { text-transform: none; letter-spacing: normal; }
+.ct-social { display: flex; flex-wrap: wrap; gap: .8rem 1.4rem; }
+.ct-social a {
+  display: inline-flex; align-items: center; gap: .6rem;
+  font-weight: 600; color: var(--ink);
+}
+.ct-social a:hover { color: var(--red); }
+.ct-social__ic {
+  display: grid; place-items: center; flex: 0 0 auto;
+  width: 40px; height: 40px; border-radius: 11px;
+  background: rgba(166,3,3,.08); color: var(--red);
+  transition: background .22s var(--ease-weight), transform .22s var(--ease-weight);
+}
+.ct-social a:hover .ct-social__ic { background: rgba(166,3,3,.14); transform: translateY(-2px); }
+.ct-social__ic svg { width: 20px; height: 20px; display: block; }
+.ct-social__handle { font-size: 1.02rem; }
+
+/* ---- Seção de unidades: grade hairline da home na parte clara ---- */
+.ct-unidades-sec { position: relative; overflow: hidden; }
+.ct-unidades-sec::before {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(13,13,13,.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(13,13,13,.06) 1px, transparent 1px);
+  background-size: 46px 46px;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 88%, transparent 100%);
+          mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 88%, transparent 100%);
+}
+.ct-unidades-sec > .container { position: relative; z-index: 1; }
+
+/* ---- Logo da unidade no topo do card ----
+   Muitos PNGs são canvas quadrado com margem, então a marca visível
+   fica menor que o bloco: altura generosa para compensar. */
+.ct-unidade__logo {
+  height: 78px; margin-bottom: 1.1rem;
+  display: flex; align-items: center;
+}
+.ct-unidade__logo img {
+  max-height: 100%; max-width: 210px; width: auto;
+  object-fit: contain; object-position: left center;
+}
