@@ -9,6 +9,8 @@
 .btn--lg { padding: 1.05em 1.9em; font-size: 1.05rem; }
 /* títulos de seção em Archivo Black: escala moderada (display--mass cheio é só hero) */
 .sec-head .display--mass, .servicos__head .display--mass { font-size: clamp(1.9rem, 4.4vw, 3.4rem); line-height: .95; }
+/* mapa "Onde estamos": cabeçalho mais largo p/ título (São Paulo e Mato Grosso) e texto numa linha só */
+.sec-head.mapa-unidades__head { max-width: none; }
 
 /* ---------------- HERO ---------------- */
 .hero { position: relative; display: flex; align-items: center; min-height: clamp(560px, 88vh, 860px); overflow: hidden; }

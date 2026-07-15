@@ -93,9 +93,9 @@
 .hist-hero__text { max-width: 980px; margin-inline: auto; }
 .hist-hero__title { margin-top: 1rem; font-size: clamp(2.1rem, 5vw, 4rem); line-height: 1.16; margin-inline: auto; color: #fff; }
 .hist-hero__lede { margin-top: 1.2rem; max-width: 760px; margin-inline: auto; color: rgba(255,255,255,.85); }
-/* rótulo em vermelho da marca; "construindo" vira bloco vermelho com texto branco */
-.hist-hero .kicker { color: var(--red); }
-.hist-hero .kicker::before { background: var(--red); }
+/* rótulo em branco sobre o vídeo; "construindo" vira bloco vermelho com texto branco */
+.hist-hero .kicker { color: #fff; }
+.hist-hero .kicker::before { background: #fff; }
 /* Heros sobre mídia mantêm a Variante A (chip vermelho, texto branco), mesmo
    carregando surface--dark: o chip branco da Variante B sumiria sobre o scrim. */
 .hist-hero .accent, .page-hero .accent, .mk-hero .accent {
@@ -278,9 +278,19 @@
 /* ---------- Quem atendemos: carrossel image-expansion (modelo pulseawan) ---------- */
 .quem-atende .ie {
   margin-top: clamp(28px, 4vw, 48px);
-  background: #5e0808; border: 1px solid rgba(255,255,255,.08);
+  background: #fff; border: 0;
   border-radius: 22px; padding: clamp(16px, 2.4vw, 28px);
+  box-shadow: 0 0 3px rgba(255,255,255,.5), 0 0 44px rgba(255,255,255,.26);
 }
+/* controles legíveis sobre o poço branco */
+.quem-atende .ie__tab { background: var(--red); color: #fff; }
+.quem-atende .ie__all { color: var(--red); }
+.quem-atende .ie__all:hover { color: var(--red-dark); }
+.quem-atende .ie__dot { background: rgba(13,13,13,.16); }
+.quem-atende .ie__dot.is-on { background: var(--red); }
+.quem-atende .ie__arrow { color: var(--ink); border-color: rgba(13,13,13,.2); }
+.quem-atende .ie__arrow:hover { background: var(--red); border-color: var(--red); color: #fff; }
+.quem-atende .ie__arrow:disabled:hover { background: transparent; border-color: rgba(13,13,13,.2); color: var(--ink); }
 .ie__bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: clamp(16px, 2vw, 24px); }
 .ie__tab { display: inline-flex; align-items: center; padding: .6em 1.15em; border-radius: 999px; background: #fff; color: var(--ink); font-weight: 700; font-size: .9rem; }
 .ie__all { color: rgba(255,255,255,.68); font-weight: 600; font-size: .92rem; display: inline-flex; align-items: center; gap: .35rem; transition: color .2s ease; }

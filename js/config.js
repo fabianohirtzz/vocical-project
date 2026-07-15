@@ -116,9 +116,9 @@ window.VOCICAL = {
 
   /* Categorias de produto (igual ao site atual). */
   CATEGORIAS: [
-    { slug: 'materiais-de-construcao', nome: 'Materiais de Construção', desc: 'Cimento, cal, argamassas, tubos, conexões, caixas d’água e louças.', img: 'Imagens/materiais-de-construcao.jpg' },
+    { slug: 'materiais-de-construcao', nome: 'Materiais de Construção', desc: 'Cimento, cal, argamassas, tubos, conexões, caixas d’água e louças.', img: 'Imagens/Produtos/cimento.jpg' },
     { slug: 'aco', nome: 'Aço Construção Civil', desc: 'Vergalhões, telas, treliças, colunas, sapatas e estribos.', img: 'Imagens/corte-e-dobra-de-vergalhao.png' },
-    { slug: 'estruturais', nome: 'Estruturais e Serralheria', desc: 'Metalon, perfis, chapas, cantoneiras e barras chatas.', img: 'Imagens/serralheria.jpg' },
+    { slug: 'estruturais', nome: 'Estruturais e Serralheria', desc: 'Metalon, perfis, chapas, cantoneiras e barras chatas.', img: 'Imagens/serralheria.png' },
     { slug: 'coberturas', nome: 'Coberturas', desc: 'Telhas galvalume, termoacústicas, fibrocimento e transparentes.', img: 'Imagens/Produtos/TELHAS.jpg' },
     { slug: 'drywall', nome: 'Drywall', desc: 'Placas ST, RU e Glasroc, perfis, gesso e acessórios.', img: 'Imagens/drywall.jpg' },
     { slug: 'agronegocio', nome: 'Agronegócio', desc: 'Arames farpados e ovalados galvanizados para cercas.', img: 'Imagens/Produtos/arame-farpado.jpg' }
