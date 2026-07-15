@@ -35,18 +35,50 @@
   }
 
   function activeOnScroll() {
+    var nav = document.getElementById('cat-nav'); // o próprio scroller horizontal
     var tabs = Array.prototype.slice.call(document.querySelectorAll('.cat-tab'));
-    var blocks = C.map(function (c) { return document.getElementById(c.slug); });
-    if (!('IntersectionObserver' in window)) return;
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) {
-          var id = en.target.id;
-          tabs.forEach(function (t) { t.classList.toggle('is-active', t.getAttribute('href') === '#' + id); });
-        }
+    var blocks = C.map(function (c) { return document.getElementById(c.slug); })
+                  .filter(Boolean);
+    if (!tabs.length || !blocks.length) return;
+
+    var curId = null;
+    function setActive(id) {
+      if (id === curId) return;
+      curId = id;
+      var activeTab = null;
+      tabs.forEach(function (t) {
+        var on = t.getAttribute('href') === '#' + id;
+        t.classList.toggle('is-active', on);
+        if (on) activeTab = t;
       });
-    }, { rootMargin: '-45% 0px -50% 0px' });
-    blocks.forEach(function (b) { if (b) io.observe(b); });
+      // rola a nav horizontal p/ manter a aba atual sempre visível (centralizada)
+      if (activeTab && nav && nav.scrollWidth > nav.clientWidth) {
+        var target = activeTab.offsetLeft - (nav.clientWidth - activeTab.offsetWidth) / 2;
+        nav.scrollTo({ left: Math.max(0, target), behavior: 'smooth' });
+      }
+    }
+
+    // scrollspy determinístico: a seção "atual" é a que já cruzou a linha de
+    // referência (32% da tela) e está mais próxima dela. Mais confiável que
+    // uma banda de IntersectionObserver em telas de alturas variadas (mobile).
+    var ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        ticking = false;
+        var line = (window.innerHeight || document.documentElement.clientHeight) * 0.32;
+        var best = blocks[0].id, bestTop = -Infinity;
+        blocks.forEach(function (b) {
+          var top = b.getBoundingClientRect().top;
+          if (top - line <= 0 && top > bestTop) { bestTop = top; best = b.id; }
+        });
+        setActive(best);
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    onScroll();
   }
 
   document.addEventListener('DOMContentLoaded', function () {

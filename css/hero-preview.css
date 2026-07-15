@@ -57,9 +57,7 @@
 .hero2__title .rw__i { display: inline-block; }
 .hero2__title.is-rev .rw__i { animation: cutReveal .8s var(--ease-weight) both; }
 @keyframes cutReveal { from { transform: translateY(118%); } to { transform: translateY(0); } }
-@media (prefers-reduced-motion: reduce) {
-  .hero2__title.is-rev .rw__i { animation: none; }
-}
+/* reveal do título do hero mantido sob reduced-motion (decisão do cliente) */
 .hero2__lede { font-size: clamp(1.02rem, 1.5vw, 1.22rem); font-weight: 500;
                color: #4a4a4a; max-width: 60ch; }
 
@@ -104,4 +102,3 @@
                  opacity: .92; transition: opacity .2s, transform .2s; }
 .marquee__logo:hover { opacity: 1; transform: scale(1.05); }
 @keyframes bmarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-@media (prefers-reduced-motion: reduce) { .marquee__track { animation: none; } }

@@ -160,6 +160,11 @@ h3, .h3 { font-size: clamp(1.3rem, 2.4vw, 1.8rem); }
 .surface--red .kicker { color: var(--white); }
 .surface--red .kicker::before { background: var(--white); }
 
+/* Respiro padrão entre o rótulo de seção (kicker/eyebrow) e o título logo abaixo.
+   :where() zera a especificidade → é só um piso: qualquer regra por classe
+   (.sec-head h2, .page-hero__title, etc.) continua mandando no valor final. */
+:where(.kicker, .eyebrow) + :is(h1, h2, h3) { margin-top: 1.2rem; }
+
 /* ---------- Pill badge ---------- */
 .pill {
   display: inline-block; padding: .4em 1em; border-radius: 999px;
@@ -272,10 +277,10 @@ h3, .h3 { font-size: clamp(1.3rem, 2.4vw, 1.8rem); }
 [data-reveal="left"]  { transform: translateX(-44px); }
 [data-reveal="right"] { transform: translateX(44px); }
 [data-reveal].is-in { opacity: 1; transform: none; }
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto; }
-  [data-reveal] { opacity: 1; transform: none; }
-}
+/* O movimento faz parte da identidade Vocical (reveal, transições, ticker, zoom
+   do mapa) e é mantido mesmo quando o sistema operacional pede redução — decisão
+   do cliente. Por isso NÃO há kill-switch global de animação/transição aqui.
+   O JS ainda garante que os reveals fiquem visíveis (is-in) se o observer faltar. */
 
 /* ---------- Ticker (marquee) ---------- */
 .ticker { overflow: hidden; }
@@ -283,7 +288,6 @@ h3, .h3 { font-size: clamp(1.3rem, 2.4vw, 1.8rem); }
 /* pausa no hover só com ponteiro real (evita travar no touch por :hover "grudado") */
 @media (hover: hover) { .ticker:hover .ticker__track { animation-play-state: paused; } }
 @keyframes ticker-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-@media (prefers-reduced-motion: reduce) { .ticker__track { animation: none; } }
 
 /* ---------- Visualmente oculto (a11y) ---------- */
 .sr-only {

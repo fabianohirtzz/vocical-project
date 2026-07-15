@@ -148,15 +148,35 @@
 
     var vp  = mob.querySelector('.prod-cats__viewport');
     var trk = mob.querySelector('.prod-cats__track');
+    var mCards = [].slice.call(trk.querySelectorAll('.prod-cat'));
+    var mIdx = 0;
+    // centraliza o cartão i na viewport (pedaços dos vizinhos aparecem dos lados)
+    function centerCat(i, smooth) {
+      mIdx = Math.max(0, Math.min(mCards.length - 1, i));
+      var card = mCards[mIdx]; if (!card) return;
+      var left = card.offsetLeft - (vp.clientWidth - card.offsetWidth) / 2;
+      vp.scrollTo({ left: Math.max(0, left), behavior: smooth ? 'smooth' : 'auto' });
+    }
     [].forEach.call(mob.querySelectorAll('.prod-cats__arrow'), function (btn) {
       btn.addEventListener('click', function () {
-        var dir = +btn.getAttribute('data-dir');
-        var first = trk.querySelector('.prod-cat');
-        var g = parseFloat(getComputedStyle(trk).gap) || 14;
-        var stepW = first ? first.getBoundingClientRect().width + g : vp.clientWidth * 0.8;
-        vp.scrollBy({ left: dir * stepW, behavior: 'smooth' });
+        centerCat(mIdx + (+btn.getAttribute('data-dir')), true);
       });
     });
+    // mantém o índice sincronizado quando o usuário arrasta com o dedo
+    var stimer;
+    vp.addEventListener('scroll', function () {
+      clearTimeout(stimer);
+      stimer = setTimeout(function () {
+        var mid = vp.scrollLeft + vp.clientWidth / 2, best = 0, bestD = Infinity;
+        mCards.forEach(function (c, ci) {
+          var d = Math.abs((c.offsetLeft + c.offsetWidth / 2) - mid);
+          if (d < bestD) { bestD = d; best = ci; }
+        });
+        mIdx = best;
+      }, 90);
+    }, { passive: true });
+    // ao montar, já deixa o primeiro cartão centralizado (não colado à esquerda)
+    requestAnimationFrame(function () { centerCat(0, false); });
 
     var items = [].slice.call(el.querySelectorAll('.slide-nav__item'));
     var figs  = [].slice.call(el.querySelectorAll('.slide'));

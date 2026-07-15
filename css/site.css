@@ -124,15 +124,16 @@ body.drawer-open .drawer__panel { transform: translateX(0); }
 .drawer__top { display: flex; align-items: center; justify-content: space-between; }
 .drawer__close { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--line);
                  display: grid; place-items: center; font-size: 1.2rem; }
-.drawer__nav { display: flex; flex-direction: column; gap: 4px; }
+.drawer__nav { display: flex; flex-direction: column; gap: 6px; }
 .drawer__nav a { font-size: 1.5rem; font-weight: 700; color: #5a5a5a; padding: 6px 0;
                  letter-spacing: -.01em; transition: color .2s, transform .2s; }
 .drawer__nav a:hover, .drawer__nav a.is-active { color: var(--red); transform: translateX(4px); }
 .drawer__units { display: flex; flex-direction: column; gap: 2px; }
 .drawer__units .uni__head { padding-left: 0; }
 
-/* divisor sutil entre blocos do drawer */
-.drawer__div { display: block; height: 1px; background: var(--line); margin: 2px 0; }
+/* divisor entre blocos do drawer — separa nav, links, unidades, CTA e redes.
+   Tom um pouco mais forte que o --line padrão p/ ler bem sobre o branco. */
+.drawer__div { display: block; height: 1px; background: #d8d8d8; margin: 6px 0; }
 
 /* bloco "Links úteis" */
 .drawer__extra { display: flex; flex-direction: column; gap: 2px; }
@@ -226,10 +227,8 @@ body.drawer-open .drawer__panel { transform: translateX(0); }
   .ft-card__links { flex-direction: column; gap: 1.6rem; }
   .ft-card__bar { flex-direction: column; align-items: flex-start; }
 }
-@media (prefers-reduced-motion: reduce) {
-  .ft-card[data-reveal] { opacity: 1; transform: none; }
-  .ft-hero__bg { transform: none !important; }
-}
+/* motion mantido sob reduced-motion (decisão do cliente) — reveal do footer e
+   parallax do fundo continuam ativos. */
 
 /* ---------------- WhatsApp flutuante ---------------- */
 .wa-float {

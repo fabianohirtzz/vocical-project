@@ -95,10 +95,12 @@
           '</div>' +
           '<span class="drawer__div" aria-hidden="true"></span>' +
           '<div class="drawer__units"><p class="uni__head">Nossas unidades</p>' + uniRows() + '</div>' +
+          '<span class="drawer__div" aria-hidden="true"></span>' +
           '<a class="btn-arrow drawer__orc" href="#lead-open">' +
             '<span class="btn-arrow__label">Solicitar orçamento</span>' +
             '<span class="btn-arrow__circ" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7v8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>' +
           '</a>' +
+          '<span class="drawer__div" aria-hidden="true"></span>' +
           drawerSocial() +
         '</aside>';
       document.body.appendChild(d);
@@ -218,7 +220,7 @@
     var bg = document.querySelector('.ft-hero__bg');
     var hero = document.getElementById('site-footer');
     if (!bg || !hero) return;
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    /* parallax mantido mesmo sob reduced-motion (decisão do cliente) */
     var ticking = false;
     function update() {
       ticking = false;

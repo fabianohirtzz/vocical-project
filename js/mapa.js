@@ -14,7 +14,8 @@
   var resetBtn = document.getElementById('mapa-reset');
   var CW = GEO.viewBox.w, CH = GEO.viewBox.h;
   var CTA = V.CTA_URL || '#';
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* animação de zoom mantida mesmo sob reduced-motion (decisão do cliente) */
+  var reduce = false;
 
   function esc(s) {
     return String(s == null ? '' : s)
@@ -285,6 +286,55 @@
   }
   mapa.addEventListener('pointerup', endDrag);
   mapa.addEventListener('pointercancel', endDrag);
+
+  /* --- pinch-zoom com dois dedos (toque) ---------------------------------
+     Um dedo continua rolando a página (touch-action: pan-y no CSS) e o toque
+     simples seleciona a unidade. Dois dedos aproximam/afastam e arrastam o mapa. */
+  var touchPts = new Map();
+  var pinchPrev = null; // {d, cx, cy} do frame anterior
+  function touchList() { var a = []; touchPts.forEach(function (v) { a.push(v); }); return a; }
+
+  mapa.addEventListener('pointerdown', function (e) {
+    if (e.pointerType === 'mouse') return;
+    touchPts.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (touchPts.size === 2) { pinchPrev = null; justDragged = true; resetBtn.hidden = false; }
+  }, { passive: true });
+
+  mapa.addEventListener('pointermove', function (e) {
+    if (e.pointerType === 'mouse') return;
+    if (!touchPts.has(e.pointerId)) return;
+    touchPts.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (touchPts.size < 2) return;
+    e.preventDefault(); // segura o gesto p/ o mapa durante o pinch
+    var pts = touchList();
+    var dx = pts[0].x - pts[1].x, dy = pts[0].y - pts[1].y;
+    var d = Math.hypot(dx, dy) || 1;
+    var r = mapa.getBoundingClientRect();
+    var cx = (pts[0].x + pts[1].x) / 2 - r.left;
+    var cy = (pts[0].y + pts[1].y) / 2 - r.top;
+    if (pinchPrev) {
+      var t = computeTransform(cur);
+      var wNew = clamp(cur.w * (pinchPrev.d / d), MIN_W, MAX_W);
+      var sNew = Math.max(t.vw / wNew, t.vh / (wNew * 0.82), t.vw / CW, t.vh / CH);
+      // ponto do mapa que estava sob o centro dos dedos no frame anterior:
+      // ancorá-lo ao novo centro produz pan + zoom naturais num só passo.
+      var svgX = (pinchPrev.cx - t.tx) / t.s, svgY = (pinchPrev.cy - t.ty) / t.s;
+      cur.w = wNew;
+      cur.x = svgX - (cx - t.vw / 2) / sNew;
+      cur.y = svgY - (cy - t.vh / 2) / sNew;
+      tgt.x = cur.x; tgt.y = cur.y; tgt.w = cur.w;
+      render();
+    }
+    pinchPrev = { d: d, cx: cx, cy: cy };
+  }, { passive: false });
+
+  function endTouch(e) {
+    if (e.pointerType === 'mouse') return;
+    touchPts.delete(e.pointerId);
+    if (touchPts.size < 2) pinchPrev = null;
+  }
+  mapa.addEventListener('pointerup', endTouch);
+  mapa.addEventListener('pointercancel', endTouch);
 
   var rtimer;
   window.addEventListener('resize', function () {
