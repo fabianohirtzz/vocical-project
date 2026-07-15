@@ -421,6 +421,11 @@
 @media (max-width: 560px) {
   .mapa__pin:not(.is-active) .mapa__pin-label { display: none; }
 }
+/* toque: folga de alvo ao redor do pin (o dot segue centrado via flex+translate) */
+@media (pointer: coarse) {
+  .mapa__pin { padding: 7px; }
+  .mapa__reset { top: 10px; left: 10px; padding: .6em 1em; }
+}
 
 /* ---------------- CONVERSÃO ---------------- */
 .conversao__grid { display: grid; grid-template-columns: 1.4fr auto; gap: clamp(2rem,5vw,4rem); align-items: end; }

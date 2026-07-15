@@ -205,6 +205,7 @@
 
   /* --- seleção ------------------------------------------------------------ */
   var activeI = -1;
+  var isMobile = window.matchMedia && window.matchMedia('(max-width: 900px)');
   function select(i) {
     var u = units[i]; if (!u) return;
     activeI = i;
@@ -213,6 +214,13 @@
     mapa.classList.add('is-selected');
     resetBtn.hidden = false;
     animateTo(u.x, u.y, ZOOM_W);
+    syncTouchAction();
+    // no mobile o painel de contato fica abaixo do mapa: traz à vista ao selecionar
+    if (isMobile && isMobile.matches) {
+      requestAnimationFrame(function () {
+        try { info.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' }); } catch (err) {}
+      });
+    }
   }
 
   function reset() {
@@ -222,9 +230,11 @@
     mapa.classList.remove('is-selected');
     resetBtn.hidden = true;
     animateTo(HOME.x, HOME.y, HOME.w);
+    syncTouchAction();
   }
 
-  var justDragged = false; // suprime o clique do pin quando houve arrasto
+  /* --- seleção por clique/tap num pin ------------------------------------ */
+  var justDragged = false; // suprime o clique do pin logo após arrasto/pinch
   pins.forEach(function (p) {
     p.addEventListener('click', function () {
       if (justDragged) return;
@@ -232,6 +242,12 @@
     });
   });
   resetBtn.addEventListener('click', reset);
+
+  /* Engaja o mapa: quando há unidade selecionada ou zoom além do "home",
+     1 dedo passa a ARRASTAR o mapa (touch-action:none). No home, 1 dedo ROLA
+     a página (touch-action:pan-y, sem prender o scroll) e 2 dedos dão pinch. */
+  function isEngaged() { return activeI >= 0 || tgt.w < HOME.w - 1; }
+  function syncTouchAction() { mapa.style.touchAction = isEngaged() ? 'none' : 'pan-y'; }
 
   /* --- zoom com a roda do mouse (centrado no cursor) ---------------------- */
   function zoomAt(cx, cy, factor) {
@@ -244,6 +260,7 @@
     tgt.x = svgX - (cx - t.vw / 2) / sNew; // mantém o ponto sob o cursor fixo
     tgt.y = svgY - (cy - t.vh / 2) / sNew;
     resetBtn.hidden = false; // permite voltar ao Brasil inteiro
+    syncTouchAction();
     if (reduce) { cur.x = tgt.x; cur.y = tgt.y; cur.w = tgt.w; render(); return; }
     if (!raf) raf = requestAnimationFrame(frame);
   }
@@ -255,94 +272,107 @@
     zoomAt(e.clientX - r.left, e.clientY - r.top, factor);
   }, { passive: false });
 
-  /* --- arrastar com o mouse (pan) ---------------------------------------- */
-  var dragging = false, moved = false, sx = 0, sy = 0, fx = 0, fy = 0, dScale = 1, pid = null;
+  /* --- gestos unificados: mouse e toque no mesmo modelo -------------------
+     1 ponteiro = arrasta (pan) e, parado, seleciona ao soltar (tap).
+     2 dedos    = pinch (zoom) + pan ancorados no centro dos dedos.
+     No home, 1 dedo rola a página; ao dar zoom/selecionar, passa a arrastar. */
+  var pointers = new Map();
+  var panStart = null;   // {sx,sy,fx,fy,scale} do pan de 1 ponteiro
+  var pinchPrev = null;  // {d,cx,cy} do frame anterior do pinch
+  var moved = false;
+  function ptsArr() { var a = []; pointers.forEach(function (v) { a.push(v); }); return a; }
+  function startPan(x, y) {
+    var t = computeTransform(cur);
+    panStart = { sx: x, sy: y, fx: tgt.x, fy: tgt.y, scale: t.s };
+  }
+
   mapa.addEventListener('pointerdown', function (e) {
-    if (e.pointerType !== 'mouse' || e.button !== 0) return; // só mouse
-    if (e.target.closest('.mapa__reset')) return;            // não sequestra o botão
-    justDragged = false; dragging = true; moved = false; pid = e.pointerId;
-    sx = e.clientX; sy = e.clientY; fx = tgt.x; fy = tgt.y;
-    dScale = computeTransform(cur).s;
-    // NÃO capturar aqui: capturar no pointerdown redireciona o clique do pin
-    // para o mapa e a seleção não dispara. Só capturamos ao virar arrasto.
+    if (e.target.closest('.mapa__reset')) return;        // não sequestra o botão
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (pointers.size === 1) {
+      moved = false; justDragged = false; pinchPrev = null;
+      startPan(e.clientX, e.clientY);
+    } else if (pointers.size === 2) {
+      moved = true; pinchPrev = null; panStart = null;   // pinch não seleciona ao soltar
+      resetBtn.hidden = false;
+    }
   });
+
   mapa.addEventListener('pointermove', function (e) {
-    if (!dragging) return;
-    var dx = e.clientX - sx, dy = e.clientY - sy;
-    if (!moved && Math.abs(dx) + Math.abs(dy) > 4) {
+    if (!pointers.has(e.pointerId)) return;
+    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+
+    if (pointers.size >= 2) {                              // --- pinch (2 dedos) ---
+      if (e.cancelable) e.preventDefault();
+      var p = ptsArr();
+      var dx = p[0].x - p[1].x, dy = p[0].y - p[1].y;
+      var d = Math.hypot(dx, dy) || 1;
+      var r = mapa.getBoundingClientRect();
+      var cx = (p[0].x + p[1].x) / 2 - r.left;
+      var cy = (p[0].y + p[1].y) / 2 - r.top;
+      if (pinchPrev) {
+        var t = computeTransform(cur);
+        var wNew = clamp(cur.w * (pinchPrev.d / d), MIN_W, MAX_W);
+        var sNew = Math.max(t.vw / wNew, t.vh / (wNew * 0.82), t.vw / CW, t.vh / CH);
+        // ponto do mapa sob o centro dos dedos no frame anterior, reancorado ao
+        // novo centro: produz pan + zoom naturais num só passo.
+        var svgX = (pinchPrev.cx - t.tx) / t.s, svgY = (pinchPrev.cy - t.ty) / t.s;
+        cur.w = wNew;
+        cur.x = svgX - (cx - t.vw / 2) / sNew;
+        cur.y = svgY - (cy - t.vh / 2) / sNew;
+        tgt.x = cur.x; tgt.y = cur.y; tgt.w = cur.w;
+        render(); syncTouchAction();
+      }
+      pinchPrev = { d: d, cx: cx, cy: cy };
+      return;
+    }
+
+    if (!panStart) return;                                // --- pan (1 ponteiro) ---
+    if (e.pointerType !== 'mouse' && !isEngaged()) return; // no home: deixa a página rolar
+    var mx = e.clientX - panStart.sx, my = e.clientY - panStart.sy;
+    if (!moved && Math.abs(mx) + Math.abs(my) > 6) {
       moved = true; resetBtn.hidden = false;
       mapa.classList.add('is-grabbing');
-      try { mapa.setPointerCapture(pid); } catch (err) {}
+      try { mapa.setPointerCapture(e.pointerId); } catch (err) {}
     }
     if (!moved) return;
-    tgt.x = fx - dx / dScale; tgt.y = fy - dy / dScale;
+    if (e.cancelable) e.preventDefault();
+    tgt.x = panStart.fx - mx / panStart.scale;
+    tgt.y = panStart.fy - my / panStart.scale;
     cur.x = tgt.x; cur.y = tgt.y; render(); // 1:1, sem easing durante o arrasto
-  });
-  function endDrag() {
-    if (!dragging) return;
-    dragging = false;
-    mapa.classList.remove('is-grabbing');
-    if (moved) justDragged = true; // impede seleção acidental ao soltar
-  }
-  mapa.addEventListener('pointerup', endDrag);
-  mapa.addEventListener('pointercancel', endDrag);
-
-  /* --- pinch-zoom com dois dedos (toque) ---------------------------------
-     Um dedo continua rolando a página (touch-action: pan-y no CSS) e o toque
-     simples seleciona a unidade. Dois dedos aproximam/afastam e arrastam o mapa. */
-  var touchPts = new Map();
-  var pinchPrev = null; // {d, cx, cy} do frame anterior
-  function touchList() { var a = []; touchPts.forEach(function (v) { a.push(v); }); return a; }
-
-  mapa.addEventListener('pointerdown', function (e) {
-    if (e.pointerType === 'mouse') return;
-    touchPts.set(e.pointerId, { x: e.clientX, y: e.clientY });
-    if (touchPts.size === 2) { pinchPrev = null; justDragged = true; resetBtn.hidden = false; }
-  }, { passive: true });
-
-  mapa.addEventListener('pointermove', function (e) {
-    if (e.pointerType === 'mouse') return;
-    if (!touchPts.has(e.pointerId)) return;
-    touchPts.set(e.pointerId, { x: e.clientX, y: e.clientY });
-    if (touchPts.size < 2) return;
-    e.preventDefault(); // segura o gesto p/ o mapa durante o pinch
-    var pts = touchList();
-    var dx = pts[0].x - pts[1].x, dy = pts[0].y - pts[1].y;
-    var d = Math.hypot(dx, dy) || 1;
-    var r = mapa.getBoundingClientRect();
-    var cx = (pts[0].x + pts[1].x) / 2 - r.left;
-    var cy = (pts[0].y + pts[1].y) / 2 - r.top;
-    if (pinchPrev) {
-      var t = computeTransform(cur);
-      var wNew = clamp(cur.w * (pinchPrev.d / d), MIN_W, MAX_W);
-      var sNew = Math.max(t.vw / wNew, t.vh / (wNew * 0.82), t.vw / CW, t.vh / CH);
-      // ponto do mapa que estava sob o centro dos dedos no frame anterior:
-      // ancorá-lo ao novo centro produz pan + zoom naturais num só passo.
-      var svgX = (pinchPrev.cx - t.tx) / t.s, svgY = (pinchPrev.cy - t.ty) / t.s;
-      cur.w = wNew;
-      cur.x = svgX - (cx - t.vw / 2) / sNew;
-      cur.y = svgY - (cy - t.vh / 2) / sNew;
-      tgt.x = cur.x; tgt.y = cur.y; tgt.w = cur.w;
-      render();
-    }
-    pinchPrev = { d: d, cx: cx, cy: cy };
   }, { passive: false });
 
-  function endTouch(e) {
-    if (e.pointerType === 'mouse') return;
-    touchPts.delete(e.pointerId);
-    if (touchPts.size < 2) pinchPrev = null;
+  function endPointer(e) {
+    if (!pointers.has(e.pointerId)) return;
+    pointers.delete(e.pointerId);
+    if (pointers.size === 1) {            // saiu do pinch p/ 1 dedo: retoma o pan nele
+      var only = ptsArr()[0];
+      startPan(only.x, only.y);
+      pinchPrev = null;
+    } else if (pointers.size === 0) {
+      if (moved) justDragged = true;      // impede seleção acidental ao soltar
+      mapa.classList.remove('is-grabbing');
+      panStart = null; pinchPrev = null;
+      syncTouchAction();
+    }
   }
-  mapa.addEventListener('pointerup', endTouch);
-  mapa.addEventListener('pointercancel', endTouch);
+  mapa.addEventListener('pointerup', endPointer);
+  mapa.addEventListener('pointercancel', endPointer);
 
   var rtimer;
   window.addEventListener('resize', function () {
-    clearTimeout(rtimer); rtimer = setTimeout(render, 120);
+    clearTimeout(rtimer); rtimer = setTimeout(function () { render(); syncTouchAction(); }, 120);
   });
 
   /* --- start -------------------------------------------------------------- */
+  // hint por dispositivo: no toque não há "clique" nem roda do mouse
+  var hint = document.getElementById('mapa-hint');
+  if (hint && window.matchMedia && window.matchMedia('(pointer: coarse)').matches) {
+    hint.textContent = 'Toque numa unidade · arraste e pince para dar zoom';
+  }
   promptInfo();
   render();
+  syncTouchAction();
   if (window.__revealObserve) window.__revealObserve();
 })();
