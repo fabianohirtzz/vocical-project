@@ -100,7 +100,10 @@
 /* pausa no hover só em dispositivos com ponteiro real — no touch o :hover
    "gruda" após tocar/rolar e travava o marquee no mobile */
 @media (hover: hover) { .marquee:hover .marquee__track { animation-play-state: paused; } }
-.marquee__logo { height: clamp(40px, 5vw, 56px); width: auto; flex: 0 0 auto; object-fit: contain;
+/* caixa comum: altura normaliza o tamanho e o max-width impede que wordmarks
+   largos (Fortlev, Imbralit) dominem a faixa; object-fit centraliza cada logo */
+.marquee__logo { height: clamp(40px, 5vw, 56px); width: auto; max-width: clamp(110px, 14vw, 158px);
+                 flex: 0 0 auto; object-fit: contain;
                  opacity: .92; transition: opacity .2s, transform .2s; }
 .marquee__logo:hover { opacity: 1; transform: scale(1.05); }
 @keyframes bmarquee { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
