@@ -8,7 +8,7 @@ window.UNIDADES = {
     pageSlug: 'robracon-rondonopolis', marcaSlug: 'robracon', unidadeKey: 'rondonopolis',
     seo: {
       title: 'Material de Construção, Aço, Drywall e Coberturas em Rondonópolis/MT | Robracon — Grupo Vocical',
-      description: 'Robracon Rondonópolis: aço, vergalhão, material de construção, drywall, coberturas metálicas e corte e dobra de chapas em Rondonópolis/MT. Atendimento B2B e orçamento ágil.',
+      description: 'Robracon Rondonópolis: aço, vergalhão, material de construção, drywall e coberturas em Rondonópolis/MT. Atendimento B2B e orçamento ágil.',
       canonical: 'https://grupovocical.com.br/marcas/robracon-rondonopolis.html'
     },
     hero: {
@@ -17,7 +17,7 @@ window.UNIDADES = {
       lede: 'Uma das unidades com o portfólio mais amplo do Grupo Vocical. Do cimento ao drywall, com serviços especializados e logística regional para obras, indústrias e serralherias.',
       selos: ['Desde 2005', 'Mix mais amplo do grupo', 'Atendimento B2B', 'Logística regional']
     },
-    numeros: [ { n: 2005, suf: '', label: 'Em atividade desde' }, { n: 6, suf: '', label: 'Linhas de produto' }, { n: 100, suf: '%', label: 'Drywall completo' } ],
+    numeros: [ { n: 2005, suf: '', label: 'Em atividade desde' }, { n: 5, suf: '', label: 'Linhas de produto' }, { n: 100, suf: '%', label: 'Drywall completo' } ],
     sobre: {
       titulo: 'A unidade de maior portfólio do <span class="accent">grupo</span>',
       paras: [
@@ -39,7 +39,7 @@ window.UNIDADES = {
     galeria: ['Imagens/Robracon ROO/robracon1 (3).png','Imagens/Robracon ROO/robracon1 (4).png','Imagens/Robracon ROO/robracon1 (5).png','Imagens/Robracon ROO/robracon1 (6).png','Imagens/Robracon ROO/corte-dobra-chapa.png','Imagens/Robracon ROO/corte-laser.png'],
     atuacao: { texto: 'Atende Rondonópolis e região, com estrutura logística para entrega regional de materiais e peças produzidas sob medida.', frota: 'Frota própria conforme a disponibilidade da unidade.' },
     faq: [
-      { q: 'Onde comprar vergalhão e aço em Rondonópolis?', a: 'A Robracon Rondonópolis fornece vergalhões CA50 e CA60, colunas, treliças, tela soldada e malha POP, além de corte e dobra sob medida. Fale com o comercial para orçamento.' },
+      { q: 'Onde comprar vergalhão e aço em Rondonópolis?', a: 'A Robracon Rondonópolis fornece vergalhões, colunas, treliças, tela soldada e malha POP para obras, indústrias e estruturas metálicas em Rondonópolis. Fale com o comercial para orçamento e disponibilidade.' },
       { q: 'A Robracon Rondonópolis trabalha com drywall?', a: 'Sim. É a unidade do grupo com a linha completa de drywall: placas ST, RU e Glasroc X, perfis, guias, montantes e acessórios.' },
       { q: 'Vocês produzem telhas metálicas sob medida?', a: 'Sim. Produzimos telhas metálicas e termoacústicas em comprimentos personalizados, conforme o projeto, para galpões, comércios, indústrias e centros logísticos.' },
       { q: 'A Robracon atende serralherias e indústrias?', a: 'Sim. Além do material de construção, oferecemos corte e dobra de chapas, perfis, tubos, chapas e componentes metálicos para serralherias, metalúrgicas e manutenção industrial.' },
@@ -182,7 +182,7 @@ window.UNIDADES = {
     pageSlug: 'ello-forte-sao-carlos', marcaSlug: 'ello-forte', unidadeKey: 'sao-carlos',
     seo: {
       title: 'Material de Construção e Aço em São Carlos/SP | Ello Forte — Grupo Vocical',
-      description: 'Ello Forte São Carlos: cimento, cal, aço, vergalhão e coberturas para obras da região. Estrutura de mais de 8.000 m² e atendimento B2B do Grupo Vocical.',
+      description: 'Ello Forte São Carlos: cimento, cal, aço e vergalhão para obras da região. Estrutura de mais de 8.000 m² e atendimento B2B do Grupo Vocical.',
       canonical: 'https://grupovocical.com.br/marcas/ello-forte-sao-carlos.html'
     },
     hero: {
@@ -202,8 +202,8 @@ window.UNIDADES = {
       fotoAlt: 'Estrutura da Ello Forte em São Carlos, distribuidora de material de construção e aço do Grupo Vocical'
     },
     segmentos: ['Construtoras e empreiteiras','Profissionais da construção','Obras residenciais e comerciais','Consumidor final'],
-    categorias: ['materiais-de-construcao','aco','coberturas'],
-    categoriasNota: 'As linhas de estruturais, serralheria e drywall são atendidas por outras unidades do grupo. Disponibilidade em São Carlos sob consulta.',
+    categorias: ['materiais-de-construcao','aco'],
+    categoriasNota: 'As linhas de estruturais, coberturas, serralheria e drywall são atendidas por outras unidades do grupo. Disponibilidade em São Carlos sob consulta.',
     servicos: [
       { t: 'Fornecimento programado para obras', d: 'Atendimento consultivo e fornecimento dos materiais essenciais da obra, com apoio no quantitativo e entrega programada conforme a região e a disponibilidade da unidade.', beneficios: ['Pedido centralizado','Apoio no quantitativo','Entrega programada conforme disponibilidade','Menos paradas na obra'] }
     ],
@@ -211,13 +211,13 @@ window.UNIDADES = {
     galeria: [],
     atuacao: { texto: 'Atende São Carlos e região, com ampla estrutura e apoio comercial para obras, profissionais e empresas.', frota: 'Entrega programada conforme a região e a disponibilidade da unidade.' },
     faq: [
-      { q: 'Onde comprar material de construção em São Carlos?', a: 'A Ello Forte São Carlos fornece cimento, cal, argamassa, rejunte, impermeabilizantes e telhas de fibrocimento em São Carlos, além de aço e coberturas. Fale com o comercial para orçamento.' },
+      { q: 'Onde comprar material de construção em São Carlos?', a: 'A Ello Forte São Carlos fornece cimento, cal, argamassa, rejunte, impermeabilizantes e telhas de fibrocimento em São Carlos, além de aço. Fale com o comercial para orçamento.' },
       { q: 'Onde comprar vergalhão e aço em São Carlos?', a: 'A unidade trabalha com vergalhões, colunas, treliças, tela soldada, malha POP e arames para obras da região.' },
       { q: 'A Ello Forte São Carlos entrega na região?', a: 'Sim. A unidade trabalha com entrega programada conforme a região e a disponibilidade. Combine prazos e volumes com o comercial.' },
       { q: 'A Ello Forte São Carlos vende para empresas e profissionais?', a: 'Sim. O atendimento é preparado para construtoras, profissionais e consumidor final, com apoio no quantitativo da obra.' },
-      { q: 'A unidade de São Carlos trabalha com serralheria e drywall?', a: 'Essas linhas são atendidas por outras unidades do Grupo Vocical. Em São Carlos, a disponibilidade é sob consulta com o comercial.' }
+      { q: 'A unidade de São Carlos trabalha com estruturais, coberturas, serralheria e drywall?', a: 'Essas linhas são atendidas por outras unidades do Grupo Vocical. Em São Carlos, a disponibilidade é sob consulta com o comercial.' }
     ],
-    validar: ['Confirmar CNPJ e razão social da unidade','Linhas além de construção, aço e coberturas (estruturais, serralheria, drywall) sob consulta na unidade','Confirmar disponibilidade de serviços de corte e dobra na unidade']
+    validar: ['Confirmar CNPJ e razão social da unidade','Disponibilidade de coberturas e demais linhas (estruturais, serralheria, drywall) sob consulta na unidade','Confirmar disponibilidade de serviços de corte e dobra na unidade']
   },
 
   'robracon-cuiaba': {
