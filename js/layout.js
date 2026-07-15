@@ -16,14 +16,17 @@
     var file = path.substring(path.lastIndexOf('/') + 1) || 'index.html';
 
     var NAV = [
-      { label: 'Início',         href: p('index.html'),    file: 'index.html' },
-      { label: 'Produtos',       href: p('produtos.html'), file: 'produtos.html' },
-      { label: 'Nossa História', href: p('sobre.html'),    file: 'sobre.html' },
-      { label: 'Contato',        href: p('contato.html'),  file: 'contato.html' }
+      { label: 'Início',         href: p('index.html'),          file: 'index.html' },
+      { label: 'Produtos',       href: p('produtos.html'),       file: 'produtos.html' },
+      { label: 'Nossa História', href: p('sobre.html'),          file: 'sobre.html' },
+      { label: 'Contato',        href: p('contato.html'),        file: 'contato.html' },
+      // separador vermelho antes de Calculadoras (só no menu desktop; oculto no drawer)
+      { label: 'Calculadoras',   href: p('calculadoras.html'),   file: 'calculadoras.html', sep: true }
     ];
     function navLinks() {
       return NAV.map(function (n) {
-        return '<a href="' + n.href + '"' + (n.file === file ? ' class="is-active"' : '') + '>' + n.label + '</a>';
+        var sep = n.sep ? '<span class="nb__sep" aria-hidden="true">|</span>' : '';
+        return sep + '<a href="' + n.href + '"' + (n.file === file ? ' class="is-active"' : '') + '>' + n.label + '</a>';
       }).join('');
     }
     function uniRows() {

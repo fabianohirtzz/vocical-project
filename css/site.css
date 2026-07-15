@@ -43,6 +43,9 @@ body.is-scrolled .nb__inner {
                    box-shadow: 0 2px 8px -4px rgba(0,0,0,.25); }
 .nb__nav a.is-active { color: var(--ink); background: #fff;
                        box-shadow: 0 2px 8px -4px rgba(0,0,0,.25); }
+/* separador vermelho antes de Calculadoras (destaque leve) */
+.nb__sep { align-self: center; color: var(--red); font-weight: 700; padding: 0 5px; line-height: 1; user-select: none; }
+.drawer__nav .nb__sep { display: none; }
 
 .nb__right { display: flex; align-items: center; gap: 12px; flex: 0 0 auto; }
 

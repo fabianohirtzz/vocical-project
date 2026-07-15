@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-base="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Calculadoras de aço — Grupo Vocical | Peso, bitola, área e consumo</title>
+  <meta name="description" content="Ferramentas de aço do Grupo Vocical: peso teórico de barras, chapas e tubos, conversor de polegada para milímetro, área de seção, estimativa de armadura, economia com corte e dobra e consumo de espaçadores.">
+  <link rel="canonical" href="https://grupovocical.com.br/calculadoras/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Calculadoras de aço — Grupo Vocical">
+  <meta property="og:description" content="Calcule peso teórico, bitola, área de seção e consumo de aço da sua obra. Ferramentas rápidas do Grupo Vocical.">
+  <meta property="og:url" content="https://grupovocical.com.br/calculadoras/">
+  <meta property="og:image" content="https://grupovocical.com.br/Imagens/produtos-banner.jpg">
+  <meta name="theme-color" content="#a60303">
+  <link rel="icon" type="image/png" href="Imagens/logo-mobile.png">
+  <noscript><style>[data-reveal]{opacity:1 !important;transform:none !important}</style></noscript>
+  <link rel="preload" href="fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/archivoblack-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/calculadoras.css">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main id="conteudo">
+    <!-- HERO -->
+    <section class="page-hero page-hero--calc">
+      <div class="page-hero__bg">
+        <img src="Imagens/hero-calculadoras.png" alt="Engenheiro dimensionando material em um canteiro de obras" loading="eager" fetchpriority="high">
+      </div>
+      <div class="container page-hero__inner">
+        <span class="kicker">Ferramentas</span>
+        <h1 class="display page-hero__title">Calculadoras de aço para a sua <span class="accent">obra</span></h1>
+        <p class="lede page-hero__lede">Peso teórico, bitola, área de seção e consumo de material em segundos. Feche o cálculo e peça o orçamento com o time do Grupo Vocical.</p>
+      </div>
+    </section>
+
+    <!-- ÍNDICE STICKY -->
+    <nav class="cat-nav" aria-label="Calculadoras disponíveis">
+      <div class="container cat-nav__inner" id="calc-nav">
+        <a class="cat-tab is-active" href="#calc-peso">Peso teórico</a>
+        <a class="cat-tab" href="#calc-conversor">Polegada ↔ mm</a>
+        <a class="cat-tab" href="#calc-area">Área de seção</a>
+        <a class="cat-tab" href="#calc-armadura">Quantidade de aço</a>
+        <a class="cat-tab" href="#calc-corte-dobra">Corte e dobra</a>
+        <a class="cat-tab" href="#calc-espacadores">Espaçadores</a>
+      </div>
+    </nav>
+
+    <!-- PAINÉIS -->
+    <div class="section surface--paper">
+      <div class="container calc-list">
+
+        <!-- 1. PESO TEÓRICO -->
+        <article class="calc" id="calc-peso" data-reveal>
+          <div class="calc__main">
+            <span class="calc__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M8.5 7h7l3 12.2A1 1 0 0 1 17.5 20.5h-11A1 1 0 0 1 5.5 19.2z"/></svg></span>
+            <h2 class="calc__name">Peso do aço por medida</h2>
+            <p class="calc__desc">Calcule o peso de barras, chapas e tubos a partir da bitola, do comprimento e do material.</p>
+            <div class="calc__form">
+              <div class="calc__grid2">
+                <div class="field">
+                  <label>Material</label>
+                  <select data-mat>
+                    <option value="7850">Aço-carbono (7.850 kg/m³)</option>
+                    <option value="8000">Aço inox (8.000 kg/m³)</option>
+                    <option value="2700">Alumínio (2.700 kg/m³)</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label>Formato</label>
+                  <select data-shape>
+                    <option value="redonda">Barra redonda / vergalhão</option>
+                    <option value="quadrada">Barra quadrada</option>
+                    <option value="chata">Barra chata</option>
+                    <option value="chapa">Chapa</option>
+                    <option value="tuboR">Tubo redondo</option>
+                    <option value="tuboQ">Tubo quadrado (metalon)</option>
+                  </select>
+                </div>
+              </div>
+              <div class="calc__grid2" data-dims></div>
+              <div class="calc__grid2">
+                <div class="field"><label>Comprimento (m)</label><input type="number" min="0" step="any" inputmode="decimal" data-len value="6"></div>
+                <div class="field"><label>Quantidade (peças)</label><input type="number" min="0" step="1" inputmode="numeric" data-qty value="1"></div>
+              </div>
+            </div>
+          </div>
+          <div class="calc__out grain">
+            <span class="calc__out-label">Peso total</span>
+            <span class="calc__big"><span data-out="total">0</span><span class="u">kg</span></span>
+            <div class="calc__sub">
+              <div class="calc__subrow"><span>Peso linear</span><b><span data-out="kgm">0</span> kg/m</b></div>
+              <div class="calc__subrow"><span>Peso por peça</span><b><span data-out="peca">0</span> kg</b></div>
+            </div>
+            <div class="calc__foot">
+              <a class="btn btn--light calc__cta" data-cta target="_blank" rel="noopener"><span class="btn__ic" aria-hidden="true">›</span> Peça seu orçamento</a>
+              <p class="calc__note">Peso teórico calculado pela seção nominal e densidade do material. O peso real pode variar conforme tolerância de fabricação.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. CONVERSOR POLEGADA ↔ MM -->
+        <article class="calc calc--single" id="calc-conversor" data-reveal>
+          <div class="calc__main">
+            <span class="calc__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 8l-4 4 4 4"/><path d="M17 8l4 4-4 4"/><path d="M3 12h18"/></svg></span>
+            <h2 class="calc__name">Polegada e milímetro</h2>
+            <p class="calc__desc">Converta bitolas nos dois sentidos. Uma polegada equivale a 25,4 mm. Edite qualquer campo ou use as bitolas comuns.</p>
+            <div class="conv2">
+              <div class="field"><label>Polegada (pol)</label><input type="text" inputmode="decimal" autocomplete="off" data-in></div>
+              <div class="conv2__eq" aria-hidden="true">=</div>
+              <div class="field"><label>Milímetro (mm)</label><input type="text" inputmode="decimal" autocomplete="off" data-mm></div>
+            </div>
+            <div class="conv-chips" aria-label="Bitolas comuns">
+              <button type="button" class="conv-chip" data-frac="0.25">1/4"</button>
+              <button type="button" class="conv-chip" data-frac="0.375">3/8"</button>
+              <button type="button" class="conv-chip" data-frac="0.5">1/2"</button>
+              <button type="button" class="conv-chip" data-frac="0.625">5/8"</button>
+              <button type="button" class="conv-chip" data-frac="0.75">3/4"</button>
+              <button type="button" class="conv-chip" data-frac="1">1"</button>
+              <button type="button" class="conv-chip" data-frac="1.5">1.1/2"</button>
+              <button type="button" class="conv-chip" data-frac="2">2"</button>
+            </div>
+            <a class="btn btn--dark calc__cta" data-cta target="_blank" rel="noopener" style="margin-top:1.4rem"><span class="btn__ic" aria-hidden="true">›</span> Peça seu orçamento</a>
+            <p class="calc__note" style="margin-top:.9rem">Referência: 1 pol = 25,4 mm.</p>
+          </div>
+        </article>
+
+        <!-- 3. ÁREA DE SEÇÃO -->
+        <article class="calc" id="calc-area" data-reveal>
+          <div class="calc__main">
+            <span class="calc__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 9h16M9 4v16"/></svg></span>
+            <h2 class="calc__name">Área da seção do perfil</h2>
+            <p class="calc__desc">Área da seção transversal de barras e tubos, útil para cálculo de tensão, pintura e consumo.</p>
+            <div class="calc__form">
+              <div class="calc__grid2">
+                <div class="field">
+                  <label>Formato</label>
+                  <select data-shape>
+                    <option value="redonda">Barra redonda / vergalhão</option>
+                    <option value="quadrada">Barra quadrada</option>
+                    <option value="chata">Barra chata</option>
+                    <option value="chapa">Chapa</option>
+                    <option value="tuboR">Tubo redondo</option>
+                    <option value="tuboQ">Tubo quadrado (metalon)</option>
+                  </select>
+                </div>
+                <div class="field" aria-hidden="true"></div>
+              </div>
+              <div class="calc__grid2" data-dims></div>
+            </div>
+          </div>
+          <div class="calc__out grain">
+            <span class="calc__out-label">Área da seção</span>
+            <span class="calc__big"><span data-out="cm2">0</span><span class="u">cm²</span></span>
+            <div class="calc__sub">
+              <div class="calc__subrow"><span>Em milímetros</span><b><span data-out="mm2">0</span> mm²</b></div>
+            </div>
+            <div class="calc__foot">
+              <a class="btn btn--light calc__cta" data-cta target="_blank" rel="noopener"><span class="btn__ic" aria-hidden="true">›</span> Peça seu orçamento</a>
+              <p class="calc__note">Seção transversal nominal, sem considerar cantos arredondados de tubos.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4. QUANTIDADE DE AÇO -->
+        <article class="calc" id="calc-armadura" data-reveal>
+          <div class="calc__main">
+            <span class="calc__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/></svg></span>
+            <h2 class="calc__name">Estimativa de armadura</h2>
+            <p class="calc__desc">Estimativa rápida de aço a partir do volume de concreto e do tipo de elemento estrutural, usando taxas usuais de armadura.</p>
+            <div class="calc__form">
+              <div class="calc__grid2">
+                <div class="field">
+                  <label>Elemento</label>
+                  <select data-elem>
+                    <option value="laje">Laje maciça</option>
+                    <option value="viga">Viga</option>
+                    <option value="pilar">Pilar</option>
+                    <option value="sapata">Sapata / fundação</option>
+                    <option value="radier">Radier</option>
+                  </select>
+                </div>
+                <div class="field"><label>Volume de concreto (m³)</label><input type="number" min="0" step="any" inputmode="decimal" data-vol value="10"></div>
+              </div>
+            </div>
+          </div>
+          <div class="calc__out grain">
+            <span class="calc__out-label">Aço estimado</span>
+            <span class="calc__big"><span data-out="kg">0</span><span class="u">kg</span></span>
+            <div class="calc__sub">
+              <div class="calc__subrow"><span>Faixa provável</span><b><span data-out="faixa">—</span></b></div>
+              <div class="calc__subrow"><span>Taxa usada</span><b><span data-out="taxa">—</span></b></div>
+            </div>
+            <div class="calc__foot">
+              <a class="btn btn--light calc__cta" data-cta target="_blank" rel="noopener"><span class="btn__ic" aria-hidden="true">›</span> Peça seu orçamento</a>
+              <p class="calc__note">Estimativa preliminar por taxa de consumo. O quantitativo exato depende do projeto estrutural.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5. CORTE E DOBRA -->
+        <article class="calc" id="calc-corte-dobra" data-reveal>
+          <div class="calc__main">
+            <span class="calc__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.12 15.88"/><path d="M14.47 14.48 20 20"/><path d="M8.12 8.12 12 12"/></svg></span>
+            <h2 class="calc__name">Economia com corte e dobra</h2>
+            <p class="calc__desc">Compare a perda de aço na obra com o aço industrializado, cortado e dobrado sob medida. Informe o preço para ver a economia em reais.</p>
+            <div class="calc__form">
+              <div class="calc__grid2">
+                <div class="field"><label>Aço do projeto (kg)</label><input type="number" min="0" step="any" inputmode="decimal" data-peso value="1000"></div>
+                <div class="field"><label>Perda na obra (%)</label><input type="number" min="0" step="any" inputmode="decimal" data-perda value="10"></div>
+              </div>
+              <div class="calc__grid2">
+                <div class="field"><label>Preço do aço (R$/kg) — opcional</label><input type="number" min="0" step="any" inputmode="decimal" data-preco value="7"></div>
+                <div class="field" aria-hidden="true"></div>
+              </div>
+            </div>
+          </div>
+          <div class="calc__out grain">
+            <span class="calc__out-label">Perda evitada</span>
+            <span class="calc__big"><span data-out="kg">0</span><span class="u">kg</span></span>
+            <div class="calc__sub">
+              <div class="calc__subrow"><span>Economia estimada</span><b><span data-out="reais">—</span></b></div>
+              <div class="calc__subrow"><span>Perda no corte e dobra</span><b><span data-out="perdacd">—</span></b></div>
+            </div>
+            <div class="calc__foot">
+              <a class="btn btn--light calc__cta" data-cta target="_blank" rel="noopener"><span class="btn__ic" aria-hidden="true">›</span> Peça seu orçamento</a>
+              <p class="calc__note">Considera perda de 1% no aço industrializado (corte manual em obra costuma perder de 5% a 15%). Além do material, o corte e dobra reduz mão de obra e tempo no canteiro.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6. ESPAÇADORES -->
+        <article class="calc" id="calc-espacadores" data-reveal>
+          <div class="calc__main">
+            <span class="calc__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span>
+            <h2 class="calc__name">Consumo de espaçadores</h2>
+            <p class="calc__desc">Estimativa do consumo de espaçador para laje ou radier a partir da área e do tipo de espaçador.</p>
+            <div class="calc__form">
+              <div class="calc__grid2">
+                <div class="field"><label>Área da laje (m²)</label><input type="number" min="0" step="any" inputmode="decimal" data-area value="50"></div>
+                <div class="field">
+                  <label>Tipo de espaçador</label>
+                  <select data-tipo>
+                    <option value="1.66">Treliça convencional (1,66 m/m²)</option>
+                    <option value="0.85">Espaçador tipo W (0,85 m/m²)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="calc__out grain">
+            <span class="calc__out-label">Metros de espaçador</span>
+            <span class="calc__big"><span data-out="ml">0</span><span class="u">m</span></span>
+            <div class="calc__sub">
+              <div class="calc__subrow"><span>Área informada</span><b><span data-out="area">—</span></b></div>
+              <div class="calc__subrow"><span>Consumo adotado</span><b><span data-out="taxa">—</span></b></div>
+            </div>
+            <div class="calc__foot">
+              <a class="btn btn--light calc__cta" data-cta target="_blank" rel="noopener"><span class="btn__ic" aria-hidden="true">›</span> Peça seu orçamento</a>
+              <p class="calc__note">Consumo linear estimado. O espaçador tipo W rende cerca de 50% a mais que a treliça convencional. Ajuste conforme o projeto.</p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- CONVERSÃO -->
+    <section class="section surface--red conversao">
+      <div class="container conversao__inner" data-reveal>
+        <h2 class="conversao__title">Fez o cálculo? Peça seu orçamento</h2>
+        <p class="conversao__sub">Fale com o time do Grupo Vocical e receba atendimento consultivo e resposta ágil.</p>
+        <a class="btn btn--light btn--lg" data-cta target="_blank" rel="noopener"><span class="btn__ic" aria-hidden="true">›</span> Fale Conosco</a>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/calculadoras.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
