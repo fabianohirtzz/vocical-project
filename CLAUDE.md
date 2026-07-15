@@ -106,7 +106,11 @@ vocical-project/
    Home: QA aprovado. Demais páginas: verificadas (0 erros console, sem img quebrada).
    Trabalhe Conosco: verificada (0 erros console, select 10 unidades, validação e
    footer OK); envio real de e-mail depende do PHP na erehost (testar no deploy).
-✅ Formulário de lead branded "Vico" em todo o site (FAB + modal + todos os CTAs).
+✅ Formulário de lead branded "Vico" em todo o site (FAB + modal + todos os CTAs)
+   e **embutido inline na página de contato** (`#lead-inline`, mesma fábrica de card
+   do `lead.js`, instâncias isoladas). Rio Preto Cimento e Cal: contato preenchido
+   (endereço + (17) 3236-1000 + link do site oficial rpcimentoecal.com.br) no
+   `config.js`; página da marca segue externa (LP deles).
    QA no browser aprovado (home, marca, desktop/mobile, interceptação de CTA,
    validação, sucesso, WhatsApp condicional; 0 erros de console). Envio real ao
    endpoint Zyvia validado por CORS/preflight (não disparado em QA para não gerar

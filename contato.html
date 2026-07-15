@@ -49,12 +49,9 @@
           </ul>
           <a class="btn btn--cta btn--lg" id="ct-cta" target="_blank" rel="noopener"><span class="btn__ic" aria-hidden="true">›</span> Fale Conosco agora</a>
         </div>
-        <!-- Área reservada para o widget de atendimento -->
-        <aside class="ct-widget" data-reveal aria-label="Atendimento">
-          <div class="ct-widget__box">
-            <h3>Atendimento online</h3>
-            <p class="muted">Nosso canal de atendimento e orçamento entra aqui em breve. Por enquanto, use o botão Fale Conosco ou o WhatsApp.</p>
-          </div>
+        <!-- Formulário de atendimento/lead (Vico) embutido -->
+        <aside class="ct-widget" data-reveal aria-label="Fale com o Vico">
+          <div id="lead-inline"></div>
         </aside>
       </div>
     </section>
@@ -94,6 +91,7 @@
           if (u.endereco) li += '<li><span>Endereço</span>' + u.endereco + '</li>';
           if (u.telefone) li += '<li><span>Telefone</span><a href="' + tel(u.telefone) + '" target="_blank" rel="noopener">' + u.telefone + '</a></li>';
           if (u.email) li += '<li><span>E-mail</span><a href="mailto:' + u.email + '">' + u.email + '</a></li>';
+          if (u.siteExterno) li += '<li><span>Site</span><a href="' + u.siteExterno + '" target="_blank" rel="noopener">Acessar site oficial</a></li>';
           if (!li) li = '<li class="muted">Contato em atualização.</li>';
           rows.push('<article class="ct-unidade card" data-reveal>' +
             '<span class="ct-unidade__brand">' + m.nome + '</span>' +

@@ -85,7 +85,7 @@ window.VOCICAL = {
       // Contato direto: RP tem canal próprio, todos os botões vão para a LP deles.
       siteExterno: 'https://rpcimentoecal.com.br/lp/',
       unidades: [
-        { cidade: 'São José do Rio Preto', uf: 'SP', key: 'rio-preto', pendente: true, siteExterno: 'https://rpcimentoecal.com.br/lp/', logoPin: 'Imagens/Logos Unidades/Rio Preto Cimento e Cal/logo-rio-preto---transparente.png', endereco: '', telefone: '', email: '', fachada: 'Imagens/Capas Unidades/Rio Preto Cimento e Cal.png' }
+        { cidade: 'São José do Rio Preto', uf: 'SP', key: 'rio-preto', siteExterno: 'https://rpcimentoecal.com.br/lp/', logoPin: 'Imagens/Logos Unidades/Rio Preto Cimento e Cal/logo-rio-preto---transparente.png', endereco: 'Av. Dr. Ernani Pires Domingues, 1758 - Eldorado, 15043-180', telefone: '(17) 3236-1000', email: '', fachada: 'Imagens/Capas Unidades/Rio Preto Cimento e Cal.png' }
       ]
     },
     {

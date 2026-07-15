@@ -222,6 +222,15 @@
 }
 .lead-foot b { color: var(--red); font-weight: 800; }
 
+/* ---------- Instância inline (ex: página de contato) ---------- */
+.lead-card--inline {
+  position: static;
+  width: 100%; max-width: none; max-height: none;
+  opacity: 1; transform: none;
+}
+.lead-card--inline .lead-x { display: none; }
+.lead-card--inline .lead-body { overflow: visible; }
+
 /* ---------- Trava de scroll do body ---------- */
 body.lead-open { overflow: hidden; }
 
