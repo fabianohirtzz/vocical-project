@@ -32,8 +32,9 @@
   document.addEventListener('DOMContentLoaded', function () {
     var els = document.querySelectorAll('[data-blur-text]');
     if (!els.length) return;
-    // Respeita reduce-motion: mantem o texto original, sem animar.
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    /* Efeito de texto mantido mesmo sob reduced-motion (decisão do cliente).
+       Importante: as palavras começam em opacity:0 no CSS e só aparecem quando o
+       JS adiciona .is-in — se barrássemos aqui, o título ficaria invisível. */
 
     var startAt = START;
     Array.prototype.forEach.call(els, function (el) {

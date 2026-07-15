@@ -149,6 +149,13 @@ window.VOCICAL = {
     { nome: 'Usiminas', logo: 'Imagens/Marcas/usiminas.png' },
     { nome: 'Brasilit', logo: 'Imagens/Marcas/brasilit.png' },
     { nome: 'Placo', logo: 'Imagens/Marcas/placo.png' },
-    { nome: 'Quartzolit', logo: 'Imagens/Marcas/quartzolit.png' }
+    { nome: 'Quartzolit', logo: 'Imagens/Marcas/quartzolit.png' },
+    { nome: 'Belgo', logo: 'Imagens/Marcas/belgo.png' },
+    { nome: 'Ciplan', logo: 'Imagens/Marcas/ciplan.png' },
+    { nome: 'Fortlev', logo: 'Imagens/Marcas/fortlev-logo.png' },
+    { nome: 'Imbralit', logo: 'Imagens/Marcas/imbralit.png' },
+    { nome: 'Infibra', logo: 'Imagens/Marcas/infibra.png' },
+    { nome: 'PortoKoll', logo: 'Imagens/Marcas/portokoll.jpg' },
+    { nome: 'Sikal', logo: 'Imagens/Marcas/sikal.png' }
   ]
 };

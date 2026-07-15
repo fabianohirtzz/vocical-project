@@ -6,7 +6,8 @@
       topo) e volta ao rolar p/ cima. */
 (function () {
   'use strict';
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* efeitos mantidos mesmo sob reduced-motion (decisão do cliente) */
+  var reduce = false;
 
   /* ---------------- container-text-flip ---------------- */
   var STAGGER = 30;   // atraso entre letras (blur-in)

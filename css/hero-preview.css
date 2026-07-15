@@ -94,11 +94,13 @@
 
 .marquee { overflow: hidden; width: 100%; }
 .marquee__track { display: flex; align-items: center; gap: clamp(2.5rem, 5vw, 4.5rem);
-                  width: max-content; animation: bmarquee 36s linear infinite; }
+                  width: max-content; animation: bmarquee 36s linear infinite;
+                  /* compositing por GPU: torna o loop confiável no iOS Safari */
+                  will-change: transform; backface-visibility: hidden; }
 /* pausa no hover só em dispositivos com ponteiro real — no touch o :hover
    "gruda" após tocar/rolar e travava o marquee no mobile */
 @media (hover: hover) { .marquee:hover .marquee__track { animation-play-state: paused; } }
 .marquee__logo { height: clamp(40px, 5vw, 56px); width: auto; flex: 0 0 auto; object-fit: contain;
                  opacity: .92; transition: opacity .2s, transform .2s; }
 .marquee__logo:hover { opacity: 1; transform: scale(1.05); }
-@keyframes bmarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes bmarquee { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }

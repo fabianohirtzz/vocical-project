@@ -14,7 +14,14 @@
     { n: 'Usiminas',            s: M + 'usiminas.png' },
     { n: 'Brasilit',            s: M + 'brasilit.png' },
     { n: 'Placo',               s: M + 'placo.png' },
-    { n: 'Quartzolit',          s: M + 'quartzolit.png' }
+    { n: 'Quartzolit',          s: M + 'quartzolit.png' },
+    { n: 'Belgo',               s: M + 'belgo.png' },
+    { n: 'Ciplan',              s: M + 'ciplan.png' },
+    { n: 'Fortlev',             s: M + 'fortlev-logo.png' },
+    { n: 'Imbralit',            s: M + 'imbralit.png' },
+    { n: 'Infibra',             s: M + 'infibra.png' },
+    { n: 'PortoKoll',           s: M + 'portokoll.jpg' },
+    { n: 'Sikal',               s: M + 'sikal.png' }
   ];
 
   function enc(path) { return path.split('/').map(encodeURIComponent).join('/'); }
@@ -34,7 +41,9 @@
     // título: reveal "vertical cut" palavra a palavra, com stagger
     var title = document.getElementById('hero-title');
     if (title) {
-      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      /* reveal do título mantido mesmo sob reduced-motion (decisão do cliente):
+         o CSS já não zera a animação; o JS também não pode barrar o disparo. */
+      var reduce = false;
       var i = 0;
       [].forEach.call(title.querySelectorAll('.t-line'), function (line) {
         var words = line.textContent.trim().split(/\s+/);

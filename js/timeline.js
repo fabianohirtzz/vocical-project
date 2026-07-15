@@ -6,12 +6,7 @@
   var beam = document.querySelector('.tl__beam');
   if (!spine || !beam) return;
 
-  // Reduced motion: espinha já preenchida, sem cálculo por frame.
-  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    beam.style.height = '100%';
-    return;
-  }
-
+  /* feixe scroll-driven mantido mesmo sob reduced-motion (decisão do cliente) */
   var ticking = false;
 
   function update() {
