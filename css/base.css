@@ -189,6 +189,75 @@ h3, .h3 { font-size: clamp(1.3rem, 2.4vw, 1.8rem); }
 .btn__ic { width: 1.4em; height: 1.4em; display: grid; place-items: center; border-radius: 5px; background: var(--red); color: #fff; }
 .btn--cta .btn__ic, .btn--red .btn__ic { background: rgba(0,0,0,.18); }
 
+/* ---------- CTA "anti-metal" (porte 1:1 do componente 21st.dev) ----------
+   Corpo metálico escuro + slab vermelho que expande no hover, revelando o
+   padrão de bolinhas em chevron que marcham em onda. Fiel ao modelo; trocado
+   apenas verde->vermelho e a borda (rounded-xl -> pílula). Aplicado via cta.js. */
+.amb {
+  --amb-h: 44px; --amb-fs: 14px;
+  position: relative; display: inline-flex; align-items: center;
+  height: var(--amb-h); padding: 0 18px 0 calc(var(--amb-h) + 8px);
+  border-radius: 999px; overflow: hidden; cursor: pointer; text-decoration: none;
+  transition: transform .12s ease;
+  /* PADRÃO: corpo VERMELHO + slab BRANCO (fundo claro/escuro e menu mobile) */
+  background: linear-gradient(180deg, #c11616 0%, var(--red) 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.22), 0 6px 16px -6px rgba(166,3,3,.5), 0 2px 6px rgba(0,0,0,.18);
+}
+.amb:active { transform: scale(.98); }
+.amb--lg { --amb-h: 52px; --amb-fs: 15px; }
+.amb--block { display: flex; width: 100%; }
+
+.amb__label {
+  position: relative; z-index: 0;
+  font-family: var(--font); font-size: var(--amb-fs); font-weight: 600;
+  letter-spacing: -.01em; color: #fff; white-space: nowrap;
+}
+
+/* slab (pílula) — colapsado à esquerda, expande no hover cobrindo o rótulo.
+   Cor do slab e das bolinhas definida por variante abaixo. */
+.amb__accent {
+  position: absolute; top: 4px; bottom: 4px; left: 4px; z-index: 10;
+  display: flex; align-items: center; gap: 16px;
+  width: calc(var(--amb-h) - 8px); overflow: hidden;
+  /* padding lateral = centraliza exatamente 1 chevron (10px) no círculo colapsado,
+     em qualquer tamanho: largura útil = (h-8) - 2*((h-18)/2) = 10px */
+  padding-block: 0; padding-inline: calc((var(--amb-h) - 18px) / 2);
+  border-radius: 999px;
+  transition: width .2s cubic-bezier(.65,0,.35,1);
+}
+.amb:hover .amb__accent, .amb:focus-visible .amb__accent { width: calc(100% - 8px); }
+.amb-cv { flex: 0 0 auto; overflow: visible; }
+@keyframes amb-dot-wave { 0%, 70%, 100% { opacity: .25; transform: scale(.85); } 35% { opacity: 1; transform: scale(1); } }
+.amb-dot { transform-box: fill-box; transform-origin: center; animation: amb-dot-wave 1.4s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .amb-dot { animation: none; opacity: 1; } }
+
+/* PADRÃO (corpo vermelho): slab branco, bolinhas escuras */
+.amb__accent {
+  background: linear-gradient(180deg, #fff 0%, #f0f0f0 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.9), inset 0 -2px 4px rgba(0,0,0,.08), 0 2px 4px rgba(0,0,0,.14);
+}
+.amb__accent svg { fill: #0f0f0f; }
+
+/* --white: corpo BRANCO + slab VERMELHO CLARO (superfícies vermelhas) */
+.amb--white { background: linear-gradient(180deg, #fff 0%, #ededed 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.9), 0 6px 16px -6px rgba(0,0,0,.35); }
+.amb--white .amb__label { color: #0a0a0a; }
+.amb--white .amb__accent {
+  background: linear-gradient(180deg, #c11616 0%, var(--red) 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.35), inset 0 -2px 4px rgba(0,0,0,.18), 0 2px 4px rgba(0,0,0,.12);
+}
+.amb--white .amb__accent svg { fill: #fff; }
+
+/* --ghost: corpo BRANCO + slab PRETO (seção das calculadoras) */
+.amb--ghost { background: linear-gradient(180deg, #fff 0%, #ededed 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.9), 0 6px 16px -6px rgba(0,0,0,.35); }
+.amb--ghost .amb__label { color: #0a0a0a; }
+.amb--ghost .amb__accent {
+  background: linear-gradient(180deg, #2a2a2a 0%, #0a0a0a 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.18), inset 0 -2px 4px rgba(0,0,0,.4), 0 2px 4px rgba(0,0,0,.18);
+}
+.amb--ghost .amb__accent svg { fill: #fff; }
+
 /* ---------- Cards ---------- */
 .card {
   background: var(--white); border-radius: var(--radius); overflow: hidden;
@@ -211,7 +280,8 @@ h3, .h3 { font-size: clamp(1.3rem, 2.4vw, 1.8rem); }
 /* ---------- Ticker (marquee) ---------- */
 .ticker { overflow: hidden; }
 .ticker__track { display: inline-flex; gap: clamp(2rem,5vw,5rem); align-items: center; white-space: nowrap; animation: ticker-marquee 32s linear infinite; }
-.ticker:hover .ticker__track { animation-play-state: paused; }
+/* pausa no hover só com ponteiro real (evita travar no touch por :hover "grudado") */
+@media (hover: hover) { .ticker:hover .ticker__track { animation-play-state: paused; } }
 @keyframes ticker-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) { .ticker__track { animation: none; } }
 

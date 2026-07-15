@@ -62,6 +62,19 @@
         '</div>' +
       '</div>';
 
+    // ícones sociais p/ o rodapé do drawer
+    var s = V.SOCIAL || {};
+    var svgA = ' viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"';
+    var SOC = {
+      instagram: '<svg' + svgA + '><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>',
+      facebook: '<svg' + svgA + '><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>',
+      linkedin: '<svg' + svgA + '><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>'
+    };
+    function drawerSocial() {
+      function a(url, label, icon) { return url ? '<a href="' + url + '" target="_blank" rel="noopener" aria-label="' + label + '">' + icon + '</a>' : ''; }
+      return '<div class="drawer__social">' + a(s.instagram, 'Instagram', SOC.instagram) + a(s.facebook, 'Facebook', SOC.facebook) + a(s.linkedin, 'LinkedIn', SOC.linkedin) + '</div>';
+    }
+
     // drawer mobile (injetado uma vez no body)
     if (!document.getElementById('drawer')) {
       var d = document.createElement('div');
@@ -74,7 +87,19 @@
             '<button class="drawer__close" id="drawer-close" aria-label="Fechar menu">&times;</button>' +
           '</div>' +
           '<nav class="drawer__nav" id="drawer-nav" aria-label="Navegação">' + navLinks() + '</nav>' +
+          '<span class="drawer__div" aria-hidden="true"></span>' +
+          '<div class="drawer__extra">' +
+            '<p class="uni__head">Links úteis</p>' +
+            '<a class="drawer__link" href="' + p('trabalhe-conosco.html') + '">Trabalhe Conosco</a>' +
+            '<a class="drawer__link" href="http://webmail.grupovocical.com.br/" target="_blank" rel="noopener">Webmail</a>' +
+          '</div>' +
+          '<span class="drawer__div" aria-hidden="true"></span>' +
           '<div class="drawer__units"><p class="uni__head">Nossas unidades</p>' + uniRows() + '</div>' +
+          '<a class="btn-arrow drawer__orc" href="#lead-open">' +
+            '<span class="btn-arrow__label">Solicitar orçamento</span>' +
+            '<span class="btn-arrow__circ" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7v8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>' +
+          '</a>' +
+          drawerSocial() +
         '</aside>';
       document.body.appendChild(d);
     }
@@ -108,7 +133,11 @@
     if (burger) burger.addEventListener('click', function () { setDrawer(true); });
     if (dClose) dClose.addEventListener('click', function () { setDrawer(false); });
     if (dScrim) dScrim.addEventListener('click', function () { setDrawer(false); });
-    if (dNav) dNav.addEventListener('click', function (e) { if (e.target.tagName === 'A') setDrawer(false); });
+    // qualquer link do drawer (nav, links úteis, unidades, orçamento) fecha o menu.
+    // O botão "Solicitar orçamento" (href="#lead-open") é interceptado pelo lead.js,
+    // que abre o modal do Vico; aqui só garantimos o fechamento do drawer.
+    var dPanel = document.querySelector('.drawer__panel');
+    if (dPanel) dPanel.addEventListener('click', function (e) { if (e.target.closest('a')) setDrawer(false); });
 
     // altura do header p/ a 1ª tela (.hero-screen no index)
     var setNbH = function () { document.documentElement.style.setProperty('--nb-h', el.offsetHeight + 'px'); };

@@ -172,6 +172,8 @@
 /* ---- Responsivo ---- */
 @media (max-width: 820px) {
   .calc { grid-template-columns: 1fr; }
+  /* mais respiro entre as calculadoras no mobile */
+  .calc-list { gap: 50px; }
 }
 @media (max-width: 480px) {
   .calc__grid2 { grid-template-columns: 1fr; }

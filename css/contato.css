@@ -89,3 +89,8 @@
   max-height: 100%; max-width: 210px; width: auto;
   object-fit: contain; object-position: left center;
 }
+/* mobile: logo da unidade maior (os PNGs têm margem no canvas quadrado) */
+@media (max-width: 560px) {
+  .ct-unidade__logo { height: 104px; margin-bottom: 1.2rem; }
+  .ct-unidade__logo img { max-width: 260px; }
+}

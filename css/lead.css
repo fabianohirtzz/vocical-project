@@ -63,7 +63,7 @@
   position: fixed; inset: 0; z-index: 99998;
   background: rgba(13, 13, 13, .58);
   -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px);
-  opacity: 0; transition: opacity .22s ease;
+  opacity: 0; transition: opacity .32s ease;
 }
 .lead-backdrop.on { opacity: 1; }
 
@@ -83,8 +83,9 @@
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow);
-  opacity: 0; transform: translateY(14px) scale(.985);
-  transition: opacity .24s var(--ease-weight), transform .28s var(--ease-weight);
+  opacity: 0; transform: translateY(28px) scale(.9);
+  /* abertura com leve "pop" (spring); fechamento reverte suave */
+  transition: opacity .3s ease, transform .46s cubic-bezier(.2,.85,.28,1.12);
 }
 .lead-modal.on .lead-card { opacity: 1; transform: none; }
 
@@ -234,15 +235,16 @@
 /* ---------- Trava de scroll do body ---------- */
 body.lead-open { overflow: hidden; }
 
-/* ---------- Mobile: sheet quase-fullscreen ---------- */
+/* ---------- Mobile: modal centralizado com respiro (não bottom-sheet) ----------
+   Escopo em `.lead-modal .lead-card` para NÃO afetar a instância inline
+   (#lead-inline, ex.: página de contato), que não fica dentro do modal. */
 @media (max-width: 480px) {
-  .lead-modal { place-items: end center; padding: 0; }
-  .lead-card {
-    max-width: 100%; max-height: 94dvh;
-    border-radius: var(--radius) var(--radius) 0 0;
-    transform: translateY(100%);
+  .lead-modal { place-items: center; padding: 14px; }
+  .lead-modal .lead-card {
+    max-width: 100%;
+    max-height: calc(100dvh - 28px);
+    border-radius: var(--radius);
   }
-  .lead-modal.on .lead-card { transform: none; }
 }
 
 /* ---------- Reduced motion ---------- */

@@ -227,6 +227,51 @@
   .slide-nav__item .slide-nav__bar { display: none; }
   .produtos__cta { position: static; margin-top: clamp(20px, 4vw, 28px); }
 }
+
+/* ---------------- PRODUTOS: carrossel mobile de categorias ---------------- */
+/* No desktop, o slideshow manda; o carrossel de cartões só existe no mobile. */
+.prod-cats { display: none; }
+@media (max-width: 820px) {
+  .produtos { min-height: 0; }              /* não força 100vh só com o carrossel */
+  .slideshow { display: none; }             /* mobile usa o carrossel de cartões */
+  .prod-cats { display: block; margin-top: clamp(24px, 5vw, 36px); }
+}
+.prod-cats__viewport {
+  overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none;
+  margin-inline: calc(var(--gutter) * -1);   /* sangra até a borda para dar peek */
+  padding-inline: var(--gutter);
+}
+.prod-cats__viewport::-webkit-scrollbar { display: none; }
+.prod-cats__track { display: flex; gap: 14px; }
+.prod-cat {
+  position: relative; flex: 0 0 78%; max-width: 340px;
+  aspect-ratio: 1 / 1; border-radius: 20px; overflow: hidden;
+  background: var(--ink); scroll-snap-align: center;
+  box-shadow: var(--shadow);
+}
+.prod-cat__img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.prod-cat__scrim {
+  position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(to top, rgba(13,13,13,.86) 0%, rgba(13,13,13,.28) 42%, rgba(13,13,13,0) 66%);
+}
+.prod-cat__title {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 1;
+  padding: clamp(14px, 4vw, 20px);
+  font-family: var(--display); font-weight: 400; letter-spacing: -.01em;
+  color: #fff; font-size: clamp(1.15rem, 5vw, 1.5rem); line-height: 1.05;
+}
+.prod-cats__nav { display: flex; justify-content: center; gap: 12px; margin-top: clamp(16px, 4vw, 22px); }
+.prod-cats__arrow {
+  width: 48px; height: 48px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--red); color: #fff;
+  box-shadow: var(--shadow-sm);
+  transition: background .2s ease, transform .15s ease;
+}
+.prod-cats__arrow:hover { background: var(--red-dark); }
+.prod-cats__arrow:active { transform: scale(.94); }
+.prod-cats__cta { display: flex; width: max-content; margin: clamp(18px, 4vw, 24px) auto 0; }
 @media (prefers-reduced-motion: reduce) {
   .slide { transition: opacity .2s linear; transform: none; }
   .slide-nav__item, .slide-nav__bar { transition: none; }

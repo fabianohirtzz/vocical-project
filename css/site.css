@@ -131,6 +131,29 @@ body.drawer-open .drawer__panel { transform: translateX(0); }
 .drawer__units { display: flex; flex-direction: column; gap: 2px; }
 .drawer__units .uni__head { padding-left: 0; }
 
+/* divisor sutil entre blocos do drawer */
+.drawer__div { display: block; height: 1px; background: var(--line); margin: 2px 0; }
+
+/* bloco "Links úteis" */
+.drawer__extra { display: flex; flex-direction: column; gap: 2px; }
+.drawer__extra .uni__head { padding-left: 0; }
+.drawer__link { font-size: 1.05rem; font-weight: 600; color: #5a5a5a; padding: 6px 0;
+                transition: color .2s, transform .2s; }
+.drawer__link:hover { color: var(--red); transform: translateX(4px); }
+
+/* botão "Solicitar orçamento" (mesmo da hero) — largura cheia no drawer.
+   flex-shrink:0 impede que a coluna rolável esmague a altura fixa do pill. */
+.drawer__orc { width: 100%; flex: 0 0 auto; }
+.drawer__social { flex: 0 0 auto; }
+
+/* ícones das redes sociais no rodapé do drawer */
+.drawer__social { display: flex; gap: .6rem; }
+.drawer__social a { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center;
+                    border: 1px solid var(--line); color: var(--charcoal);
+                    transition: background .25s var(--ease-weight), color .25s var(--ease-weight), border-color .25s var(--ease-weight); }
+.drawer__social a:hover { background: var(--red); color: #fff; border-color: var(--red); }
+.drawer__social svg { width: 18px; height: 18px; }
+
 @media (max-width: 880px) {
   .nb__nav, .nb__right .uni, .nb__since { display: none; }
   .nb__burger { display: flex; }

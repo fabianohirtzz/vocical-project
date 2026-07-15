@@ -43,7 +43,23 @@
           return '<span class="rw"><span class="rw__i" style="animation-delay:' + d + 's">' + w + '</span></span>';
         }).join(' ');
       });
-      if (!reduce) requestAnimationFrame(function () { title.classList.add('is-rev'); });
+      // Dispara quando o herói entra em cena (mais confiável no mobile que um rAF
+      // no load, que pode ser perdido). Fallback: dispara direto se não houver IO.
+      var fire = function () { title.classList.add('is-rev'); };
+      if (!reduce) {
+        if ('IntersectionObserver' in window) {
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (en) {
+              if (en.isIntersecting) { fire(); io.disconnect(); }
+            });
+          }, { threshold: .2 });
+          io.observe(title);
+          // rede de segurança: se por algum motivo o IO não disparar, garante o reveal
+          setTimeout(function () { if (!title.classList.contains('is-rev')) fire(); }, 1200);
+        } else {
+          requestAnimationFrame(fire);
+        }
+      }
     }
   });
 })();

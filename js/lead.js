@@ -259,7 +259,7 @@
       if (modal.hidden) return;
       modal.classList.remove('on'); backdrop.classList.remove('on');
       document.body.classList.remove('lead-open');
-      setTimeout(function () { modal.hidden = true; backdrop.hidden = true; }, 220);
+      setTimeout(function () { modal.hidden = true; backdrop.hidden = true; }, 460);
       if (lastFocus && lastFocus.focus) lastFocus.focus();
     }
 

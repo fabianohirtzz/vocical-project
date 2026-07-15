@@ -124,6 +124,40 @@
     var cta = document.querySelector('.produtos__cta');
     if (cta) el.querySelector('.slide-left').appendChild(cta);
 
+    // ---- Carrossel mobile: cada categoria = quadrado arredondado com imagem
+    //      e overlay do título; setas abaixo para deslizar. (só aparece no mobile) ----
+    var mcards = cats.map(function (c) {
+      return '<a class="prod-cat" href="produtos.html#' + c.slug + '">' +
+        '<img class="prod-cat__img" src="' + c.img + '" alt="' + c.nome + '" loading="lazy">' +
+        '<span class="prod-cat__scrim" aria-hidden="true"></span>' +
+        '<span class="prod-cat__title">' + c.nome + '</span>' +
+      '</a>';
+    }).join('');
+    var mob = document.createElement('div');
+    mob.className = 'prod-cats';
+    mob.innerHTML =
+      '<div class="prod-cats__viewport"><div class="prod-cats__track">' + mcards + '</div></div>' +
+      '<div class="prod-cats__nav">' +
+        '<button class="prod-cats__arrow" type="button" data-dir="-1" aria-label="Categoria anterior">' +
+          '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>' +
+        '<button class="prod-cats__arrow" type="button" data-dir="1" aria-label="Próxima categoria">' +
+          '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>' +
+      '</div>' +
+      '<a class="btn btn--dark prod-cats__cta" href="produtos.html">Ver catálogo completo</a>';
+    el.parentNode.insertBefore(mob, el.nextSibling);
+
+    var vp  = mob.querySelector('.prod-cats__viewport');
+    var trk = mob.querySelector('.prod-cats__track');
+    [].forEach.call(mob.querySelectorAll('.prod-cats__arrow'), function (btn) {
+      btn.addEventListener('click', function () {
+        var dir = +btn.getAttribute('data-dir');
+        var first = trk.querySelector('.prod-cat');
+        var g = parseFloat(getComputedStyle(trk).gap) || 14;
+        var stepW = first ? first.getBoundingClientRect().width + g : vp.clientWidth * 0.8;
+        vp.scrollBy({ left: dir * stepW, behavior: 'smooth' });
+      });
+    });
+
     var items = [].slice.call(el.querySelectorAll('.slide-nav__item'));
     var figs  = [].slice.call(el.querySelectorAll('.slide'));
     var canHover = window.matchMedia && window.matchMedia('(hover: hover)').matches;

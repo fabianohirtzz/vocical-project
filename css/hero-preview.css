@@ -69,7 +69,17 @@
                 justify-content: center; }
 .hero2__trust span { display: inline-flex; align-items: center; gap: 7px; }
 .hero2__trust b { color: var(--ink); }
-.hero2__trust i { width: 5px; height: 5px; border-radius: 50%; background: var(--red); font-style: normal; }
+.hero2__trust i { width: 5px; height: 5px; border-radius: 50%; background: var(--red); font-style: normal; flex: 0 0 auto; }
+
+/* mobile: os 3 selos empilham em 3 linhas centralizadas, cada um com bolinha
+   dos DOIS lados (ficam simétricos) */
+@media (max-width: 560px) {
+  .hero2__trust { flex-direction: column; align-items: center; gap: 9px; }
+  .hero2__trust span::after {
+    content: ""; width: 5px; height: 5px; border-radius: 50%;
+    background: var(--red); flex: 0 0 auto;
+  }
+}
 
 /* ---------------------------------------------------------------
    MARQUEE de marcas (rodapé da 1ª tela)
@@ -87,7 +97,9 @@
 .marquee { overflow: hidden; width: 100%; }
 .marquee__track { display: flex; align-items: center; gap: clamp(2.5rem, 5vw, 4.5rem);
                   width: max-content; animation: bmarquee 36s linear infinite; }
-.marquee:hover .marquee__track { animation-play-state: paused; }
+/* pausa no hover só em dispositivos com ponteiro real — no touch o :hover
+   "gruda" após tocar/rolar e travava o marquee no mobile */
+@media (hover: hover) { .marquee:hover .marquee__track { animation-play-state: paused; } }
 .marquee__logo { height: clamp(40px, 5vw, 56px); width: auto; flex: 0 0 auto; object-fit: contain;
                  opacity: .92; transition: opacity .2s, transform .2s; }
 .marquee__logo:hover { opacity: 1; transform: scale(1.05); }
