@@ -43,7 +43,7 @@
         '<span class="un-num__label">' + esc(n.label) + '</span>' +
       '</div>';
     }).join('');
-    return '<div class="un-nums">' + cells + '</div>';
+    return '<div class="un-nums un-nums--' + U.numeros.length + '">' + cells + '</div>';
   }
 
   /* ---------- 3. Sobre a unidade (split assimétrico, foto à esquerda) ---------- */
