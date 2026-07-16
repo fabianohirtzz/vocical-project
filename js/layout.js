@@ -31,7 +31,7 @@
     }
     function uniRows() {
       return (V.UNIDADES_NAV || []).map(function (u) {
-        var href = u.siteExterno || p('marcas/' + u.slug + '.html');
+        var href = u.siteExterno || p('marcas/' + (u.pageSlug || u.slug) + '.html');
         var ext = u.siteExterno ? ' target="_blank" rel="noopener"' : '';
         return '<a class="uni__item" href="' + href + '"' + ext + '>' +
           '<span class="uni__logo"><img src="' + enc(p(u.logo)) + '" alt="' + u.nome + '" loading="lazy"></span>' +
@@ -155,7 +155,7 @@
     var el = document.getElementById('site-footer');
     if (!el) return;
     var marcasLinks = (V.MARCAS || []).map(function (m) {
-      var href = m.siteExterno || p('marcas/' + m.slug + '.html');
+      var href = m.siteExterno || p('marcas/' + ((m.unidades && m.unidades[0] && m.unidades[0].pageSlug) || m.slug) + '.html');
       var ext = m.siteExterno ? ' target="_blank" rel="noopener"' : '';
       return '<li><a href="' + href + '"' + ext + '>' + m.nome + '</a></li>';
     }).join('');

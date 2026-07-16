@@ -32,7 +32,7 @@
       if (!g) return; // sem coordenada não entra no mapa
       units.push({
         key: u.key, x: g.x, y: g.y,
-        nome: u.nomeExib || m.nome, marca: m.nome, slug: m.slug, uf: u.uf || m.uf,
+        nome: u.nomeExib || m.nome, marca: m.nome, slug: m.slug, pageSlug: u.pageSlug, uf: u.uf || m.uf,
         cidade: u.cidade, endereco: u.endereco, telefone: u.telefone, email: u.email,
         logoPin: u.logoPin || m.logo, matriz: !!u.matriz, pendente: !!u.pendente,
         siteExterno: u.siteExterno || m.siteExterno
@@ -132,7 +132,7 @@
       verMarca = '';
       falar = '<a class="btn btn--cta" href="' + esc(u.siteExterno) + '" target="_blank" rel="noopener">Acessar site</a>';
     } else {
-      verMarca = '<a class="btn btn--ghost" href="marcas/' + esc(u.slug) + '.html">Ver ' + esc(u.marca) + '</a>';
+      verMarca = '<a class="btn btn--ghost" href="marcas/' + esc(u.pageSlug || u.slug) + '.html">Ver ' + esc(u.marca) + '</a>';
       falar = '<a class="btn btn--cta" href="' + esc(CTA) + '" data-cta target="_blank" rel="noopener">Falar com vendas</a>';
     }
 

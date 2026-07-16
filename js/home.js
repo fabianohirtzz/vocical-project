@@ -57,7 +57,7 @@
             '</span>' +
             (m.siteExterno
               ? '<a class="ucard__cta" href="' + esc(m.siteExterno) + '" target="_blank" rel="noopener">Acessar site</a>'
-              : '<a class="ucard__cta" href="marcas/' + esc(m.slug) + '.html">Ver unidade</a>') +
+              : '<a class="ucard__cta" href="marcas/' + esc(first.pageSlug || m.slug) + '.html">Ver unidade</a>') +
           '</div>' +
         '</div>' +
       '</article>';
@@ -72,6 +72,7 @@
       var img = card.querySelector('.ucard__img');
       var uf = card.querySelector('.ucard__uf');
       var addr = card.querySelector('.ucard__addr');
+      var cta = card.querySelector('.ucard__cta');
       var chips = [].slice.call(card.querySelectorAll('.ucard__chip[data-city]'));
 
       chips.forEach(function (chip) {
@@ -88,6 +89,10 @@
           if (addr) {
             if (u.endereco) { addr.textContent = u.endereco; addr.hidden = false; }
             else { addr.hidden = true; }
+          }
+          // CTA "Ver unidade" acompanha a cidade selecionada no chip (marcas sem siteExterno).
+          if (cta && !m.siteExterno) {
+            cta.setAttribute('href', 'marcas/' + (u.pageSlug || m.slug) + '.html');
           }
         });
       });

@@ -51,7 +51,7 @@ window.VOCICAL = {
       capaFoto: 'Imagens/vocical.jpg',
       fachada: 'Imagens/vocical.jpg',
       unidades: [
-        { cidade: 'Votuporanga', uf: 'SP', key: 'votuporanga', matriz: true, logoPin: 'Imagens/Logos Unidades/Vocical/logo-vocical---transparente.png', endereco: 'Avenida Prestes Maia, 2059', telefone: '(17) 3411-1010', email: 'vendas.vocical@grupovocical.com.br', fachada: 'Imagens/Capas Unidades/Vocical.png' }
+        { cidade: 'Votuporanga', uf: 'SP', key: 'votuporanga', matriz: true, pageSlug: 'vocical', logoPin: 'Imagens/Logos Unidades/Vocical/logo-vocical---transparente.png', endereco: 'Avenida Prestes Maia, 2059', telefone: '(17) 3411-1010', email: 'vendas.vocical@grupovocical.com.br', fachada: 'Imagens/Capas Unidades/Vocical.png' }
       ]
     },
     {
@@ -61,7 +61,7 @@ window.VOCICAL = {
       capaFoto: 'Imagens/jacical-capa.jpg',
       fachada: 'Imagens/jacical-capa.jpg',
       unidades: [
-        { cidade: 'Jales', uf: 'SP', key: 'jales', logoPin: 'Imagens/Logos Unidades/Jacical/Logo-Jacical---Transparente.png', endereco: 'R. Silvio Alves Balbino, 525 - Parque Industrial II', telefone: '(17) 3624-3430', email: 'vendas.jacical@grupovocical.com.br', fachada: 'Imagens/Capas Unidades/Jacical.png' }
+        { cidade: 'Jales', uf: 'SP', key: 'jales', pageSlug: 'jacical', logoPin: 'Imagens/Logos Unidades/Jacical/Logo-Jacical---Transparente.png', endereco: 'R. Silvio Alves Balbino, 525 - Parque Industrial II', telefone: '(17) 3624-3430', email: 'vendas.jacical@grupovocical.com.br', fachada: 'Imagens/Capas Unidades/Jacical.png' }
       ]
     },
     {
@@ -71,8 +71,8 @@ window.VOCICAL = {
       capaFoto: 'Imagens/Ello Forte RP/capa-lo.jpg',
       fachada: 'Imagens/Ello Forte RP/capa-lo.jpg',
       unidades: [
-        { cidade: 'Ribeirão Preto', uf: 'SP', key: 'ribeirao-preto', logoPin: 'Imagens/Logos Unidades/Ello Forte Ribeirao Preto/ello-forte-RP---transparente.png', endereco: 'Av. Thomaz Alberto Whately, 5105 - Jardim Aeroporto', telefone: '(16) 3969-4242', email: 'vendas.vendas11.elloforterp@grupovocical.com.br', fachada: 'Imagens/Capas Unidades/Ello Forte Ribeirao Preto.png' },
-        { cidade: 'São Carlos', uf: 'SP', key: 'sao-carlos', logoPin: 'Imagens/Logos Unidades/Ello Forte Sao Carlos/ello-forte---fundo-transparente.png', endereco: 'Av. João Orlando Ruggiero, 6201 - Jardim Embaré', telefone: '(16) 3374-4000', email: 'vendas.ellofortesc@grupovocical.com.br', fachada: 'Imagens/Capas Unidades/Ello Forte Sao Carlos.png' }
+        { cidade: 'Ribeirão Preto', uf: 'SP', key: 'ribeirao-preto', pageSlug: 'ello-forte-ribeirao-preto', logoPin: 'Imagens/Logos Unidades/Ello Forte Ribeirao Preto/ello-forte-RP---transparente.png', endereco: 'Av. Thomaz Alberto Whately, 5105 - Jardim Aeroporto', telefone: '(16) 3969-4242', email: 'vendas.vendas11.elloforterp@grupovocical.com.br', fachada: 'Imagens/Capas Unidades/Ello Forte Ribeirao Preto.png' },
+        { cidade: 'São Carlos', uf: 'SP', key: 'sao-carlos', pageSlug: 'ello-forte-sao-carlos', logoPin: 'Imagens/Logos Unidades/Ello Forte Sao Carlos/ello-forte---fundo-transparente.png', endereco: 'Av. João Orlando Ruggiero, 6201 - Jardim Embaré', telefone: '(16) 3374-4000', email: 'vendas.ellofortesc@grupovocical.com.br', fachada: 'Imagens/Capas Unidades/Ello Forte Sao Carlos.png' }
       ]
     },
     {
@@ -95,9 +95,9 @@ window.VOCICAL = {
       capaFoto: 'Imagens/Robracon CBA/capa-robracon-cba.jpg',
       fachada: 'Imagens/Robracon CBA/capa-robracon-cba.jpg',
       unidades: [
-        { cidade: 'Cuiabá', uf: 'MT', key: 'cuiaba', nomeExib: 'Robracon Cuiabá', logoPin: 'Imagens/Logos Unidades/Robracon/ROBRACON---COLORIDO.png', endereco: 'Rua B, 818 - Distrito Industrial', telefone: '(65) 3666-0332', email: 'vendas.robracon@grupovocical.com.br', fachada: 'Imagens/Capas Unidades/Robracon Cuiaba.png' },
-        { cidade: 'Rondonópolis', uf: 'MT', key: 'rondonopolis', nomeExib: 'Robracon Rondonópolis', logoPin: 'Imagens/Logos Unidades/Robracon/ROBRACON---COLORIDO.png', endereco: 'Av. Josefa Machado de Rezende, 2999 - Parque Sagrada Família', telefone: '(66) 3422-8878', email: 'vendas.robracon@grupovocical.com.br', fachada: 'Imagens/Capas Unidades/Robracon Rondonopolis.png' },
-        { cidade: 'Sinop', uf: 'MT', key: 'sinop', nomeExib: 'Robracon Sinop', logoPin: 'Imagens/Logos Unidades/Robracon/ROBRACON---COLORIDO.png', endereco: 'R. João Pedro Moreira de Carvalho, 2357 - Jardim Jacarandás', telefone: '(66) 3029-9659', email: 'vendas.robracon@grupovocical.com.br', fachada: 'Imagens/Capas Unidades/Robracon Sinop.png' }
+        { cidade: 'Cuiabá', uf: 'MT', key: 'cuiaba', nomeExib: 'Robracon Cuiabá', pageSlug: 'robracon-cuiaba', logoPin: 'Imagens/Logos Unidades/Robracon/ROBRACON---COLORIDO.png', endereco: 'Rua B, 818 - Distrito Industrial', telefone: '(65) 3666-0332', email: 'vendas.robracon@grupovocical.com.br', fachada: 'Imagens/Capas Unidades/Robracon Cuiaba.png' },
+        { cidade: 'Rondonópolis', uf: 'MT', key: 'rondonopolis', nomeExib: 'Robracon Rondonópolis', pageSlug: 'robracon-rondonopolis', logoPin: 'Imagens/Logos Unidades/Robracon/ROBRACON---COLORIDO.png', endereco: 'Av. Josefa Machado de Rezende, 2999 - Parque Sagrada Família', telefone: '(66) 3422-8878', email: 'vendas.robracon@grupovocical.com.br', fachada: 'Imagens/Capas Unidades/Robracon Rondonopolis.png' },
+        { cidade: 'Sinop', uf: 'MT', key: 'sinop', nomeExib: 'Robracon Sinop', pageSlug: 'robracon-sinop', logoPin: 'Imagens/Logos Unidades/Robracon/ROBRACON---COLORIDO.png', endereco: 'R. João Pedro Moreira de Carvalho, 2357 - Jardim Jacarandás', telefone: '(66) 3029-9659', email: 'vendas.robracon@grupovocical.com.br', fachada: 'Imagens/Capas Unidades/Robracon Sinop.png' }
       ]
     },
     {
@@ -107,9 +107,9 @@ window.VOCICAL = {
       capaFoto: 'Imagens/Distribuidoras/capa-distribuidoras.jpg',
       fachada: 'Imagens/Distribuidoras/capa-distribuidoras.jpg',
       unidades: [
-        { cidade: 'Itu', uf: 'SP', key: 'itu', nomeExib: 'Distribuidora Ituana', logoPin: 'Imagens/Logos Unidades/Distribuidoras/Ituana/logo-ituana-transparente.png', endereco: 'R. Remígio Fragnani - Nossa Sra. Aparecida', telefone: '(11) 4022-5207', email: 'vendas.itu@grupovocical.com.br', fachada: 'Imagens/Capas Unidades/Distribuidora Ituana.png' },
-        { cidade: 'Piracicaba', uf: 'SP', key: 'piracicaba', nomeExib: 'Distribuidora Piracicabana', logoPin: 'Imagens/Logos Unidades/Distribuidoras/Piracicabana/logo-piracicabana-transparente.png', endereco: 'Av. 31 de Março, 763 - Paulicéia', telefone: '(19) 99214-5313', email: 'vendas.piracicaba@grupovocical.com.br', fachada: 'Imagens/Capas Unidades/Distribuidora Piracicabana.png' },
-        { cidade: 'Itapetininga', uf: 'SP', key: 'itapetininga', nomeExib: 'Distribuidora Itapetininga', logoPin: 'Imagens/Logos Unidades/Distribuidoras/Itapetininga/logo-itapetininga-transparente.png', endereco: 'R. Moisés Nalesso, 5500 - Vila São Gonçalo', telefone: '(15) 3272-1534', email: 'vendas.itapetininga@grupovocical.com.br', fachada: 'Imagens/Capas Unidades/Distribuidora Itapetininga.png' }
+        { cidade: 'Itu', uf: 'SP', key: 'itu', nomeExib: 'Distribuidora Ituana', pageSlug: 'distribuidoras', logoPin: 'Imagens/Logos Unidades/Distribuidoras/Ituana/logo-ituana-transparente.png', endereco: 'R. Remígio Fragnani - Nossa Sra. Aparecida', telefone: '(11) 4022-5207', email: 'vendas.itu@grupovocical.com.br', fachada: 'Imagens/Capas Unidades/Distribuidora Ituana.png' },
+        { cidade: 'Piracicaba', uf: 'SP', key: 'piracicaba', nomeExib: 'Distribuidora Piracicabana', pageSlug: 'distribuidoras', logoPin: 'Imagens/Logos Unidades/Distribuidoras/Piracicabana/logo-piracicabana-transparente.png', endereco: 'Av. 31 de Março, 763 - Paulicéia', telefone: '(19) 99214-5313', email: 'vendas.piracicaba@grupovocical.com.br', fachada: 'Imagens/Capas Unidades/Distribuidora Piracicabana.png' },
+        { cidade: 'Itapetininga', uf: 'SP', key: 'itapetininga', nomeExib: 'Distribuidora Itapetininga', pageSlug: 'distribuidoras', logoPin: 'Imagens/Logos Unidades/Distribuidoras/Itapetininga/logo-itapetininga-transparente.png', endereco: 'R. Moisés Nalesso, 5500 - Vila São Gonçalo', telefone: '(15) 3272-1534', email: 'vendas.itapetininga@grupovocical.com.br', fachada: 'Imagens/Capas Unidades/Distribuidora Itapetininga.png' }
       ]
     }
   ],
@@ -126,17 +126,17 @@ window.VOCICAL = {
 
   /* Unidades para o dropdown do header (11 unidades, logo transparente de cada). */
   UNIDADES_NAV: [
-    { nome: 'Vocical',                    cidade: 'Votuporanga/SP',           slug: 'vocical',        logo: 'Imagens/Logos Unidades/Vocical/logo-vocical---transparente.png' },
-    { nome: 'Jacical',                    cidade: 'Jales/SP',                 slug: 'jacical',        logo: 'Imagens/Logos Unidades/Jacical/Logo-Jacical---Transparente.png' },
-    { nome: 'Ello Forte',                 cidade: 'Ribeirão Preto/SP',        slug: 'ello-forte',     logo: 'Imagens/Logos Unidades/Ello Forte Ribeirao Preto/ello-forte-RP---transparente.png' },
-    { nome: 'Ello Forte',                 cidade: 'São Carlos/SP',            slug: 'ello-forte',     logo: 'Imagens/Logos Unidades/Ello Forte Sao Carlos/ello-forte---fundo-transparente.png' },
+    { nome: 'Vocical',                    cidade: 'Votuporanga/SP',           slug: 'vocical',        pageSlug: 'vocical',                    logo: 'Imagens/Logos Unidades/Vocical/logo-vocical---transparente.png' },
+    { nome: 'Jacical',                    cidade: 'Jales/SP',                 slug: 'jacical',        pageSlug: 'jacical',                    logo: 'Imagens/Logos Unidades/Jacical/Logo-Jacical---Transparente.png' },
+    { nome: 'Ello Forte',                 cidade: 'Ribeirão Preto/SP',        slug: 'ello-forte',     pageSlug: 'ello-forte-ribeirao-preto',  logo: 'Imagens/Logos Unidades/Ello Forte Ribeirao Preto/ello-forte-RP---transparente.png' },
+    { nome: 'Ello Forte',                 cidade: 'São Carlos/SP',            slug: 'ello-forte',     pageSlug: 'ello-forte-sao-carlos',      logo: 'Imagens/Logos Unidades/Ello Forte Sao Carlos/ello-forte---fundo-transparente.png' },
     { nome: 'Rio Preto Cimento e Cal',    cidade: 'São José do Rio Preto/SP', slug: 'rp-cimento-cal', siteExterno: 'https://rpcimentoecal.com.br/lp/', logo: 'Imagens/Logos Unidades/Rio Preto Cimento e Cal/logo-rio-preto---transparente.png' },
-    { nome: 'Robracon',                   cidade: 'Cuiabá/MT',                slug: 'robracon',       logo: 'Imagens/Logos Unidades/Robracon/ROBRACON---COLORIDO.png' },
-    { nome: 'Robracon',                   cidade: 'Rondonópolis/MT',          slug: 'robracon',       logo: 'Imagens/Logos Unidades/Robracon/ROBRACON---COLORIDO.png' },
-    { nome: 'Robracon',                   cidade: 'Sinop/MT',                 slug: 'robracon',       logo: 'Imagens/Logos Unidades/Robracon/ROBRACON---COLORIDO.png' },
-    { nome: 'Distribuidora Ituana',       cidade: 'Itu/SP',                   slug: 'distribuidoras', logo: 'Imagens/Logos Unidades/Distribuidoras/Ituana/logo-ituana-transparente.png' },
-    { nome: 'Distribuidora Piracicabana', cidade: 'Piracicaba/SP',            slug: 'distribuidoras', logo: 'Imagens/Logos Unidades/Distribuidoras/Piracicabana/logo-piracicabana-transparente.png' },
-    { nome: 'Distribuidora Itapetininga', cidade: 'Itapetininga/SP',          slug: 'distribuidoras', logo: 'Imagens/Logos Unidades/Distribuidoras/Itapetininga/logo-itapetininga-transparente.png' }
+    { nome: 'Robracon',                   cidade: 'Cuiabá/MT',                slug: 'robracon',       pageSlug: 'robracon-cuiaba',            logo: 'Imagens/Logos Unidades/Robracon/ROBRACON---COLORIDO.png' },
+    { nome: 'Robracon',                   cidade: 'Rondonópolis/MT',          slug: 'robracon',       pageSlug: 'robracon-rondonopolis',      logo: 'Imagens/Logos Unidades/Robracon/ROBRACON---COLORIDO.png' },
+    { nome: 'Robracon',                   cidade: 'Sinop/MT',                 slug: 'robracon',       pageSlug: 'robracon-sinop',             logo: 'Imagens/Logos Unidades/Robracon/ROBRACON---COLORIDO.png' },
+    { nome: 'Distribuidora Ituana',       cidade: 'Itu/SP',                   slug: 'distribuidoras', pageSlug: 'distribuidoras',             logo: 'Imagens/Logos Unidades/Distribuidoras/Ituana/logo-ituana-transparente.png' },
+    { nome: 'Distribuidora Piracicabana', cidade: 'Piracicaba/SP',            slug: 'distribuidoras', pageSlug: 'distribuidoras',             logo: 'Imagens/Logos Unidades/Distribuidoras/Piracicabana/logo-piracicabana-transparente.png' },
+    { nome: 'Distribuidora Itapetininga', cidade: 'Itapetininga/SP',          slug: 'distribuidoras', pageSlug: 'distribuidoras',             logo: 'Imagens/Logos Unidades/Distribuidoras/Itapetininga/logo-itapetininga-transparente.png' }
   ],
 
   /* Fornecedores parceiros. */
