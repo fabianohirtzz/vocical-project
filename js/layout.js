@@ -155,7 +155,8 @@
     var el = document.getElementById('site-footer');
     if (!el) return;
     var marcasLinks = (V.MARCAS || []).map(function (m) {
-      var href = m.siteExterno || p('marcas/' + ((m.unidades && m.unidades[0] && m.unidades[0].pageSlug) || m.slug) + '.html');
+      var uf = (m.unidades || []).filter(function (x) { return x.matriz; })[0] || (m.unidades || [])[0] || {};
+      var href = m.siteExterno || p('marcas/' + (uf.pageSlug || m.slug) + '.html');
       var ext = m.siteExterno ? ' target="_blank" rel="noopener"' : '';
       return '<li><a href="' + href + '"' + ext + '>' + m.nome + '</a></li>';
     }).join('');
