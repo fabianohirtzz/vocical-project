@@ -158,9 +158,12 @@ vocical-project/
   unidades) foram removidas em favor das landings por cidade.
 - Dados (config.js): 6 marcas → 11 unidades; RP Cimento e Cal com `pendenteConteudo` +
   `siteExterno`; 6 categorias; 16 parceiros; `RAZAO_SOCIAL`/`CNPJ` da Vocical preenchidos.
-  `unidades-data.js` traz o conteúdo editorial e SEO (title/description/canonical/OG +
-  JSON-LD LocalBusiness/HardwareStore + FAQPage) das 7 unidades ricas; contato/endereço/
-  logo/fachada seguem vindo de `config.js` (resolvidos por `marcaSlug` + `unidadeKey`).
+  `unidades-data.js` traz o conteúdo editorial e um campo `seo`/`faq` de referência das
+  7 unidades ricas; contato/endereço/logo/fachada seguem vindo de `config.js` (resolvidos
+  por `marcaSlug` + `unidadeKey`). **Fonte de verdade de SEO para crawlers é o `<head>`
+  estático de cada `marcas/<pageSlug>.html`** (title/description/canonical/OG + JSON-LD
+  HardwareStore/FAQPage) — o campo `seo` do JS é redundante (não renderizado); ao editar
+  `faq` no JS, atualize também o JSON-LD FAQPage do HTML correspondente.
 
 ## Estado atual
 **Passo 4 de 7 — Build incremental** (cronologia freela-method).

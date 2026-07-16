@@ -2,7 +2,11 @@
    Consumido por js/unidade.js. Fonte: grupo-vocical-produtos-servicos-por-unidade.md.
    Contato/endereço/logo/fachada vêm de js/config.js (VOCICAL.MARCAS[].unidades[]),
    resolvidos por marcaSlug + unidadeKey. Categorias usam slugs de window.CATALOGO.
-   Só marcamos como confirmado o que o doc confirma; o resto vai em `validar`. */
+   Só marcamos como confirmado o que o doc confirma; o resto vai em `validar`.
+   FONTE DE VERDADE DE SEO: o <head> estático de cada marcas/<pageSlug>.html
+   (title/description/canonical/OG + JSON-LD HardwareStore/FAQPage) é o que os
+   crawlers leem. O campo `seo` abaixo é redundante — js/unidade.js NÃO o consome.
+   Se editar `faq` aqui, atualize também o JSON-LD FAQPage do HTML correspondente. */
 window.UNIDADES = {
   'robracon-rondonopolis': {
     pageSlug: 'robracon-rondonopolis', marcaSlug: 'robracon', unidadeKey: 'rondonopolis',
@@ -104,9 +108,9 @@ window.UNIDADES = {
       kicker: 'Jales/SP',
       h1: 'Material de construção, aço e <span class="accent">coberturas</span> em Jales',
       lede: 'A unidade de Jales do Grupo Vocical, com localização estratégica para o atendimento regional e forte atuação em construção, indústria e serralheria. Da obra básica aos projetos estruturais.',
-      selos: ['Desde 1988', 'Localização estratégica', 'Construção, indústria e serralheria', 'Corte e dobra sob medida']
+      selos: ['Tradição em Jales', 'Localização estratégica', 'Construção, indústria e serralheria', 'Corte e dobra sob medida']
     },
-    numeros: [ { n: 1988, suf: '', label: 'Em atividade desde' }, { n: 5, suf: '', label: 'Linhas de produto' } ],
+    numeros: [ { n: 5, suf: '', label: 'Linhas de produto' } ],
     sobre: {
       titulo: 'Tradição e localização <span class="accent">estratégica</span> em Jales',
       paras: [

@@ -13,7 +13,6 @@
     return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;')
       .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   }
-  function telLink(t) { return 'https://wa.me/55' + (t || '').replace(/\D/g, ''); }
   function telHref(t) { return 'tel:+55' + (t || '').replace(/\D/g, ''); }
   function cidadeUf() { return esc(u.cidade) + (u.uf ? '/' + esc(u.uf) : ''); }
 
@@ -153,7 +152,10 @@
     if (!U.atuacao) return '';
     var chips = '';
     if (U.atuacao.frota) chips += '<li>' + esc(U.atuacao.frota) + '</li>';
-    return '<section class="section surface--paper un-atuacao">' +
+    /* Sem galeria (surface--char), diferenciais (surface--paper) fica logo acima:
+       troca para surface--char pra não colar duas superfícies iguais. */
+    var surf = (U.galeria && U.galeria.length) ? 'surface--paper' : 'surface--char grain';
+    return '<section class="section ' + surf + ' un-atuacao">' +
       '<div class="container"><div class="sec-head" data-reveal>' +
         '<span class="eyebrow">Atuação e logística</span>' +
         '<h2 class="display--mass">Onde a unidade <span class="accent">atende</span></h2></div>' +
