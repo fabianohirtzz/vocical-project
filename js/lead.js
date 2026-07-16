@@ -282,7 +282,7 @@
   }
 
   /* ---- interceptação dos CTAs do site (abre o modal) ---- */
-  var OPENERS = '[data-cta],#hero-cta,#conv-cta,#prod-cta,#sobre-cta,#ct-cta,#mk-conv-cta,#mk-hero-cta,.ie__btn,a[href="#lead-open"]';
+  var OPENERS = '[data-cta],#hero-cta,#conv-cta,#prod-cta,#sobre-cta,#ct-cta,#mk-conv-cta,#mk-hero-cta,#un-hero-cta,#un-conv-cta,.ie__btn,a[href="#lead-open"]';
   function interceptCtas() {
     document.addEventListener('click', function (e) {
       var t = e.target.closest(OPENERS);

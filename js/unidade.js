@@ -9,7 +9,10 @@
   var u = (m.unidades || []).filter(function (x) { return x.key === U.unidadeKey; })[0] || {};
   var base = document.documentElement.getAttribute('data-base') || '';
   function p(path) { return path ? base + path : path; }
-  function esc(s) { return String(s == null ? '' : s); }
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
   function telLink(t) { return 'https://wa.me/55' + (t || '').replace(/\D/g, ''); }
   function telHref(t) { return 'tel:+55' + (t || '').replace(/\D/g, ''); }
   function cidadeUf() { return esc(u.cidade) + (u.uf ? '/' + esc(u.uf) : ''); }

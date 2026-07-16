@@ -53,7 +53,7 @@
 
   function run() {
     // CTAs grandes de conversão/contato (todas as páginas)
-    ['hero-cta', 'conv-cta', 'prod-cta', 'sobre-cta', 'ct-cta', 'mk-hero-cta', 'mk-conv-cta']
+    ['hero-cta', 'conv-cta', 'prod-cta', 'sobre-cta', 'ct-cta', 'mk-hero-cta', 'mk-conv-cta', 'un-hero-cta', 'un-conv-cta']
       .forEach(function (id) { upgrade(document.getElementById(id), { lg: true }); });
     // botão "Solicitar orçamento" do menu mobile (largura cheia)
     upgrade(document.querySelector('.drawer__orc'), { block: true });
