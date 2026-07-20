@@ -65,6 +65,11 @@ Black como massa nos números e títulos, assimetria editorial, fotos grandes em
 no lugar de thumbnails soltos. Motion e tokens da `vocical-design` (reveal com peso,
 count-up, efeitos sempre ligados mesmo sob reduced-motion).
 
+**Malha nas seções claras:** as seções de **fundo claro** (`surface--paper` / `surface--white`
+— sobre, catálogo, diferenciais, FAQ, contato) recebem a **malha "planta técnica" 46px**
+(`.mesh`), a mesma usada na home e em outras páginas. As seções escuras seguem com grão
+(`.grain`), sem malha.
+
 **Decisão de arte (desvio consciente da `vocical-design`):** esta página **não** usa o
 duotone vermelho nas fotos (o cliente rejeitou o overlay). Fotos em cor natural; onde a foto
 fica atrás de texto (hero), usar apenas scrim/gradiente sutil para contraste — nunca o
