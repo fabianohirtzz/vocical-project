@@ -31,7 +31,8 @@ hierarquia e craft elevados, com CTAs de orçamento dosados e estratégicos.
 Ordem pensada para conversão (prova → interesse → oferta → fecho). Cada seção cita a
 inspiração 21st que a orienta (referência de layout, não de código).
 
-1. **Hero editorial** — foto duotone full-bleed; título Archivo Black assimétrico; os
+1. **Hero editorial** — foto full-bleed em **cor natural** (sem duotone), com scrim/gradiente
+   sutil só onde há texto por cima, para legibilidade; título Archivo Black assimétrico; os
    números da operação (2005 em atividade, 5 linhas de produto, 11 unidades no grupo) como
    **massa protagonista**. CTA primário anti-metal `.amb` "Peça seu orçamento".
    Inspiração: Editorial Image Hero (felipemenezes098/hero-07) + Ruixen Stats (figura grande assimétrica).
@@ -39,8 +40,8 @@ inspiração 21st que a orienta (referência de layout, não de código).
 3. **Quem atende** — mantém o carrossel de segmentos (image-expansion), aperta o ritmo.
 4. **Catálogo editorial por categoria (mudança principal)** — substitui a parede de cards
    por um showcase com **abas de categoria** (Materiais de Construção, Aço, Estruturais e
-   Serralheria, Coberturas, Drywall): ao selecionar a aba, foto grande duotone de um lado +
-   lista de itens da linha do outro. Cada painel tem **1 CTA contextual** "Pedir orçamento
+   Serralheria, Coberturas, Drywall): ao selecionar a aba, foto grande em **cor natural** de
+   um lado + lista de itens da linha do outro. Cada painel tem **1 CTA contextual** "Pedir orçamento
    de [linha]" (só 1 visível por vez). Inspiração: Feature Showcase (ruixen.ui, abas + mídia)
    / Elegant Carousel (split editorial).
 5. **Serviços especializados** — corte e dobra de chapas, telhas metálicas/termoacústicas
@@ -49,8 +50,8 @@ inspiração 21st que a orienta (referência de layout, não de código).
 6. **Diferenciais (bento)** — substitui a fileira de 4 cards iguais por um **bento** de
    blocos com tamanhos diferentes ("mix mais amplo do grupo" ocupa o bloco maior).
    Inspiração: Feature Section with Bento Grid (manuarora700).
-7. **Galeria** — mantém o track duotone da operação (há boas fotos em `Imagens/Robracon ROO/`).
-   Inspiração de ritmo: Masonry.
+7. **Galeria** — mantém o track da operação, fotos em **cor natural** (há boas fotos em
+   `Imagens/Robracon ROO/`). Inspiração de ritmo: Masonry.
 8. **Atuação / logística** — texto de área + card "Atendimento B2B consultivo" com CTA
    "Falar com esta unidade". Menção a frota própria **sempre com ressalva** ("conforme a
    disponibilidade da unidade").
@@ -60,9 +61,14 @@ inspiração 21st que a orienta (referência de layout, não de código).
 11. **Conversão final** — faixa vermelha de fecho com CTA "Fale com a Robracon Rondonópolis".
 
 **Princípios anti-genérico:** alternar composições (full / split / abas / bento), Archivo
-Black como massa nos números e títulos, assimetria editorial, foto duotone da marca no
-lugar de thumbnails soltos. Motion e tokens da `vocical-design` (reveal com peso, count-up,
-efeitos sempre ligados mesmo sob reduced-motion).
+Black como massa nos números e títulos, assimetria editorial, fotos grandes em cor natural
+no lugar de thumbnails soltos. Motion e tokens da `vocical-design` (reveal com peso,
+count-up, efeitos sempre ligados mesmo sob reduced-motion).
+
+**Decisão de arte (desvio consciente da `vocical-design`):** esta página **não** usa o
+duotone vermelho nas fotos (o cliente rejeitou o overlay). Fotos em cor natural; onde a foto
+fica atrás de texto (hero), usar apenas scrim/gradiente sutil para contraste — nunca o
+tratamento duotone.
 
 ## Estratégia de CTA (dosada e estratégica)
 
