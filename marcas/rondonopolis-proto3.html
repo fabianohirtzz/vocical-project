@@ -88,16 +88,16 @@
   .rr3-card__logo { position: absolute; z-index: 3; right: clamp(10px, 1.3vw, 16px); bottom: clamp(10px, 1.3vw, 16px);
     height: clamp(34px, 3.4vw, 56px); width: auto; display: block;
     filter: drop-shadow(0 2px 7px rgba(0,0,0,.55)); pointer-events: none; }
-  .rr3-card--back  { transform: translate(-50%, -50%) translateX(26%) rotate(-6deg); z-index: 1; }
-  .rr3-card--front { transform: translate(-50%, -50%) translateX(-28%) rotate(6deg); z-index: 2; }
+  .rr3-card--back  { transform: translate(-50%, -50%) translateX(27%) rotate(-6deg); z-index: 1; }
+  .rr3-card--front { transform: translate(-50%, -50%) translateX(-27%) rotate(6deg); z-index: 2; }
   /* estado pré-entrada (antes de .is-in): cards empurrados p/ direita e mais planos */
   .rr3-cards:not(.is-in) .rr3-card--back  { transform: translate(-50%, -50%) translateX(66%) rotate(-11deg); }
   .rr3-cards:not(.is-in) .rr3-card--front { transform: translate(-50%, -50%) translateX(30%) rotate(1deg); }
   .rr3-cards.is-in .rr3-card { opacity: 1; }
   .rr3-cards.is-in .rr3-card--front { transition-delay: .12s; }
   @media (hover: hover) {
-    .rr3-cards.is-in .rr3-card--back:hover  { transform: translate(-50%, -50%) translateX(26%) rotate(-3deg) translateY(-12px); z-index: 3; }
-    .rr3-cards.is-in .rr3-card--front:hover { transform: translate(-50%, -50%) translateX(-28%) rotate(3deg) translateY(-12px); z-index: 4; }
+    .rr3-cards.is-in .rr3-card--back:hover  { transform: translate(-50%, -50%) translateX(27%) rotate(-3deg) translateY(-12px); z-index: 3; }
+    .rr3-cards.is-in .rr3-card--front:hover { transform: translate(-50%, -50%) translateX(-27%) rotate(3deg) translateY(-12px); z-index: 4; }
   }
   .rr3-card__badge { position: absolute; z-index: 3; left: 50%; bottom: clamp(12px,1.4vw,18px); transform: translateX(-50%);
     display: inline-flex; align-items: center; gap: .5rem; padding: .5em 1em; border-radius: 999px;
@@ -178,7 +178,6 @@
         </div>
 
         <div class="rr3-right">
-          <img class="rr3-unitlogo rr3-rise rr3-rise--2" src="../Imagens/Robracon ROO/logo-robracon-rondonopolis.png" alt="Robracon Rondonópolis">
           <div class="rr3-cards" id="rr3-cards">
             <div class="rr3-card rr3-card--back">
               <img src="../Imagens/Robracon ROO/robracon1 (9).png" alt="Operação interna da Robracon Rondonópolis: ponte rolante e estoque de aço" loading="eager">
