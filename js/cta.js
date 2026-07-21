@@ -55,6 +55,11 @@
     // CTAs grandes de conversão/contato (todas as páginas)
     ['hero-cta', 'conv-cta', 'prod-cta', 'sobre-cta', 'ct-cta', 'mk-hero-cta', 'mk-conv-cta', 'un-hero-cta', 'un-conv-cta']
       .forEach(function (id) { upgrade(document.getElementById(id), { lg: true }); });
+    // faixas de CTA intercaladas entre categorias (produtos): mesmo botão da home,
+    // corpo branco porque a faixa é vermelha (nunca vermelho sobre vermelho).
+    [].forEach.call(document.querySelectorAll('.cat-cta__btn'), function (el) {
+      upgrade(el, { variant: 'amb--white' });
+    });
     // botão "Solicitar orçamento" do menu mobile (largura cheia)
     upgrade(document.querySelector('.drawer__orc'), { block: true });
     // seção das calculadoras ("Peça seu orçamento"): corpo branco, slab preto;

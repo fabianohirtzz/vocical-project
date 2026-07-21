@@ -231,7 +231,7 @@
       '<button class="lead-fab" id="lead-fab" type="button" aria-haspopup="dialog" aria-controls="lead-modal" aria-label="Fale com o Vico, peça seu orçamento">' +
         '<span class="lead-fab__ava"><img src="' + p(L.AVATAR) + '" alt="" width="56" height="56" loading="lazy"></span>' +
         '<span class="lead-fab__dot" aria-hidden="true"></span>' +
-        '<span class="lead-fab__label">Peça seu orçamento</span>' +
+        '<span class="lead-fab__label">Fale conosco</span>' +
       '</button>' +
       '<div class="lead-backdrop" id="lead-backdrop" hidden></div>' +
       '<div class="lead-modal" id="lead-modal" role="dialog" aria-modal="true" aria-label="Formulário de atendimento" hidden>' +

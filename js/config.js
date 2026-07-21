@@ -116,8 +116,8 @@ window.VOCICAL = {
 
   /* Categorias de produto (igual ao site atual). */
   CATEGORIAS: [
-    { slug: 'materiais-de-construcao', nome: 'Materiais de Construção', desc: 'Cimento, cal, argamassas, tubos, conexões, caixas d’água e louças.', img: 'Imagens/loja-de-materiais-de-construcao.png' },
-    { slug: 'aco', nome: 'Aço Construção Civil', desc: 'Vergalhões, telas, treliças, colunas, sapatas e estribos.', img: 'Imagens/construtoras-e-incorporadoras.png' },
+    { slug: 'materiais-de-construcao', nome: 'Materiais de Construção', desc: 'Cimento, cal, argamassas, tubos, conexões, caixas d’água e louças.', img: 'Imagens/back2.jpg' },
+    { slug: 'aco', nome: 'Aço Construção Civil', desc: 'Vergalhões, telas, treliças, colunas, sapatas e estribos.', img: 'Imagens/corte-e-dobra-de-vergalhao.png' },
     { slug: 'estruturais', nome: 'Estruturais e Serralheria', desc: 'Metalon, perfis, chapas, cantoneiras e barras chatas.', img: 'Imagens/serralheria.png' },
     { slug: 'coberturas', nome: 'Coberturas', desc: 'Telhas galvalume, termoacústicas, fibrocimento e transparentes.', img: 'Imagens/industrias.png' },
     { slug: 'drywall', nome: 'Drywall', desc: 'Placas ST, RU e Glasroc, perfis, gesso e acessórios.', img: 'Imagens/drywall.jpg' },

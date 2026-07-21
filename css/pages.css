@@ -187,6 +187,31 @@
   .prod-item__img { width: clamp(140px, 42%, 180px); }
 }
 
+/* Banda de CTA intercalada entre categorias (convite a orçamento, abre o Vico). */
+.cat-cta {
+  position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: clamp(1.2rem, 3vw, 2.4rem);
+  margin: clamp(28px, 4vw, 44px) 0;
+  padding: clamp(1.6rem, 3.2vw, 2.4rem) clamp(1.5rem, 3.4vw, 2.6rem);
+  border-radius: 22px;
+  background: var(--red); color: #fff;
+}
+.cat-cta__tx { position: relative; z-index: 1; }
+.cat-cta__eyebrow {
+  display: inline-block; font-weight: 700; font-size: .78rem; letter-spacing: .12em;
+  text-transform: uppercase; color: rgba(255,255,255,.8); margin-bottom: .5rem;
+}
+.cat-cta__title {
+  font-family: var(--display); font-weight: 400; line-height: 1.04; letter-spacing: -.01em;
+  font-size: clamp(1.35rem, 1.05rem + 1.3vw, 2rem); max-width: 22ch;
+}
+.cat-cta__btn { position: relative; z-index: 1; flex: 0 0 auto; }
+@media (max-width: 620px) {
+  .cat-cta { flex-direction: column; align-items: flex-start; text-align: left; }
+  .cat-cta__btn { align-self: stretch; justify-content: center; }
+}
+
 /* ---------- Página de marca ---------- */
 .mk-hero { position: relative; display: flex; align-items: flex-end; min-height: clamp(420px, 60vh, 600px); overflow: hidden; }
 .mk-hero__bg { position: absolute; inset: 0; z-index: 0; }

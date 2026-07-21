@@ -9,9 +9,31 @@
     }).join('');
   }
 
+  /* Bandas de CTA intercaladas entre as categorias (convite a orçamento).
+     data-cta faz o lead.js abrir o modal do Vico; href é só fallback. */
+  var CTA_VARIANTES = [
+    { eyebrow: 'Orçamento sem compromisso', title: 'Já sabe o que precisa para a obra?', btn: 'Pedir orçamento' },
+    { eyebrow: 'Corte e dobra e volume', title: 'Precisa de peça sob medida ou grande quantidade?', btn: 'Falar com o time' }
+  ];
+  // depois de qual índice de categoria entra cada banda (com 6 categorias: após a 2ª e a 4ª)
+  var CTA_APOS = { 1: 0, 3: 1 };
+
+  function ctaBand(v) {
+    var url = (window.VOCICAL || {}).CTA_URL || '#';
+    return '<aside class="cat-cta grain" data-reveal>' +
+      '<div class="cat-cta__tx">' +
+        '<span class="cat-cta__eyebrow">' + v.eyebrow + '</span>' +
+        '<h3 class="cat-cta__title">' + v.title + '</h3>' +
+      '</div>' +
+      '<a class="btn btn--light cat-cta__btn" data-cta target="_blank" rel="noopener" href="' + url + '">' +
+        '<span class="btn__ic" aria-hidden="true">›</span> ' + v.btn +
+      '</a>' +
+    '</aside>';
+  }
+
   function renderCats() {
     var el = document.getElementById('cat-list'); if (!el) return;
-    el.innerHTML = C.map(function (c) {
+    el.innerHTML = C.map(function (c, i) {
       var itens = c.itens.map(function (it) {
         var media = it.img
           ? '<div class="prod-item__img"><img src="' + it.img + '" alt="' + it.nome + '" loading="lazy"></div>'
@@ -24,13 +46,15 @@
           media +
         '</div>';
       }).join('');
-      return '<section class="cat-block" id="' + c.slug + '">' +
+      var block = '<section class="cat-block" id="' + c.slug + '">' +
         '<div class="cat-block__head" data-reveal>' +
           '<span class="kicker">Categoria</span>' +
           '<h2>' + c.nome + '</h2>' +
         '</div>' +
         '<div class="prod-items">' + itens + '</div>' +
       '</section>';
+      if (CTA_APOS.hasOwnProperty(i)) block += ctaBand(CTA_VARIANTES[CTA_APOS[i]]);
+      return block;
     }).join('');
   }
 

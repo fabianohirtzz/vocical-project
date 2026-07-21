@@ -29,16 +29,18 @@
   position: absolute; top: 6px; right: 6px; width: 12px; height: 12px;
   border-radius: 50%; background: #22c55e; border: 2px solid var(--white);
 }
+/* Rótulo "Fale conosco" sempre visível ao lado do avatar do Vico (pedido do cliente:
+   usuários não percebiam o botão só com o ícone). */
 .lead-fab__label {
-  max-width: 0; overflow: hidden; white-space: nowrap;
+  max-width: 240px; overflow: hidden; white-space: nowrap;
   font-family: var(--font); font-weight: 700; font-size: .92rem; letter-spacing: -.01em;
-  opacity: 0; transition: max-width .3s var(--ease-weight), opacity .2s, padding .3s var(--ease-weight);
+  opacity: 1; padding: 0 20px 0 14px;
 }
-.lead-fab:hover .lead-fab__label,
-.lead-fab:focus-visible .lead-fab__label { max-width: 220px; opacity: 1; padding: 0 20px 0 14px; }
 
 @media (max-width: 560px) {
-  .lead-fab__label { display: none; }
+  .lead-fab { height: 58px; }
+  .lead-fab__ava { width: 58px; height: 58px; flex: 0 0 58px; }
+  .lead-fab__label { font-size: .85rem; padding: 0 16px 0 12px; }
 }
 
 /* pulso sutil de atenção (respeitando reduced-motion) */
