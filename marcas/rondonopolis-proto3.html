@@ -53,48 +53,47 @@
     width: min(820px, 70vw); height: 520px; transform: translate(-50%, -42%);
     background: radial-gradient(closest-side, rgba(166,3,3,.13), rgba(166,3,3,.03) 60%, transparent 78%);
     filter: blur(52px); z-index: 0; pointer-events: none; }
+  /* full-bleed com padding lateral (sem max-width do .container: mais espaço, sem "encaixotar") */
   .rr3-inner { position: relative; z-index: 1; display: flex; align-items: center;
-    gap: clamp(28px, 4.5vw, 72px); min-height: clamp(560px, 82vh, 820px);
-    padding-block: clamp(44px, 7vh, 84px); }
+    gap: clamp(30px, 5vw, 88px); min-height: clamp(560px, 84vh, 860px);
+    padding-block: clamp(44px, 7vh, 84px); padding-inline: clamp(24px, 5vw, 96px); }
 
   /* ---- coluna de conteúdo (esquerda) ---- */
-  .rr3-left { width: 52%; display: flex; flex-direction: column; }
-  .rr3-brand { display: flex; flex-direction: column; align-items: flex-start; gap: .55rem; }
-  .rr3-brand__logo { height: clamp(64px, 8vw, 112px); width: auto; display: block; }
-  .rr3-brand__loc { font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gray); }
-  .rr3-title { font-family: var(--display); font-weight: 400; font-size: clamp(2rem, 4.2vw, 3.9rem); line-height: 1; letter-spacing: -.025em; color: var(--ink); max-width: 16ch; margin-top: clamp(22px, 3vw, 36px); }
+  .rr3-left { width: 50%; display: flex; flex-direction: column; }
+  .rr3-title { font-family: var(--display); font-weight: 400; font-size: clamp(2.1rem, 4.6vw, 4.2rem); line-height: 1; letter-spacing: -.025em; color: var(--ink); max-width: 15ch; }
   .rr3-title .accent { background: none; color: var(--red); padding: 0; border-radius: 0; }
   .rr3-bar { width: clamp(64px, 6vw, 88px); height: 5px; border-radius: 999px; background: var(--red); margin: clamp(18px, 2.4vw, 30px) 0; }
   .rr3-sub { max-width: 48ch; color: #4a4a4a; font-size: clamp(1rem, 1.15vw, 1.14rem); line-height: 1.6; }
   .rr3-actions { margin-top: clamp(24px, 3vw, 34px); }
 
   /* números da unidade (painel-instrumento) */
-  .rr3-stats { display: flex; flex-wrap: wrap; gap: clamp(20px, 3vw, 44px);
+  .rr3-stats { display: flex; flex-wrap: wrap; gap: clamp(30px, 3.4vw, 58px);
     margin-top: clamp(26px, 3.4vw, 40px); padding-top: clamp(18px, 2.2vw, 26px);
     border-top: 1px solid var(--line); }
   .rr3-stat { display: flex; flex-direction: column; }
-  .rr3-stat__num { font-family: var(--display); font-weight: 400; font-size: clamp(1.8rem, 3.2vw, 2.7rem); line-height: 1; color: var(--ink); }
-  .rr3-stat__label { margin-top: .5rem; font-size: .68rem; letter-spacing: .11em; text-transform: uppercase; color: var(--gray); max-width: 14ch; }
+  .rr3-stat__num { font-family: var(--display); font-weight: 400; font-size: clamp(1.9rem, 3.2vw, 2.8rem); line-height: 1; color: var(--red); }
+  .rr3-stat__label { margin-top: .5rem; font-size: .68rem; letter-spacing: .11em; text-transform: uppercase; color: var(--gray); white-space: nowrap; }
 
-  /* ---- coluna dos cards (direita) ---- */
-  .rr3-right { width: 48%; display: flex; align-items: center; justify-content: center; }
-  .rr3-cards { position: relative; width: 100%; height: clamp(360px, 44vw, 520px); }
+  /* ---- coluna dos cards (direita): logo em destaque acima dos cards ---- */
+  .rr3-right { width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: clamp(18px, 2.6vw, 40px); }
+  .rr3-unitlogo { height: clamp(88px, 10vw, 152px); width: auto; display: block; }
+  .rr3-cards { position: relative; width: 100%; height: clamp(360px, 42vw, 500px); }
   .rr3-card { position: absolute; top: 50%; left: 50%;
-    width: clamp(250px, 30vw, 396px); aspect-ratio: 4 / 3;
+    width: clamp(248px, 29vw, 388px); aspect-ratio: 4 / 3;
     border-radius: 20px; overflow: hidden; background: #fff; border: 6px solid #fff;
     box-shadow: 0 34px 60px -22px rgba(13,13,13,.42), 0 12px 26px rgba(0,0,0,.14);
     opacity: 0; transition: transform .5s var(--ease-weight), box-shadow .4s var(--ease-weight), opacity .6s ease; }
   .rr3-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .rr3-card--back  { transform: translate(-50%, -50%) translateX(23%) rotate(-6deg); z-index: 1; }
-  .rr3-card--front { transform: translate(-50%, -50%) translateX(-15%) rotate(6deg); z-index: 2; }
+  .rr3-card--back  { transform: translate(-50%, -50%) translateX(38%) rotate(-6deg); z-index: 1; }
+  .rr3-card--front { transform: translate(-50%, -50%) translateX(-24%) rotate(6deg); z-index: 2; }
   /* estado pré-entrada (antes de .is-in): cards empurrados p/ direita e mais planos */
-  .rr3-cards:not(.is-in) .rr3-card--back  { transform: translate(-50%, -50%) translateX(72%) rotate(-11deg); }
-  .rr3-cards:not(.is-in) .rr3-card--front { transform: translate(-50%, -50%) translateX(36%) rotate(1deg); }
+  .rr3-cards:not(.is-in) .rr3-card--back  { transform: translate(-50%, -50%) translateX(88%) rotate(-11deg); }
+  .rr3-cards:not(.is-in) .rr3-card--front { transform: translate(-50%, -50%) translateX(46%) rotate(1deg); }
   .rr3-cards.is-in .rr3-card { opacity: 1; }
   .rr3-cards.is-in .rr3-card--front { transition-delay: .12s; }
   @media (hover: hover) {
-    .rr3-cards.is-in .rr3-card--back:hover  { transform: translate(-50%, -50%) translateX(23%) rotate(-3deg) translateY(-12px); z-index: 3; }
-    .rr3-cards.is-in .rr3-card--front:hover { transform: translate(-50%, -50%) translateX(-15%) rotate(3deg) translateY(-12px); z-index: 4; }
+    .rr3-cards.is-in .rr3-card--back:hover  { transform: translate(-50%, -50%) translateX(38%) rotate(-3deg) translateY(-12px); z-index: 3; }
+    .rr3-cards.is-in .rr3-card--front:hover { transform: translate(-50%, -50%) translateX(-24%) rotate(3deg) translateY(-12px); z-index: 4; }
   }
   .rr3-card__badge { position: absolute; z-index: 3; left: 50%; bottom: clamp(12px,1.4vw,18px); transform: translateX(-50%);
     display: inline-flex; align-items: center; gap: .5rem; padding: .5em 1em; border-radius: 999px;
@@ -115,10 +114,10 @@
     .rr3-card { width: clamp(220px, 56vw, 320px); }
   }
   @media (max-width: 420px) {
-    .rr3-card--back  { transform: translate(-50%, -50%) translateX(18%) rotate(-6deg); }
-    .rr3-card--front { transform: translate(-50%, -50%) translateX(-12%) rotate(6deg); }
-    .rr3-cards:not(.is-in) .rr3-card--back  { transform: translate(-50%, -50%) translateX(55%) rotate(-10deg); }
-    .rr3-cards:not(.is-in) .rr3-card--front { transform: translate(-50%, -50%) translateX(28%) rotate(1deg); }
+    .rr3-card--back  { transform: translate(-50%, -50%) translateX(30%) rotate(-6deg); }
+    .rr3-card--front { transform: translate(-50%, -50%) translateX(-20%) rotate(6deg); }
+    .rr3-cards:not(.is-in) .rr3-card--back  { transform: translate(-50%, -50%) translateX(66%) rotate(-10deg); }
+    .rr3-cards:not(.is-in) .rr3-card--front { transform: translate(-50%, -50%) translateX(30%) rotate(1deg); }
   }
 
   /* ---------- CATÁLOGO (idêntico ao proto 1) ---------- */
@@ -156,30 +155,26 @@
     <!-- ============ HERO 3 — texto + números à esquerda, dois cards de imagem à direita ============ -->
     <section class="rr3-hero">
       <div class="rr3-hero__grid" aria-hidden="true"></div>
-      <div class="container rr3-inner">
+      <div class="rr3-inner">
 
         <div class="rr3-left">
-          <div class="rr3-brand rr3-rise rr3-rise--1">
-            <img class="rr3-brand__logo" src="../Imagens/Robracon ROO/logo-robracon-rondonopolis.png" alt="Robracon Rondonópolis">
-            <span class="rr3-brand__loc">Unidade do Grupo Vocical · MT</span>
-          </div>
+          <h1 class="rr3-title rr3-rise rr3-rise--1">Aço, material de construção e <span class="accent">drywall</span></h1>
+          <div class="rr3-bar rr3-rise rr3-rise--2"></div>
+          <p class="rr3-sub rr3-rise rr3-rise--2">A unidade de maior portfólio do Grupo Vocical em Rondonópolis. Do cimento ao drywall, com serviços especializados e logística regional para obras, indústrias e serralherias.</p>
 
-          <h1 class="rr3-title rr3-rise rr3-rise--2">Aço, material de construção e <span class="accent">drywall</span></h1>
-          <div class="rr3-bar rr3-rise rr3-rise--3"></div>
-          <p class="rr3-sub rr3-rise rr3-rise--3">A unidade de maior portfólio do Grupo Vocical em Rondonópolis. Do cimento ao drywall, com serviços especializados e logística regional para obras, indústrias e serralherias.</p>
-
-          <div class="rr3-actions rr3-rise rr3-rise--4">
+          <div class="rr3-actions rr3-rise rr3-rise--3">
             <a class="btn btn--cta btn--lg" id="rr3-hero-cta" href="#" data-cta target="_blank" rel="noopener">Peça seu orçamento</a>
           </div>
 
-          <div class="rr3-stats rr3-rise rr3-rise--5">
+          <div class="rr3-stats rr3-rise rr3-rise--4">
             <div class="rr3-stat"><span class="rr3-stat__num">2005</span><span class="rr3-stat__label">em atividade desde</span></div>
             <div class="rr3-stat"><span class="rr3-stat__num">3</span><span class="rr3-stat__label">unidades no MT</span></div>
             <div class="rr3-stat"><span class="rr3-stat__num">6</span><span class="rr3-stat__label">linhas de produto</span></div>
           </div>
         </div>
 
-        <div class="rr3-right rr3-rise rr3-rise--3">
+        <div class="rr3-right">
+          <img class="rr3-unitlogo rr3-rise rr3-rise--2" src="../Imagens/Robracon ROO/logo-robracon-rondonopolis.png" alt="Robracon Rondonópolis">
           <div class="rr3-cards" id="rr3-cards">
             <div class="rr3-card rr3-card--back">
               <img src="../Imagens/Robracon ROO/robracon1 (9).png" alt="Operação interna da Robracon Rondonópolis: ponte rolante e estoque de aço" loading="eager">
