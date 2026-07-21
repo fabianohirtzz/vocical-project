@@ -48,22 +48,16 @@
     background: radial-gradient(closest-side, rgba(166,3,3,.15), rgba(166,3,3,.04) 58%, transparent 76%);
     filter: blur(48px); z-index: 0; pointer-events: none; }
 
-  /* ---- coluna de conteúdo (esquerda) ---- */
-  .rr2-content { position: relative; z-index: 1; width: 58%; display: flex; flex-direction: column; padding: clamp(26px, 3.4vw, 52px) clamp(26px, 4vw, 68px); }
-  .rr2-brand { display: flex; flex-direction: column; align-items: flex-start; gap: .55rem; }
-  .rr2-brand__logo { height: clamp(66px, 8.5vw, 116px); width: auto; display: block; }
-  .rr2-brand__loc { font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gray); }
+  /* ---- coluna de conteúdo (esquerda): conteúdo centralizado horizontalmente ---- */
+  .rr2-content { position: relative; z-index: 1; width: 58%; display: flex; flex-direction: column; align-items: center; text-align: center; padding: clamp(26px, 3.4vw, 52px) clamp(26px, 4vw, 68px); }
 
-  .rr2-main { margin-block: auto; padding-block: clamp(24px, 4vh, 48px); }
+  .rr2-main { margin-block: auto; padding-block: clamp(24px, 4vh, 48px); display: flex; flex-direction: column; align-items: center; }
   .rr2-title { font-family: var(--display); font-weight: 400; font-size: clamp(2.1rem, 4.4vw, 4rem); line-height: 1; letter-spacing: -.025em; color: var(--ink); max-width: 15ch; }
   .rr2-title .accent { background: none; color: var(--red); padding: 0; border-radius: 0; }
-  .rr2-bar { width: clamp(64px, 6vw, 88px); height: 5px; border-radius: 999px; background: var(--red); margin: clamp(20px, 2.6vw, 32px) 0; }
-  .rr2-sub { max-width: 46ch; color: #4a4a4a; font-size: clamp(1rem, 1.2vw, 1.14rem); line-height: 1.6; }
-  .rr2-cta { display: inline-flex; align-items: center; gap: .6rem; margin-top: clamp(22px, 2.8vw, 34px); font-weight: 800; letter-spacing: .13em; text-transform: uppercase; color: var(--red); font-size: .92rem; transition: gap .25s var(--ease-weight), color .2s; }
-  .rr2-cta:hover { gap: .95rem; color: var(--red-dark); }
-  .rr2-cta svg { width: 18px; height: 18px; }
+  .rr2-bar { width: clamp(64px, 6vw, 88px); height: 5px; border-radius: 999px; background: var(--red); margin: clamp(20px, 2.6vw, 32px) auto; }
+  .rr2-sub { max-width: 48ch; color: #4a4a4a; font-size: clamp(1rem, 1.2vw, 1.14rem); line-height: 1.6; }
 
-  .rr2-contact { display: flex; flex-wrap: wrap; gap: clamp(16px, 2.2vw, 40px); margin-top: clamp(26px, 4vh, 52px); }
+  .rr2-contact { display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(16px, 2.2vw, 40px); margin-top: clamp(26px, 4vh, 52px); }
   .rr2-contact__item { display: flex; align-items: center; gap: .55rem; font-size: .82rem; color: #5a5a5a; }
   .rr2-contact__item svg { width: 18px; height: 18px; color: var(--red); flex: 0 0 auto; }
 
@@ -74,11 +68,12 @@
   /* clip-path (recorte diagonal natural) é aplicado por JS com cantos arredondados
      SÓ na esquerda; direita fica reta e flush na borda da tela. */
   .rr2-media { position: relative; flex: 1; overflow: hidden; opacity: 0; animation: rr2-in 1s var(--ease-weight) .1s both; }
-  .rr2-media img { width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.06); animation: rr2-kb 20s var(--ease-weight) forwards; }
+  .rr2-media img:not(.rr2-media__logo) { width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.06); animation: rr2-kb 20s var(--ease-weight) forwards; }
   @keyframes rr2-kb { to { transform: scale(1); } }
   @keyframes rr2-in { from { opacity: 0; transform: translateX(34px); } to { opacity: 1; transform: none; } }
-  .rr2-media__badge { position: absolute; z-index: 2; right: clamp(14px,1.6vw,20px); top: clamp(14px,1.6vw,20px); display: inline-flex; align-items: center; gap: .5rem; padding: .5em 1em; border-radius: 999px; background: rgba(13,13,13,.5); border: 1px solid rgba(255,255,255,.22); backdrop-filter: blur(6px); font-size: .66rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.92); }
-  .rr2-media__badge::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #ff5a5a; }
+  /* logo da unidade no canto inferior direito da imagem (marca d'água) */
+  .rr2-media__logo { position: absolute; z-index: 2; right: clamp(12px, 1.6vw, 22px); bottom: clamp(12px, 1.6vw, 22px);
+    height: clamp(38px, 4vw, 66px); width: auto; display: block; filter: drop-shadow(0 2px 8px rgba(0,0,0,.55)); pointer-events: none; }
 
   .rr2-rise { opacity: 0; animation: rr2-risek .7s var(--ease-weight) both; }
   .rr2-rise--1 { animation-delay: .05s; } .rr2-rise--2 { animation-delay: .15s; } .rr2-rise--3 { animation-delay: .25s; }
@@ -129,16 +124,11 @@
     <section class="rr2-hero">
       <div class="rr2-hero__grid" aria-hidden="true"></div>
       <div class="rr2-content">
-        <div class="rr2-brand rr2-rise rr2-rise--1">
-          <img class="rr2-brand__logo" src="../Imagens/Robracon ROO/logo-robracon-rondonopolis.png" alt="Robracon Rondonópolis">
-          <span class="rr2-brand__loc">Unidade do Grupo Vocical · MT</span>
-        </div>
-
         <div class="rr2-main">
-          <h1 class="rr2-title rr2-rise rr2-rise--2">Aço, material de construção e <span class="accent">drywall</span></h1>
-          <div class="rr2-bar rr2-rise rr2-rise--3"></div>
-          <p class="rr2-sub rr2-rise rr2-rise--3">A unidade de maior portfólio do Grupo Vocical em Rondonópolis. Do cimento ao drywall, com serviços especializados e logística regional para obras, indústrias e serralherias.</p>
-          <a class="btn btn--cta btn--lg rr2-rise rr2-rise--4" id="rr2-hero-cta" href="#" data-cta target="_blank" rel="noopener">Peça seu orçamento</a>
+          <h1 class="rr2-title rr2-rise rr2-rise--1">Aço, material de construção e <span class="accent">drywall</span></h1>
+          <div class="rr2-bar rr2-rise rr2-rise--2"></div>
+          <p class="rr2-sub rr2-rise rr2-rise--2">A unidade de maior portfólio do Grupo Vocical em Rondonópolis. Do cimento ao drywall, com serviços especializados e logística regional para obras, indústrias e serralherias.</p>
+          <a class="btn btn--cta btn--lg rr2-rise rr2-rise--3" id="rr2-hero-cta" href="#" data-cta target="_blank" rel="noopener">Peça seu orçamento</a>
         </div>
 
         <footer class="rr2-contact rr2-rise rr2-rise--5">
@@ -162,7 +152,7 @@
           <img src="../Imagens/Capas Unidades/Robracon Rondonopolis.png"
                alt="Estrutura da Robracon Rondonópolis, distribuidora de aço e material de construção em Rondonópolis MT"
                loading="eager" fetchpriority="high">
-          <span class="rr2-media__badge">Parte do Grupo Vocical · Desde 1987</span>
+          <img class="rr2-media__logo" src="../Imagens/Robracon ROO/logo-robracon-rondonopolis.png" alt="" aria-hidden="true">
         </div>
       </div>
     </section>
