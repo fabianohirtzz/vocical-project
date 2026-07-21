@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-base="../">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>[PROTÓTIPO] Robracon Rondonópolis — hero + catálogo</title>
+  <noscript><style>.rr-line__i,.rr-hero__lede,.rr-hero__nums .rr-num,.rr-hero__cta,[data-reveal]{opacity:1 !important;transform:none !important}</style></noscript>
+  <link rel="preload" href="../fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/archivoblack-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/site.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  <link rel="stylesheet" href="../css/lead.css">
+
+  <style>
+  /* malha "planta técnica" 46px (assinatura da marca), inline p/ o protótipo ser autossuficiente */
+  .mesh { position: relative; overflow: hidden; }
+  .mesh::before {
+    content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    background-image:
+      linear-gradient(to right, rgba(13,13,13,.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(13,13,13,.05) 1px, transparent 1px);
+    background-size: 46px 46px;
+    -webkit-mask-image: radial-gradient(120% 92% at 50% 26%, #000 42%, transparent 82%);
+            mask-image: radial-gradient(120% 92% at 50% 26%, #000 42%, transparent 82%);
+  }
+  .mesh > .container { position: relative; z-index: 1; }
+
+  /* ============================================================
+     PROTÓTIPO v3 — hero dividido + catálogo com imagens.
+     Inline, isolado (prefixo .rr-). Fotos em COR NATURAL (sem duotone).
+     Cantos arredondados em tudo (padrão do site).
+     ============================================================ */
+
+  /* ---------- HERO: composição dividida (painel escuro + foto), card arredondado ---------- */
+  .rr-hero { padding-block: clamp(12px, 1.6vw, 22px); background: var(--paper); }
+  .rr-hero__card {
+    position: relative; display: grid; grid-template-columns: 1.05fr .95fr;
+    min-height: clamp(600px, calc(100dvh - 132px), 1080px);
+    border-radius: clamp(20px, 2.4vw, 30px); overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+
+  /* painel escuro (esquerda) */
+  .rr-hero__panel {
+    position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center;
+    padding: clamp(30px, 4vw, 62px);
+    background: linear-gradient(150deg, #7d0d0d 0%, var(--red-dark) 46%, #3c0808 100%);
+  }
+  .rr-hero__back { display: inline-flex; align-items: center; gap: .5rem; margin-bottom: 1.5rem; font-size: .82rem; font-weight: 600; color: rgba(255,255,255,.72); }
+  .rr-hero__back:hover { color: #fff; }
+  .rr-hero__logo img { height: clamp(34px, 3.8vw, 48px); width: auto; display: block; margin-bottom: 1.3rem; }
+
+  .rr-hero__title { color: #fff; font-family: var(--display); font-weight: 400; line-height: 1.02; letter-spacing: -.03em; font-size: clamp(2rem, 3.4vw, 3.1rem); }
+  .rr-line { display: block; overflow: hidden; padding-block: .04em; }
+  .rr-line__i { display: inline-block; transform: translateY(112%); animation: rr-lineup .85s var(--ease-weight) both; }
+  .rr-line:nth-child(1) .rr-line__i { animation-delay: .10s; }
+  .rr-line:nth-child(2) .rr-line__i { animation-delay: .20s; }
+  .rr-line:nth-child(3) .rr-line__i { animation-delay: .30s; }
+  .rr-line:nth-child(4) .rr-line__i { animation-delay: .40s; }
+  @keyframes rr-lineup { to { transform: translateY(0); } }
+
+  .rr-hero__lede { max-width: 46ch; margin-top: 1.4rem; color: rgba(255,255,255,.86); font-size: clamp(.98rem, 1.15vw, 1.1rem); line-height: 1.6; opacity: 0; animation: rr-rise .7s var(--ease-weight) .52s both; }
+
+  .rr-hero__nums { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: clamp(26px, 3vw, 40px); padding-top: clamp(20px, 2.2vw, 28px); border-top: 1px solid rgba(255,255,255,.24); }
+  .rr-num { display: flex; flex-direction: column; padding-right: clamp(12px, 1.6vw, 26px); opacity: 0; animation: rr-rise .6s var(--ease-weight) both; }
+  .rr-num + .rr-num { padding-left: clamp(12px, 1.6vw, 26px); border-left: 1px solid rgba(255,255,255,.24); }
+  .rr-num:nth-child(1) { animation-delay: .62s; }
+  .rr-num:nth-child(2) { animation-delay: .72s; }
+  .rr-num:nth-child(3) { animation-delay: .82s; }
+  .rr-num__n { font-family: var(--display); line-height: .82; letter-spacing: -.02em; color: #fff; font-size: clamp(1.9rem, 3vw, 2.7rem); }
+  .rr-num__label { margin-top: .6rem; font-size: .66rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.62); }
+
+  .rr-hero__cta { margin-top: clamp(26px, 3vw, 40px); opacity: 0; animation: rr-rise .6s var(--ease-weight) .95s both; }
+  @keyframes rr-rise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+
+  /* foto (direita) — cor natural, ken-burns suave */
+  .rr-hero__media { position: relative; overflow: hidden; background: var(--ink); }
+  .rr-hero__media img { width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.08); animation: rr-kenburns 24s var(--ease-weight) forwards; }
+  @keyframes rr-kenburns { to { transform: scale(1); } }
+  .rr-hero__media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(60,8,8,.35) 0%, rgba(13,13,13,0) 42%); }
+  .rr-hero__badge {
+    position: absolute; z-index: 1; top: clamp(16px, 2.4vw, 24px); right: clamp(16px, 2.4vw, 24px);
+    display: inline-flex; align-items: center; gap: .5rem; padding: .5em 1em; border-radius: 999px;
+    background: rgba(13,13,13,.5); border: 1px solid rgba(255,255,255,.22); backdrop-filter: blur(6px);
+    font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.92);
+  }
+  .rr-hero__badge::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #ff5a5a; }
+
+  @media (max-width: 860px) {
+    .rr-hero__card { grid-template-columns: 1fr; min-height: 0; }
+    .rr-hero__media { order: -1; aspect-ratio: 16/10; }
+    .rr-hero__panel { padding: clamp(26px, 7vw, 40px); }
+  }
+
+  /* ---------- CATÁLOGO (abas + grid de produtos com imagem, cards arredondados) ---------- */
+  .rr-cat { position: relative; }
+  .rr-cat .sec-head .display--mass { font-size: clamp(1.9rem, 4.4vw, 3.4rem); line-height: .95; }
+
+  .rr-cnav { display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 0; margin-top: clamp(28px, 3.6vw, 46px); border-bottom: 1px solid var(--line); scrollbar-width: none; }
+  .rr-cnav::-webkit-scrollbar { display: none; }
+  .rr-ctab {
+    flex: 0 0 auto; position: relative; margin-bottom: -1px; margin-right: clamp(1.1rem, 2.4vw, 2rem);
+    padding: .75rem .1rem; white-space: nowrap;
+    font-family: var(--display); font-weight: 400; letter-spacing: -.01em;
+    font-size: clamp(1rem, 1.5vw, 1.3rem); color: #b3b3b3;
+    border-bottom: 3px solid transparent; transition: color .25s var(--ease-weight);
+  }
+  .rr-ctab:last-child { margin-right: 0; }
+  .rr-ctab.is-active { color: var(--ink); border-bottom-color: var(--red); }
+  .rr-ctab:hover { color: #6a6a6a; }
+  .rr-ctab.is-active:hover { color: var(--ink); }
+
+  .rr-cpanel { display: none; }
+  .rr-cpanel.is-active { display: block; animation: rr-fade .4s var(--ease-weight) both; }
+  @keyframes rr-fade { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+
+  /* grid de produtos — cards arredondados (padrão do site), cada um com imagem.
+     As fotos do acervo são thumbnails 150px: exibidas contidas num tile branco,
+     com teto de tamanho, para não pixelizar. Grid denso mantém a proporção boa. */
+  .rr-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(216px, 1fr)); gap: clamp(12px, 1.4vw, 18px); margin-top: clamp(22px, 2.6vw, 32px); }
+  .rr-prod {
+    background: #fff; display: flex; flex-direction: column; overflow: hidden;
+    border-radius: var(--radius); border: 1px solid var(--line); box-shadow: var(--shadow-sm);
+    transition: transform .28s var(--ease-weight), box-shadow .28s var(--ease-weight);
+  }
+  .rr-prod:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+  .rr-prod__media {
+    aspect-ratio: 4/3; background: #fff; overflow: hidden;
+    display: grid; place-items: center; padding: clamp(12px, 1.4vw, 18px);
+    border-bottom: 1px solid var(--line);
+  }
+  .rr-prod__media img { max-width: min(100%, 168px); max-height: 100%; width: auto; height: auto; object-fit: contain; display: block; }
+  .rr-prod__body { padding: clamp(13px, 1.4vw, 17px) clamp(14px, 1.5vw, 18px) clamp(16px, 1.7vw, 20px); }
+  .rr-prod__name { font-weight: 700; font-size: 1rem; color: var(--ink); }
+  .rr-prod__desc { margin-top: .35rem; font-size: .85rem; line-height: 1.45; color: #5a5a5a; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+  .rr-cpanel__foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-top: clamp(20px, 2.4vw, 30px); }
+  .rr-cpanel__note { font-size: .84rem; color: var(--gray); max-width: 52ch; }
+
+  @media (max-width: 900px) { .rr-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .rr-grid { grid-template-columns: 1fr 1fr; } .rr-prod__desc { -webkit-line-clamp: 2; } }
+  </style>
+</head>
+<body data-page="proto">
+  <header id="site-header"></header>
+
+  <main id="conteudo">
+
+    <!-- ============ HERO dividido ============ -->
+    <section class="rr-hero">
+      <div class="container">
+        <div class="rr-hero__card">
+          <div class="rr-hero__panel surface--dark grain">
+            <a class="rr-hero__back" href="../index.html#marcas"><span aria-hidden="true">←</span> Todas as unidades</a>
+            <div class="rr-hero__logo"><img src="../Imagens/Logos Unidades/Robracon/ROBRACON---BRANCO.png" alt="Robracon"></div>
+            <span class="eyebrow">Rondonópolis · MT</span>
+            <h1 class="rr-hero__title">
+              <span class="rr-line"><span class="rr-line__i">Aço, material de</span></span>
+              <span class="rr-line"><span class="rr-line__i">construção e</span></span>
+              <span class="rr-line"><span class="rr-line__i"><span class="accent">drywall</span> em</span></span>
+              <span class="rr-line"><span class="rr-line__i">Rondonópolis</span></span>
+            </h1>
+            <p class="rr-hero__lede">A unidade de maior portfólio do Grupo Vocical. Do cimento ao drywall, com serviços especializados e logística regional para obras, indústrias e serralherias.</p>
+            <div class="rr-hero__nums">
+              <div class="rr-num"><span class="rr-num__n">2005</span><span class="rr-num__label">em atividade desde</span></div>
+              <div class="rr-num"><span class="rr-num__n num--mass" data-count="6">0</span><span class="rr-num__label">linhas de produto</span></div>
+              <div class="rr-num"><span class="rr-num__n num--mass" data-count="3">0</span><span class="rr-num__label">unidades Robracon</span></div>
+            </div>
+            <div class="rr-hero__cta">
+              <a class="btn btn--cta btn--lg" id="un-hero-cta" data-cta data-amb-label="Peça seu orçamento" target="_blank" rel="noopener">Peça seu orçamento</a>
+            </div>
+          </div>
+          <div class="rr-hero__media">
+            <img src="../Imagens/Capas Unidades/Robracon Rondonopolis.png"
+                 alt="Estrutura da Robracon Rondonópolis, distribuidora de aço e material de construção em Rondonópolis MT"
+                 loading="eager" fetchpriority="high">
+            <span class="rr-hero__badge">Parte do Grupo Vocical · Desde 1987</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CATÁLOGO ============ -->
+    <section class="section surface--paper mesh rr-cat">
+      <div class="container">
+        <div class="sec-head" data-reveal>
+          <span class="eyebrow">Portfólio completo</span>
+          <h2 class="display--mass">Todas as linhas, do cimento ao <span class="accent">drywall</span></h2>
+          <p class="lede">A unidade com o mix mais amplo do grupo: seis linhas completas, e a única com a linha de drywall. Selecione uma linha. A disponibilidade pode variar por estoque.</p>
+        </div>
+
+        <div data-reveal>
+          <div class="rr-cnav" id="rr-cnav" role="tablist" aria-label="Linhas de produto"></div>
+          <div class="rr-cpanels" id="rr-cpanels"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/catalogo.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/lead.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/cta.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var V = window.VOCICAL || {};
+      var CAT = window.CATALOGO || [];
+      var base = document.documentElement.getAttribute('data-base') || '';
+      function p(path) { return path ? base + path : path; }
+      function esc(s) { return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+      // ----- render catálogo (todas as 6 categorias, com imagem por produto) -----
+      var nav = document.getElementById('rr-cnav');
+      var panels = document.getElementById('rr-cpanels');
+      CAT.forEach(function (c, i) {
+        var tab = document.createElement('button');
+        tab.type = 'button'; tab.className = 'rr-ctab' + (i === 0 ? ' is-active' : '');
+        tab.setAttribute('role', 'tab'); tab.dataset.i = i; tab.textContent = c.nome;
+        nav.appendChild(tab);
+
+        var cards = (c.itens || []).map(function (it) {
+          return '<article class="rr-prod">' +
+            '<div class="rr-prod__media"><img src="' + p(it.img) + '" alt="' + esc(it.nome) + '" loading="lazy"></div>' +
+            '<div class="rr-prod__body"><h3 class="rr-prod__name">' + esc(it.nome) + '</h3>' +
+            '<p class="rr-prod__desc">' + esc(it.desc) + '</p></div></article>';
+        }).join('');
+
+        var panel = document.createElement('div');
+        panel.className = 'rr-cpanel' + (i === 0 ? ' is-active' : ''); panel.dataset.i = i;
+        panel.innerHTML =
+          '<div class="rr-grid">' + cards + '</div>' +
+          '<div class="rr-cpanel__foot">' +
+            '<p class="rr-cpanel__note">' + esc(c.nome) + ' — disponibilidade pode variar por estoque.</p>' +
+            '<a class="btn btn--cta rr-cat__cta" data-cta target="_blank" rel="noopener"><span class="btn__ic" aria-hidden="true">›</span> Pedir orçamento de ' + esc(c.nome.toLowerCase()) + '</a>' +
+          '</div>';
+        panels.appendChild(panel);
+      });
+
+      // fallback dos CTAs (o lead.js intercepta o clique e abre o Vico)
+      var url = V.CTA_URL || '#';
+      document.querySelectorAll('#un-hero-cta, .rr-cat__cta').forEach(function (b) { b.setAttribute('href', url); });
+
+      // troca de abas
+      var tabs = Array.prototype.slice.call(nav.querySelectorAll('.rr-ctab'));
+      var allPanels = Array.prototype.slice.call(panels.querySelectorAll('.rr-cpanel'));
+      tabs.forEach(function (t) {
+        t.addEventListener('click', function () {
+          var i = +t.dataset.i;
+          tabs.forEach(function (x) { x.classList.toggle('is-active', +x.dataset.i === i); });
+          allPanels.forEach(function (pn) { pn.classList.toggle('is-active', +pn.dataset.i === i); });
+        });
+      });
+
+      if (window.__revealObserve) window.__revealObserve();
+    });
+  </script>
+</body>
+</html>
