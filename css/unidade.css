@@ -1,0 +1,104 @@
+/* ============================================================
+   Página de unidade (landing rica) — reaproveita os componentes
+   reais do site (mk-hero, sobre__grid, prod-item, servico, feat,
+   ie, conversao). Só o que falta vive aqui. Prefixo .u-
+   ============================================================ */
+
+/* ---------- Hero: selos + números dentro do mk-hero ---------- */
+.u-hero__selos { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1.5rem; }
+.u-selo {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .5em 1em; border-radius: 999px;
+  background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18);
+  backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+  color: #fff; font-size: .82rem; font-weight: 600;
+}
+.u-selo::before { content: ""; flex: 0 0 auto; width: 7px; height: 7px; border-radius: 50%; background: #ff5a5a; }
+
+.u-hero__stats {
+  display: flex; flex-wrap: wrap; gap: clamp(22px, 4vw, 52px);
+  margin-top: clamp(24px, 3.5vw, 40px);
+  padding-top: clamp(20px, 2.5vw, 28px);
+  border-top: 1px solid rgba(255,255,255,.2);
+}
+.u-stat { display: flex; flex-direction: column; }
+.u-stat__num { font-family: var(--display); font-weight: 400; font-size: clamp(1.9rem, 4vw, 2.9rem); line-height: 1; color: #fff; }
+.u-stat__label { margin-top: .5rem; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.6); }
+.mk-hero .btn, .mk-hero .amb { margin-top: 1.9rem; }
+
+/* ---------- Malha "planta técnica" 46px (assinatura, do timeline) ---------- */
+.mesh { position: relative; overflow: hidden; }
+.mesh::before {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(13,13,13,.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(13,13,13,.05) 1px, transparent 1px);
+  background-size: 46px 46px;
+  -webkit-mask-image: radial-gradient(120% 92% at 50% 26%, #000 42%, transparent 82%);
+          mask-image: radial-gradient(120% 92% at 50% 26%, #000 42%, transparent 82%);
+}
+/* sobre superfície escura a malha vira clara */
+.surface--dark.mesh::before, .surface--char.mesh::before, .surface--red.mesh::before {
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.07) 1px, transparent 1px);
+}
+.mesh > .container { position: relative; z-index: 1; }
+
+/* ---------- Segmentos: mini-cards com ícone (reaproveita a linguagem do .feat) ---------- */
+.u-seg-grid { grid-template-columns: repeat(3, 1fr); }
+.u-seg {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1.25rem 1.4rem; background: #fff;
+  border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-sm);
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.u-seg:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: #d8d8d8; }
+.u-seg__ic {
+  flex: 0 0 auto; display: grid; place-items: center; width: 44px; height: 44px;
+  border-radius: 11px; color: var(--red); background: rgba(166,3,3,.08);
+}
+.u-seg__ic svg { width: 22px; height: 22px; }
+.u-seg__name { font-weight: 700; font-size: 1.02rem; color: var(--ink); line-height: 1.2; }
+@media (max-width: 820px) { .u-seg-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .u-seg-grid { grid-template-columns: 1fr; } }
+
+/* ---------- Categoria de produto (mesmo bloco da página de produtos) ---------- */
+.u-cat + .u-cat { margin-top: clamp(40px, 5vw, 68px); }
+.u-cat__head { margin-bottom: 1.6rem; }
+.u-cat__head h3 { font-size: clamp(1.4rem, 2.4vw, 1.9rem); margin-top: 1rem; }
+.u-catnote { margin-top: clamp(28px, 3vw, 44px); font-size: .95rem; color: var(--gray); }
+
+/* ---------- Galeria: grade de fotos arredondadas com zoom no hover ---------- */
+.u-gal { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(12px, 1.6vw, 20px); }
+.u-gal__item { position: relative; border-radius: var(--radius); overflow: hidden; aspect-ratio: 4/3; background: var(--ink); box-shadow: var(--shadow); }
+.u-gal__item img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease-weight); }
+.u-gal__item:hover img { transform: scale(1.06); }
+.u-gal__item--wide { grid-column: span 2; }
+@media (max-width: 760px) { .u-gal { grid-template-columns: repeat(2, 1fr); } .u-gal__item--wide { grid-column: span 2; } }
+@media (max-width: 480px) { .u-gal { grid-template-columns: 1fr; } .u-gal__item--wide { grid-column: auto; } }
+
+/* ---------- Atuação / logística ---------- */
+.u-atuacao__grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(28px, 4vw, 64px); align-items: center; }
+.u-atuacao__tags { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1.4rem; }
+.u-atuacao__tags li { padding: .5em 1.1em; border-radius: 999px; border: 1px solid rgba(255,255,255,.22); font-size: .9rem; font-weight: 600; }
+.u-frota { margin-top: 1.6rem; font-size: .95rem; color: rgba(255,255,255,.78); }
+.u-atuacao__card { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.14); border-radius: var(--radius); padding: clamp(22px, 3vw, 34px); }
+.u-atuacao__card h3 { font-size: 1.2rem; color: #fff; }
+.u-atuacao__card p { margin-top: .7rem; color: rgba(255,255,255,.78); font-size: .96rem; }
+@media (max-width: 820px) { .u-atuacao__grid { grid-template-columns: 1fr; } }
+
+/* ---------- FAQ (acordeão limpo, arredondado) ---------- */
+.u-faq { max-width: 860px; }
+.u-faq__item { border: 1px solid var(--line); border-radius: var(--radius); background: #fff; box-shadow: var(--shadow-sm); margin-bottom: .9rem; overflow: hidden; }
+.u-faq__q { width: 100%; text-align: left; padding: 1.2rem 1.5rem; font-weight: 700; color: var(--ink); display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.u-faq__q::after { content: "+"; flex: 0 0 auto; color: var(--red); font-size: 1.4rem; line-height: 1; transition: transform .25s var(--ease-weight); }
+.u-faq__item.is-open .u-faq__q::after { transform: rotate(45deg); }
+.u-faq__a { max-height: 0; overflow: hidden; transition: max-height .35s var(--ease-weight); }
+.u-faq__item.is-open .u-faq__a { max-height: 500px; }
+.u-faq__a p { padding: 0 1.5rem 1.3rem; color: #4a4a4a; max-width: 68ch; }
+
+/* ---------- Contato da unidade ---------- */
+.u-contato__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 4vw, 56px); align-items: start; }
+.u-legal { margin-top: 1.6rem; font-size: .82rem; color: var(--gray); line-height: 1.5; }
+@media (max-width: 760px) { .u-contato__grid { grid-template-columns: 1fr; } }

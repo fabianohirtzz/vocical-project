@@ -35,13 +35,24 @@
      ============================================================ */
 
   .rr2-hero { position: relative; display: flex; flex-direction: row; background: #fff; min-height: clamp(580px, 84vh, 860px); overflow: hidden; }
+  /* grade "planta técnica" 46px + brilho vermelho: mesma assinatura da hero da home */
+  .rr2-hero__grid { position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    background-image:
+      linear-gradient(to right, rgba(13,13,13,.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(13,13,13,.06) 1px, transparent 1px);
+    background-size: 46px 46px;
+    -webkit-mask-image: radial-gradient(120% 105% at 24% 42%, #000 38%, transparent 82%);
+            mask-image: radial-gradient(120% 105% at 24% 42%, #000 38%, transparent 82%); }
+  .rr2-hero::before { content: ""; position: absolute; left: 26%; top: 40%;
+    width: min(760px, 66vw); height: 480px; transform: translate(-50%, -40%);
+    background: radial-gradient(closest-side, rgba(166,3,3,.15), rgba(166,3,3,.04) 58%, transparent 76%);
+    filter: blur(48px); z-index: 0; pointer-events: none; }
 
   /* ---- coluna de conteúdo (esquerda) ---- */
-  .rr2-content { width: 58%; display: flex; flex-direction: column; padding: clamp(26px, 3.4vw, 52px) clamp(26px, 4vw, 68px); }
-  .rr2-brand { display: flex; align-items: center; gap: .85rem; }
-  .rr2-brand__logo { height: clamp(30px, 3vw, 42px); width: auto; display: block; }
-  .rr2-brand__name { font-family: var(--display); font-size: 1.05rem; color: var(--ink); line-height: 1; }
-  .rr2-brand__slogan { margin-top: .3rem; font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gray); }
+  .rr2-content { position: relative; z-index: 1; width: 58%; display: flex; flex-direction: column; padding: clamp(26px, 3.4vw, 52px) clamp(26px, 4vw, 68px); }
+  .rr2-brand { display: flex; flex-direction: column; align-items: flex-start; gap: .55rem; }
+  .rr2-brand__logo { height: clamp(66px, 8.5vw, 116px); width: auto; display: block; }
+  .rr2-brand__loc { font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gray); }
 
   .rr2-main { margin-block: auto; padding-block: clamp(24px, 4vh, 48px); }
   .rr2-title { font-family: var(--display); font-weight: 400; font-size: clamp(2.1rem, 4.4vw, 4rem); line-height: 1; letter-spacing: -.025em; color: var(--ink); max-width: 15ch; }
@@ -59,7 +70,7 @@
   /* ---- coluna da imagem (direita), flutuando com padding topo/base iguais ---- */
   /* imagem COLADA na borda direita da tela (sem padding/arredondado à direita) e
      recortada na diagonal de forma natural pelo próprio clip-path (sem cunha branca). */
-  .rr2-mediacol { width: 42%; display: flex; padding: clamp(24px, 4vh, 52px) 0 clamp(24px, 4vh, 52px) 0; }
+  .rr2-mediacol { position: relative; z-index: 1; width: 42%; display: flex; padding: clamp(24px, 4vh, 52px) 0 clamp(24px, 4vh, 52px) 0; }
   /* clip-path (recorte diagonal natural) é aplicado por JS com cantos arredondados
      SÓ na esquerda; direita fica reta e flush na borda da tela. */
   .rr2-media { position: relative; flex: 1; overflow: hidden; opacity: 0; animation: rr2-in 1s var(--ease-weight) .1s both; }
@@ -116,23 +127,18 @@
 
     <!-- ============ HERO 2 — split com imagem em recorte diagonal ============ -->
     <section class="rr2-hero">
+      <div class="rr2-hero__grid" aria-hidden="true"></div>
       <div class="rr2-content">
         <div class="rr2-brand rr2-rise rr2-rise--1">
-          <img class="rr2-brand__logo" src="../Imagens/Logos Unidades/Robracon/ROBRACON---COLORIDO.png" alt="Robracon">
-          <div>
-            <p class="rr2-brand__name">Robracon Rondonópolis</p>
-            <p class="rr2-brand__slogan">Unidade do Grupo Vocical · MT</p>
-          </div>
+          <img class="rr2-brand__logo" src="../Imagens/Robracon ROO/logo-robracon-rondonopolis.png" alt="Robracon Rondonópolis">
+          <span class="rr2-brand__loc">Unidade do Grupo Vocical · MT</span>
         </div>
 
         <div class="rr2-main">
           <h1 class="rr2-title rr2-rise rr2-rise--2">Aço, material de construção e <span class="accent">drywall</span></h1>
           <div class="rr2-bar rr2-rise rr2-rise--3"></div>
           <p class="rr2-sub rr2-rise rr2-rise--3">A unidade de maior portfólio do Grupo Vocical em Rondonópolis. Do cimento ao drywall, com serviços especializados e logística regional para obras, indústrias e serralherias.</p>
-          <a class="rr2-cta rr2-rise rr2-rise--4" href="#" data-cta>
-            Peça seu orçamento
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
+          <a class="btn btn--cta btn--lg rr2-rise rr2-rise--4" id="rr2-hero-cta" href="#" data-cta target="_blank" rel="noopener">Peça seu orçamento</a>
         </div>
 
         <footer class="rr2-contact rr2-rise rr2-rise--5">
@@ -161,6 +167,21 @@
       </div>
     </section>
 
+    <!-- ============ SOBRE A UNIDADE — split foto/texto ============ -->
+    <section class="section surface--red">
+      <div class="container sobre__grid">
+        <div class="sobre__media" data-reveal="left">
+          <img src="../Imagens/Robracon ROO/robracon1 (2).png" alt="Operação interna da Robracon Rondonópolis: aço, chapas e material de construção" loading="lazy">
+        </div>
+        <div class="sobre__text" data-reveal="right">
+          <span class="eyebrow">A unidade</span>
+          <h2>A unidade de maior portfólio do <span class="accent">grupo</span></h2>
+          <p>A Robracon Rondonópolis foi constituída em 2004 e iniciou suas atividades em 2005, para aproximar lojistas, obras e grandes indústrias do setor da construção.</p>
+          <p>Hoje atende construção civil, indústrias, serralherias, estruturas metálicas, agronegócio e sistemas drywall, reunindo produtos, serviços e soluções voltadas para produtividade, organização e desempenho.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ CATÁLOGO (mesmo do proto 1) ============ -->
     <section class="section surface--paper mesh rr-cat" id="produtos">
       <div class="container">
@@ -172,6 +193,95 @@
         <div data-reveal>
           <div class="rr-cnav" id="rr-cnav" role="tablist" aria-label="Linhas de produto"></div>
           <div class="rr-cpanels" id="rr-cpanels"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ QUEM ATENDE — carrossel de segmentos ============ -->
+    <section class="section surface--dark grain">
+      <div class="container">
+        <div class="sec-head" data-reveal>
+          <span class="eyebrow">Quem atendemos</span>
+          <h2 class="display--mass">Feito para quem <span class="accent">move a obra</span> na região</h2>
+        </div>
+      </div>
+      <div class="container" data-reveal>
+        <div class="ie" id="ie">
+          <div class="ie__bar">
+            <span class="ie__tab">Segmentos atendidos</span>
+            <a class="ie__all" href="#produtos">Ver a linha completa <span aria-hidden="true">›</span></a>
+          </div>
+          <div class="ie__viewport">
+            <div class="ie__track" id="ie-track">
+              <article class="ie__card">
+                <img class="ie__img" src="../Imagens/construtoras-e-incorporadoras.png" alt="Construtoras e incorporadoras" loading="lazy">
+                <span class="ie__scrim" aria-hidden="true"></span>
+                <span class="ie__badge"><span class="ie__badge-dot" aria-hidden="true"></span>Segmentos</span>
+                <div class="ie__cardfoot">
+                  <h3 class="ie__cardtitle">Construtoras e incorporadoras</h3>
+                  <p class="ie__carddesc">Aço, cimento e fechamento com prazo previsível para o cronograma da obra.</p>
+                  <a class="ie__btn" data-cta target="_blank" rel="noopener">Fale conosco</a>
+                </div>
+              </article>
+              <article class="ie__card">
+                <img class="ie__img" src="../Imagens/serralheria.png" alt="Serralherias e metalúrgicas" loading="lazy">
+                <span class="ie__scrim" aria-hidden="true"></span>
+                <span class="ie__badge"><span class="ie__badge-dot" aria-hidden="true"></span>Segmentos</span>
+                <div class="ie__cardfoot">
+                  <h3 class="ie__cardtitle">Serralherias e metalúrgicas</h3>
+                  <p class="ie__carddesc">Perfis, chapas, tubos e corte e dobra sob medida para a produção do dia a dia.</p>
+                  <a class="ie__btn" data-cta target="_blank" rel="noopener">Fale conosco</a>
+                </div>
+              </article>
+              <article class="ie__card">
+                <img class="ie__img" src="../Imagens/industrias.png" alt="Indústrias e estruturas metálicas" loading="lazy">
+                <span class="ie__scrim" aria-hidden="true"></span>
+                <span class="ie__badge"><span class="ie__badge-dot" aria-hidden="true"></span>Segmentos</span>
+                <div class="ie__cardfoot">
+                  <h3 class="ie__cardtitle">Indústrias e estruturas metálicas</h3>
+                  <p class="ie__carddesc">Aço, chapas e telhas em volume para galpões, linhas de produção e manutenção.</p>
+                  <a class="ie__btn" data-cta target="_blank" rel="noopener">Fale conosco</a>
+                </div>
+              </article>
+              <article class="ie__card">
+                <img class="ie__img" src="../Imagens/gesseiros.jpg" alt="Gesseiros e drywall" loading="lazy">
+                <span class="ie__scrim" aria-hidden="true"></span>
+                <span class="ie__badge"><span class="ie__badge-dot" aria-hidden="true"></span>Segmentos</span>
+                <div class="ie__cardfoot">
+                  <h3 class="ie__cardtitle">Gesseiros e drywall</h3>
+                  <p class="ie__carddesc">Linha completa de drywall: placas, perfis e acessórios com pronta entrega.</p>
+                  <a class="ie__btn" data-cta target="_blank" rel="noopener">Fale conosco</a>
+                </div>
+              </article>
+              <article class="ie__card">
+                <img class="ie__img" src="../Imagens/agronegocio.png" alt="Agronegócio" loading="lazy">
+                <span class="ie__scrim" aria-hidden="true"></span>
+                <span class="ie__badge"><span class="ie__badge-dot" aria-hidden="true"></span>Segmentos</span>
+                <div class="ie__cardfoot">
+                  <h3 class="ie__cardtitle">Agronegócio</h3>
+                  <p class="ie__carddesc">Aço, telhas e materiais para construções e estruturas rurais.</p>
+                  <a class="ie__btn" data-cta target="_blank" rel="noopener">Fale conosco</a>
+                </div>
+              </article>
+              <article class="ie__card">
+                <img class="ie__img" src="../Imagens/loja-de-materiais-de-construcao.png" alt="Lojistas e revendas" loading="lazy">
+                <span class="ie__scrim" aria-hidden="true"></span>
+                <span class="ie__badge"><span class="ie__badge-dot" aria-hidden="true"></span>Segmentos</span>
+                <div class="ie__cardfoot">
+                  <h3 class="ie__cardtitle">Lojistas e revendas</h3>
+                  <p class="ie__carddesc">Reposição de giro e mix amplo para a loja não perder venda.</p>
+                  <a class="ie__btn" data-cta target="_blank" rel="noopener">Fale conosco</a>
+                </div>
+              </article>
+            </div>
+          </div>
+          <div class="ie__foot">
+            <div class="ie__dots" id="ie-dots"></div>
+            <div class="ie__nav">
+              <button class="ie__arrow" id="ie-prev" type="button" aria-label="Anterior">‹</button>
+              <button class="ie__arrow" id="ie-next" type="button" aria-label="Próximo">›</button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -246,7 +356,37 @@
       if (window.ResizeObserver && media) { new ResizeObserver(shapeMedia).observe(media); }
 
       var url = V.CTA_URL || '#';
-      document.querySelectorAll('.rr2-cta, .rr-cat__cta').forEach(function (b) { b.setAttribute('href', url); });
+      document.querySelectorAll('#rr2-hero-cta, .rr-cat__cta, .ie__btn').forEach(function (b) { b.setAttribute('href', url); });
+
+      // ----- botão anti-metal (.amb): mesmo modelo da home (porte do cta.js) -----
+      (function () {
+        var CHEVRONS = 12;
+        function chevron(index) {
+          var base = index * 0.12;
+          var dots = [[2,2,0],[5,5,0.05],[8,8,0.1],[5,11,0.15],[2,14,0.2]];
+          var circles = dots.map(function (d) {
+            return '<circle cx="' + d[0] + '" cy="' + d[1] + '" r="1" class="amb-dot" style="animation-delay:' + (base + d[2]).toFixed(2) + 's"></circle>';
+          }).join('');
+          return '<svg width="10" height="16" viewBox="0 0 10 16" aria-hidden="true" class="amb-cv"><g>' + circles + '</g></svg>';
+        }
+        function accent() {
+          var s = '';
+          for (var i = 0; i < CHEVRONS; i++) s += chevron(i);
+          return '<span class="amb__accent" aria-hidden="true">' + s + '</span>';
+        }
+        var STRIP = ['btn','btn--cta','btn--light','btn--dark','btn--ghost','btn--red','btn--lg'];
+        window.__ambize = function (el, opts) {
+          if (!el || el.classList.contains('amb')) return;
+          opts = opts || {};
+          var label = (el.getAttribute('data-amb-label') || el.textContent || '').replace(/^[\s›»>·]+/, '').replace(/\s+/g, ' ').trim();
+          STRIP.forEach(function (c) { el.classList.remove(c); });
+          el.classList.add('amb');
+          if (opts.lg) el.classList.add('amb--lg');
+          el.innerHTML = '<span class="amb__label">' + label + '</span>' + accent();
+        };
+      })();
+      window.__ambize(document.getElementById('rr2-hero-cta'), { lg: true });
+      document.querySelectorAll('.rr-cat__cta').forEach(function (b) { window.__ambize(b); });
 
       var tabs = Array.prototype.slice.call(nav.querySelectorAll('.rr-ctab'));
       var allPanels = Array.prototype.slice.call(panels.querySelectorAll('.rr-cpanel'));
@@ -257,6 +397,52 @@
           allPanels.forEach(function (pn) { pn.classList.toggle('is-active', +pn.dataset.i === i); });
         });
       });
+
+      // ----- Quem atende: carrossel image-expansion (mesmo da home/produtos) -----
+      (function () {
+        var track = document.getElementById('ie-track');
+        if (!track) return;
+        var viewport = track.parentElement;
+        var cards = Array.prototype.slice.call(track.children);
+        if (!cards.length) return;
+        var prev = document.getElementById('ie-prev');
+        var next = document.getElementById('ie-next');
+        var dotsWrap = document.getElementById('ie-dots');
+        var index = 0, maxIndex = 0, step = 0;
+        function gap() { var cs = getComputedStyle(track); return parseFloat(cs.columnGap || cs.gap) || 0; }
+        function measure() {
+          var g = gap();
+          var cw = cards[0].getBoundingClientRect().width;
+          var vp = viewport.getBoundingClientRect().width;
+          step = cw + g;
+          var perView = Math.max(1, Math.round((vp + g) / step));
+          maxIndex = Math.max(0, cards.length - perView);
+          if (index > maxIndex) index = maxIndex;
+          buildDots(); apply();
+        }
+        function buildDots() {
+          if (!dotsWrap) return;
+          dotsWrap.innerHTML = '';
+          for (var i = 0; i <= maxIndex; i++) {
+            var d = document.createElement('button');
+            d.type = 'button'; d.className = 'ie__dot';
+            d.setAttribute('aria-label', 'Grupo ' + (i + 1));
+            (function (n) { d.addEventListener('click', function () { index = n; apply(); }); })(i);
+            dotsWrap.appendChild(d);
+          }
+        }
+        function apply() {
+          track.style.transform = 'translateX(' + (-index * step) + 'px)';
+          if (prev) prev.disabled = index <= 0;
+          if (next) next.disabled = index >= maxIndex;
+          if (dotsWrap) Array.prototype.forEach.call(dotsWrap.children, function (d, i) { d.classList.toggle('is-on', i === index); });
+        }
+        if (prev) prev.addEventListener('click', function () { if (index > 0) { index--; apply(); } });
+        if (next) next.addEventListener('click', function () { if (index < maxIndex) { index++; apply(); } });
+        var rt;
+        window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(measure, 150); });
+        requestAnimationFrame(measure);
+      })();
 
       if (window.__revealObserve) window.__revealObserve();
     });
