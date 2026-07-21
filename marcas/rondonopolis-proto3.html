@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-base="../">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>[PROTÓTIPO 3] Robracon Rondonópolis — hero com cards de imagem</title>
+  <noscript><style>[data-reveal],.rr2-rise,.rr3-rise{opacity:1 !important;transform:none !important}.rr3-card{opacity:1 !important}</style></noscript>
+  <link rel="preload" href="../fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/archivoblack-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/site.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  <link rel="stylesheet" href="../css/lead.css">
+
+  <style>
+  /* malha "planta técnica" 46px (assinatura da marca), inline p/ o protótipo ser autossuficiente */
+  .mesh { position: relative; overflow: hidden; }
+  .mesh::before {
+    content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    background-image:
+      linear-gradient(to right, rgba(13,13,13,.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(13,13,13,.05) 1px, transparent 1px);
+    background-size: 46px 46px;
+    -webkit-mask-image: radial-gradient(120% 92% at 50% 26%, #000 42%, transparent 82%);
+            mask-image: radial-gradient(120% 92% at 50% 26%, #000 42%, transparent 82%);
+  }
+  .mesh > .container { position: relative; z-index: 1; }
+
+  /* ============================================================
+     PROTÓTIPO 2 — hero SPLIT com imagem em recorte DIAGONAL
+     (porte da linha 21st ravikatiyar162/hero-section-2, em vanilla).
+     Conteúdo à esquerda; imagem à direita flutuando (padding topo/base
+     iguais) com cantos arredondados + corte diagonal. Sem duotone.
+     ============================================================ */
+
+  /* ============================================================
+     PROTÓTIPO 3 — hero com DOIS CARDS de imagem sobrepostos
+     (porte do modelo React "FinancialHero" em vanilla): texto e
+     números à esquerda, dois cards rotacionados à direita sobre a
+     grade de fundo clara. Sem duotone. Botão anti-metal da home.
+     ============================================================ */
+  .rr3-hero { position: relative; overflow: hidden; background: #fff; }
+  /* grade "planta técnica" 46px + brilho vermelho: mesma assinatura da hero da home */
+  .rr3-hero__grid { position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    background-image:
+      linear-gradient(to right, rgba(13,13,13,.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(13,13,13,.06) 1px, transparent 1px);
+    background-size: 46px 46px;
+    -webkit-mask-image: radial-gradient(130% 120% at 50% 45%, #000 55%, transparent 88%);
+            mask-image: radial-gradient(130% 120% at 50% 45%, #000 55%, transparent 88%); }
+  .rr3-hero::before { content: ""; position: absolute; left: 30%; top: 42%;
+    width: min(820px, 70vw); height: 520px; transform: translate(-50%, -42%);
+    background: radial-gradient(closest-side, rgba(166,3,3,.13), rgba(166,3,3,.03) 60%, transparent 78%);
+    filter: blur(52px); z-index: 0; pointer-events: none; }
+  .rr3-inner { position: relative; z-index: 1; display: flex; align-items: center;
+    gap: clamp(28px, 4.5vw, 72px); min-height: clamp(560px, 82vh, 820px);
+    padding-block: clamp(44px, 7vh, 84px); }
+
+  /* ---- coluna de conteúdo (esquerda) ---- */
+  .rr3-left { width: 52%; display: flex; flex-direction: column; }
+  .rr3-brand { display: flex; flex-direction: column; align-items: flex-start; gap: .55rem; }
+  .rr3-brand__logo { height: clamp(64px, 8vw, 112px); width: auto; display: block; }
+  .rr3-brand__loc { font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gray); }
+  .rr3-title { font-family: var(--display); font-weight: 400; font-size: clamp(2rem, 4.2vw, 3.9rem); line-height: 1; letter-spacing: -.025em; color: var(--ink); max-width: 16ch; margin-top: clamp(22px, 3vw, 36px); }
+  .rr3-title .accent { background: none; color: var(--red); padding: 0; border-radius: 0; }
+  .rr3-bar { width: clamp(64px, 6vw, 88px); height: 5px; border-radius: 999px; background: var(--red); margin: clamp(18px, 2.4vw, 30px) 0; }
+  .rr3-sub { max-width: 48ch; color: #4a4a4a; font-size: clamp(1rem, 1.15vw, 1.14rem); line-height: 1.6; }
+  .rr3-actions { margin-top: clamp(24px, 3vw, 34px); }
+
+  /* números da unidade (painel-instrumento) */
+  .rr3-stats { display: flex; flex-wrap: wrap; gap: clamp(20px, 3vw, 44px);
+    margin-top: clamp(26px, 3.4vw, 40px); padding-top: clamp(18px, 2.2vw, 26px);
+    border-top: 1px solid var(--line); }
+  .rr3-stat { display: flex; flex-direction: column; }
+  .rr3-stat__num { font-family: var(--display); font-weight: 400; font-size: clamp(1.8rem, 3.2vw, 2.7rem); line-height: 1; color: var(--ink); }
+  .rr3-stat__label { margin-top: .5rem; font-size: .68rem; letter-spacing: .11em; text-transform: uppercase; color: var(--gray); max-width: 14ch; }
+
+  /* ---- coluna dos cards (direita) ---- */
+  .rr3-right { width: 48%; display: flex; align-items: center; justify-content: center; }
+  .rr3-cards { position: relative; width: 100%; height: clamp(360px, 44vw, 520px); }
+  .rr3-card { position: absolute; top: 50%; left: 50%;
+    width: clamp(250px, 30vw, 396px); aspect-ratio: 4 / 3;
+    border-radius: 20px; overflow: hidden; background: #fff; border: 6px solid #fff;
+    box-shadow: 0 34px 60px -22px rgba(13,13,13,.42), 0 12px 26px rgba(0,0,0,.14);
+    opacity: 0; transition: transform .5s var(--ease-weight), box-shadow .4s var(--ease-weight), opacity .6s ease; }
+  .rr3-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .rr3-card--back  { transform: translate(-50%, -50%) translateX(23%) rotate(-6deg); z-index: 1; }
+  .rr3-card--front { transform: translate(-50%, -50%) translateX(-15%) rotate(6deg); z-index: 2; }
+  /* estado pré-entrada (antes de .is-in): cards empurrados p/ direita e mais planos */
+  .rr3-cards:not(.is-in) .rr3-card--back  { transform: translate(-50%, -50%) translateX(72%) rotate(-11deg); }
+  .rr3-cards:not(.is-in) .rr3-card--front { transform: translate(-50%, -50%) translateX(36%) rotate(1deg); }
+  .rr3-cards.is-in .rr3-card { opacity: 1; }
+  .rr3-cards.is-in .rr3-card--front { transition-delay: .12s; }
+  @media (hover: hover) {
+    .rr3-cards.is-in .rr3-card--back:hover  { transform: translate(-50%, -50%) translateX(23%) rotate(-3deg) translateY(-12px); z-index: 3; }
+    .rr3-cards.is-in .rr3-card--front:hover { transform: translate(-50%, -50%) translateX(-15%) rotate(3deg) translateY(-12px); z-index: 4; }
+  }
+  .rr3-card__badge { position: absolute; z-index: 3; left: 50%; bottom: clamp(12px,1.4vw,18px); transform: translateX(-50%);
+    display: inline-flex; align-items: center; gap: .5rem; padding: .5em 1em; border-radius: 999px;
+    background: rgba(13,13,13,.55); border: 1px solid rgba(255,255,255,.22); backdrop-filter: blur(6px);
+    font-size: .64rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.94); white-space: nowrap; }
+  .rr3-card__badge::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #ff5a5a; }
+
+  /* rise do texto na entrada */
+  .rr3-rise { opacity: 0; animation: rr3-risek .7s var(--ease-weight) both; }
+  .rr3-rise--1 { animation-delay: .04s; } .rr3-rise--2 { animation-delay: .12s; }
+  .rr3-rise--3 { animation-delay: .2s; } .rr3-rise--4 { animation-delay: .3s; } .rr3-rise--5 { animation-delay: .42s; }
+  @keyframes rr3-risek { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
+  @media (max-width: 900px) {
+    .rr3-inner { flex-direction: column; align-items: stretch; min-height: 0; gap: clamp(28px, 6vw, 40px); }
+    .rr3-left, .rr3-right { width: 100%; }
+    .rr3-cards { height: clamp(320px, 74vw, 430px); }
+    .rr3-card { width: clamp(220px, 56vw, 320px); }
+  }
+  @media (max-width: 420px) {
+    .rr3-card--back  { transform: translate(-50%, -50%) translateX(18%) rotate(-6deg); }
+    .rr3-card--front { transform: translate(-50%, -50%) translateX(-12%) rotate(6deg); }
+    .rr3-cards:not(.is-in) .rr3-card--back  { transform: translate(-50%, -50%) translateX(55%) rotate(-10deg); }
+    .rr3-cards:not(.is-in) .rr3-card--front { transform: translate(-50%, -50%) translateX(28%) rotate(1deg); }
+  }
+
+  /* ---------- CATÁLOGO (idêntico ao proto 1) ---------- */
+  .rr-cat { position: relative; }
+  .rr-cat .sec-head .display--mass { font-size: clamp(1.9rem, 4.4vw, 3.4rem); line-height: .95; }
+  .rr-cnav { display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 0; margin-top: clamp(28px, 3.6vw, 46px); border-bottom: 1px solid var(--line); scrollbar-width: none; }
+  .rr-cnav::-webkit-scrollbar { display: none; }
+  .rr-ctab { flex: 0 0 auto; position: relative; margin-bottom: -1px; margin-right: clamp(1.1rem, 2.4vw, 2rem); padding: .75rem .1rem; white-space: nowrap; font-family: var(--display); font-weight: 400; letter-spacing: -.01em; font-size: clamp(1rem, 1.5vw, 1.3rem); color: #b3b3b3; border-bottom: 3px solid transparent; transition: color .25s var(--ease-weight); }
+  .rr-ctab:last-child { margin-right: 0; }
+  .rr-ctab.is-active { color: var(--ink); border-bottom-color: var(--red); }
+  .rr-ctab:hover { color: #6a6a6a; }
+  .rr-ctab.is-active:hover { color: var(--ink); }
+  .rr-cpanel { display: none; }
+  .rr-cpanel.is-active { display: block; animation: rr-fade .4s var(--ease-weight) both; }
+  @keyframes rr-fade { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  .rr-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(216px, 1fr)); gap: clamp(12px, 1.4vw, 18px); margin-top: clamp(22px, 2.6vw, 32px); }
+  .rr-prod { background: #fff; display: flex; flex-direction: column; overflow: hidden; border-radius: var(--radius); border: 1px solid var(--line); box-shadow: var(--shadow-sm); transition: transform .28s var(--ease-weight), box-shadow .28s var(--ease-weight); }
+  .rr-prod:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+  .rr-prod__media { aspect-ratio: 4/3; background: #fff; overflow: hidden; display: grid; place-items: center; padding: clamp(12px, 1.4vw, 18px); border-bottom: 1px solid var(--line); }
+  .rr-prod__media img { max-width: min(100%, 168px); max-height: 100%; width: auto; height: auto; object-fit: contain; display: block; }
+  .rr-prod__body { padding: clamp(13px, 1.4vw, 17px) clamp(14px, 1.5vw, 18px) clamp(16px, 1.7vw, 20px); }
+  .rr-prod__name { font-weight: 700; font-size: 1rem; color: var(--ink); }
+  .rr-prod__desc { margin-top: .35rem; font-size: .85rem; line-height: 1.45; color: #5a5a5a; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .rr-cpanel__foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-top: clamp(20px, 2.4vw, 30px); }
+  .rr-cpanel__note { font-size: .84rem; color: var(--gray); max-width: 52ch; }
+  @media (max-width: 900px) { .rr-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .rr-grid { grid-template-columns: 1fr 1fr; } .rr-prod__desc { -webkit-line-clamp: 2; } }
+  </style>
+</head>
+<body data-page="proto2">
+  <header id="site-header"></header>
+
+  <main id="conteudo">
+
+    <!-- ============ HERO 3 — texto + números à esquerda, dois cards de imagem à direita ============ -->
+    <section class="rr3-hero">
+      <div class="rr3-hero__grid" aria-hidden="true"></div>
+      <div class="container rr3-inner">
+
+        <div class="rr3-left">
+          <div class="rr3-brand rr3-rise rr3-rise--1">
+            <img class="rr3-brand__logo" src="../Imagens/Robracon ROO/logo-robracon-rondonopolis.png" alt="Robracon Rondonópolis">
+            <span class="rr3-brand__loc">Unidade do Grupo Vocical · MT</span>
+          </div>
+
+          <h1 class="rr3-title rr3-rise rr3-rise--2">Aço, material de construção e <span class="accent">drywall</span></h1>
+          <div class="rr3-bar rr3-rise rr3-rise--3"></div>
+          <p class="rr3-sub rr3-rise rr3-rise--3">A unidade de maior portfólio do Grupo Vocical em Rondonópolis. Do cimento ao drywall, com serviços especializados e logística regional para obras, indústrias e serralherias.</p>
+
+          <div class="rr3-actions rr3-rise rr3-rise--4">
+            <a class="btn btn--cta btn--lg" id="rr3-hero-cta" href="#" data-cta target="_blank" rel="noopener">Peça seu orçamento</a>
+          </div>
+
+          <div class="rr3-stats rr3-rise rr3-rise--5">
+            <div class="rr3-stat"><span class="rr3-stat__num">2005</span><span class="rr3-stat__label">em atividade desde</span></div>
+            <div class="rr3-stat"><span class="rr3-stat__num">3</span><span class="rr3-stat__label">unidades no MT</span></div>
+            <div class="rr3-stat"><span class="rr3-stat__num">6</span><span class="rr3-stat__label">linhas de produto</span></div>
+          </div>
+        </div>
+
+        <div class="rr3-right rr3-rise rr3-rise--3">
+          <div class="rr3-cards" id="rr3-cards">
+            <div class="rr3-card rr3-card--back">
+              <img src="../Imagens/Robracon ROO/robracon1 (9).png" alt="Operação interna da Robracon Rondonópolis: ponte rolante e estoque de aço" loading="eager">
+            </div>
+            <div class="rr3-card rr3-card--front">
+              <img src="../Imagens/Robracon ROO/capa-robracon-roo.jpg" alt="Fachada da Robracon Rondonópolis, distribuidora de aço e material de construção em Rondonópolis MT" loading="eager" fetchpriority="high">
+              <span class="rr3-card__badge">Rondonópolis · MT</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ SOBRE A UNIDADE — split foto/texto ============ -->
+    <section class="section surface--red">
+      <div class="container sobre__grid">
+        <div class="sobre__media" data-reveal="left">
+          <img src="../Imagens/Robracon ROO/robracon1 (2).png" alt="Operação interna da Robracon Rondonópolis: aço, chapas e material de construção" loading="lazy">
+        </div>
+        <div class="sobre__text" data-reveal="right">
+          <span class="eyebrow">A unidade</span>
+          <h2>A unidade de maior portfólio do <span class="accent">grupo</span></h2>
+          <p>A Robracon Rondonópolis foi constituída em 2004 e iniciou suas atividades em 2005, para aproximar lojistas, obras e grandes indústrias do setor da construção.</p>
+          <p>Hoje atende construção civil, indústrias, serralherias, estruturas metálicas, agronegócio e sistemas drywall, reunindo produtos, serviços e soluções voltadas para produtividade, organização e desempenho.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CATÁLOGO (mesmo do proto 1) ============ -->
+    <section class="section surface--paper mesh rr-cat" id="produtos">
+      <div class="container">
+        <div class="sec-head" data-reveal>
+          <span class="eyebrow">Portfólio completo</span>
+          <h2 class="display--mass">Todas as linhas, do cimento ao <span class="accent">drywall</span></h2>
+          <p class="lede">A unidade com o mix mais amplo do grupo: seis linhas completas, e a única com a linha de drywall. Selecione uma linha. A disponibilidade pode variar por estoque.</p>
+        </div>
+        <div data-reveal>
+          <div class="rr-cnav" id="rr-cnav" role="tablist" aria-label="Linhas de produto"></div>
+          <div class="rr-cpanels" id="rr-cpanels"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ QUEM ATENDE — carrossel de segmentos ============ -->
+    <section class="section surface--dark grain">
+      <div class="container">
+        <div class="sec-head" data-reveal>
+          <span class="eyebrow">Quem atendemos</span>
+          <h2 class="display--mass">Feito para quem <span class="accent">move a obra</span> na região</h2>
+        </div>
+      </div>
+      <div class="container" data-reveal>
+        <div class="ie" id="ie">
+          <div class="ie__bar">
+            <span class="ie__tab">Segmentos atendidos</span>
+            <a class="ie__all" href="#produtos">Ver a linha completa <span aria-hidden="true">›</span></a>
+          </div>
+          <div class="ie__viewport">
+            <div class="ie__track" id="ie-track">
+              <article class="ie__card">
+                <img class="ie__img" src="../Imagens/construtoras-e-incorporadoras.png" alt="Construtoras e incorporadoras" loading="lazy">
+                <span class="ie__scrim" aria-hidden="true"></span>
+                <span class="ie__badge"><span class="ie__badge-dot" aria-hidden="true"></span>Segmentos</span>
+                <div class="ie__cardfoot">
+                  <h3 class="ie__cardtitle">Construtoras e incorporadoras</h3>
+                  <p class="ie__carddesc">Aço, cimento e fechamento com prazo previsível para o cronograma da obra.</p>
+                  <a class="ie__btn" data-cta target="_blank" rel="noopener">Fale conosco</a>
+                </div>
+              </article>
+              <article class="ie__card">
+                <img class="ie__img" src="../Imagens/serralheria.png" alt="Serralherias e metalúrgicas" loading="lazy">
+                <span class="ie__scrim" aria-hidden="true"></span>
+                <span class="ie__badge"><span class="ie__badge-dot" aria-hidden="true"></span>Segmentos</span>
+                <div class="ie__cardfoot">
+                  <h3 class="ie__cardtitle">Serralherias e metalúrgicas</h3>
+                  <p class="ie__carddesc">Perfis, chapas, tubos e corte e dobra sob medida para a produção do dia a dia.</p>
+                  <a class="ie__btn" data-cta target="_blank" rel="noopener">Fale conosco</a>
+                </div>
+              </article>
+              <article class="ie__card">
+                <img class="ie__img" src="../Imagens/industrias.png" alt="Indústrias e estruturas metálicas" loading="lazy">
+                <span class="ie__scrim" aria-hidden="true"></span>
+                <span class="ie__badge"><span class="ie__badge-dot" aria-hidden="true"></span>Segmentos</span>
+                <div class="ie__cardfoot">
+                  <h3 class="ie__cardtitle">Indústrias e estruturas metálicas</h3>
+                  <p class="ie__carddesc">Aço, chapas e telhas em volume para galpões, linhas de produção e manutenção.</p>
+                  <a class="ie__btn" data-cta target="_blank" rel="noopener">Fale conosco</a>
+                </div>
+              </article>
+              <article class="ie__card">
+                <img class="ie__img" src="../Imagens/gesseiros.jpg" alt="Gesseiros e drywall" loading="lazy">
+                <span class="ie__scrim" aria-hidden="true"></span>
+                <span class="ie__badge"><span class="ie__badge-dot" aria-hidden="true"></span>Segmentos</span>
+                <div class="ie__cardfoot">
+                  <h3 class="ie__cardtitle">Gesseiros e drywall</h3>
+                  <p class="ie__carddesc">Linha completa de drywall: placas, perfis e acessórios com pronta entrega.</p>
+                  <a class="ie__btn" data-cta target="_blank" rel="noopener">Fale conosco</a>
+                </div>
+              </article>
+              <article class="ie__card">
+                <img class="ie__img" src="../Imagens/agronegocio.png" alt="Agronegócio" loading="lazy">
+                <span class="ie__scrim" aria-hidden="true"></span>
+                <span class="ie__badge"><span class="ie__badge-dot" aria-hidden="true"></span>Segmentos</span>
+                <div class="ie__cardfoot">
+                  <h3 class="ie__cardtitle">Agronegócio</h3>
+                  <p class="ie__carddesc">Aço, telhas e materiais para construções e estruturas rurais.</p>
+                  <a class="ie__btn" data-cta target="_blank" rel="noopener">Fale conosco</a>
+                </div>
+              </article>
+              <article class="ie__card">
+                <img class="ie__img" src="../Imagens/loja-de-materiais-de-construcao.png" alt="Lojistas e revendas" loading="lazy">
+                <span class="ie__scrim" aria-hidden="true"></span>
+                <span class="ie__badge"><span class="ie__badge-dot" aria-hidden="true"></span>Segmentos</span>
+                <div class="ie__cardfoot">
+                  <h3 class="ie__cardtitle">Lojistas e revendas</h3>
+                  <p class="ie__carddesc">Reposição de giro e mix amplo para a loja não perder venda.</p>
+                  <a class="ie__btn" data-cta target="_blank" rel="noopener">Fale conosco</a>
+                </div>
+              </article>
+            </div>
+          </div>
+          <div class="ie__foot">
+            <div class="ie__dots" id="ie-dots"></div>
+            <div class="ie__nav">
+              <button class="ie__arrow" id="ie-prev" type="button" aria-label="Anterior">‹</button>
+              <button class="ie__arrow" id="ie-next" type="button" aria-label="Próximo">›</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/catalogo.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/lead.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/cta.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var V = window.VOCICAL || {};
+      var CAT = window.CATALOGO || [];
+      var base = document.documentElement.getAttribute('data-base') || '';
+      function p(path) { return path ? base + path : path; }
+      function esc(s) { return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+      var nav = document.getElementById('rr-cnav');
+      var panels = document.getElementById('rr-cpanels');
+      CAT.forEach(function (c, i) {
+        var tab = document.createElement('button');
+        tab.type = 'button'; tab.className = 'rr-ctab' + (i === 0 ? ' is-active' : '');
+        tab.setAttribute('role', 'tab'); tab.dataset.i = i; tab.textContent = c.nome;
+        nav.appendChild(tab);
+        var cards = (c.itens || []).map(function (it) {
+          return '<article class="rr-prod">' +
+            '<div class="rr-prod__media"><img src="' + p(it.img) + '" alt="' + esc(it.nome) + '" loading="lazy"></div>' +
+            '<div class="rr-prod__body"><h3 class="rr-prod__name">' + esc(it.nome) + '</h3>' +
+            '<p class="rr-prod__desc">' + esc(it.desc) + '</p></div></article>';
+        }).join('');
+        var panel = document.createElement('div');
+        panel.className = 'rr-cpanel' + (i === 0 ? ' is-active' : ''); panel.dataset.i = i;
+        panel.innerHTML =
+          '<div class="rr-grid">' + cards + '</div>' +
+          '<div class="rr-cpanel__foot">' +
+            '<p class="rr-cpanel__note">' + esc(c.nome) + ' — disponibilidade pode variar por estoque.</p>' +
+            '<a class="btn btn--cta rr-cat__cta" data-cta target="_blank" rel="noopener"><span class="btn__ic" aria-hidden="true">›</span> Pedir orçamento de ' + esc(c.nome.toLowerCase()) + '</a>' +
+          '</div>';
+        panels.appendChild(panel);
+      });
+
+      // ----- entrada dos cards da hero (fade + desliza da direita) -----
+      var rr3cards = document.getElementById('rr3-cards');
+      if (rr3cards) { requestAnimationFrame(function () { requestAnimationFrame(function () { rr3cards.classList.add('is-in'); }); }); }
+
+      var url = V.CTA_URL || '#';
+      document.querySelectorAll('#rr3-hero-cta, .rr-cat__cta, .ie__btn').forEach(function (b) { b.setAttribute('href', url); });
+
+      // ----- botão anti-metal (.amb): mesmo modelo da home (porte do cta.js) -----
+      (function () {
+        var CHEVRONS = 12;
+        function chevron(index) {
+          var base = index * 0.12;
+          var dots = [[2,2,0],[5,5,0.05],[8,8,0.1],[5,11,0.15],[2,14,0.2]];
+          var circles = dots.map(function (d) {
+            return '<circle cx="' + d[0] + '" cy="' + d[1] + '" r="1" class="amb-dot" style="animation-delay:' + (base + d[2]).toFixed(2) + 's"></circle>';
+          }).join('');
+          return '<svg width="10" height="16" viewBox="0 0 10 16" aria-hidden="true" class="amb-cv"><g>' + circles + '</g></svg>';
+        }
+        function accent() {
+          var s = '';
+          for (var i = 0; i < CHEVRONS; i++) s += chevron(i);
+          return '<span class="amb__accent" aria-hidden="true">' + s + '</span>';
+        }
+        var STRIP = ['btn','btn--cta','btn--light','btn--dark','btn--ghost','btn--red','btn--lg'];
+        window.__ambize = function (el, opts) {
+          if (!el || el.classList.contains('amb')) return;
+          opts = opts || {};
+          var label = (el.getAttribute('data-amb-label') || el.textContent || '').replace(/^[\s›»>·]+/, '').replace(/\s+/g, ' ').trim();
+          STRIP.forEach(function (c) { el.classList.remove(c); });
+          el.classList.add('amb');
+          if (opts.lg) el.classList.add('amb--lg');
+          el.innerHTML = '<span class="amb__label">' + label + '</span>' + accent();
+        };
+      })();
+      window.__ambize(document.getElementById('rr3-hero-cta'), { lg: true });
+      document.querySelectorAll('.rr-cat__cta').forEach(function (b) { window.__ambize(b); });
+
+      var tabs = Array.prototype.slice.call(nav.querySelectorAll('.rr-ctab'));
+      var allPanels = Array.prototype.slice.call(panels.querySelectorAll('.rr-cpanel'));
+      tabs.forEach(function (t) {
+        t.addEventListener('click', function () {
+          var i = +t.dataset.i;
+          tabs.forEach(function (x) { x.classList.toggle('is-active', +x.dataset.i === i); });
+          allPanels.forEach(function (pn) { pn.classList.toggle('is-active', +pn.dataset.i === i); });
+        });
+      });
+
+      // ----- Quem atende: carrossel image-expansion (mesmo da home/produtos) -----
+      (function () {
+        var track = document.getElementById('ie-track');
+        if (!track) return;
+        var viewport = track.parentElement;
+        var cards = Array.prototype.slice.call(track.children);
+        if (!cards.length) return;
+        var prev = document.getElementById('ie-prev');
+        var next = document.getElementById('ie-next');
+        var dotsWrap = document.getElementById('ie-dots');
+        var index = 0, maxIndex = 0, step = 0;
+        function gap() { var cs = getComputedStyle(track); return parseFloat(cs.columnGap || cs.gap) || 0; }
+        function measure() {
+          var g = gap();
+          var cw = cards[0].getBoundingClientRect().width;
+          var vp = viewport.getBoundingClientRect().width;
+          step = cw + g;
+          var perView = Math.max(1, Math.round((vp + g) / step));
+          maxIndex = Math.max(0, cards.length - perView);
+          if (index > maxIndex) index = maxIndex;
+          buildDots(); apply();
+        }
+        function buildDots() {
+          if (!dotsWrap) return;
+          dotsWrap.innerHTML = '';
+          for (var i = 0; i <= maxIndex; i++) {
+            var d = document.createElement('button');
+            d.type = 'button'; d.className = 'ie__dot';
+            d.setAttribute('aria-label', 'Grupo ' + (i + 1));
+            (function (n) { d.addEventListener('click', function () { index = n; apply(); }); })(i);
+            dotsWrap.appendChild(d);
+          }
+        }
+        function apply() {
+          track.style.transform = 'translateX(' + (-index * step) + 'px)';
+          if (prev) prev.disabled = index <= 0;
+          if (next) next.disabled = index >= maxIndex;
+          if (dotsWrap) Array.prototype.forEach.call(dotsWrap.children, function (d, i) { d.classList.toggle('is-on', i === index); });
+        }
+        if (prev) prev.addEventListener('click', function () { if (index > 0) { index--; apply(); } });
+        if (next) next.addEventListener('click', function () { if (index < maxIndex) { index++; apply(); } });
+        var rt;
+        window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(measure, 150); });
+        requestAnimationFrame(measure);
+      })();
+
+      if (window.__revealObserve) window.__revealObserve();
+    });
+  </script>
+</body>
+</html>
