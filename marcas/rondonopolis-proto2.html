@@ -48,16 +48,16 @@
     background: radial-gradient(closest-side, rgba(166,3,3,.15), rgba(166,3,3,.04) 58%, transparent 76%);
     filter: blur(48px); z-index: 0; pointer-events: none; }
 
-  /* ---- coluna de conteúdo (esquerda): conteúdo centralizado horizontalmente ---- */
-  .rr2-content { position: relative; z-index: 1; width: 58%; display: flex; flex-direction: column; align-items: center; text-align: center; padding: clamp(26px, 3.4vw, 52px) clamp(26px, 4vw, 68px); }
+  /* ---- coluna de conteúdo (esquerda): conteúdo alinhado à esquerda ---- */
+  .rr2-content { position: relative; z-index: 1; width: 58%; display: flex; flex-direction: column; align-items: flex-start; text-align: left; padding: clamp(26px, 3.4vw, 52px) clamp(26px, 4vw, 68px); }
 
-  .rr2-main { margin-block: auto; padding-block: clamp(24px, 4vh, 48px); display: flex; flex-direction: column; align-items: center; }
+  .rr2-main { margin-block: auto; padding-block: clamp(24px, 4vh, 48px); display: flex; flex-direction: column; align-items: flex-start; }
   .rr2-title { font-family: var(--display); font-weight: 400; font-size: clamp(2.1rem, 4.4vw, 4rem); line-height: 1; letter-spacing: -.025em; color: var(--ink); max-width: 15ch; }
   .rr2-title .accent { background: none; color: var(--red); padding: 0; border-radius: 0; }
-  .rr2-bar { width: clamp(64px, 6vw, 88px); height: 5px; border-radius: 999px; background: var(--red); margin: clamp(20px, 2.6vw, 32px) auto; }
+  .rr2-bar { width: clamp(64px, 6vw, 88px); height: 5px; border-radius: 999px; background: var(--red); margin: clamp(20px, 2.6vw, 32px) 0; }
   .rr2-sub { max-width: 48ch; color: #4a4a4a; font-size: clamp(1rem, 1.2vw, 1.14rem); line-height: 1.6; }
 
-  .rr2-contact { display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(16px, 2.2vw, 40px); margin-top: clamp(26px, 4vh, 52px); }
+  .rr2-contact { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: clamp(16px, 2.2vw, 40px); margin-top: clamp(26px, 4vh, 52px); }
   .rr2-contact__item { display: flex; align-items: center; gap: .55rem; font-size: .82rem; color: #5a5a5a; }
   .rr2-contact__item svg { width: 18px; height: 18px; color: var(--red); flex: 0 0 auto; }
 
