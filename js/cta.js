@@ -53,8 +53,11 @@
 
   function run() {
     // CTAs grandes de conversão/contato (todas as páginas)
-    ['hero-cta', 'conv-cta', 'prod-cta', 'sobre-cta', 'ct-cta', 'mk-hero-cta', 'mk-conv-cta', 'un-hero-cta', 'un-conv-cta']
+    ['hero-cta', 'conv-cta', 'prod-cta', 'sobre-cta', 'ct-cta', 'mk-hero-cta', 'mk-conv-cta', 'un-hero-cta', 'un-conv-cta', 'un-contato-cta']
       .forEach(function (id) { upgrade(document.getElementById(id), { lg: true }); });
+    // CTA por linha do catálogo (páginas de unidade com portfólio em abas) e o
+    // botão "Traçar rota" do mapa — mesmo botão anti-metal, tamanho padrão.
+    [].forEach.call(document.querySelectorAll('.rr-cat__cta, .u-mapa__route'), function (el) { upgrade(el); });
     // faixas de CTA intercaladas entre categorias (produtos): mesmo botão da home,
     // corpo branco porque a faixa é vermelha (nunca vermelho sobre vermelho).
     [].forEach.call(document.querySelectorAll('.cat-cta__btn'), function (el) {

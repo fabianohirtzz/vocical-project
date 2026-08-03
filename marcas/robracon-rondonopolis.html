@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="../css/base.css">
   <link rel="stylesheet" href="../css/site.css">
   <link rel="stylesheet" href="../css/pages.css">
-  <link rel="stylesheet" href="../css/unidade.css">
+  <link rel="stylesheet" href="../css/unidade.css?v=proto3-merge">
   <link rel="stylesheet" href="../css/lead.css">
 
   <script type="application/ld+json">
@@ -48,29 +48,40 @@
 
   <main id="conteudo">
 
-    <!-- HERO -->
-    <section class="mk-hero surface--dark grain">
-      <div class="mk-hero__bg">
-        <img src="../Imagens/Capas Unidades/Robracon Rondonopolis.png" alt="Estrutura da Robracon Rondonópolis, distribuidora de aço e material de construção em Rondonópolis MT" loading="eager" fetchpriority="high">
-      </div>
-      <div class="container mk-hero__inner">
-        <a class="mk-hero__back" href="../index.html#marcas">&larr; Todas as unidades</a>
-        <div class="mk-hero__logo"><img src="../Imagens/Logos Unidades/Robracon/ROBRACON---BRANCO.png" alt="Robracon Rondonópolis"></div>
-        <span class="kicker">Rondonópolis · MT</span>
-        <h1 class="display mk-hero__title">Aço, material de construção e <span class="accent">drywall</span> em Rondonópolis</h1>
-        <p class="lede page-hero__lede">Uma das unidades com o portfólio mais amplo do Grupo Vocical. Do cimento ao drywall, com serviços especializados e logística regional para obras, indústrias e serralherias.</p>
-        <div class="u-hero__selos">
-          <span class="u-selo">Em atividade desde 2005</span>
-          <span class="u-selo">Mix mais amplo do grupo</span>
-          <span class="u-selo">Atendimento B2B</span>
-          <span class="u-selo">Logística regional</span>
+    <!-- HERO (dois cards de imagem) -->
+    <section class="rr3-hero">
+      <div class="rr3-hero__grid" aria-hidden="true"></div>
+      <div class="rr3-inner">
+
+        <div class="rr3-left">
+          <h1 class="rr3-title rr3-rise rr3-rise--1">Aço, material de construção e <span class="accent">drywall</span></h1>
+          <div class="rr3-bar rr3-rise rr3-rise--2"></div>
+          <p class="rr3-sub rr3-rise rr3-rise--2">A unidade de maior portfólio do Grupo Vocical em Rondonópolis. Do cimento ao drywall, com serviços especializados e logística regional para obras, indústrias e serralherias.</p>
+
+          <div class="rr3-actions rr3-rise rr3-rise--3">
+            <a class="btn btn--cta btn--lg" id="un-hero-cta" data-cta target="_blank" rel="noopener">Peça seu orçamento</a>
+          </div>
+
+          <div class="rr3-stats rr3-rise rr3-rise--4">
+            <div class="rr3-stat"><span class="rr3-stat__num">2005</span><span class="rr3-stat__label">em atividade desde</span></div>
+            <div class="rr3-stat"><span class="rr3-stat__num">3</span><span class="rr3-stat__label">unidades no MT</span></div>
+            <div class="rr3-stat"><span class="rr3-stat__num">6</span><span class="rr3-stat__label">linhas de produto</span></div>
+          </div>
         </div>
-        <div class="u-hero__stats">
-          <div class="u-stat"><span class="u-stat__num display">2005</span><span class="u-stat__label">em atividade desde</span></div>
-          <div class="u-stat"><span class="u-stat__num display">5</span><span class="u-stat__label">linhas de produto</span></div>
-          <div class="u-stat"><span class="u-stat__num display" data-count="11">0</span><span class="u-stat__label">unidades no grupo</span></div>
+
+        <div class="rr3-right">
+          <div class="rr3-cards" id="rr3-cards">
+            <div class="rr3-card rr3-card--back">
+              <img src="../Imagens/Robracon ROO/robracon1 (9).png" alt="Operação interna da Robracon Rondonópolis: ponte rolante e estoque de aço" loading="eager">
+              <img class="rr3-card__logo" src="../Imagens/Robracon ROO/logo-robracon-rondonopolis.png" alt="" aria-hidden="true">
+            </div>
+            <div class="rr3-card rr3-card--front">
+              <img src="../Imagens/Robracon ROO/capa-robracon-roo.jpg" alt="Fachada da Robracon Rondonópolis, distribuidora de aço e material de construção em Rondonópolis MT" loading="eager" fetchpriority="high">
+              <img class="rr3-card__logo" src="../Imagens/Robracon ROO/logo-robracon-rondonopolis.png" alt="" aria-hidden="true">
+            </div>
+          </div>
         </div>
-        <a class="btn btn--cta btn--lg" id="un-hero-cta" target="_blank" rel="noopener"><span class="btn__ic" aria-hidden="true">›</span> Fale com esta unidade</a>
+
       </div>
     </section>
 
@@ -87,8 +98,23 @@
       </div>
     </section>
 
-    <!-- SEGMENTOS (quem atende) — malha técnica de fundo -->
-    <section class="section surface--paper mesh">
+    <!-- PORTFÓLIO (abas, ex-proto3) -->
+    <section class="section surface--paper mesh rr-cat" id="produtos">
+      <div class="container">
+        <div class="sec-head" data-reveal>
+          <span class="kicker">Portfólio completo</span>
+          <h2 class="display--mass">Todas as linhas, do cimento ao <span class="accent">drywall</span></h2>
+          <p class="lede">A unidade com o mix mais amplo do grupo: seis linhas completas, e a única com a linha de drywall. Selecione uma linha. A disponibilidade pode variar por estoque.</p>
+        </div>
+        <div data-reveal>
+          <div class="rr-cnav" id="rr-cnav" role="tablist" aria-label="Linhas de produto"></div>
+          <div class="rr-cpanels" id="rr-cpanels"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUEM ATENDEMOS (segmentos) -->
+    <section class="section surface--white quem-atende">
       <div class="container">
         <div class="sec-head" data-reveal><span class="kicker">Quem atendemos</span><h2>Feito para quem <span class="accent">move a obra</span> na região</h2></div>
       </div>
@@ -170,71 +196,6 @@
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- PRODUTOS -->
-    <section class="section surface--white" id="produtos">
-      <div class="container">
-        <div class="sec-head" data-reveal>
-          <span class="kicker">Linhas que esta unidade trabalha</span>
-          <h2>Do cimento ao <span class="accent">drywall</span>, num só fornecedor</h2>
-          <p class="lede">Cinco linhas completas para a base, a estrutura, a cobertura e o fechamento da obra. A disponibilidade pode variar por estoque.</p>
-        </div>
-
-        <div class="u-cat" data-reveal>
-          <div class="u-cat__head"><span class="kicker">Materiais de Construção</span><h3>A base da obra</h3></div>
-          <div class="prod-items">
-            <div class="prod-item"><div class="prod-item__txt"><h3 class="prod-item__name">Sacarias</h3><p class="prod-item__desc">Cimento, cal, argamassa, gesso e rejunte.</p></div><div class="prod-item__img"><img src="../Imagens/Produtos/cimento.jpg" alt="Cimento e sacarias" loading="lazy"></div></div>
-            <div class="prod-item"><div class="prod-item__txt"><h3 class="prod-item__name">Impermeabilizantes</h3><p class="prod-item__desc">Aditivos para chapisco e argamassa, mantas líquidas e emulsões asfálticas.</p></div><div class="prod-item__img"><img src="../Imagens/Produtos/impermeabilizantes.jpg" alt="Impermeabilizantes" loading="lazy"></div></div>
-            <div class="prod-item"><div class="prod-item__txt"><h3 class="prod-item__name">Tubos e Conexões</h3><p class="prod-item__desc">Tubos soldáveis e de esgoto, joelhos, curvas, registros e adesivos para PVC.</p></div><div class="prod-item__img"><img src="../Imagens/Produtos/tubos-pvc.jpg" alt="Tubos e conexões de PVC" loading="lazy"></div></div>
-            <div class="prod-item"><div class="prod-item__txt"><h3 class="prod-item__name">Caixas d'água</h3><p class="prod-item__desc">Caixas d'água, tanques, cisternas e acessórios em diferentes capacidades.</p></div><div class="prod-item__img"><img src="../Imagens/Produtos/caixas-dagua.jpg" alt="Caixas d'água e tanques" loading="lazy"></div></div>
-            <div class="prod-item"><div class="prod-item__txt"><h3 class="prod-item__name">Louças</h3><p class="prod-item__desc">Assentos, caixas acopladas, lavatórios, cubas e tanques.</p></div><div class="prod-item__img"><img src="../Imagens/Produtos/loucas.jpg" alt="Louças" loading="lazy"></div></div>
-          </div>
-        </div>
-
-        <div class="u-cat" data-reveal>
-          <div class="u-cat__head"><span class="kicker">Aço Construção Civil</span><h3>Vergalhão e aço para a estrutura</h3></div>
-          <div class="prod-items">
-            <div class="prod-item"><div class="prod-item__txt"><h3 class="prod-item__name">Vergalhões</h3><p class="prod-item__desc">Barras de 12 m em CA50 e CA60, nas principais bitolas.</p></div><div class="prod-item__img"><img src="../Imagens/Produtos/vergalhoes.jpg" alt="Vergalhões CA50 e CA60" loading="lazy"></div></div>
-            <div class="prod-item"><div class="prod-item__txt"><h3 class="prod-item__name">Treliça</h3><p class="prod-item__desc">Treliças H8 e H12 para estruturas pré-moldadas e reforço de lajes.</p></div><div class="prod-item__img"><img src="../Imagens/Produtos/trelicas.jpg" alt="Treliças" loading="lazy"></div></div>
-            <div class="prod-item"><div class="prod-item__txt"><h3 class="prod-item__name">Tela Soldada</h3><p class="prod-item__desc">Malhas EQ leves a pesadas para lajes, pisos e contrapisos.</p></div><div class="prod-item__img"><img src="../Imagens/Produtos/tela-soldada.jpg" alt="Tela soldada" loading="lazy"></div></div>
-            <div class="prod-item"><div class="prod-item__txt"><h3 class="prod-item__name">Coluna</h3><p class="prod-item__desc">Colunas prontas de 6 m com estribos, produção sob medida conforme o projeto.</p></div><div class="prod-item__img"><img src="../Imagens/Produtos/coluna.jpg" alt="Colunas prontas" loading="lazy"></div></div>
-            <div class="prod-item"><div class="prod-item__txt"><h3 class="prod-item__name">Malha POP e Arames</h3><p class="prod-item__desc">Malha POP, arames recozidos, torcidos e galvanizados em diversos diâmetros.</p></div><div class="prod-item__img"><img src="../Imagens/Produtos/arames.jpg" alt="Arames e malha POP" loading="lazy"></div></div>
-          </div>
-        </div>
-
-        <div class="u-cat" data-reveal>
-          <div class="u-cat__head"><span class="kicker">Estruturais e Serralheria</span><h3>Metalon, perfis e chapas</h3></div>
-          <div class="prod-items">
-            <div class="prod-item"><div class="prod-item__txt"><h3 class="prod-item__name">Tubo Metalon</h3><p class="prod-item__desc">Tubos metalon, cantoneiras, perfis, guias e barras chatas.</p></div><div class="prod-item__img"><img src="../Imagens/Produtos/calha.jpg" alt="Tubo metalon" loading="lazy"></div></div>
-            <div class="prod-item"><div class="prod-item__txt"><h3 class="prod-item__name">Perfis</h3><p class="prod-item__desc">Perfis U, Z, T e L, além de perfis para esquadrias.</p></div><div class="prod-item__img"><img src="../Imagens/Produtos/perfil.jpg" alt="Perfis metálicos" loading="lazy"></div></div>
-            <div class="prod-item"><div class="prod-item__txt"><h3 class="prod-item__name">Chapa</h3><p class="prod-item__desc">Chapas lisas, galvanizadas e xadrez para estruturas, pisos e reforços.</p></div><div class="prod-item__img"><img src="../Imagens/Produtos/chapa-metalon.jpg" alt="Chapas metálicas" loading="lazy"></div></div>
-            <div class="prod-item"><div class="prod-item__txt"><h3 class="prod-item__name">Bobina Galvalume</h3><p class="prod-item__desc">Bobinas galvalume e galvanizadas para calhas, painéis e perfis leves.</p></div><div class="prod-item__img"><img src="../Imagens/Produtos/bobina-galvalume.jpg" alt="Bobina galvalume" loading="lazy"></div></div>
-          </div>
-        </div>
-
-        <div class="u-cat" data-reveal>
-          <div class="u-cat__head"><span class="kicker">Coberturas</span><h3>Telhas metálicas e termoacústicas</h3></div>
-          <div class="prod-items">
-            <div class="prod-item"><div class="prod-item__txt"><h3 class="prod-item__name">Telhas Galvalume</h3><p class="prod-item__desc">Trapezoidal e ondulada, com cumeeiras, rufos, arremates e fixadores.</p></div><div class="prod-item__img"><img src="../Imagens/Produtos/TELHAS.jpg" alt="Telhas galvalume" loading="lazy"></div></div>
-            <div class="prod-item"><div class="prod-item__txt"><h3 class="prod-item__name">Telha Termoacústica</h3><p class="prod-item__desc">Tipo sanduíche com núcleo isolante, para conforto térmico e acústico.</p></div><div class="prod-item__img"><img src="../Imagens/Produtos/telha-termoacustica.jpg" alt="Telha termoacústica" loading="lazy"></div></div>
-            <div class="prod-item"><div class="prod-item__txt"><h3 class="prod-item__name">Telha Fibrocimento</h3><p class="prod-item__desc">Onduladas para uso residencial, comercial e rural, com acessórios.</p></div><div class="prod-item__img"><img src="../Imagens/Produtos/telha-fibrocimento.jpg" alt="Telha de fibrocimento" loading="lazy"></div></div>
-            <div class="prod-item"><div class="prod-item__txt"><h3 class="prod-item__name">Telha Transparente</h3><p class="prod-item__desc">Policarbonato, fibra de vidro ou PVC translúcido para entrada de luz.</p></div><div class="prod-item__img"><img src="../Imagens/Produtos/telha-transparente.jpg" alt="Telha transparente" loading="lazy"></div></div>
-          </div>
-        </div>
-
-        <div class="u-cat" data-reveal>
-          <div class="u-cat__head"><span class="kicker">Drywall</span><h3>Linha completa, exclusiva desta unidade</h3></div>
-          <div class="prod-items">
-            <div class="prod-item"><div class="prod-item__txt"><h3 class="prod-item__name">Placa ST</h3><p class="prod-item__desc">Placa standard para uso geral em ambientes secos.</p></div><div class="prod-item__img"><img src="../Imagens/Produtos/placa-de-gesso.jpg" alt="Placa de drywall ST" loading="lazy"></div></div>
-            <div class="prod-item"><div class="prod-item__txt"><h3 class="prod-item__name">Placa RU e Glasroc</h3><p class="prod-item__desc">Resistente à umidade e Glasroc X para fachadas e áreas externas.</p></div><div class="prod-item__img"><img src="../Imagens/Produtos/glasroc.png" alt="Placa RU e Glasroc" loading="lazy"></div></div>
-            <div class="prod-item"><div class="prod-item__txt"><h3 class="prod-item__name">Perfis e Guias</h3><p class="prod-item__desc">Guias e montantes metálicos para paredes e forros, com prumo preciso.</p></div><div class="prod-item__img"><img src="../Imagens/Produtos/perfil-drywall.jpg" alt="Perfis e guias de drywall" loading="lazy"></div></div>
-            <div class="prod-item"><div class="prod-item__txt"><h3 class="prod-item__name">Acessórios</h3><p class="prod-item__desc">Massa, fita telada, parafusos, cantoneiras, presilhas e reguladores.</p></div><div class="prod-item__img"><img src="../Imagens/Produtos/fita-telada.png" alt="Acessórios de drywall" loading="lazy"></div></div>
-          </div>
-        </div>
-
-        <p class="u-catnote">Treliças e telas soldadas são produtos prontos, distribuídos pela unidade. A disponibilidade de itens pode variar por estoque.</p>
       </div>
     </section>
 
@@ -350,7 +311,7 @@
           </ul>
           <div data-reveal>
             <p class="lede">Precisa de material ou de um orçamento para a obra? O time da unidade responde rápido e com atendimento consultivo.</p>
-            <a class="btn btn--cta btn--lg" id="un-contato-cta" target="_blank" rel="noopener" style="margin-top:1.6rem"><span class="btn__ic" aria-hidden="true">›</span> Pedir orçamento</a>
+            <a class="btn btn--cta btn--lg" id="un-contato-cta" data-cta target="_blank" rel="noopener" style="margin-top:1.6rem"><span class="btn__ic" aria-hidden="true">›</span> Pedir orçamento</a>
             <p class="u-legal">ROBRACON RONDONÓPOLIS BRASIL MATERIAIS P/ CONSTRUÇÃO LTDA · CNPJ 06.937.383/0001-05 · Unidade do Grupo Vocical.</p>
           </div>
         </div>
@@ -370,16 +331,85 @@
   <footer id="site-footer"></footer>
 
   <script src="../js/config.js"></script>
+  <script src="../js/catalogo.js"></script>
   <script src="../js/layout.js"></script>
   <script src="../js/lead.js"></script>
   <script src="../js/main.js"></script>
-  <script src="../js/cta.js"></script>
+  <script src="../js/cta.js?v=proto3-merge"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       var V = window.VOCICAL || {};
+      var CAT = window.CATALOGO || [];
+      var base = document.documentElement.getAttribute('data-base') || '';
+      function p(path) { return path ? base + path : path; }
+      function esc(s) { return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+      // ----- Portfólio: abas + painéis a partir do catálogo mestre -----
+      var nav = document.getElementById('rr-cnav');
+      var panels = document.getElementById('rr-cpanels');
+      if (nav && panels) {
+        CAT.forEach(function (c, i) {
+          var tab = document.createElement('button');
+          tab.type = 'button'; tab.className = 'rr-ctab' + (i === 0 ? ' is-active' : '');
+          tab.setAttribute('role', 'tab'); tab.dataset.i = i; tab.textContent = c.nome;
+          nav.appendChild(tab);
+          var cards = (c.itens || []).map(function (it) {
+            return '<article class="rr-prod">' +
+              '<div class="rr-prod__media"><img src="' + p(it.img) + '" alt="' + esc(it.nome) + '" loading="lazy"></div>' +
+              '<div class="rr-prod__body"><h3 class="rr-prod__name">' + esc(it.nome) + '</h3>' +
+              '<p class="rr-prod__desc">' + esc(it.desc) + '</p></div></article>';
+          }).join('');
+          var panel = document.createElement('div');
+          panel.className = 'rr-cpanel' + (i === 0 ? ' is-active' : ''); panel.dataset.i = i;
+          panel.innerHTML =
+            '<div class="rr-grid">' + cards + '</div>' +
+            '<div class="rr-cpanel__foot">' +
+              '<p class="rr-cpanel__note">' + esc(c.nome) + ' — disponibilidade pode variar por estoque.</p>' +
+              '<a class="btn btn--cta rr-cat__cta" data-cta target="_blank" rel="noopener"><span class="btn__ic" aria-hidden="true">›</span> Pedir orçamento de ' + esc(c.nome.toLowerCase()) + '</a>' +
+            '</div>';
+          panels.appendChild(panel);
+        });
+      }
+
       var url = V.CTA_URL || '#';
       ['un-hero-cta', 'un-contato-cta'].forEach(function (id) { var b = document.getElementById(id); if (b) b.href = url; });
-      Array.prototype.forEach.call(document.querySelectorAll('.ie__btn'), function (b) { b.href = url; });
+      Array.prototype.forEach.call(document.querySelectorAll('.ie__btn, .rr-cat__cta'), function (b) { b.href = url; });
+
+      // ----- entrada dos cards da hero (fade + desliza da direita) -----
+      var rr3cards = document.getElementById('rr3-cards');
+      if (rr3cards) { requestAnimationFrame(function () { requestAnimationFrame(function () { rr3cards.classList.add('is-in'); }); }); }
+
+      // ----- Portfólio: troca de aba + (em telas estreitas) centraliza a aba clicada -----
+      if (nav && panels) {
+        var tabs = Array.prototype.slice.call(nav.querySelectorAll('.rr-ctab'));
+        var allPanels = Array.prototype.slice.call(panels.querySelectorAll('.rr-cpanel'));
+        tabs.forEach(function (t) {
+          t.addEventListener('click', function () {
+            var i = +t.dataset.i;
+            tabs.forEach(function (x) { x.classList.toggle('is-active', +x.dataset.i === i); });
+            allPanels.forEach(function (pn) { pn.classList.toggle('is-active', +pn.dataset.i === i); });
+            if (nav.scrollWidth > nav.clientWidth) {
+              nav.scrollTo({ left: Math.max(0, t.offsetLeft - (nav.clientWidth - t.offsetWidth) / 2), behavior: 'smooth' });
+            }
+          });
+        });
+        // abas em UMA linha só: reduz a fonte (--rr-fs) até tudo caber
+        var rootEl = document.documentElement;
+        function fitTabs() {
+          var max = parseFloat(getComputedStyle(rootEl).fontSize) * 1.3; // teto = 1.3rem
+          var min = 15; // piso legível; abaixo disso deixa virar scroller
+          var fs = max, guard = 80;
+          nav.style.setProperty('--rr-fs', fs + 'px');
+          while (nav.scrollWidth > nav.clientWidth + 1 && fs > min && guard-- > 0) {
+            fs -= 0.5;
+            nav.style.setProperty('--rr-fs', fs + 'px');
+          }
+        }
+        var frt;
+        window.addEventListener('resize', function () { clearTimeout(frt); frt = setTimeout(fitTabs, 120); });
+        if (document.fonts && document.fonts.ready) { document.fonts.ready.then(fitTabs); }
+        fitTabs();
+      }
 
       // FAQ acordeão
       Array.prototype.forEach.call(document.querySelectorAll('.u-faq__q'), function (q) {
