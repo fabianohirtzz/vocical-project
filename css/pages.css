@@ -8,6 +8,13 @@
 .sec-head.center { margin-inline: auto; }
 .sec-head h2 { margin-top: 1.3rem; }
 .sec-head .lede { margin-top: 1rem; }
+/* títulos de seção em Archivo Black: escala moderada (display--mass cheio é só hero).
+   Vale p/ todas as páginas que carregam pages.css — páginas de unidade inclusas
+   (home.css repete o mesmo valor só pra home). */
+.sec-head .display--mass, .servicos__head .display--mass { font-size: clamp(1.9rem, 4.4vw, 3.4rem); line-height: .95; }
+/* chip-destaque no título de seção: respiro vertical extra p/ o box branco não
+   encostar na linha de cima quando o título quebra em duas linhas (line-height .95). */
+.sec-head .display--mass .accent { margin-block: .24em; }
 .btn--lg { padding: 1.05em 1.9em; font-size: 1.05rem; }
 
 /* ---------- Compartilhado: faixa de números ---------- */
