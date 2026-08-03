@@ -344,7 +344,7 @@
         <div class="sec-head" data-reveal><span class="kicker">Contato</span><h2>Fale com a <span class="accent">Robracon Rondonópolis</span></h2></div>
         <div class="u-contato__grid">
           <ul class="ct-list" data-reveal>
-            <li><span>Endereço</span><a href="https://www.google.com/maps/search/?api=1&query=Av.+Josefa+Machado+de+Rezende,+2999,+Rondonopolis+MT" target="_blank" rel="noopener">Av. Josefa Machado de Rezende, 2999 - Parque Sagrada Família, Rondonópolis/MT</a></li>
+            <li><span>Endereço</span><a href="https://maps.app.goo.gl/DsN6ryevEkxkomn2A" target="_blank" rel="noopener">Av. Josefa Machado de Rezende, 2999 - Parque Sagrada Família, Rondonópolis/MT</a></li>
             <li><span>WhatsApp / Telefone</span><a href="https://wa.me/556634228878" target="_blank" rel="noopener">(66) 3422-8878</a></li>
             <li><span>E-mail</span><a href="mailto:vendas.robracon@grupovocical.com.br">vendas.robracon@grupovocical.com.br</a></li>
           </ul>
@@ -354,15 +354,15 @@
             <p class="u-legal">ROBRACON RONDONÓPOLIS BRASIL MATERIAIS P/ CONSTRUÇÃO LTDA · CNPJ 06.937.383/0001-05 · Unidade do Grupo Vocical.</p>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- CONVERSÃO -->
-    <section class="section surface--red conversao">
-      <div class="container conversao__inner" data-reveal>
-        <h2 class="conversao__title">Precisa de material ou um orçamento em Rondonópolis?</h2>
-        <p class="conversao__sub">Fale com o time da Robracon Rondonópolis e receba atendimento consultivo e resposta ágil.</p>
-        <a class="btn btn--light btn--lg" id="un-conv-cta" target="_blank" rel="noopener"><span class="btn__ic" aria-hidden="true">›</span> Fale Conosco</a>
+        <!-- COMO CHEGAR (mapa) -->
+        <div class="u-mapa" data-reveal>
+          <p class="kicker u-mapa__label">Como chegar</p>
+          <div class="u-mapa__canvas">
+            <iframe title="Mapa da localização da Robracon Rondonópolis, Av. Josefa Machado de Rezende, 2999, Rondonópolis/MT" src="https://maps.google.com/maps?q=-16.4754991,-54.5930272&hl=pt-BR&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+            <a class="btn btn--cta u-mapa__route" href="https://www.google.com/maps/dir/?api=1&destination=-16.4754991,-54.5930272" target="_blank" rel="noopener"><span class="btn__ic" aria-hidden="true">›</span> Traçar rota</a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -378,7 +378,7 @@
     document.addEventListener('DOMContentLoaded', function () {
       var V = window.VOCICAL || {};
       var url = V.CTA_URL || '#';
-      ['un-hero-cta', 'un-conv-cta', 'un-contato-cta'].forEach(function (id) { var b = document.getElementById(id); if (b) b.href = url; });
+      ['un-hero-cta', 'un-contato-cta'].forEach(function (id) { var b = document.getElementById(id); if (b) b.href = url; });
       Array.prototype.forEach.call(document.querySelectorAll('.ie__btn'), function (b) { b.href = url; });
 
       // FAQ acordeão
