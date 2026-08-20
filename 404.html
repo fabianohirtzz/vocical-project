@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, follow">
+  <title>Página não encontrada — Grupo Vocical</title>
+  <meta name="theme-color" content="#a60303">
+  <!--
+    Página 404 deliberadamente autossuficiente: sem CSS, fonte ou imagem externa.
+    O Apache serve este conteúdo NA URL pedida (ex: /pagina-que-nao-existe/), então
+    qualquer caminho relativo resolveria a partir daquela pasta e quebraria. Deixar
+    tudo embutido é o que garante que o 404 apareça certo em qualquer profundidade.
+  -->
+  <style>
+    :root{--red:#a60303;--ink:#0d0d0d;--paper:#f9f9f9;--muted:#8a8a8a;--line:#e4e4e4}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{min-height:100vh;display:grid;place-items:center;padding:2rem;
+      background:var(--paper);color:var(--ink);
+      font-family:"Archivo",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+      background-image:linear-gradient(var(--line) 1px,transparent 1px),
+                       linear-gradient(90deg,var(--line) 1px,transparent 1px);
+      background-size:46px 46px}
+    .box{max-width:34rem;text-align:center;background:#fff;padding:3rem 2rem;
+      border:1px solid var(--line);box-shadow:0 24px 60px rgba(13,13,13,.08)}
+    .code{font-size:clamp(4rem,14vw,7rem);line-height:.9;font-weight:900;
+      letter-spacing:-.04em;color:var(--red)}
+    h1{font-size:clamp(1.25rem,4vw,1.6rem);font-weight:800;margin:1.25rem 0 .6rem;
+      letter-spacing:-.02em}
+    p{color:var(--muted);line-height:1.6;font-size:.98rem}
+    .acoes{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center;margin-top:1.8rem}
+    a.btn{display:inline-block;padding:.85rem 1.5rem;border-radius:999px;
+      text-decoration:none;font-weight:700;font-size:.92rem;transition:.18s}
+    .prim{background:var(--red);color:#fff}
+    .prim:hover{background:#730a0a}
+    .sec{border:1px solid var(--line);color:var(--ink)}
+    .sec:hover{border-color:var(--ink)}
+    .marca{margin-top:2rem;padding-top:1.4rem;border-top:1px solid var(--line);
+      font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <main class="box">
+    <div class="code">404</div>
+    <h1>Essa página não existe</h1>
+    <p>O endereço pode ter mudado ou o link estar incorreto. Volte para o início ou fale direto com a gente.</p>
+    <div class="acoes">
+      <a class="btn prim" href="/">Ir para o início</a>
+      <a class="btn sec" href="/contato/">Falar com a gente</a>
+      <a class="btn sec" href="https://api.whatsapp.com/send/?phone=5566999393953" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+    <p class="marca">Grupo Vocical · desde 1987</p>
+  </main>
+</body>
+</html>

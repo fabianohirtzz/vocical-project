@@ -5,6 +5,9 @@
   var base = document.documentElement.getAttribute('data-base') || '';   // '' na raiz, '../' nas subpastas
   function p(path) { return base + path; }
   function home() { return base || './'; }   // './' e '../' resolvem para a raiz
+  /* Landing de campanha (body[data-landing]): sem menu e sem link que tire o
+     visitante da página. Só contato direto, que é conversão, não navegação. */
+  var LANDING = document.body.hasAttribute('data-landing');
   function enc(path) { return path.split('/').map(encodeURIComponent).join('/'); }  // espaços em pastas
 
   /* ---------------- HEADER ---------------- */
@@ -46,7 +49,26 @@
       }).join('');
     }
 
-    el.className = 'nb';
+    el.className = 'nb' + (LANDING ? ' nb--landing' : '');
+    if (LANDING) {
+      el.innerHTML =
+        '<div class="nb__inner">' +
+          '<div class="nb__left">' +
+            '<span class="nb__brand" aria-label="Grupo Vocical">' +
+              '<img class="nb__logo" src="' + p('Imagens/logo-header.png') + '" alt="Grupo Vocical"></span>' +
+            '<span class="nb__since">Desde 1987</span>' +
+          '</div>' +
+          '<div class="nb__right">' +
+            '<a class="nb__wa" href="' + V.WHATSAPP + '" target="_blank" rel="noopener">WhatsApp ' + V.WHATSAPP_LABEL + '</a>' +
+          '</div>' +
+        '</div>';
+      var setH = function () { document.documentElement.style.setProperty('--nb-h', el.offsetHeight + 'px'); };
+      setH(); window.addEventListener('resize', setH);
+      window.addEventListener('scroll', function () {
+        document.body.classList.toggle('is-scrolled', window.scrollY > 8);
+      }, { passive: true });
+      return;
+    }
     el.innerHTML =
       '<div class="nb__inner">' +
         '<div class="nb__left">' +
@@ -187,6 +209,7 @@
               '<p class="ft-card__tag">Distribuição de materiais de construção, aço e soluções para obra e indústria desde 1987. 11 unidades em São Paulo e Mato Grosso.</p>' +
             '</div>' +
             '<div class="ft-card__links">' +
+              (LANDING ? '' :
               '<div class="ft-col">' +
                 '<p class="ft-col__h">Links úteis</p>' +
                 '<ul>' +
@@ -197,7 +220,7 @@
               '<div class="ft-col">' +
                 '<p class="ft-col__h">Unidades</p>' +
                 '<ul>' + marcasLinks + '</ul>' +
-              '</div>' +
+              '</div>') +
               '<div class="ft-col">' +
                 '<p class="ft-col__h">Contato</p>' +
                 '<ul>' +

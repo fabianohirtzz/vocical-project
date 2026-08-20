@@ -1,0 +1,93 @@
+# =============================================================================
+# Grupo Vocical — site estático (substitui o WordPress)
+#
+# Este arquivo funciona tanto na raiz (public_html) quanto na subpasta de teste
+# (public_html/novo). Todas as substituições são relativas, sem RewriteBase, e
+# as condições usam %{REQUEST_FILENAME}, que é caminho de sistema de arquivos.
+#
+# As URLs são pastas com index.html (/produtos/, /vocical-votuporanga-sp/ ...),
+# exatamente como no WordPress legado, então o DirectoryIndex do Apache resolve
+# tudo sozinho. Não há rewrite de "URL limpa" aqui de propósito: menos regra,
+# menos coisa para quebrar.
+# =============================================================================
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php84” package as the default “PHP” programming language.
+<IfModule mime_module>
+AddHandler application/x-httpd-ea-php84___lsphp .php .php8 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit
+
+# BEGIN EREHOST WAF BLOCKIP
+RewriteEngine On
+# END EREHOST WAF BLOCKIP
+
+DirectoryIndex index.html index.php
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # ---- HTTPS obrigatório -----------------------------------------------------
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+  # ---- Domínio canônico: sem www --------------------------------------------
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+
+  # ---- Páginas do WordPress que não existem mais no site novo ----------------
+  # O menu do WP apontava para /inicio/; a home agora é a raiz.
+  RewriteRule ^inicio/?$                    / [R=301,L]
+  # /unidades/ era o hub; as unidades vivem no mapa da home.
+  RewriteRule ^unidades/?$                  /#unidades [R=301,L]
+  # Página "Estamos atualizando o site", sem função no site novo.
+  RewriteRule ^manutencao/?$                / [R=301,L]
+  # Restos do WordPress padrão.
+  RewriteRule ^hello-world/?$               / [R=301,L]
+  RewriteRule ^category/uncategorized/?$    / [R=301,L]
+
+  # ---- Superfície do WordPress que não deve mais responder -------------------
+  RewriteRule ^(wp-admin|wp-includes|wp-content)(/|$)   - [R=404,L]
+  RewriteRule ^(xmlrpc\.php|wp-login\.php|wp-cron\.php) - [R=404,L]
+  RewriteRule ^feed/?$                                  - [R=404,L]
+  RewriteRule ^wp-json(/|$)                             - [R=404,L]
+</IfModule>
+
+# ---- Página de erro ---------------------------------------------------------
+ErrorDocument 404 /404.html
+
+# ---- Cache dos estáticos ----------------------------------------------------
+# HTML sem cache (para o cliente ver ajuste na hora); asset com cache longo.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html                 "access plus 0 seconds"
+  ExpiresByType text/css                  "access plus 1 year"
+  ExpiresByType application/javascript    "access plus 1 year"
+  ExpiresByType image/png                 "access plus 1 year"
+  ExpiresByType image/jpeg                "access plus 1 year"
+  ExpiresByType image/webp                "access plus 1 year"
+  ExpiresByType image/svg+xml             "access plus 1 year"
+  ExpiresByType video/mp4                 "access plus 1 year"
+  ExpiresByType font/woff2                "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html|php)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+  # Fonte auto-hospedada precisa de CORS quando o preload cruza origem/CDN.
+  <FilesMatch "\.woff2$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+</IfModule>
+
+# ---- Compressão -------------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# ---- Não listar diretório ---------------------------------------------------
+Options -Indexes

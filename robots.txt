@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# /calculadoras/ nao esta bloqueada de proposito: a pagina tem <meta robots
+# noindex> e o Google precisa PODER rastrear para enxergar essa instrucao.
+# Bloquear aqui faria o contrario do esperado (a URL poderia continuar indexada
+# sem que o noindex fosse lido). Ela apenas nao entra no sitemap.
+
+Sitemap: https://grupovocical.com.br/sitemap.xml
