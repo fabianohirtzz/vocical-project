@@ -12,7 +12,7 @@
   /* Bandas de CTA intercaladas entre as categorias (convite a orçamento).
      data-cta faz o lead.js abrir o modal do Vico; href é só fallback. */
   var CTA_VARIANTES = [
-    { eyebrow: 'Orçamento sem compromisso', title: 'Já sabe o que precisa para a obra?', btn: 'Pedir orçamento' },
+    { eyebrow: 'Orçamento sem compromisso', title: 'Já sabe o que precisa?', btn: 'Pedir orçamento' },
     { eyebrow: 'Corte e dobra e volume', title: 'Precisa de peça sob medida ou grande quantidade?', btn: 'Falar com o time' }
   ];
   // depois de qual índice de categoria entra cada banda (com 6 categorias: após a 2ª e a 4ª)

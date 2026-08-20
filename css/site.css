@@ -244,3 +244,21 @@ body.drawer-open .drawer__panel { transform: translateX(0); }
 }
 @keyframes wa-pulse { 0% { transform: scale(1); opacity: .5; } 100% { transform: scale(1.8); opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .wa-float::before { animation: none; } }
+
+/* ---- Header da landing de campanha (body[data-landing]) --------------------
+   Sem menu, sem dropdown de unidades e sem WhatsApp: o único caminho é o
+   formulário, que é o que dá ao Vico a origem do lead (pago x orgânico).
+   O botão segue a mesma pílula do .uni__btn para não destoar do header. */
+.nb--landing .nb__inner { justify-content: space-between; }
+.nb__cta {
+  display: inline-flex; align-items: center;
+  height: 42px; padding: 0 22px; border-radius: 999px;
+  background: var(--red); color: #fff;
+  font-weight: 700; font-size: .92rem; line-height: 1; white-space: nowrap;
+  transition: background .2s;
+}
+.nb__cta:hover { background: var(--red-dark); }
+@media (max-width: 560px) {
+  .nb--landing .nb__since { display: none; }
+  .nb__cta { height: 38px; padding: 0 16px; font-size: .86rem; }
+}

@@ -59,7 +59,9 @@
             '<span class="nb__since">Desde 1987</span>' +
           '</div>' +
           '<div class="nb__right">' +
-            '<a class="nb__wa" href="' + V.WHATSAPP + '" target="_blank" rel="noopener">WhatsApp ' + V.WHATSAPP_LABEL + '</a>' +
+            // Landing de campanha não expõe WhatsApp: o lead precisa passar pelo
+            // formulário, que é o que dá ao Vico a origem (pago x orgânico).
+            '<a class="nb__cta" href="#vico-open" data-cta>Peça seu orçamento</a>' +
           '</div>' +
         '</div>';
       var setH = function () { document.documentElement.style.setProperty('--nb-h', el.offsetHeight + 'px'); };
@@ -206,7 +208,7 @@
           '<div class="ft-card__top">' +
             '<div class="ft-card__brand">' +
               '<img class="ft-card__logo" src="' + p('Imagens/logo-site-1.png') + '" alt="Grupo Vocical">' +
-              '<p class="ft-card__tag">Distribuição de materiais de construção, aço e soluções para obra e indústria desde 1987. 11 unidades em São Paulo e Mato Grosso.</p>' +
+              '<p class="ft-card__tag">Distribuímos materiais de construção desde 1987, com aço, drywall e coberturas agregados ao portfólio. 11 unidades em São Paulo e Mato Grosso.</p>' +
             '</div>' +
             '<div class="ft-card__links">' +
               (LANDING ? '' :
@@ -225,7 +227,8 @@
                 '<p class="ft-col__h">Contato</p>' +
                 '<ul>' +
                   '<li><a href="mailto:' + V.EMAIL + '">' + V.EMAIL + '</a></li>' +
-                  '<li><a href="' + V.WHATSAPP + '" target="_blank" rel="noopener">WhatsApp ' + V.WHATSAPP_LABEL + '</a></li>' +
+                  (LANDING ? '' :
+                  '<li><a href="' + V.WHATSAPP + '" target="_blank" rel="noopener">WhatsApp ' + V.WHATSAPP_LABEL + '</a></li>') +
                 '</ul>' +
               '</div>' +
             '</div>' +

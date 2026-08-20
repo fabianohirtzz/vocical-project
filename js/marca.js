@@ -84,7 +84,7 @@
 
   function conversao() {
     return '<section class="section surface--red conversao"><div class="container conversao__inner" data-reveal>' +
-      '<h2 class="conversao__title">Precisa de material ou um orçamento para a obra?</h2>' +
+      '<h2 class="conversao__title">Precisa de material ou de um orçamento técnico?</h2>' +
       '<p class="conversao__sub">Fale com o time da ' + m.nome + ' e receba atendimento consultivo e resposta ágil.</p>' +
       '<a class="btn btn--light btn--lg" id="mk-conv-cta" target="_blank" rel="noopener"><span class="btn__ic" aria-hidden="true">›</span> Fale Conosco</a>' +
     '</div></section>';

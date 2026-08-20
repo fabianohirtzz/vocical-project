@@ -121,6 +121,22 @@ de teste. Roteamento em JS: `config.js` `URL_UNIDADE` + `VOCICAL.urlUnidade()`.
 ## Regras do projeto
 - Idioma: português (BR).
 - Copy padrão Freela: **sem travessões, sem emojis, números concretos**.
+- **Posicionamento (regra dura de copy).** O cliente majoritário é **B2B de revenda**:
+  lojas de material de construção que compram para revender, não necessariamente para
+  construir. A linguagem é de **parceria e fornecimento/abastecimento**, nunca "sua obra"
+  como se todo cliente estivesse construindo.
+  - A palavra **"canteiro" está banida** do site.
+  - Ao listar público, **revenda vem junto ou primeiro**: "revendas, indústrias e
+    serralherias", nunca "obras e indústrias" sozinho.
+  - **"obra" só é aceitável** em três contextos: (1) corte e dobra de **vergalhão**/aço
+    armado, que de fato atende obra ("etapa da obra", "quantitativo da obra"); (2) o
+    segmento **construtoras** ("cronograma da obra"); (3) "mão de obra".
+    **Corte e dobra de CHAPA não atende obra** — nunca coloque os dois sob um
+    guarda-chuva de obra/canteiro.
+  - Narrativa de origem: "distribuímos materiais de construção desde 1987 e fomos
+    agregando outros produtos ao portfólio, como aço, drywall e coberturas".
+  - Verificar com: `grep -rniE "canteiro|obras?" --include=*.html --include=*.js
+    --exclude-dir=.playwright-mcp .`
 - Preview/proposta sempre com `noindex` até o cliente aprovar o domínio final.
 - Nunca apagar/sobrescrever artefatos do cliente (a pasta Imagens é dele).
 
