@@ -13,7 +13,7 @@ window.UNIDADES = {
     seo: {
       title: 'Material de Construção, Aço, Drywall e Coberturas em Rondonópolis/MT | Robracon — Grupo Vocical',
       description: 'Robracon Rondonópolis: aço, vergalhão, material de construção, drywall e coberturas em Rondonópolis/MT. Atendimento B2B e orçamento ágil.',
-      canonical: 'https://grupovocical.com.br/marcas/robracon-rondonopolis.html'
+      canonical: 'https://grupovocical.com.br/robracon-rondonopolis-mt/'
     },
     hero: {
       kicker: 'Rondonópolis/MT',
@@ -59,7 +59,7 @@ window.UNIDADES = {
     seo: {
       title: 'Material de Construção, Aço e Coberturas em Votuporanga/SP | Vocical — Grupo Vocical',
       description: 'Vocical Votuporanga: cimento, aço, vergalhão, coberturas, serralheria e corte e dobra sob medida. Unidade de origem do Grupo Vocical desde 1987.',
-      canonical: 'https://grupovocical.com.br/marcas/vocical.html'
+      canonical: 'https://grupovocical.com.br/vocical-votuporanga-sp/'
     },
     hero: {
       kicker: 'Votuporanga/SP',
@@ -102,7 +102,7 @@ window.UNIDADES = {
     seo: {
       title: 'Material de Construção, Aço e Coberturas em Jales/SP | Jacical — Grupo Vocical',
       description: 'Jacical Jales: cimento, aço, vergalhão, coberturas, serralheria e corte e dobra conforme projeto. Atendimento B2B em construção, indústria e serralheria.',
-      canonical: 'https://grupovocical.com.br/marcas/jacical.html'
+      canonical: 'https://grupovocical.com.br/jacical-jales-sp/'
     },
     hero: {
       kicker: 'Jales/SP',
@@ -145,7 +145,7 @@ window.UNIDADES = {
     seo: {
       title: 'Material de Construção, Aço e Coberturas em Ribeirão Preto/SP | Ello Forte — Grupo Vocical',
       description: 'Ello Forte Ribeirão Preto: cimento, aço, vergalhão, coberturas, serralheria e corte e dobra. Estrutura de cerca de 7.000 m² para obras e empresas.',
-      canonical: 'https://grupovocical.com.br/marcas/ello-forte-ribeirao-preto.html'
+      canonical: 'https://grupovocical.com.br/ello-forte-ribeirao-preto-sp/'
     },
     hero: {
       kicker: 'Ribeirão Preto/SP',
@@ -187,7 +187,7 @@ window.UNIDADES = {
     seo: {
       title: 'Material de Construção e Aço em São Carlos/SP | Ello Forte — Grupo Vocical',
       description: 'Ello Forte São Carlos: cimento, cal, aço e vergalhão para obras da região. Estrutura de mais de 8.000 m² e atendimento B2B do Grupo Vocical.',
-      canonical: 'https://grupovocical.com.br/marcas/ello-forte-sao-carlos.html'
+      canonical: 'https://grupovocical.com.br/ello-forte-sao-carlos-sp/'
     },
     hero: {
       kicker: 'São Carlos/SP',
@@ -229,7 +229,7 @@ window.UNIDADES = {
     seo: {
       title: 'Material de Construção e Aço em Cuiabá/MT | Robracon — Grupo Vocical',
       description: 'Robracon Cuiabá: cimento, cal, aço, vergalhão e materiais essenciais para obras em Cuiabá e região. Atendimento B2B do Grupo Vocical no Mato Grosso.',
-      canonical: 'https://grupovocical.com.br/marcas/robracon-cuiaba.html'
+      canonical: 'https://grupovocical.com.br/robracon-cuiaba-mt/'
     },
     hero: {
       kicker: 'Cuiabá/MT',
@@ -271,7 +271,7 @@ window.UNIDADES = {
     seo: {
       title: 'Material de Construção e Aço em Sinop/MT | Robracon — Grupo Vocical',
       description: 'Robracon Sinop: cimento, cal, aço, vergalhão e materiais para obras, indústria e agronegócio em Sinop/MT. Atendimento regional do Grupo Vocical no Mato Grosso.',
-      canonical: 'https://grupovocical.com.br/marcas/robracon-sinop.html'
+      canonical: 'https://grupovocical.com.br/robracon-sinop-mt/'
     },
     hero: {
       kicker: 'Sinop/MT',

@@ -1,5 +1,5 @@
 /* Renderiza a landing rica de uma unidade a partir de body[data-unidade].
-   Depende de config.js, unidades-data.js, catalogo.js. Páginas em /marcas/ usam data-base="../".
+   Depende de config.js, unidades-data.js, catalogo.js. Páginas de unidade vivem em /<slug-cidade-uf>/ e usam data-base="../".
    Padrão espelhado em js/marca.js. Não depende de marcas-data.js. */
 (function () {
   var V = window.VOCICAL || {}, CAT = window.CATALOGO || [];

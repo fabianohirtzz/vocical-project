@@ -1,5 +1,5 @@
 /* Renderiza uma página de marca a partir de body[data-marca] + window.VOCICAL/CATALOGO.
-   Páginas em /marcas/ usam data-base="../". Depende de config.js, marcas-data.js, catalogo.js. */
+   Páginas de unidade vivem em /<slug-cidade-uf>/ e usam data-base="../". Depende de config.js, marcas-data.js, catalogo.js. */
 (function () {
   var V = window.VOCICAL || {};
   var CAT = window.CATALOGO || [];
@@ -17,7 +17,7 @@
     return '<section class="mk-hero surface--dark grain">' +
       '<div class="mk-hero__bg"><img src="' + p(m.capaFoto || 'Imagens/back2.jpg') + '" alt="" aria-hidden="true"></div>' +
       '<div class="container mk-hero__inner">' +
-        '<a class="mk-hero__back" href="../index.html#marcas">&larr; Todas as marcas</a>' +
+        '<a class="mk-hero__back" href="../#marcas">&larr; Todas as marcas</a>' +
         '<div class="mk-hero__logo"><img src="' + p(m.logoBranco || m.logo) + '" alt="' + m.nome + '"></div>' +
         '<span class="kicker">' + cidades + '</span>' +
         '<h1 class="display mk-hero__title">' + (m.tagline || m.nome) + '</h1>' +

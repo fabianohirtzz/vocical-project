@@ -4,7 +4,7 @@ window.VOCICAL = {
   CTA_URL: 'https://grupovocical.com.br/produtos/?utm_content=meutrack_533fa7c4ec8b',
   /* Endpoint do formulário Trabalhe Conosco (handler PHP na erehost).
      Ponto único de troca; o roteamento por unidade vive no PHP, não aqui. */
-  FORM_ENDPOINT: 'enviar-trabalhe-conosco.php',
+  FORM_ENDPOINT: '../enviar-trabalhe-conosco.php',
   /* IMPORTANTE: usar api.whatsapp.com, nunca wa.me. O gatilho do GTM
      (Event_Botão_Whatsapp) dispara em 'Click URL contém whatsapp' e
      alimenta a conversão do Google Ads. 'wa.me' não casa e zera a conversão. */
@@ -24,6 +24,21 @@ window.VOCICAL = {
      CORS aberto no endpoint — posta direto do domínio e do preview, sem proxy.
      Ponto único de troca se um dia mudar o backend. Ver js/lead.js.
      Os valores de `id` (produto e tipo) têm que bater EXATAMENTE com o backend. */
+  /* URL pública de cada unidade. Espelha EXATAMENTE os slugs do site WordPress
+     legado para não quebrar URL de destino de anúncio, link indexado e o
+     rastreamento já configurado. Chave = pageSlug (id interno de conteúdo). */
+  URL_UNIDADE: {
+    'vocical':                    'vocical-votuporanga-sp/',
+    'jacical':                    'jacical-jales-sp/',
+    'ello-forte-ribeirao-preto':  'ello-forte-ribeirao-preto-sp/',
+    'ello-forte-sao-carlos':      'ello-forte-sao-carlos-sp/',
+    'robracon-cuiaba':            'robracon-cuiaba-mt/',
+    'robracon-rondonopolis':      'robracon-rondonopolis-mt/',
+    'robracon-sinop':             'robracon-sinop-mt/',
+    'distribuidoras':             'distribuidoras-sp/',
+    'rp-cimento-cal':             'rp-cimento-cal/'
+  },
+
   LEAD: {
     ENDPOINT: 'https://vico2.zyvia.com.br/widget/lead',
     EMP: '51',
@@ -161,4 +176,11 @@ window.VOCICAL = {
     { nome: 'PortoKoll', logo: 'Imagens/Marcas/portokoll.jpg' },
     { nome: 'Sikal', logo: 'Imagens/Marcas/sikal.png' }
   ]
+};
+
+/* Resolve a URL relativa de uma unidade/marca a partir do pageSlug (ou slug).
+   Ponto único: quem monta link de unidade (layout, home, mapa, marca) chama aqui. */
+window.VOCICAL.urlUnidade = function (u) {
+  var k = (u && (u.pageSlug || u.slug)) || '';
+  return window.VOCICAL.URL_UNIDADE[k] || (k + '/');
 };

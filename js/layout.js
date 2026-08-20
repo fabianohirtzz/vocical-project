@@ -4,6 +4,7 @@
   var V = window.VOCICAL || {};
   var base = document.documentElement.getAttribute('data-base') || '';   // '' na raiz, '../' nas subpastas
   function p(path) { return base + path; }
+  function home() { return base || './'; }   // './' e '../' resolvem para a raiz
   function enc(path) { return path.split('/').map(encodeURIComponent).join('/'); }  // espaços em pastas
 
   /* ---------------- HEADER ---------------- */
@@ -12,18 +13,21 @@
     if (!el) return;
 
     // arquivo atual p/ marcar o item de nav ativo
-    var path = location.pathname;
-    var file = path.substring(path.lastIndexOf('/') + 1) || 'index.html';
+    // URLs sao de pasta (/produtos/), entao a pagina e o ultimo segmento nao-vazio
+    var parts = location.pathname.replace(/\/+$/, '').split('/').filter(Boolean);
+    var last = parts[parts.length - 1] || '';
+    if (/^index(\.html)?$/i.test(last)) last = parts[parts.length - 2] || '';
+    var file = last.replace(/\.html$/, '') || 'index';
 
     var NAV = [
-      { label: 'Início',         href: p('index.html'),          file: 'index.html' },
-      { label: 'Produtos',       href: p('produtos.html'),       file: 'produtos.html' },
-      { label: 'Nossa História', href: p('sobre.html'),          file: 'sobre.html' },
-      { label: 'Contato',        href: p('contato.html'),        file: 'contato.html' }
+      { label: 'Início',         href: home(),          file: 'index' },
+      { label: 'Produtos',       href: p('produtos/'),  file: 'produtos' },
+      { label: 'Nossa História', href: p('sobre/'),     file: 'sobre' },
+      { label: 'Contato',        href: p('contato/'),   file: 'contato' }
       // Calculadoras: fora do menu até a validação dos cálculos pelo responsável.
       // A página segue no ar em /calculadoras.html (acesso direto por URL).
       // Para reativar, devolver esta linha:
-      // , { label: 'Calculadoras', href: p('calculadoras.html'), file: 'calculadoras.html', sep: true }
+      // , { label: 'Calculadoras', href: p('calculadoras/'), file: 'calculadoras', sep: true }
     ];
     function navLinks() {
       return NAV.map(function (n) {
@@ -33,7 +37,7 @@
     }
     function uniRows() {
       return (V.UNIDADES_NAV || []).map(function (u) {
-        var href = u.siteExterno || p('marcas/' + (u.pageSlug || u.slug) + '.html');
+        var href = u.siteExterno || p(V.urlUnidade(u));
         var ext = u.siteExterno ? ' target="_blank" rel="noopener"' : '';
         return '<a class="uni__item" href="' + href + '"' + ext + '>' +
           '<span class="uni__logo"><img src="' + enc(p(u.logo)) + '" alt="' + u.nome + '" loading="lazy"></span>' +
@@ -46,7 +50,7 @@
     el.innerHTML =
       '<div class="nb__inner">' +
         '<div class="nb__left">' +
-          '<a class="nb__brand" href="' + p('index.html') + '" aria-label="Grupo Vocical — início">' +
+          '<a class="nb__brand" href="' + home() + '" aria-label="Grupo Vocical — início">' +
             '<img class="nb__logo" src="' + p('Imagens/logo-header.png') + '" alt="Grupo Vocical"></a>' +
           '<span class="nb__since">Desde 1987</span>' +
         '</div>' +
@@ -92,7 +96,7 @@
           '<span class="drawer__div" aria-hidden="true"></span>' +
           '<div class="drawer__extra">' +
             '<p class="uni__head">Links úteis</p>' +
-            '<a class="drawer__link" href="' + p('trabalhe-conosco.html') + '">Trabalhe Conosco</a>' +
+            '<a class="drawer__link" href="' + p('trabalhe-conosco/') + '">Trabalhe Conosco</a>' +
             '<a class="drawer__link" href="http://webmail.grupovocical.com.br/" target="_blank" rel="noopener">Webmail</a>' +
           '</div>' +
           '<span class="drawer__div" aria-hidden="true"></span>' +
@@ -158,7 +162,7 @@
     if (!el) return;
     var marcasLinks = (V.MARCAS || []).map(function (m) {
       var uf = (m.unidades || []).filter(function (x) { return x.matriz; })[0] || (m.unidades || [])[0] || {};
-      var href = m.siteExterno || p('marcas/' + (uf.pageSlug || m.slug) + '.html');
+      var href = m.siteExterno || p(V.urlUnidade(uf.pageSlug ? uf : m));
       var ext = m.siteExterno ? ' target="_blank" rel="noopener"' : '';
       return '<li><a href="' + href + '"' + ext + '>' + m.nome + '</a></li>';
     }).join('');
@@ -186,7 +190,7 @@
               '<div class="ft-col">' +
                 '<p class="ft-col__h">Links úteis</p>' +
                 '<ul>' +
-                  '<li><a href="' + p('trabalhe-conosco.html') + '">Trabalhe Conosco</a></li>' +
+                  '<li><a href="' + p('trabalhe-conosco/') + '">Trabalhe Conosco</a></li>' +
                   '<li><a href="http://webmail.grupovocical.com.br/" target="_blank" rel="noopener">Webmail</a></li>' +
                 '</ul>' +
               '</div>' +

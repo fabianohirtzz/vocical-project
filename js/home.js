@@ -78,7 +78,7 @@
             '</span>' +
             (externo
               ? '<a class="ucard__cta" href="' + esc(externo) + '" target="_blank" rel="noopener">Acessar site</a>'
-              : '<a class="ucard__cta" href="marcas/' + esc(u.pageSlug || m.slug) + '.html">Ver unidade</a>') +
+              : '<a class="ucard__cta" href="' + esc(V.urlUnidade(u.pageSlug ? u : m)) + '">Ver unidade</a>') +
           '</div>' +
         '</div>' +
       '</article>';

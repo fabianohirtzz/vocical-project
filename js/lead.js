@@ -166,15 +166,19 @@
          var evento = d.tipo === 'PJ' ? 'lead_pj' : 'lead';
          TrackHub.track(evento, { name, phone, produto, tipo, cidade, estado }); */
     function trackLead(payload, nome) {
-      if (DRY || !window.TrackHub) return;
       // nosso form usa pessoa_fisica/pessoa_juridica; o legado espera PF/PJ
       var tipo = payload.tipo_cliente === 'pessoa_juridica' ? 'PJ' : 'PF';
+      var evento = tipo === 'PJ' ? 'lead_pj' : 'lead';
+      var dados = {
+        name: nome || '', phone: payload.telefone || '',
+        produto: payload.produto, tipo: tipo,
+        cidade: payload.cidade, estado: payload.estado
+      };
+      // ?leaddry=1 nao gera lead nem polui o meutrack, mas mostra o que iria
+      if (DRY) { console.log('[lead][dry] TrackHub.track', evento, dados); return; }
+      if (!window.TrackHub) return;
       try {
-        TrackHub.track(tipo === 'PJ' ? 'lead_pj' : 'lead', {
-          name: nome || '', phone: payload.telefone || '',
-          produto: payload.produto, tipo: tipo,
-          cidade: payload.cidade, estado: payload.estado
-        });
+        TrackHub.track(evento, dados);
       } catch (e) { /* rastreio nunca pode derrubar o envio do lead */ }
     }
 
