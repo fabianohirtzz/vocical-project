@@ -20,6 +20,10 @@ function responder($ok, $msg, $code = 200) {
     exit;
 }
 
+/* Cliente SMTP autenticado. A erehost recusa envio nao autenticado vindo de
+   PHP, entao mail() nao serve aqui. Ver smtp-lib.php. */
+require_once __DIR__ . '/smtp-lib.php';
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     responder(false, 'Método não permitido.', 405);
 }
@@ -121,8 +125,16 @@ $eol = "\r\n";
 /* Cabeçalhos */
 $headers  = 'From: ' . mb_encode_mimeheader($FROM_NAME) . ' <' . $FROM_EMAIL . '>' . $eol;
 $headers .= 'Reply-To: ' . mb_encode_mimeheader($nome) . ' <' . $email . '>' . $eol;
+/* Bcc vai SO no envelope (RCPT TO), nunca no cabecalho: falando SMTP direto,
+   um cabecalho Bcc chegaria visivel aos destinatarios e vazaria os enderecos.
+   (Com o antigo sendmail -t quem removia o cabecalho era o proprio Exim.) */
 $bccs = array_values(array_unique(array_filter([$BCC_RH_CENTRAL, $BCC_MONITORAMENTO])));
-if ($bccs) { $headers .= 'Bcc: ' . implode(', ', $bccs) . $eol; }
+$headers .= 'To: ' . $destino . $eol;
+$headers .= 'Subject: ' . '=?UTF-8?B?' . base64_encode($assunto) . '?=' . $eol;
+$headers .= 'Date: ' . date('r') . $eol;
+/* Message-ID proprio: sem ele varios filtros de spam penalizam a mensagem.
+   Quem gerava antes era o sendmail; falando SMTP direto, e nosso. */
+$headers .= 'Message-ID: <' . md5(uniqid('', true)) . '@grupovocical.com.br>' . $eol;
 $headers .= 'MIME-Version: 1.0' . $eol;
 $headers .= 'Content-Type: multipart/mixed; boundary="' . $boundary . '"' . $eol;
 
@@ -140,11 +152,12 @@ $msg .= chunk_split(base64_encode($conteudo)) . $eol;
 
 $msg .= '--' . $boundary . '--' . $eol;
 
-$assuntoEnc = '=?UTF-8?B?' . base64_encode($assunto) . '?=';
-$enviado = @mail($destino, $assuntoEnc, $msg, $headers, '-f' . $FROM_EMAIL);
+$destinatarios = array_values(array_unique(array_merge([$destino], $bccs)));
+$erroSmtp = '';
+$enviado = enviar_smtp($FROM_EMAIL, $destinatarios, $headers . $eol . $msg, $erroSmtp);
 
 if (!$enviado) {
-    error_log('Trabalhe Conosco: falha ao enviar para ' . $destino . ' | unidade ' . $unidadeKey);
+    error_log('Trabalhe Conosco: falha SMTP para ' . $destino . ' | unidade ' . $unidadeKey . ' | ' . $erroSmtp);
     responder(false, 'Não foi possível enviar agora. Tente novamente em instantes ou fale com a gente pelo WhatsApp.', 500);
 }
 

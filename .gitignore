@@ -20,3 +20,6 @@ home-desktop.jpeg
 
 # QA local (Playwright MCP)
 .playwright-mcp/
+
+# Credencial de SMTP do formulario (nunca versionar)
+smtp-config.php
