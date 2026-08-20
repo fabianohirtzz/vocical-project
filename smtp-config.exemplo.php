@@ -10,7 +10,9 @@
  * sendmail local e depois barrado no roteamento, gerando bounce silencioso.
  */
 return [
-    'host'  => 'localhost',                    // o próprio servidor; 'mail.grupovocical.com.br' também serve
+    // Precisa ser o hostname que consta no certificado. Com 'localhost' o
+    // STARTTLS falha na verificação do nome do peer ("STARTTLS falhou" no log).
+    'host'  => 'mail.grupovocical.com.br',
     'porta' => 587,                            // STARTTLS
     'user'  => 'site@grupovocical.com.br',     // caixa real, criada no cPanel
     'senha' => 'COLOQUE_A_SENHA_AQUI',
