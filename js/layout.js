@@ -19,9 +19,11 @@
       { label: 'Início',         href: p('index.html'),          file: 'index.html' },
       { label: 'Produtos',       href: p('produtos.html'),       file: 'produtos.html' },
       { label: 'Nossa História', href: p('sobre.html'),          file: 'sobre.html' },
-      { label: 'Contato',        href: p('contato.html'),        file: 'contato.html' },
-      // separador vermelho antes de Calculadoras (só no menu desktop; oculto no drawer)
-      { label: 'Calculadoras',   href: p('calculadoras.html'),   file: 'calculadoras.html', sep: true }
+      { label: 'Contato',        href: p('contato.html'),        file: 'contato.html' }
+      // Calculadoras: fora do menu até a validação dos cálculos pelo responsável.
+      // A página segue no ar em /calculadoras.html (acesso direto por URL).
+      // Para reativar, devolver esta linha:
+      // , { label: 'Calculadoras', href: p('calculadoras.html'), file: 'calculadoras.html', sep: true }
     ];
     function navLinks() {
       return NAV.map(function (n) {

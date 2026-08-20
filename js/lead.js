@@ -150,11 +150,32 @@
           'Meu nome é ' + nome + ' e tenho interesse em ' + (st.produto || 'produtos') + '.'
         );
         var wa = q('.lead-wa');
-        wa.href = 'https://wa.me/' + num + '?text=' + texto;
+        // api.whatsapp.com (não wa.me): o gatilho do GTM exige 'whatsapp' na Click URL
+        wa.href = 'https://api.whatsapp.com/send/?phone=' + num + '&text=' + texto;
         wa.hidden = false;
       }
       q('.lead-body').style.display = 'none';
       q('.lead-success').classList.add('on');
+    }
+
+    /* meutrack — atribuição pago vs orgânico.
+       No site WordPress o formulário vivia num iframe da Zyvia e o disparo nascia
+       de um postMessage 'vico:lead'. Aqui o formulário é nativo, então chamamos o
+       TrackHub direto — com nome de evento e campos idênticos ao legado, senão o
+       Vico perde a origem do lead. Legado:
+         var evento = d.tipo === 'PJ' ? 'lead_pj' : 'lead';
+         TrackHub.track(evento, { name, phone, produto, tipo, cidade, estado }); */
+    function trackLead(payload, nome) {
+      if (DRY || !window.TrackHub) return;
+      // nosso form usa pessoa_fisica/pessoa_juridica; o legado espera PF/PJ
+      var tipo = payload.tipo_cliente === 'pessoa_juridica' ? 'PJ' : 'PF';
+      try {
+        TrackHub.track(tipo === 'PJ' ? 'lead_pj' : 'lead', {
+          name: nome || '', phone: payload.telefone || '',
+          produto: payload.produto, tipo: tipo,
+          cidade: payload.cidade, estado: payload.estado
+        });
+      } catch (e) { /* rastreio nunca pode derrubar o envio do lead */ }
     }
 
     async function submit(ev) {
@@ -183,6 +204,7 @@
           data = await res.json();
         }
         if (data && data.success) {
+          trackLead(payload, nome);
           showSuccess(data, nome);
         } else {
           btn.disabled = false; setLabel('Quero ser atendido');

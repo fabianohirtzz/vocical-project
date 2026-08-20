@@ -5,7 +5,10 @@ window.VOCICAL = {
   /* Endpoint do formulário Trabalhe Conosco (handler PHP na erehost).
      Ponto único de troca; o roteamento por unidade vive no PHP, não aqui. */
   FORM_ENDPOINT: 'enviar-trabalhe-conosco.php',
-  WHATSAPP: 'https://wa.me/5566999393953',
+  /* IMPORTANTE: usar api.whatsapp.com, nunca wa.me. O gatilho do GTM
+     (Event_Botão_Whatsapp) dispara em 'Click URL contém whatsapp' e
+     alimenta a conversão do Google Ads. 'wa.me' não casa e zera a conversão. */
+  WHATSAPP: 'https://api.whatsapp.com/send/?phone=5566999393953',
   WHATSAPP_LABEL: '(66) 99939-3953',
   EMAIL: 'contato@grupovocical.com.br',
   RAZAO_SOCIAL: 'Vocical Distribuidora Votuporanga de Cimento e Cal LTDA',

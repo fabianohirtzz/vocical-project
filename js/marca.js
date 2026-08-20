@@ -9,7 +9,8 @@
 
   var base = document.documentElement.getAttribute('data-base') || '';
   function p(path) { return path ? base + path : path; }
-  function telLink(t) { return 'https://wa.me/' + ('55' + t.replace(/\D/g, '')); }
+  // api.whatsapp.com (não wa.me): o gatilho do GTM exige 'whatsapp' na Click URL
+  function telLink(t) { return 'https://api.whatsapp.com/send/?phone=' + ('55' + t.replace(/\D/g, '')); }
 
   function hero() {
     var cidades = (m.unidades || []).map(function (u) { return u.cidade + '/' + u.uf; }).join(' · ');
