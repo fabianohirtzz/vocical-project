@@ -41,12 +41,16 @@ vocical-project/
 ├── grupo-vocical-produtos-servicos-por-unidade.md  # copy + mix consolidado por unidade
 ├── copy-novo-site.md                            # copy do novo site
 ├── Imagens/  ·  Paginas Unidades/               # acervo do cliente + JSONs de unidade
-├── index.html  produtos.html  sobre.html  contato.html
-├── trabalhe-conosco.html  calculadoras.html     # form TC + 6 calculadoras de aço
+├── index.html                                   # home (raiz)
+├── produtos/  sobre/  contato/  trabalhe-conosco/  calculadoras/   (index.html)
+├── vocical-votuporanga-sp/  jacical-jales-sp/                      (index.html)
+│   ello-forte-ribeirao-preto-sp/  ello-forte-sao-carlos-sp/
+│   robracon-cuiaba-mt/  robracon-rondonopolis-mt/  robracon-sinop-mt/
+│   distribuidoras-sp/  rp-cimento-cal/[redirect]
+├── campaigns-robracon-roo/                      # LP de campanha (sem menu)
+├── 404.html  robots.txt  sitemap.xml  .htaccess
 ├── enviar-trabalhe-conosco.php                  # handler PHP do form (roda só na erehost)
-├── marcas/  (vocical, jacical, ello-forte-ribeirao-preto, ello-forte-sao-carlos,
-│            robracon-cuiaba, robracon-rondonopolis, robracon-sinop, distribuidoras,
-│            rp-cimento-cal[redirect]).html
+├── marcas/                                      # só protótipos de dev (não sobem)
 ├── css/   base, site, pages, home, hero-preview, lead, contato, calculadoras, fonts
 ├── js/    config, marcas-data, catalogo, layout, lead, home, produtos, marca, unidade,
 │          unidades-data, mapa, mapa-geo(gerado), hero-preview, produtos-hero, blur-text,
@@ -55,10 +59,25 @@ vocical-project/
 └── tools/gerar-mapa.mjs                         # gera js/mapa-geo.js
 ```
 
+## URLs (regra dura)
+As URLs **espelham exatamente** o site WordPress que estava no ar, porque há campanhas
+de Google Ads rodando com essas URLs como destino e o rastreamento já configurado em
+cima delas. **Nunca renomear uma pasta de página sem 301 correspondente.**
+`/produtos/` · `/sobre/` · `/contato/` · `/trabalhe-conosco/` ·
+`/vocical-votuporanga-sp/` · `/jacical-jales-sp/` · `/ello-forte-ribeirao-preto-sp/` ·
+`/ello-forte-sao-carlos-sp/` · `/robracon-cuiaba-mt/` · `/robracon-rondonopolis-mt/` ·
+`/robracon-sinop-mt/` · `/distribuidoras-sp/` · `/campaigns-robracon-roo/`
+Pasta com `index.html` (barra final), sem rewrite: o DirectoryIndex resolve e os
+caminhos relativos (`../css/`) seguem válidos em qualquer profundidade e na subpasta
+de teste. Roteamento em JS: `config.js` `URL_UNIDADE` + `VOCICAL.urlUnidade()`.
+
 ## Comandos
 - Dev: abrir `index.html` no navegador (ou Live Server). Sem build.
 - Deploy preview: **GitHub Pages** (repo https://github.com/fabianohirtzz/vocical-project.git)
-- Deploy final: **erehost** (host próprio do cliente, via FTP)
+- Deploy final: **erehost** via `FTP_SENHA='...' python tools/deploy-erehost.py --alvo novo`
+  (`--alvo raiz` para produção, com confirmação digitada). FTP: `ftp.grupovocical.com.br`,
+  usuário `ftpvocical@grupovocical.com.br` (o `@domínio` é obrigatório). A raiz do FTP
+  **já é o public_html**.
 
 ## Integrações
 - **Formulário de lead branded "Vico"** — botão flutuante em todas as páginas + todos
@@ -76,7 +95,22 @@ vocical-project/
 - WhatsApp comercial: (66) 99939-3953 (canal secundário)
 - E-mail: contato@grupovocical.com.br
 - Redes: Instagram @grupo.vocical · Facebook /grupovocical · LinkedIn /company/grupo-vocical
-- Analytics/Search Console: configurar no pós-lançamento.
+- **Rastreamento (portado do WordPress legado, não reconfigurar):**
+  **GTM `GTM-MGL778C`** + **meutrack** (`meutrack-ingest.carlosabsj-ti.workers.dev/
+  t.js?p=uYwDmBtwlYC2`) no `<head>` das 14 páginas de produção. Dentro do GTM:
+  GA4 `G-EM24R0ET8R`, Google Ads `AW-617740888` e a **única conversão configurada**,
+  `Google ADS | Whatsapp` (label `C0sPCP6J9NEbENj0x6YC`), disparada pelo gatilho
+  `Event_Botão_Whatsapp` = *Click URL contém "whatsapp"*.
+  ⚠️ **Todo link de WhatsApp deve usar `api.whatsapp.com`, nunca `wa.me`** — `wa.me`
+  não contém a string "whatsapp", o gatilho não casa e a conversão morre sem erro.
+  ⚠️ A atribuição pago vs orgânico acontece no **Vico/meutrack**, pelo preenchimento
+  do formulário: `lead.js` → `trackLead()` chama `TrackHub.track('lead'|'lead_pj', ...)`
+  replicando evento e campos do widget legado (que fazia isso via postMessage do
+  iframe da Zyvia). O mapeamento `pessoa_juridica → 'PJ'` é obrigatório, senão todo
+  lead PJ entra como PF. QA sem gerar lead: `?leaddry=1` loga o payload no console.
+  O gatilho `Formulario_Vico` existe no container mas **não está ligado a nenhuma
+  tag** (decisão do cliente: a conversão é medida dentro do Vico, não no Ads).
+- Search Console: submeter `sitemap.xml` depois do corte para a raiz.
 - **Formulário Trabalhe Conosco:** `trabalhe-conosco.html` posta (fetch multipart)
   para `enviar-trabalhe-conosco.php` — handler PHP standalone na erehost que roteia
   o e-mail por unidade selecionada (mapa chave→e-mail no PHP, BCC RH central) e anexa
@@ -197,5 +231,12 @@ vocical-project/
    via `marca.js`. Rio Preto Cimento e Cal segue redirect estático pro site externo.
    As antigas páginas combinadas `robracon.html` e `ello-forte.html` foram removidas.
    Checklist de validação com os gerentes: `validacao-unidades.md`.
-Próximo: revisão do parceiro (ajustes em partes, validar conteúdo das unidades via
-`validacao-unidades.md`), depois QA final → deploy erehost.
+✅ **Migração para a erehost (Fase A concluída).** URLs espelhando o WordPress,
+   rastreamento portado e verificado no browser, LP `/campaigns-robracon-roo/`
+   construída, `.htaccess` + 404 + robots + sitemap prontos, site publicado em
+   `public_html/novo/` para teste no domínio real.
+Próximo (corte para a raiz): validar tudo em `/novo/`, testar 1 lead real e o PHP do
+Trabalhe Conosco, backup **full do cPanel** (o FTP não leva o banco MySQL), remover só
+os arquivos do WordPress da raiz — **preservando `/arquivos/`, `/assinatura/`,
+`/calcular/`, `/processos/` e `/backup/`, que são aplicações do cliente** — rodar
+`tools/liberar-indexacao.py --aplicar` e subir com `--alvo raiz`.

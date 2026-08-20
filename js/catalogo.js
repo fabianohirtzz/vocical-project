@@ -4,7 +4,7 @@
 window.CATALOGO = [
   {
     slug: 'materiais-de-construcao', nome: 'Materiais de Construção',
-    img: 'Imagens/materiais-de-construcao.jpg',
+    img: 'Imagens/loja-de-materiais-de-construcao.png',
     itens: [
       { nome: 'Sacarias', desc: 'Cimento, cal, argamassa, gesso e rejunte.', img: 'Imagens/Produtos/cimento.jpg' },
       { nome: 'Impermeabilizantes', desc: 'Aditivos para chapisco e argamassa, mantas líquidas e emulsões asfálticas.', img: 'Imagens/Produtos/impermeabilizantes.jpg' },
@@ -29,7 +29,7 @@ window.CATALOGO = [
   },
   {
     slug: 'estruturais', nome: 'Estruturais e Serralheria',
-    img: 'Imagens/serralheria.jpg',
+    img: 'Imagens/serralheria.png',
     itens: [
       { nome: 'Tubo Metalon', desc: 'Bobina de calha, tubos metalon, cantoneiras, perfis, guias e barras chatas.', img: 'Imagens/Produtos/calha.jpg' },
       { nome: 'Barra Chata', desc: 'Principais bitolas para aplicações estruturais e de serralheria: 19×3, 25×3, 30×3, 40×4,75, 50×6,3 e 100×8mm.', img: 'Imagens/Produtos/barra-chata.jpg' },

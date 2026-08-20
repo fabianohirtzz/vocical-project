@@ -63,8 +63,14 @@ def coletar():
     return sorted(itens)
 
 
+_DIRS_OK = set()
+
+
 def garantir_dir(ftp, caminho):
-    """mkdir -p remoto, tolerante a diretório já existente."""
+    """mkdir -p remoto, tolerante a diretório já existente.
+    Guarda o que já criou: sem isso seriam milhares de MKD por deploy."""
+    if caminho in _DIRS_OK:
+        return
     atual = ''
     for parte in caminho.split('/'):
         if not parte:
@@ -75,6 +81,8 @@ def garantir_dir(ftp, caminho):
         except ftplib.error_perm as e:
             if not str(e).startswith('550'):   # 550 = já existe
                 raise
+        _DIRS_OK.add(atual)
+    _DIRS_OK.add(caminho)
 
 
 def main():
@@ -82,10 +90,18 @@ def main():
     ap.add_argument('--alvo', required=True, help='"novo" (teste) ou "raiz" (produção)')
     ap.add_argument('--dry', action='store_true', help='lista o pacote e sai')
     ap.add_argument('--senha', default=os.environ.get('FTP_SENHA'))
+    ap.add_argument('--so', nargs='*', metavar='CAMINHO',
+                    help='envia apenas estes caminhos (relativos a raiz do projeto)')
     args = ap.parse_args()
 
     destino = '' if args.alvo == 'raiz' else args.alvo
     itens = coletar()
+    if args.so:
+        alvos = set(args.so)
+        itens = [i for i in itens if i[0] in alvos]
+        faltando = alvos - {i[0] for i in itens}
+        if faltando:
+            print('Nao estao no pacote: ' + ', '.join(sorted(faltando))); sys.exit(1)
     total = sum(t for _, _, t in itens)
     print('Pacote: %d arquivos, %.1f MB' % (len(itens), total / 1048576))
     print('Destino: %s/%s' % (HOST, destino or '(raiz)'))
