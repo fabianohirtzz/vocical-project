@@ -32,6 +32,7 @@ ARQUIVOS_FORA = [
     '*.jpeg',          # screenshots de referência soltos na raiz
     '.gitignore', '.DS_Store', 'Thumbs.db',
     '*.py', '*.mjs',
+    'smtp-config.exemplo.php',   # o real (smtp-config.php) sobe; o exemplo nao
 ]
 # Páginas de protótipo que não vão para produção
 CAMINHOS_FORA = ['marcas/rondonopolis-proto.html',
