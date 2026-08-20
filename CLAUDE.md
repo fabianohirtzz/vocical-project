@@ -193,7 +193,18 @@ de teste. Roteamento em JS: `config.js` `URL_UNIDADE` + `VOCICAL.urlUnidade()`.
   sem quebrar a interceptação do lead) → `calculadoras.js` / `trabalhe-conosco.js`
   (nas suas páginas). Ports 21st.dev (vanilla): anti-metal (cta), blur-text,
   container-text-flip, timeline.
-- Páginas de unidade: duas famílias. (1) **Landing rica por cidade** (`unidade.js` +
+- **Páginas de unidade: UM template só.** As 7 unidades renderizam por
+  `js/unidade.js` a partir de `js/unidades-data.js`, no layout da Robracon
+  Rondonópolis (que foi desenhada como modelo): hero com dois cards inclinados,
+  "sobre" em vermelho, portfólio em abas, segmentos em carrossel, serviços,
+  diferenciais, galeria, atuação, FAQ e contato com mapa. A página precisa de
+  `css/unidade.css` além de `pages.css`, e do par `<body data-unidade="...">` +
+  `<main id="conteudo"></main>` vazio. `data-landing` no body prende os CTAs na
+  própria página (`#vico-open`), usado pela LP `/campaigns-robracon-roo/`.
+  **Nunca escrever HTML de unidade à mão** — foi o que fez as 6 páginas ficarem
+  com layout diferente do modelo. Ajuste é no template ou no dado.
+  `distribuidoras.html` segue no template genérico `marca.js`;
+  `rp-cimento-cal` é redirect estático.
   `unidades-data.js`, bloco `.un-` em `css/pages.css`) para as 7 unidades com
   identidade própria: vocical, jacical, ello-forte-ribeirao-preto,
   ello-forte-sao-carlos, robracon-cuiaba, robracon-rondonopolis, robracon-sinop —
