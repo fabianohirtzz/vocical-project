@@ -227,84 +227,84 @@ window.UNIDADES = {
   'robracon-cuiaba': {
     pageSlug: 'robracon-cuiaba', marcaSlug: 'robracon', unidadeKey: 'cuiaba',
     seo: {
-      title: 'Material de Construção e Aço em Cuiabá/MT | Robracon — Grupo Vocical',
-      description: 'Robracon Cuiabá: cimento, cal, aço, vergalhão e materiais essenciais para revendas e obras em Cuiabá e região. Atendimento B2B do Grupo Vocical no Mato Grosso.',
+      title: 'Material de Construção, Aço, Drywall e Coberturas em Cuiabá/MT | Robracon — Grupo Vocical',
+      description: 'Robracon Cuiabá: material de construção, aço, estruturais, coberturas e drywall para revendas, indústrias e serralherias em Cuiabá e região. Atendimento B2B do Grupo Vocical no Mato Grosso.',
       canonical: 'https://grupovocical.com.br/robracon-cuiaba-mt/'
     },
     hero: {
       kicker: 'Cuiabá/MT',
       h1: 'Material de construção e <span class="accent">aço</span> em Cuiabá',
-      lede: 'A Robracon em Cuiabá oferece uma base sólida de materiais para revendas, profissionais e empresas. Integrada ao Grupo Vocical, combina atendimento regional com experiência em distribuição.',
-      selos: ['Grupo Vocical no MT', 'Construção e aço', 'Atendimento B2B', 'Entrega regional']
+      lede: 'A Robracon em Cuiabá trabalha o mesmo mix da unidade de Rondonópolis: do material de construção ao drywall, passando por aço, estruturais e coberturas, para revendas, profissionais e empresas.',
+      selos: ['Grupo Vocical no MT', '5 linhas de produto', 'Atendimento B2B', 'Entrega regional']
     },
-    numeros: [ { n: 1987, suf: '', label: 'Grupo Vocical desde' }, { n: 11, suf: '', label: 'Unidades em SP e MT' } ],
+    numeros: [ { n: 1987, suf: '', label: 'Grupo Vocical desde' }, { n: 5, suf: '', label: 'Linhas de produto' }, { n: 11, suf: '', label: 'Unidades em SP e MT' } ],
     sobre: {
-      titulo: 'Base sólida de materiais na <span class="accent">capital</span>',
+      titulo: 'O mix completo do grupo na <span class="accent">capital</span>',
       paras: [
         'A Robracon Cuiabá foi criada para ampliar a cobertura do Grupo na capital e região.',
-        'Integrada à estrutura do Grupo Vocical, a unidade combina atendimento regional, experiência em distribuição e produtos fundamentais para a construção, atendendo revendas, profissionais e empresas.'
+        'A unidade trabalha o mesmo mix da Robracon Rondonópolis: material de construção, aço, estruturais e serralheria, coberturas e sistemas drywall, atendendo revendas, profissionais e empresas com atendimento regional e experiência em distribuição.'
       ],
       foto: 'Imagens/Robracon CBA/capa-robracon-cba.jpg',
       fotoAlt: 'Robracon Cuiabá, distribuidora de material de construção e aço do Grupo Vocical em Cuiabá MT'
     },
     segmentos: ['Lojas de material de construção','Construtoras e empreiteiras','Empresas e profissionais','Consumidor final'],
-    categorias: ['materiais-de-construcao','aco'],
-    categoriasNota: 'As linhas de coberturas, serralheria e drywall são da Robracon Rondonópolis e demais unidades. Disponibilidade em Cuiabá sob consulta.',
+    categorias: ['materiais-de-construcao','aco','estruturais','coberturas','drywall'],
+    categoriasNota: '',
     servicos: [
-      { t: 'Fornecimento e atendimento regional', d: 'Fornecimento dos materiais essenciais da construção, com atendimento consultivo e entrega regional conforme a disponibilidade da unidade.', beneficios: ['Pedido centralizado','Materiais fundamentais da construção','Atendimento próximo em Cuiabá','Entrega regional conforme disponibilidade'] }
+      { t: 'Fornecimento e atendimento regional', d: 'Fornecimento das cinco linhas do grupo, do material de construção ao drywall, com atendimento consultivo e entrega regional conforme a disponibilidade da unidade.', beneficios: ['Pedido centralizado nas cinco linhas','Do cimento ao drywall em um só fornecedor','Atendimento próximo em Cuiabá','Entrega regional conforme disponibilidade'] }
     ],
-    diferenciais: ['Base sólida de materiais em Cuiabá','Integração à estrutura do Grupo Vocical','Experiência em distribuição','Atendimento regional'],
+    diferenciais: ['Mesmo mix da Robracon Rondonópolis','Cinco linhas de produto em um só fornecedor','Drywall completo','Linha de serralheria e estruturas','Experiência em distribuição','Atendimento regional'],
     galeria: ['Imagens/Robracon ROO/robracon1 (3).png','Imagens/Robracon ROO/robracon1 (4).png','Imagens/Robracon ROO/robracon1 (5).png','Imagens/Robracon ROO/robracon1 (6).png','Imagens/Robracon ROO/robracon1 (7).png','Imagens/Robracon ROO/robracon1 (8).png'],
     atuacao: { texto: 'Atende Cuiabá e região, com atendimento regional e apoio comercial para revendas, empresas e consumidor final.', frota: 'Entrega regional conforme a disponibilidade da unidade.' },
     faq: [
       { q: 'Onde comprar material de construção em Cuiabá?', a: 'A Robracon Cuiabá fornece cimento, cal, argamassa, rejunte, impermeabilizantes e telhas de fibrocimento em Cuiabá, além de aço. Fale com o comercial para orçamento.' },
       { q: 'Onde comprar vergalhão e aço em Cuiabá?', a: 'A unidade trabalha com vergalhões, colunas, treliças, tela soldada, malha POP e arames para revendas e obras de Cuiabá e região.' },
       { q: 'A Robracon Cuiabá atende construtoras e empresas?', a: 'Sim. O atendimento é preparado para construtoras, empreiteiras, empresas e consumidor final, com apoio no quantitativo da obra.' },
-      { q: 'A Robracon Cuiabá trabalha com coberturas, serralheria ou drywall?', a: 'Essas linhas são da Robracon Rondonópolis e de outras unidades do grupo. Em Cuiabá, a disponibilidade é sob consulta com o comercial.' },
+      { q: 'A Robracon Cuiabá trabalha com coberturas, serralheria ou drywall?', a: 'Sim. A unidade trabalha o mesmo mix da Robracon Rondonópolis: material de construção, aço, estruturais e serralheria, coberturas e sistemas drywall completos.' },
       { q: 'A Robracon Cuiabá entrega na região?', a: 'Sim. A unidade trabalha com entrega regional conforme a disponibilidade. Combine prazos e volumes com o comercial.' }
     ],
-    validar: ['Confirmar CNPJ e razão social da unidade','Mix completo além de construção e aço (coberturas, serralheria, drywall) sob consulta na unidade','Confirmar ano de fundação e serviços especializados disponíveis','Confirmar regiões atendidas']
+    validar: ['Confirmar CNPJ e razão social da unidade','Confirmar ano de fundação e serviços especializados disponíveis (corte e dobra, telhas sob medida)','Confirmar regiões atendidas']
   },
 
   'robracon-sinop': {
     pageSlug: 'robracon-sinop', marcaSlug: 'robracon', unidadeKey: 'sinop',
     seo: {
-      title: 'Material de Construção e Aço em Sinop/MT | Robracon — Grupo Vocical',
-      description: 'Robracon Sinop: cimento, cal, aço, vergalhão e materiais para revenda, indústria e agronegócio em Sinop/MT. Atendimento regional do Grupo Vocical no Mato Grosso.',
+      title: 'Material de Construção, Aço, Drywall e Coberturas em Sinop/MT | Robracon — Grupo Vocical',
+      description: 'Robracon Sinop: material de construção, aço, estruturais, coberturas e drywall para revendas, indústria e agronegócio em Sinop/MT. Atendimento regional do Grupo Vocical no Mato Grosso.',
       canonical: 'https://grupovocical.com.br/robracon-sinop-mt/'
     },
     hero: {
       kicker: 'Sinop/MT',
       h1: 'Material de construção e <span class="accent">aço</span> em Sinop',
-      lede: 'A Robracon Sinop leva a experiência do Grupo Vocical para uma das regiões que mais crescem no Mato Grosso, com produtos fundamentais para revendas, empresas e agronegócio.',
-      selos: ['Grupo Vocical no MT', 'Construção, aço e agronegócio', 'Atendimento regional', 'Entrega programada']
+      lede: 'A Robracon Sinop leva a experiência do Grupo Vocical para uma das regiões que mais crescem no Mato Grosso, com o mesmo mix da unidade de Rondonópolis: material de construção, aço, estruturais, coberturas e drywall.',
+      selos: ['Grupo Vocical no MT', '5 linhas de produto', 'Atendimento regional', 'Entrega programada']
     },
-    numeros: [ { n: 1987, suf: '', label: 'Grupo Vocical desde' }, { n: 11, suf: '', label: 'Unidades em SP e MT' } ],
+    numeros: [ { n: 1987, suf: '', label: 'Grupo Vocical desde' }, { n: 5, suf: '', label: 'Linhas de produto' }, { n: 11, suf: '', label: 'Unidades em SP e MT' } ],
     sobre: {
       titulo: 'A experiência do grupo em uma região que <span class="accent">cresce</span>',
       paras: [
         'A Robracon Sinop é uma das unidades mais recentes da expansão do Grupo no Mato Grosso, próxima a mercados de construção, indústria, logística e agronegócio.',
-        'A unidade oferece produtos fundamentais para revenda, obras e estruturas, apoiando profissionais, empresas e empreendimentos que movimentam o desenvolvimento regional.'
+        'A unidade trabalha o mesmo mix da Robracon Rondonópolis: material de construção, aço, estruturais e serralheria, coberturas e sistemas drywall, apoiando revendas, profissionais, empresas e empreendimentos que movimentam o desenvolvimento regional.'
       ],
       foto: 'Imagens/Robracon SNP/sobre-robracon-snp.jpg',
       fotoAlt: 'Robracon Sinop, distribuidora de material de construção e aço do Grupo Vocical em Sinop MT'
     },
     segmentos: ['Construtoras e empreiteiras','Indústria e logística','Agronegócio','Profissionais e empresas','Consumidor final'],
-    categorias: ['materiais-de-construcao','aco'],
-    categoriasNota: 'As linhas de coberturas, serralheria e drywall são da Robracon Rondonópolis e demais unidades. Disponibilidade em Sinop sob consulta.',
+    categorias: ['materiais-de-construcao','aco','estruturais','coberturas','drywall'],
+    categoriasNota: '',
     servicos: [
-      { t: 'Fornecimento para revendas, empresas e agronegócio', d: 'Fornecimento dos materiais essenciais para revenda, obras e estruturas, com atendimento regional e entrega conforme a disponibilidade da unidade.', beneficios: ['Materiais fundamentais da construção','Atendimento próximo em Sinop','Apoio a empresas e agronegócio','Entrega conforme disponibilidade'] }
+      { t: 'Fornecimento para revendas, empresas e agronegócio', d: 'Fornecimento das cinco linhas do grupo, do material de construção ao drywall, para revenda, obras e estruturas, com atendimento regional e entrega conforme a disponibilidade da unidade.', beneficios: ['Do cimento ao drywall em um só fornecedor','Atendimento próximo em Sinop','Apoio a empresas e agronegócio','Entrega conforme disponibilidade'] }
     ],
-    diferenciais: ['Presença em uma região que mais cresce no MT','Proximidade de construção, indústria, logística e agronegócio','Experiência do Grupo Vocical','Atendimento regional'],
+    diferenciais: ['Mesmo mix da Robracon Rondonópolis','Cinco linhas de produto em um só fornecedor','Drywall completo','Presença em uma das regiões que mais crescem no MT','Proximidade de construção, indústria, logística e agronegócio','Atendimento regional'],
     galeria: ['Imagens/Robracon ROO/robracon1 (9).png','Imagens/Robracon ROO/robracon1 (10).png','Imagens/Robracon ROO/robracon1 (11).png','Imagens/Robracon ROO/robracon1 (12).png','Imagens/Robracon ROO/robracon1 (13).png','Imagens/Robracon ROO/robracon1 (14).png'],
     atuacao: { texto: 'Atende Sinop e região, com atendimento regional e apoio comercial para revendas, empresas e agronegócio.', frota: 'Entrega programada conforme a disponibilidade da unidade.' },
     faq: [
       { q: 'Onde comprar material de construção em Sinop?', a: 'A Robracon Sinop fornece cimento, cal, argamassa, rejunte, impermeabilizantes e telhas de fibrocimento em Sinop, além de aço. Fale com o comercial para orçamento.' },
       { q: 'Onde comprar vergalhão e aço em Sinop?', a: 'A unidade trabalha com vergalhões, colunas, treliças, tela soldada, malha POP e arames para revendas e obras de Sinop e região.' },
       { q: 'A Robracon Sinop atende agronegócio e empresas?', a: 'Sim. A unidade está próxima de mercados de agronegócio, indústria e logística, e atende profissionais, empresas e empreendimentos da região.' },
-      { q: 'A Robracon Sinop trabalha com coberturas, serralheria ou drywall?', a: 'Essas linhas são da Robracon Rondonópolis e de outras unidades do grupo. Em Sinop, a disponibilidade é sob consulta com o comercial.' },
+      { q: 'A Robracon Sinop trabalha com coberturas, serralheria ou drywall?', a: 'Sim. A unidade trabalha o mesmo mix da Robracon Rondonópolis: material de construção, aço, estruturais e serralheria, coberturas e sistemas drywall completos.' },
       { q: 'A Robracon Sinop entrega na região?', a: 'Sim. A unidade trabalha com entrega conforme a disponibilidade. Combine prazos e volumes com o comercial.' }
     ],
-    validar: ['Confirmar CNPJ e razão social da unidade','Mix completo além de construção e aço (coberturas, serralheria, drywall) sob consulta na unidade','Confirmar ano de fundação e serviços especializados disponíveis','Confirmar regiões atendidas']
+    validar: ['Confirmar CNPJ e razão social da unidade','Confirmar ano de fundação e serviços especializados disponíveis (corte e dobra, telhas sob medida)','Confirmar regiões atendidas']
   }
 };

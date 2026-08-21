@@ -50,14 +50,19 @@
     { k: ['agro', 'rural'], img: 'Imagens/agronegocio.png',
       d: 'Aço, telhas e materiais para construções e estruturas rurais.' },
     { k: ['calheir', 'cobertura'], img: 'Imagens/calheiros.png',
-      d: 'Bobinas e chapas para calhas, rufos e coberturas metálicas sob medida.' }
+      d: 'Bobinas e chapas para calhas, rufos e coberturas metálicas sob medida.' },
+    { k: ['profissiona', 'pedreir'], img: 'Imagens/servicos1.jpg',
+      d: 'Atendimento de balcão com apoio técnico na hora de escolher o material.' },
+    { k: ['consumidor', 'cliente final'], img: 'Imagens/contato.jpg',
+      d: 'Compra direta no distribuidor, com retirada ou entrega combinada.' }
   ];
   var SERV_IMG = [
     { k: ['vergalh', 'armado'], img: 'Imagens/corte-e-dobra-de-vergalhao.png' },
     { k: ['chapa'],             img: 'Imagens/Robracon ROO/corte-dobra-chapa.png' },
     { k: ['laser', 'plasma'],   img: 'Imagens/Robracon ROO/corte-laser.png' },
     { k: ['telha', 'cobertura'],img: 'Imagens/Produtos/telha-termoacustica.jpg' },
-    { k: ['drywall', 'gesso'],  img: 'Imagens/drywall.jpg' }
+    { k: ['drywall', 'gesso'],  img: 'Imagens/drywall.jpg' },
+    { k: ['fornecimento', 'entrega', 'abastec'], img: 'Imagens/REVENDAS.jpg' }
   ];
   function acha(tabela, texto) {
     var t = String(texto || '').toLowerCase();
@@ -187,7 +192,9 @@
   function servicos() {
     var sv = U.servicos || []; if (!sv.length) return '';
     var cards = sv.map(function (s, i) {
-      var info = acha(SERV_IMG, s.t + ' ' + (s.d || ''));
+      // título primeiro: a descrição costuma citar várias linhas ("do cimento ao
+      // drywall") e puxaria a imagem errada.
+      var info = acha(SERV_IMG, s.t) || acha(SERV_IMG, s.d || '');
       var img = info ? info.img : fotoDaUnidade(i + 2);
       return '<article class="servico" data-reveal>' +
         '<div class="servico__img"><img src="' + p(img) + '" alt="' + esc(s.t) + ' em ' + cidadeUf() +

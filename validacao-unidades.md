@@ -35,13 +35,17 @@ para indexação.
 - [ ] Disponibilidade de coberturas e demais linhas (estruturais, serralheria,
       drywall) sob consulta na unidade
 - [ ] Confirmar disponibilidade de serviços de corte e dobra na unidade
+- [x] Fotos: cliente confirmou em 20/08/2026 que não há mais fotos da unidade.
+      A seção de galeria foi retirada desta página (fachada e interior seguem
+      no hero e no "sobre").
 
 ## Robracon Cuiabá (Cuiabá/MT)
 
 - [ ] Confirmar CNPJ e razão social da unidade
-- [ ] Mix completo além de construção e aço (coberturas, serralheria, drywall)
-      sob consulta na unidade
+- [x] Mix: confirmado pelo cliente em 20/08/2026 — carrega o mesmo mix da
+      Robracon Rondonópolis (construção, aço, estruturais, coberturas, drywall)
 - [ ] Confirmar ano de fundação e serviços especializados disponíveis
+      (corte e dobra de chapas, telhas sob medida) — mix confirmado, serviços não
 - [ ] Confirmar regiões atendidas
 
 ## Robracon Rondonópolis (Rondonópolis/MT)
@@ -52,9 +56,10 @@ para indexação.
 ## Robracon Sinop (Sinop/MT)
 
 - [ ] Confirmar CNPJ e razão social da unidade
-- [ ] Mix completo além de construção e aço (coberturas, serralheria, drywall)
-      sob consulta na unidade
+- [x] Mix: confirmado pelo cliente em 20/08/2026 — carrega o mesmo mix da
+      Robracon Rondonópolis (construção, aço, estruturais, coberturas, drywall)
 - [ ] Confirmar ano de fundação e serviços especializados disponíveis
+      (corte e dobra de chapas, telhas sob medida) — mix confirmado, serviços não
 - [ ] Confirmar regiões atendidas
 
 ---

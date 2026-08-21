@@ -159,6 +159,16 @@ de teste. Roteamento em JS: `config.js` `URL_UNIDADE` + `VOCICAL.urlUnidade()`.
 ## Backlog / pendências de conteúdo
 - **Fotos faltando no acervo (grandes):** Coberturas (telhas) e Agronegócio (arame/rural)
   só têm thumbnail 150px — pedir ao parceiro fotos ≥800px. Cards usam stopgap suave.
+- **✅ Ello Forte São Carlos sem galeria (decisão do cliente, 20/08/2026):** o acervo
+  tem só duas fotos úteis (fachada e interior) e o cliente confirmou que não há mais.
+  A seção de galeria foi retirada dessa página — `galeria: []` no `unidades-data.js`,
+  e o template omite a seção quando a lista está vazia. É o estado desejado: não
+  reabrir como bug nem preencher com foto de outra unidade.
+- **✅ Cuiabá e Sinop carregam o mix da Rondonópolis (confirmado pelo cliente,
+  20/08/2026):** as três Robracon trabalham as mesmas 5 linhas (construção, aço,
+  estruturais, coberturas, drywall). Os **serviços** (corte e dobra de chapas, telhas
+  sob medida) seguem **só confirmados em Rondonópolis** — dependem de equipamento e
+  continuam na checklist de validação das outras duas.
 - **Rio Preto Cimento e Cal:** página da marca segue externa (LP deles, `siteExterno`).
   O doc consolidado (`grupo-vocical-produtos-servicos-por-unidade.md` §4.3) já traz copy
   e mix de RP, caso o parceiro decida por página interna no futuro.
