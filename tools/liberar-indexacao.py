@@ -20,7 +20,10 @@ RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 META = '<meta name="robots" content="noindex, nofollow">\n'
 # Páginas que seguem fora do índice mesmo depois do corte
 EXCECOES = {'calculadoras/index.html',     # aguarda validação dos cálculos
-            'rp-cimento-cal/index.html'}  # só um redirect pro site do parceiro
+            'rp-cimento-cal/index.html',  # só um redirect pro site do parceiro
+            # LP de campanha: mesmo conteúdo da página da unidade. Indexar as duas
+            # faz uma competir com a outra; o Google Ads entrega a LP com noindex.
+            'campaigns-robracon-roo/index.html'}
 
 
 def paginas():
