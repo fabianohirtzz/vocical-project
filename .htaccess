@@ -28,6 +28,8 @@ DirectoryIndex index.html index.php
   RewriteEngine On
 
   # ---- HTTPS obrigatório -----------------------------------------------------
+  # Exceto /.well-known/: e por ali que a AutoSSL valida a renovacao, por HTTP.
+  RewriteCond %{REQUEST_URI} !^/\.well-known/
   RewriteCond %{HTTPS} !=on
   RewriteCond %{HTTP:X-Forwarded-Proto} !https
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
@@ -52,6 +54,9 @@ DirectoryIndex index.html index.php
   RewriteRule ^(xmlrpc\.php|wp-login\.php|wp-cron\.php) - [R=404,L]
   RewriteRule ^feed/?$                                  - [R=404,L]
   RewriteRule ^wp-json(/|$)                             - [R=404,L]
+  # WordPress arquivado pelo corte (tools/arquivar-wordpress.py). Fica no
+  # servidor para rollback, mas nao pode responder nem executar PHP.
+  RewriteRule ^wp-antigo(/|$)                           - [R=404,L]
 </IfModule>
 
 # ---- Página de erro ---------------------------------------------------------

@@ -93,10 +93,20 @@ def main():
     ap.add_argument('--senha', default=os.environ.get('FTP_SENHA'))
     ap.add_argument('--so', nargs='*', metavar='CAMINHO',
                     help='envia apenas estes caminhos (relativos a raiz do projeto)')
+    ap.add_argument('--lista', metavar='ARQUIVO',
+                    help='igual a --so, lendo um caminho por linha de um arquivo. '
+                         'Serve para subir em fases (assets, depois paginas, depois '
+                         '.htaccess): assim a raiz nunca fica com pagina nova '
+                         'apontando para asset que ainda nao subiu.')
+    ap.add_argument('--sim', action='store_true',
+                    help='ja confirma o --alvo raiz, para rodar sem terminal')
     args = ap.parse_args()
 
     destino = '' if args.alvo == 'raiz' else args.alvo
     itens = coletar()
+    if args.lista:
+        args.so = (args.so or []) + [l.strip() for l in
+                   io.open(args.lista, encoding='utf-8') if l.strip()]
     if args.so:
         alvos = set(args.so)
         itens = [i for i in itens if i[0] in alvos]
@@ -112,7 +122,7 @@ def main():
             print('  %8.1f KB  %s' % (tam / 1024, rel))
         return
 
-    if args.alvo == 'raiz':
+    if args.alvo == 'raiz' and not args.sim:
         print('\n!! RAIZ é produção e ainda tem o WordPress no ar.')
         if input('   Digite "subir na raiz" para confirmar: ').strip() != 'subir na raiz':
             print('   Cancelado.'); return
