@@ -273,8 +273,26 @@ de teste. Roteamento em JS: `config.js` `URL_UNIDADE` + `VOCICAL.urlUnidade()`.
    construída, `.htaccess` + 404 + robots + sitemap prontos, site publicado em
    `public_html/novo/` para teste no domínio real.
 
-## Corte para a raiz (runbook)
-Preparação **já feita e commitada**: `noindex` removido das 13 páginas públicas
+## Corte para a raiz — CONCLUÍDO em 20/08/2026
+O site estático está **no ar na raiz** (`https://grupovocical.com.br/`). Verificado
+depois do corte: 18 URLs em 200, 73 assets/links sem quebra, os 5 redirects 301
+(`/inicio/ /unidades/ /manutencao/ /hello-world/ /category/uncategorized/`), toda a
+superfície do WordPress em 404 (inclusive `/wp-antigo/`), HTTPS e sem-www forçados,
+404 da marca sendo servido, cache (HTML no-cache / asset 1 ano), **PHP executando na
+raiz** (o handler `ea-php84` sobreviveu ao `.htaccess` novo) e as 5 aplicações do
+cliente de pé. Home e unidade sem erro de console; GTM e TrackHub carregando.
+Formulário do Vico testado ponta a ponta com `?leaddry=1`: dispara `lead_pj` com
+`tipo: PJ` e todos os campos.
+
+O WordPress **não foi apagado** — está em `/wp-antigo/`, respondendo 404.
+Rollback: `python tools/arquivar-wordpress.py --desfazer --aplicar`.
+
+Pendente: submeter `sitemap.xml` no Search Console, 1 lead real e 1 envio real do
+Trabalhe Conosco. Depois de alguns dias estáveis: remover `/wp-antigo/` e `/novo/`
+(cópia de teste, ainda no ar com `noindex`).
+
+### Runbook usado (para referência)
+Preparação: `noindex` removido das 13 páginas públicas
 (`tools/liberar-indexacao.py --aplicar`), LP de campanha travada como exceção
 permanente e fora do sitemap, malha de links/assets varrida em `/novo/` sem quebra,
 e conferido que **nenhuma das 5 aplicações do cliente faz `require` de `wp-load.php`**
