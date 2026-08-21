@@ -272,8 +272,29 @@ de teste. Roteamento em JS: `config.js` `URL_UNIDADE` + `VOCICAL.urlUnidade()`.
    rastreamento portado e verificado no browser, LP `/campaigns-robracon-roo/`
    construída, `.htaccess` + 404 + robots + sitemap prontos, site publicado em
    `public_html/novo/` para teste no domínio real.
-Próximo (corte para a raiz): validar tudo em `/novo/`, testar 1 lead real e o PHP do
-Trabalhe Conosco, backup **full do cPanel** (o FTP não leva o banco MySQL), remover só
-os arquivos do WordPress da raiz — **preservando `/arquivos/`, `/assinatura/`,
-`/calcular/`, `/processos/` e `/backup/`, que são aplicações do cliente** — rodar
-`tools/liberar-indexacao.py --aplicar` e subir com `--alvo raiz`.
+
+## Corte para a raiz (runbook)
+Preparação **já feita e commitada**: `noindex` removido das 13 páginas públicas
+(`tools/liberar-indexacao.py --aplicar`), LP de campanha travada como exceção
+permanente e fora do sitemap, malha de links/assets varrida em `/novo/` sem quebra,
+e conferido que **nenhuma das 5 aplicações do cliente faz `require` de `wp-load.php`**
+(varredura de todo PHP em `/arquivos/ /assinatura/ /calcular/ /processos/ /backup/`).
+
+Execução, nesta ordem (`FTP_SENHA='...'` no ambiente):
+```
+python tools/deploy-erehost.py --alvo raiz --sim --lista tools/corte-fase1-assets.txt
+python tools/deploy-erehost.py --alvo raiz --sim --lista tools/corte-fase2-paginas.txt
+python tools/deploy-erehost.py --alvo raiz --sim --lista tools/corte-fase3-htaccess.txt
+python tools/arquivar-wordpress.py --aplicar
+```
+**Por que em 3 fases:** o `.htaccess` sobe primeiro na ordem alfabética. Se o deploy
+fosse único, ele trocaria o roteamento no começo do upload e as páginas do WordPress
+passariam a 404 por vários minutos, enquanto os assets ainda subiam — com campanhas de
+Ads apontando para essas URLs. Assets → páginas → `.htaccess` faz a troca ser quase
+instantânea no fim.
+
+**Rollback:** `python tools/arquivar-wordpress.py --desfazer --aplicar` devolve o
+WordPress para a raiz em segundos (o corte **move** para `/wp-antigo/`, não apaga).
+
+Depois do corte: submeter `sitemap.xml` no Search Console, testar 1 lead real no
+formulário do Vico e 1 envio do Trabalhe Conosco no domínio real.
