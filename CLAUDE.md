@@ -118,6 +118,22 @@ de teste. Roteamento em JS: `config.js` `URL_UNIDADE` + `VOCICAL.urlUnidade()`.
   é gerado do `config.js` (10 unidades, exclui Rio Preto). **Envio de e-mail só roda
   na erehost (PHP), não no preview do GitHub Pages.**
 
+## Como verificar o site (o jeito certo)
+**Imagem nascida em JS não aparece em crawler que só lê HTML.** Quase todo `<img>`
+do site é montado pelos renderers a partir do `config.js`/`catalogo.js`. Uma
+varredura de `src`/`href` no HTML estático dá "tudo certo" com o site cheio de
+imagem quebrada — foi o que aconteceu em 26/08/2026: o crawler dizia 73 assets OK
+enquanto **79 imagens** estavam quebradas em `/produtos/`, `/sobre/` e `/contato/`.
+
+Verificação válida: abrir cada página **no browser**, desligar o `loading="lazy"`
+(`img.loading='eager'; img.src=img.src`) e contar `naturalWidth === 0`. Dá para
+rodar as 15 páginas de uma vez num iframe oculto, mesma origem. Referência atual:
+**15 páginas, 997 imagens, zero quebrada**.
+
+Cuidado com `naturalWidth` sem desligar o lazy: card fora da dobra reporta 0x0 e
+parece defeito. E `tools/checar-caminhos.py` só confere grafia/existência em disco
+— não pega prefixo `../` faltando, que é outra classe de erro.
+
 ## Regras do projeto
 - Idioma: português (BR).
 - Copy padrão Freela: **sem travessões, sem emojis, números concretos**.
@@ -237,7 +253,9 @@ de teste. Roteamento em JS: `config.js` `URL_UNIDADE` + `VOCICAL.urlUnidade()`.
   `faq` no JS, atualize também o JSON-LD FAQPage do HTML correspondente.
 
 ## Estado atual
-**Passo 4 de 7 — Build incremental** (cronologia freela-method).
+**Passo 9 de 9 — No ar e em pós-lançamento** (cronologia freela-method).
+Site estático em produção na raiz desde 20/08/2026, validação pós-corte fechada
+em 26/08/2026. O que resta é manutenção e limpeza — ver "Corte para a raiz".
 ✅ TODAS as páginas construídas e publicadas: home, produtos, sobre, contato,
    trabalhe-conosco, **calculadoras** (6 ferramentas de aço) e as páginas de unidade.
    Sobre é a mais rica: hero em vídeo com blur-text, timeline "Nossa trajetória"
@@ -287,9 +305,14 @@ Formulário do Vico testado ponta a ponta com `?leaddry=1`: dispara `lead_pj` co
 O WordPress **não foi apagado** — está em `/wp-antigo/`, respondendo 404.
 Rollback: `python tools/arquivar-wordpress.py --desfazer --aplicar`.
 
-Pendente: submeter `sitemap.xml` no Search Console, 1 lead real e 1 envio real do
-Trabalhe Conosco. Depois de alguns dias estáveis: remover `/wp-antigo/` e `/novo/`
-(cópia de teste, ainda no ar com `noindex`).
+✅ **Validação pós-corte concluída (26/08/2026):** sitemap submetido no Search
+Console (propriedade de **domínio**, TXT no Zone Editor da erehost — o SPF
+convive, são dois TXT), 1 lead real pelo formulário do Vico e 1 envio real do
+Trabalhe Conosco, ambos confirmados pelo cliente.
+
+Falta só limpeza, sem pressa e só depois de alguns dias estáveis: remover
+`/wp-antigo/` (o WordPress arquivado) e `/novo/` (cópia de teste, ainda no ar com
+`noindex`). Enquanto `/wp-antigo/` existir, o rollback continua a um comando.
 
 ### Runbook usado (para referência)
 Preparação: `noindex` removido das 13 páginas públicas
@@ -314,5 +337,5 @@ instantânea no fim.
 **Rollback:** `python tools/arquivar-wordpress.py --desfazer --aplicar` devolve o
 WordPress para a raiz em segundos (o corte **move** para `/wp-antigo/`, não apaga).
 
-Depois do corte: submeter `sitemap.xml` no Search Console, testar 1 lead real no
-formulário do Vico e 1 envio do Trabalhe Conosco no domínio real.
+Depois do corte (tudo feito, ver acima): sitemap no Search Console, 1 lead real
+no formulário do Vico e 1 envio do Trabalhe Conosco no domínio real.
