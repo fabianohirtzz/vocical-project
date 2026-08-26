@@ -391,15 +391,19 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       var V = window.VOCICAL || {};
+      /* A pagina vive em /sobre/ e usa data-base="../". Os caminhos do config
+         sao relativos a raiz do projeto, entao sem este prefixo o navegador
+         busca /sobre/Imagens/... e a imagem quebra. */
+      var base = document.documentElement.getAttribute('data-base') || '';
 
       // Marcas que distribuímos — trilha do marquee (original + cópia p/ loop sem emenda)
       var el = document.getElementById('parceiros-grid');
       if (el) {
         var itens = (V.PARCEIROS || []).map(function (p) {
-          return '<div class="parceiro"><img src="' + p.logo + '" alt="' + p.nome + '" loading="lazy"></div>';
+          return '<div class="parceiro"><img src="' + base + p.logo + '" alt="' + p.nome + '" loading="lazy"></div>';
         }).join('');
         var dup = (V.PARCEIROS || []).map(function (p) {
-          return '<div class="parceiro" aria-hidden="true"><img src="' + p.logo + '" alt="" loading="lazy"></div>';
+          return '<div class="parceiro" aria-hidden="true"><img src="' + base + p.logo + '" alt="" loading="lazy"></div>';
         }).join('');
         el.innerHTML = itens + dup;
       }

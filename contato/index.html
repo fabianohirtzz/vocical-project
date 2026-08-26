@@ -84,6 +84,10 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       var V = window.VOCICAL || {};
+      /* A pagina vive em /contato/ e usa data-base="../". Os caminhos do config
+         sao relativos a raiz do projeto, entao sem este prefixo o navegador
+         busca /contato/Imagens/... e a imagem quebra. */
+      var base = document.documentElement.getAttribute('data-base') || '';
       // canais
       var wa = document.getElementById('ct-wa'); if (wa) { wa.href = V.WHATSAPP; wa.textContent = V.WHATSAPP_LABEL; }
       var mail = document.getElementById('ct-mail'); if (mail) { mail.href = 'mailto:' + V.EMAIL; mail.textContent = V.EMAIL; }
@@ -116,9 +120,10 @@
           if (u.email) li += '<li><span>E-mail</span><a href="mailto:' + u.email + '">' + u.email + '</a></li>';
           if (u.siteExterno) li += '<li><span>Site</span><a href="' + u.siteExterno + '" target="_blank" rel="noopener">Acessar site oficial</a></li>';
           if (!li) li = '<li class="muted">Contato em atualização.</li>';
-          var brandLogo = u.logoPin || m.logo;
+          // data-base="../": sem o prefixo o caminho resolve contra /contato/
+          var brandLogo = base + (u.logoPin || m.logo);
           rows.push('<article class="ct-unidade card" data-reveal>' +
-            (brandLogo ? '<div class="ct-unidade__logo"><img src="' + brandLogo + '" alt="' + (u.nomeExib || m.nome) + '" loading="lazy"></div>' : '') +
+            ((u.logoPin || m.logo) ? '<div class="ct-unidade__logo"><img src="' + brandLogo + '" alt="' + (u.nomeExib || m.nome) + '" loading="lazy"></div>' : '') +
             '<span class="ct-unidade__brand">' + m.nome + '</span>' +
             '<h3>' + u.cidade + '<span class="mk-unidade__uf">/' + u.uf + '</span></h3>' +
             '<ul class="mk-unidade__contato">' + li + '</ul></article>');

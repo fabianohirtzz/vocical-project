@@ -1,6 +1,12 @@
 /* Renderiza a página de Produtos a partir de window.CATALOGO. */
 (function () {
   var C = window.CATALOGO || [];
+  /* A página vive em /produtos/ e usa data-base="../". Os caminhos do catálogo
+     são relativos à raiz do projeto ('Imagens/Produtos/x.jpg'), então sem este
+     prefixo o navegador resolve contra /produtos/ e busca
+     /produtos/Imagens/Produtos/x.jpg. Mesmo helper de layout.js/unidade.js. */
+  var base = document.documentElement.getAttribute('data-base') || '';
+  function p(caminho) { return caminho ? base + caminho : caminho; }
 
   function renderNav() {
     var el = document.getElementById('cat-nav'); if (!el) return;
@@ -36,7 +42,7 @@
     el.innerHTML = C.map(function (c, i) {
       var itens = c.itens.map(function (it) {
         var media = it.img
-          ? '<div class="prod-item__img"><img src="' + it.img + '" alt="' + it.nome + '" loading="lazy"></div>'
+          ? '<div class="prod-item__img"><img src="' + p(it.img) + '" alt="' + it.nome + '" loading="lazy"></div>'
           : '';
         return '<div class="prod-item" data-reveal>' +
           '<div class="prod-item__txt">' +
