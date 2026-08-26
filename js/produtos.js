@@ -2,7 +2,7 @@
 (function () {
   var C = window.CATALOGO || [];
   /* A página vive em /produtos/ e usa data-base="../". Os caminhos do catálogo
-     são relativos à raiz do projeto ('Imagens/Produtos/x.jpg'), então sem este
+     são relativos à raiz do projeto (Imagens/Produtos/...), então sem este
      prefixo o navegador resolve contra /produtos/ e busca
      /produtos/Imagens/Produtos/x.jpg. Mesmo helper de layout.js/unidade.js. */
   var base = document.documentElement.getAttribute('data-base') || '';

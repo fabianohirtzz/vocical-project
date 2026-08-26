@@ -2,6 +2,13 @@
 (function () {
   var V = window.VOCICAL || {};
 
+  /* Prefixo de caminho. Hoje esta tela só roda no index.html da raiz, onde
+     `base` sai vazio e isto não muda nada. Existe porque os caminhos do
+     config são relativos à raiz do projeto: se a seção for reaproveitada numa
+     página de subpasta, sem ele o navegador resolve contra a pasta da página.
+     Foi assim que /produtos/, /sobre/ e /contato/ quebraram. */
+  var base = document.documentElement.getAttribute('data-base') || '';
+
   function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
 
   /* SVG de canto côncavo (notch) que solda a aba/pino na superfície do card. */
@@ -59,7 +66,7 @@
       return '<article class="ucard" data-reveal="up" style="transition-delay:' + (i % 3) * 90 + 'ms"' +
         ' data-slug="' + esc(m.slug) + '">' +
         '<div class="ucard__media">' +
-          '<img class="ucard__img" src="' + foto + '" alt="Fachada da unidade ' + esc(nome) + ' em ' + esc(u.cidade || '') + '" loading="lazy">' +
+          '<img class="ucard__img" src="' + base + foto + '" alt="Fachada da unidade ' + esc(nome) + ' em ' + esc(u.cidade || '') + '" loading="lazy">' +
           '<span class="ucard__overlay" aria-hidden="true"></span>' +
           '<span class="ucard__pin"><span class="ucard__uf">' + esc(u.uf || m.uf || '') + '</span>' +
             corner('ucard__corner--pin-l') + corner('ucard__corner--pin-b') +
@@ -73,7 +80,7 @@
           addr +
           '<div class="ucard__foot">' +
             '<span class="ucard__brand">' +
-              '<span class="ucard__logo">' + (logo ? '<img src="' + logo + '" alt="" loading="lazy">' : '') + '</span>' +
+              '<span class="ucard__logo">' + (logo ? '<img src="' + base + logo + '" alt="" loading="lazy">' : '') + '</span>' +
               '<span class="ucard__bname">' + esc(nome) + '</span>' +
             '</span>' +
             (externo
@@ -119,7 +126,7 @@
 
     var media = items.map(function (c, i) {
       return '<figure class="slide' + (i === 0 ? ' is-active' : '') + '" data-i="' + i + '">' +
-        '<img class="slide__img" src="' + c.img + '" alt="' + esc(c.nome) + '" loading="lazy">' +
+        '<img class="slide__img" src="' + base + c.img + '" alt="' + esc(c.nome) + '" loading="lazy">' +
         '<span class="slide__scrim" aria-hidden="true"></span>' +
         '<figcaption class="slide__cap">' +
           '<span class="slide__desc">' + esc(c.desc || '') + '</span>' +
@@ -141,7 +148,7 @@
     var mc = cfg.mobileCta || {};
     var mcards = items.map(function (c) {
       return '<a class="prod-cat"' + slideLink(c) + '>' +
-        '<img class="prod-cat__img" src="' + c.img + '" alt="' + esc(c.nome) + '" loading="lazy">' +
+        '<img class="prod-cat__img" src="' + base + c.img + '" alt="' + esc(c.nome) + '" loading="lazy">' +
         '<span class="prod-cat__scrim" aria-hidden="true"></span>' +
         '<span class="prod-cat__title">' + esc(c.nome) + '</span>' +
       '</a>';
@@ -220,11 +227,11 @@
   function renderParceiros() {
     var el = document.getElementById('parceiros-grid'); if (!el) return;
     var items = (V.PARCEIROS || []).map(function (p) {
-      return '<div class="parceiro"><img src="' + p.logo + '" alt="' + p.nome + '" loading="lazy"></div>';
+      return '<div class="parceiro"><img src="' + base + p.logo + '" alt="' + p.nome + '" loading="lazy"></div>';
     }).join('');
     // cópia da trilha p/ loop sem emenda; aria-hidden p/ não duplicar no leitor de tela
     var dup = (V.PARCEIROS || []).map(function (p) {
-      return '<div class="parceiro" aria-hidden="true"><img src="' + p.logo + '" alt="" loading="lazy"></div>';
+      return '<div class="parceiro" aria-hidden="true"><img src="' + base + p.logo + '" alt="" loading="lazy"></div>';
     }).join('');
     el.innerHTML = items + dup;
   }

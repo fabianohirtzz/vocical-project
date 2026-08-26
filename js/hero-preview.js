@@ -3,6 +3,13 @@
 (function () {
   'use strict';
 
+  /* Prefixo de caminho. Hoje esta tela só roda no index.html da raiz, onde
+     `base` sai vazio e isto não muda nada. Existe porque os caminhos do
+     config são relativos à raiz do projeto: se a seção for reaproveitada numa
+     página de subpasta, sem ele o navegador resolve contra a pasta da página.
+     Foi assim que /produtos/, /sobre/ e /contato/ quebraram. */
+  var base = document.documentElement.getAttribute('data-base') || '';
+
   // logos das marcas/parceiros que distribuímos (carrossel infinito)
   var M = 'Imagens/Marcas/';
   var MARQUEE = [
@@ -32,7 +39,7 @@
     var track = document.getElementById('marquee-track');
     if (track) {
       var one = MARQUEE.map(function (m) {
-        return '<img class="marquee__logo" src="' + enc(m.s) + '" alt="' + m.n + '" loading="lazy">';
+        return '<img class="marquee__logo" src="' + enc(base + m.s) + '" alt="' + m.n + '" loading="lazy">';
       }).join('');
       var half = one + one + one;        // 27 logos ~ cobre qualquer viewport
       track.innerHTML = half + half;     // 2 metades idênticas -> loop sem emenda

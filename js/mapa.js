@@ -5,6 +5,14 @@
    Sem biblioteca: pan/zoom por transform + requestAnimationFrame. */
 (function () {
   var V = window.VOCICAL || {};
+
+  /* Prefixo de caminho. Hoje esta tela só roda no index.html da raiz, onde
+     `base` sai vazio e isto não muda nada. Existe porque os caminhos do
+     config são relativos à raiz do projeto: se a seção for reaproveitada numa
+     página de subpasta, sem ele o navegador resolve contra a pasta da página.
+     Foi assim que /produtos/, /sobre/ e /contato/ quebraram. */
+  var base = document.documentElement.getAttribute('data-base') || '';
+
   var GEO = window.VOCICAL_MAPA;
   var mapa = document.getElementById('mapa');
   var canvas = document.getElementById('mapa-canvas');
@@ -95,7 +103,7 @@
     return '<button type="button" class="' + cls + '" data-i="' + i + '" ' +
       'style="left:' + u.x + 'px;top:' + u.y + 'px" ' +
       'aria-label="' + esc(u.nome + ' — ' + u.cidade + '/' + u.uf) + '">' +
-      '<span class="mapa__pin-dot"><img src="' + esc(u.logoPin) + '" alt="" loading="lazy"></span>' +
+      '<span class="mapa__pin-dot"><img src="' + esc(base + u.logoPin) + '" alt="" loading="lazy"></span>' +
       '<span class="mapa__pin-label">' + esc(u.cidade) + '</span>' +
       '</button>';
   }).join('');
