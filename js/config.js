@@ -115,7 +115,7 @@ window.VOCICAL = {
       unidades: [
         { cidade: 'Cuiabá', uf: 'MT', key: 'cuiaba', nomeExib: 'Robracon Cuiabá', pageSlug: 'robracon-cuiaba', logoPin: 'Imagens/logos unidades/Robracon/ROBRACON---COLORIDO.png', endereco: 'Rua B, 818 - Distrito Industrial', telefone: '(65) 3666-0332', email: 'vendas.robracon@grupovocical.com.br', fachada: 'Imagens/Capas Unidades/Robracon Cuiaba.png' },
         { cidade: 'Rondonópolis', uf: 'MT', key: 'rondonopolis', matriz: true, nomeExib: 'Robracon Rondonópolis', pageSlug: 'robracon-rondonopolis', logoPin: 'Imagens/logos unidades/Robracon/ROBRACON---COLORIDO.png', endereco: 'Av. Josefa Machado de Rezende, 2999 - Parque Sagrada Família', telefone: '(66) 3422-8878', email: 'vendas.robracon@grupovocical.com.br', fachada: 'Imagens/Capas Unidades/Robracon Rondonopolis.png' },
-        { cidade: 'Sinop', uf: 'MT', key: 'sinop', nomeExib: 'Robracon Sinop', pageSlug: 'robracon-sinop', logoPin: 'Imagens/logos unidades/Robracon/ROBRACON---COLORIDO.png', endereco: 'R. João Pedro Moreira de Carvalho, 2357 - Jardim Jacarandás', telefone: '(66) 3029-9659', email: 'vendas.robracon@grupovocical.com.br', fachada: 'Imagens/Capas Unidades/Robracon Sinop.png' }
+        { cidade: 'Sinop', uf: 'MT', key: 'sinop', nomeExib: 'Robracon Sinop', pageSlug: 'robracon-sinop', logoPin: 'Imagens/logos unidades/Robracon/ROBRACON---COLORIDO.png', endereco: 'R. João Pedro Moreira de Carvalho, 2357 - Jardim Jacarandás', telefone: '(66) 3029-9659', email: 'vendas.robracon@grupovocical.com.br', fachada: 'Imagens/Robracon SNP/robracon snp (6).jpeg' }
       ]
     },
     {
