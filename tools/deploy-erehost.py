@@ -29,11 +29,16 @@ PASTAS_FORA = {
 # Padrões de arquivo que ficam de fora
 ARQUIVOS_FORA = [
     '*.md',            # referencia-conteudo, copy-novo-site, CLAUDE.md, validacao...
-    '*.jpeg',          # screenshots de referência soltos na raiz
     '.gitignore', '.DS_Store', 'Thumbs.db',
     '*.py', '*.mjs',
     'smtp-config.exemplo.php',   # o real (smtp-config.php) sobe; o exemplo nao
 ]
+# Padrões que só valem na RAIZ do projeto. Estavam em ARQUIVOS_FORA e
+# derrubavam arquivo bom: '*.jpeg' foi criado para os screenshots de referência
+# soltos na raiz, mas casava tambem com foto de acervo dentro de Imagens/ --
+# o deploy ia calado e a página subia com imagem quebrada.
+ARQUIVOS_FORA_RAIZ = ['*.jpeg']
+
 # Páginas de protótipo que não vão para produção
 CAMINHOS_FORA = ['marcas/rondonopolis-proto.html',
                  'marcas/rondonopolis-proto2.html',
@@ -49,6 +54,8 @@ def deve_ir(rel):
     if rel in CAMINHOS_FORA:
         return False
     nome = partes[-1]
+    if len(partes) == 1 and any(fnmatch.fnmatch(nome, p) for p in ARQUIVOS_FORA_RAIZ):
+        return False
     return not any(fnmatch.fnmatch(nome, p) for p in ARQUIVOS_FORA)
 
 

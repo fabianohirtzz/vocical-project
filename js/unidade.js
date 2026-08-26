@@ -88,6 +88,18 @@
     return FOTOS.length ? FOTOS[i % FOTOS.length] : '';
   }
 
+  /* O hero monta os dois cards a partir do acervo (fachada + a próxima foto).
+     Uma unidade pode fixar o par em `hero.fotos` quando tem foto melhor que a
+     capa padrão. Cada item e string ou { src, alt } — o alt importa porque o
+     texto padrão do card de trás diz "operação interna", que fica errado se a
+     unidade escolher duas fotos de fachada. */
+  function fotoHero(i, padrao, altPadrao) {
+    var f = (U.hero && U.hero.fotos || [])[i];
+    if (!f) return { src: padrao, alt: altPadrao };
+    if (typeof f === 'string') return { src: f, alt: altPadrao };
+    return { src: f.src || padrao, alt: esc(f.alt) || altPadrao };
+  }
+
   var ICONES = [
     '<path d="M4 4h16v4H4z"/><path d="M4 12h16v8H4z"/><path d="M9 12v8"/><path d="M15 12v8"/>',
     '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 3v18"/><path d="M3 9h9"/><path d="M3 15h9"/>',
@@ -109,8 +121,10 @@
     }).join('');
     var logo = u.logoPin ? '<img class="rr3-card__logo" src="' + p(u.logoPin) + '" alt="" aria-hidden="true">' : '';
     /* frente = fachada (a foto de identidade); fundo = a próxima disponível. */
-    var frente = u.fachada || FOTOS[0] || '';
-    var fundo = FOTOS.filter(function (f) { return f !== frente; })[0] || frente;
+    var frenteBase = u.fachada || FOTOS[0] || '';
+    var fundoBase = FOTOS.filter(function (f) { return f !== frenteBase; })[0] || frenteBase;
+    var frente = fotoHero(0, frenteBase, 'Fachada da ' + nomeUnidade() + ' em ' + cidadeUf());
+    var fundo = fotoHero(1, fundoBase, 'Operação interna da ' + nomeUnidade() + ' em ' + cidadeUf());
     return '<section class="rr3-hero">' +
       '<div class="rr3-hero__grid" aria-hidden="true"></div>' +
       '<div class="rr3-inner">' +
@@ -124,10 +138,10 @@
           (stats ? '<div class="rr3-stats rr3-rise rr3-rise--4">' + stats + '</div>' : '') +
         '</div>' +
         '<div class="rr3-right"><div class="rr3-cards" id="rr3-cards">' +
-          '<div class="rr3-card rr3-card--back"><img src="' + p(fundo) + '" alt="Operação interna da ' +
-            nomeUnidade() + ' em ' + cidadeUf() + '" loading="eager">' + logo + '</div>' +
-          '<div class="rr3-card rr3-card--front"><img src="' + p(frente) + '" alt="Fachada da ' +
-            nomeUnidade() + ' em ' + cidadeUf() + '" loading="eager" fetchpriority="high">' + logo + '</div>' +
+          '<div class="rr3-card rr3-card--back"><img src="' + p(fundo.src) + '" alt="' + fundo.alt +
+            '" loading="eager">' + logo + '</div>' +
+          '<div class="rr3-card rr3-card--front"><img src="' + p(frente.src) + '" alt="' + frente.alt +
+            '" loading="eager" fetchpriority="high">' + logo + '</div>' +
         '</div></div>' +
       '</div></section>';
   }

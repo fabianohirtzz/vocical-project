@@ -277,7 +277,14 @@ window.UNIDADES = {
       kicker: 'Sinop/MT',
       h1: 'Material de construção e <span class="accent">aço</span> em Sinop',
       lede: 'A Robracon Sinop leva a experiência do Grupo Vocical para uma das regiões que mais crescem no Mato Grosso, com o mesmo mix da unidade de Rondonópolis: material de construção, aço, estruturais, coberturas e drywall.',
-      selos: ['Grupo Vocical no MT', '5 linhas de produto', 'Atendimento regional', 'Entrega programada']
+      selos: ['Grupo Vocical no MT', '5 linhas de produto', 'Atendimento regional', 'Entrega programada'],
+      // Fotos da unidade, escolhidas pelo cliente, no lugar da capa padrão.
+      // As duas são de fachada, então o alt do card de trás vem junto:
+      // o texto padrão do template diz "operação interna".
+      fotos: [
+        { src: 'Imagens/Robracon SNP/robracon snp (6).jpeg', alt: 'Fachada da Robracon Sinop ao fim da tarde, em Sinop MT' },
+        { src: 'Imagens/Robracon SNP/robracon snp (4).jpeg', alt: 'Entrada e pátio da Robracon Sinop, em Sinop MT' }
+      ]
     },
     numeros: [ { n: 1987, suf: '', label: 'Grupo Vocical desde' }, { n: 5, suf: '', label: 'Linhas de produto' }, { n: 11, suf: '', label: 'Unidades em SP e MT' } ],
     sobre: {
