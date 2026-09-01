@@ -115,7 +115,7 @@ window.VOCICAL = {
       unidades: [
         { cidade: 'Cuiabá', uf: 'MT', key: 'cuiaba', nomeExib: 'Robracon Cuiabá', pageSlug: 'robracon-cuiaba', logoPin: 'Imagens/logos unidades/Robracon/ROBRACON---COLORIDO.png', endereco: 'Rua B, 818 - Distrito Industrial', telefone: '(65) 3666-0332', email: 'vendas.robracon@grupovocical.com.br', fachada: 'Imagens/Capas Unidades/Robracon Cuiaba.png' },
         { cidade: 'Rondonópolis', uf: 'MT', key: 'rondonopolis', matriz: true, nomeExib: 'Robracon Rondonópolis', pageSlug: 'robracon-rondonopolis', logoPin: 'Imagens/logos unidades/Robracon/ROBRACON---COLORIDO.png', endereco: 'Av. Josefa Machado de Rezende, 2999 - Parque Sagrada Família', telefone: '(66) 3422-8878', email: 'vendas.robracon@grupovocical.com.br', fachada: 'Imagens/Capas Unidades/Robracon Rondonopolis.png' },
-        { cidade: 'Sinop', uf: 'MT', key: 'sinop', nomeExib: 'Robracon Sinop', pageSlug: 'robracon-sinop', logoPin: 'Imagens/logos unidades/Robracon/ROBRACON---COLORIDO.png', endereco: 'R. João Pedro Moreira de Carvalho, 2357 - Jardim Jacarandás', telefone: '(66) 3029-9659', email: 'vendas.robracon@grupovocical.com.br', fachada: 'Imagens/Robracon SNP/robracon snp (6).jpeg' }
+        { cidade: 'Sinop', uf: 'MT', key: 'sinop', nomeExib: 'Robracon Sinop', pageSlug: 'robracon-sinop', logoPin: 'Imagens/logos unidades/Robracon/ROBRACON---COLORIDO.png', endereco: 'R. João Pedro Moreira de Carvalho, 2357 - Jardim Jacarandás', cep: '78557-486', telefone: '(66) 3029-9659', email: 'vendas.robracon@grupovocical.com.br', fachada: 'Imagens/Robracon SNP/robracon snp (6).jpeg' }
       ]
     },
     {
@@ -125,9 +125,9 @@ window.VOCICAL = {
       capaFoto: 'Imagens/Distribuidoras/capa-distribuidoras.jpg',
       fachada: 'Imagens/Distribuidoras/capa-distribuidoras.jpg',
       unidades: [
-        { cidade: 'Itu', uf: 'SP', key: 'itu', nomeExib: 'Distribuidora Ituana', pageSlug: 'distribuidoras', logoPin: 'Imagens/logos unidades/Distribuidoras/Ituana/logo-ituana-transparente.png', endereco: 'R. Remígio Fragnani - Nossa Sra. Aparecida', telefone: '(11) 4022-5207', email: 'vendas.itu@grupovocical.com.br', fachada: 'Imagens/Capas Unidades/Distribuidora Ituana.png' },
-        { cidade: 'Piracicaba', uf: 'SP', key: 'piracicaba', nomeExib: 'Distribuidora Piracicabana', pageSlug: 'distribuidoras', logoPin: 'Imagens/logos unidades/Distribuidoras/Piracicabana/logo-piracicabana-transparente.png', endereco: 'Av. 31 de Março, 763 - Paulicéia', telefone: '(19) 99214-5313', email: 'vendas.piracicaba@grupovocical.com.br', fachada: 'Imagens/Capas Unidades/Distribuidora Piracicabana.png' },
-        { cidade: 'Itapetininga', uf: 'SP', key: 'itapetininga', nomeExib: 'Distribuidora Itapetininga', pageSlug: 'distribuidoras', logoPin: 'Imagens/logos unidades/Distribuidoras/Itapetininga/logo-itapetininga-transparente.png', endereco: 'R. Moisés Nalesso, 5500 - Vila São Gonçalo', telefone: '(15) 3272-1534', email: 'vendas.itapetininga@grupovocical.com.br', fachada: 'Imagens/Capas Unidades/Distribuidora Itapetininga.png' }
+        { cidade: 'Itu', uf: 'SP', key: 'itu', nomeExib: 'Distribuidora Ituana', pageSlug: 'distribuidoras', logoCard: 'img/logo-dist-itu.png', logoPin: 'Imagens/logos unidades/Distribuidoras/Ituana/logo-ituana-transparente.png', endereco: 'R. Remígio Fragnani - Nossa Sra. Aparecida', telefone: '(11) 4022-5207', email: 'vendas.itu@grupovocical.com.br', fachada: 'Imagens/Capas Unidades/Distribuidora Ituana.png' },
+        { cidade: 'Piracicaba', uf: 'SP', key: 'piracicaba', nomeExib: 'Distribuidora Piracicabana', pageSlug: 'distribuidoras', logoCard: 'img/logo-dist-piracicaba.png', logoPin: 'Imagens/logos unidades/Distribuidoras/Piracicabana/logo-piracicabana-transparente.png', endereco: 'Av. 31 de Março, 763 - Paulicéia', telefone: '(19) 99214-5313', email: 'vendas.piracicaba@grupovocical.com.br', fachada: 'Imagens/Capas Unidades/Distribuidora Piracicabana.png' },
+        { cidade: 'Itapetininga', uf: 'SP', key: 'itapetininga', nomeExib: 'Distribuidora Itapetininga', pageSlug: 'distribuidoras', logoCard: 'img/logo-dist-itapetininga.png', logoPin: 'Imagens/logos unidades/Distribuidoras/Itapetininga/logo-itapetininga-transparente.png', endereco: 'R. Moisés Nalesso, 5500 - Vila São Gonçalo', telefone: '(15) 3272-1534', email: 'vendas.itapetininga@grupovocical.com.br', fachada: 'Imagens/Capas Unidades/Distribuidora Itapetininga.png' }
       ]
     }
   ],
@@ -152,9 +152,9 @@ window.VOCICAL = {
     { nome: 'Robracon',                   cidade: 'Cuiabá/MT',                slug: 'robracon',       pageSlug: 'robracon-cuiaba',            logo: 'Imagens/logos unidades/Robracon/ROBRACON---COLORIDO.png' },
     { nome: 'Robracon',                   cidade: 'Rondonópolis/MT',          slug: 'robracon',       pageSlug: 'robracon-rondonopolis',      logo: 'Imagens/logos unidades/Robracon/ROBRACON---COLORIDO.png' },
     { nome: 'Robracon',                   cidade: 'Sinop/MT',                 slug: 'robracon',       pageSlug: 'robracon-sinop',             logo: 'Imagens/logos unidades/Robracon/ROBRACON---COLORIDO.png' },
-    { nome: 'Distribuidora Ituana',       cidade: 'Itu/SP',                   slug: 'distribuidoras', pageSlug: 'distribuidoras',             logo: 'Imagens/logos unidades/Distribuidoras/Ituana/logo-ituana-transparente.png' },
-    { nome: 'Distribuidora Piracicabana', cidade: 'Piracicaba/SP',            slug: 'distribuidoras', pageSlug: 'distribuidoras',             logo: 'Imagens/logos unidades/Distribuidoras/Piracicabana/logo-piracicabana-transparente.png' },
-    { nome: 'Distribuidora Itapetininga', cidade: 'Itapetininga/SP',          slug: 'distribuidoras', pageSlug: 'distribuidoras',             logo: 'Imagens/logos unidades/Distribuidoras/Itapetininga/logo-itapetininga-transparente.png' }
+    { nome: 'Distribuidora Ituana',       cidade: 'Itu/SP',                   slug: 'distribuidoras', pageSlug: 'distribuidoras',             logo: 'img/logo-dist-itu.png' },
+    { nome: 'Distribuidora Piracicabana', cidade: 'Piracicaba/SP',            slug: 'distribuidoras', pageSlug: 'distribuidoras',             logo: 'img/logo-dist-piracicaba.png' },
+    { nome: 'Distribuidora Itapetininga', cidade: 'Itapetininga/SP',          slug: 'distribuidoras', pageSlug: 'distribuidoras',             logo: 'img/logo-dist-itapetininga.png' }
   ],
 
   /* Fornecedores parceiros. */
@@ -184,3 +184,13 @@ window.VOCICAL.urlUnidade = function (u) {
   var k = (u && (u.pageSlug || u.slug)) || '';
   return window.VOCICAL.URL_UNIDADE[k] || (k + '/');
 };
+
+/* Canal do lead por página: LPs de campanha paga (pasta /campaigns-*) enviam
+   canal 'lp' (tráfego pago). Regra do Vico: site = orgânico, lp = pago.
+   Toda LP de campanha paga precisa nascer com a URL nesse padrão — é o que
+   liga a classificação de pago. O teste casa a pasta em qualquer profundidade
+   para valer também no preview (/vocical-project/campaigns-...) e na cópia de
+   teste da erehost (/novo/campaigns-...), não só na raiz de produção. */
+if (/(^|\/)campaigns-/.test(location.pathname)) {
+  window.VOCICAL.LEAD.CANAL = 'lp';
+}

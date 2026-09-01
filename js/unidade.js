@@ -161,7 +161,19 @@
   /* ---------- 3. Portfólio em abas (catálogo filtrado pela unidade) ---------- */
   function catsDaUnidade() {
     var ids = U.categorias || [];
-    return CAT.filter(function (c) { return ids.indexOf(c.slug) !== -1; });
+    // excluirItens: nomes de produto que a unidade nao trabalha, tirados da aba
+    // (ex.: as Robracon nao vendem loucas nem tubos e conexoes). Compara sem
+    // acento e sem caixa, para o dado nao depender da grafia exata do catalogo.
+    var fora = (U.excluirItens || []).map(chave);
+    return CAT.filter(function (c) { return ids.indexOf(c.slug) !== -1; })
+      .map(function (c) {
+        if (!fora.length) return c;
+        var itens = (c.itens || []).filter(function (it) { return fora.indexOf(chave(it.nome)) === -1; });
+        return Object.assign({}, c, { itens: itens });
+      });
+  }
+  function chave(t) {
+    return String(t || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim();
   }
   function portfolio() {
     if (!catsDaUnidade().length) return '';
@@ -249,12 +261,16 @@
   /* ---------- 8. Atuação e logística ---------- */
   function atuacao() {
     var a = U.atuacao; if (!a) return '';
-    var tags = [esc(u.cidade), 'Região de ' + esc(u.cidade)]
+    // abrangencia: cobertura maior que "regiao" (ex.: 'Todo o Mato Grosso' nas
+    // Robracon). Entra no titulo, em minuscula, e vira a segunda tag.
+    var abr = a.abrangencia || '';
+    var tags = [esc(u.cidade), abr ? esc(abr) : 'Região de ' + esc(u.cidade)]
       .concat((U.segmentos || []).slice(0, 2).map(esc))
       .map(function (t) { return '<li>' + t + '</li>'; }).join('');
+    var acento = abr ? esc(abr.charAt(0).toLowerCase() + abr.slice(1)) : 'região';
     return '<section class="section surface--red mesh"><div class="container u-atuacao__grid">' +
       '<div data-reveal="left"><span class="kicker">Área de atuação</span>' +
-        '<h2>' + esc(u.cidade) + ' e <span class="accent">região</span></h2>' +
+        '<h2>' + esc(u.cidade) + ' e <span class="accent">' + acento + '</span></h2>' +
         '<p class="lede" style="color:rgba(255,255,255,.9)">' + esc(a.texto) + '</p>' +
         '<ul class="u-atuacao__tags">' + tags + '</ul>' +
         (a.frota ? '<p class="u-frota">' + esc(a.frota) + '</p>' : '') +
@@ -280,7 +296,9 @@
 
   /* ---------- 10. Contato + como chegar ---------- */
   function contato() {
-    var end = [u.endereco, u.cidade && (u.cidade + (u.uf ? '/' + u.uf : ''))].filter(Boolean).join(', ');
+    /* CEP no fim, no formato da ficha do Google Meu Negocio: NAP identico
+       nas duas pontas ajuda o Google a casar a pagina com a ficha certa. */
+    var end = [u.endereco, u.cidade && (u.cidade + (u.uf ? '/' + u.uf : '')), u.cep].filter(Boolean).join(', ');
     var q = encodeURIComponent(end);
     var legal = U.razaoSocial
       ? '<p class="u-legal">' + esc(U.razaoSocial) + (U.cnpj ? ' · CNPJ ' + esc(U.cnpj) : '') +
