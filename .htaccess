@@ -66,6 +66,21 @@ DirectoryIndex index.html index.php
   RewriteRule ^wp-antigo(/|$)                           - [R=404,L]
 </IfModule>
 
+# ---- Credenciais fora do alcance da web -------------------------------------
+# smtp-config.php so precisa ser lido pelo require do PHP, que e acesso de
+# arquivo e nao passa por aqui. O bloqueio existe para o dia em que o handler
+# PHP falhar: sem ele o Apache serviria o arquivo como texto e a senha da caixa
+# site@grupovocical.com.br ficaria publica.
+<Files "smtp-config.php">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</Files>
+
 # ---- Página de erro ---------------------------------------------------------
 ErrorDocument 404 /404.html
 
