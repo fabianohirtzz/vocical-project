@@ -43,6 +43,13 @@ DirectoryIndex index.html index.php
   RewriteRule ^inicio/?$                    / [R=301,L]
   # /unidades/ era o hub; as unidades vivem no mapa da home.
   RewriteRule ^unidades/?$                  /#unidades [R=301,L]
+  # As paginas filhas do hub (/unidades/robracon-sinop-mt/ ...) usavam o mesmo
+  # slug das pastas de hoje. Sem 301 elas caiam em 404 e o Google seguia
+  # servindo o conteudo antigo no indice (endereco velho da Robracon Sinop).
+  RewriteCond %{DOCUMENT_ROOT}/$1 -d
+  RewriteRule ^unidades/([a-z0-9-]+)/?$     /$1/ [R=301,L]
+  # Slug antigo que nao virou pasta: manda pro mapa em vez de 404.
+  RewriteRule ^unidades/[a-z0-9-]+/?$       /#unidades [R=301,L]
   # Página "Estamos atualizando o site", sem função no site novo.
   RewriteRule ^manutencao/?$                / [R=301,L]
   # Restos do WordPress padrão.
