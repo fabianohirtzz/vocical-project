@@ -48,13 +48,15 @@ vocical-project/
 │   robracon-cuiaba-mt/  robracon-rondonopolis-mt/  robracon-sinop-mt/
 │   distribuidoras-sp/  rp-cimento-cal/[redirect]
 ├── campaigns-robracon-roo/                      # LP de campanha (sem menu)
+├── campaigns-robracon-drywall/                  # LP de campanha drywall (HTML estático)
 ├── 404.html  robots.txt  sitemap.xml  .htaccess
 ├── enviar-trabalhe-conosco.php                  # handler PHP do form (roda só na erehost)
 ├── marcas/                                      # só protótipos de dev (não sobem)
-├── css/   base, site, pages, home, hero-preview, lead, contato, calculadoras, fonts
+├── css/   base, site, pages, home, hero-preview, lead, contato, calculadoras,
+│          campanha-drywall, fonts
 ├── js/    config, marcas-data, catalogo, layout, lead, home, produtos, marca, unidade,
 │          unidades-data, mapa, mapa-geo(gerado), hero-preview, produtos-hero, blur-text,
-│          timeline, main, cta, calculadoras, trabalhe-conosco
+│          timeline, main, cta, calculadoras, trabalhe-conosco, drywall-calc
 ├── fonts/ (Archivo + Archivo Black, woff2)  ·  img/  videos/
 └── tools/gerar-mapa.mjs                         # gera js/mapa-geo.js
 ```
@@ -66,7 +68,8 @@ cima delas. **Nunca renomear uma pasta de página sem 301 correspondente.**
 `/produtos/` · `/sobre/` · `/contato/` · `/trabalhe-conosco/` ·
 `/vocical-votuporanga-sp/` · `/jacical-jales-sp/` · `/ello-forte-ribeirao-preto-sp/` ·
 `/ello-forte-sao-carlos-sp/` · `/robracon-cuiaba-mt/` · `/robracon-rondonopolis-mt/` ·
-`/robracon-sinop-mt/` · `/distribuidoras-sp/` · `/campaigns-robracon-roo/`
+`/robracon-sinop-mt/` · `/distribuidoras-sp/` · `/campaigns-robracon-roo/` ·
+`/campaigns-robracon-drywall/`
 Pasta com `index.html` (barra final), sem rewrite: o DirectoryIndex resolve e os
 caminhos relativos (`../css/`) seguem válidos em qualquer profundidade e na subpasta
 de teste. Roteamento em JS: `config.js` `URL_UNIDADE` + `VOCICAL.urlUnidade()`.
@@ -173,6 +176,24 @@ parece defeito. E `tools/checar-caminhos.py` só confere grafia/existência em d
   materiais-de-construcao, aco, estruturais, coberturas, drywall, agronegocio.
 
 ## Backlog / pendências de conteúdo
+- **LP de drywall (`/campaigns-robracon-drywall/`), pendências antes de publicar:**
+  (1) validar com a equipe técnica da Robracon os coeficientes de consumo por m² que
+  alimentam a tabela e a calculadora; (2) política de troca e devolução; (3) formas de
+  pagamento aceitas; (4) depoimentos ou avaliações reais (a seção de prova social foi
+  substituída por prova de porte enquanto não houver); (5) confirmar que Cuiabá e Sinop
+  atendem drywall por carga combinada de Rondonópolis; (6) trocar os esquemas em SVG por
+  foto real de drywall quando o acervo tiver (os pontos de troca estão marcados em
+  comentário no HTML). A página está `noindex, follow` e fora do sitemap até a aprovação:
+  é uma linha só para mudar, marcada em comentário no `<head>`. Spec em
+  `docs/superpowers/specs/2026-09-13-lp-drywall-robracon-design.md`.
+- **Caminho de imagem com caixa diferente entre repo e produção:** `js/config.js`,
+  `sobre/index.html` e o manifesto `tools/corte-fase1-assets.txt` citam
+  `Imagens/logos unidades/...` em minúsculo, mas a pasta no repositório é
+  `Imagens/Logos Unidades/`. Em servidor sensível a caixa isso quebra os logos de unidade
+  (44 imagens na home, 33 em `/contato/`, 24 na Robracon Rondonópolis). Como o manifesto
+  do corte veio em minúsculo, é provável que a erehost tenha a pasta em minúsculo e só o
+  repositório esteja fora de padrão. **Conferir no FTP antes de mexer** e então padronizar
+  os dois lados.
 - **Fotos faltando no acervo (grandes):** Coberturas (telhas) e Agronegócio (arame/rural)
   só têm thumbnail 150px — pedir ao parceiro fotos ≥800px. Cards usam stopgap suave.
 - **✅ Ello Forte São Carlos sem galeria (decisão do cliente, 20/08/2026):** o acervo
@@ -243,6 +264,22 @@ parece defeito. E `tools/checar-caminhos.py` só confere grafia/existência em d
   URL de cada unidade na ordem `siteExterno → pageSlug → slug`. As antigas páginas
   combinadas `robracon.html` e `ello-forte.html` (uma página por marca, várias
   unidades) foram removidas em favor das landings por cidade.
+- **LP de campanha de drywall (`/campaigns-robracon-drywall/`): HTML estático, de propósito.**
+  As páginas de unidade e a LP `/campaigns-robracon-roo/` nascem em JS (`unidade.js`),
+  o que o Google renderiza sem problema. Os crawlers de IA (GPTBot, ClaudeBot,
+  PerplexityBot) em geral **não executam JavaScript** e chegam numa casca vazia. Como
+  essa LP tem objetivo de GEO (ser citada por IA), todo o conteúdo, tabela, FAQ e
+  JSON-LD moram no HTML. Só o formulário (`lead.js`) e a calculadora
+  (`drywall-calc.js`) são JS. **Não migrar essa página para o template de unidade.**
+  Estilo em `css/campanha-drywall.css` (prefixo `.dw-`), reaproveitando base, pages,
+  unidade e calculadoras. FAQ em `<details>`, que dispensa JS e continua rastreável.
+- **Widget Vico com mais de um formulário na página:** `lead.js` monta instância
+  inline em `#lead-inline` **e** em qualquer `[data-lead-inline]`. `data-lead-produto="X"`
+  já deixa o produto escolhido e `data-lead-produto-fixo` esconde a pergunta de produto
+  (classe `.lead-card--prodfixo`), encurtando o funil numa landing de produto único.
+  `VOCICAL.leadContexto` é um texto livre que a página pode preencher (a calculadora de
+  drywall preenche com a lista de material) e que entra **só no handoff do WhatsApp** —
+  o payload da Zyvia tem contrato fixo de campos e não aceita extras.
 - Dados (config.js): 6 marcas → 11 unidades; RP Cimento e Cal com `pendenteConteudo` +
   `siteExterno`; 6 categorias; 16 parceiros; `RAZAO_SOCIAL`/`CNPJ` da Vocical preenchidos.
   `unidades-data.js` traz o conteúdo editorial e um campo `seo`/`faq` de referência das

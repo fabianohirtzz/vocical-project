@@ -254,3 +254,7 @@ body.lead-open { overflow: hidden; }
   .lead-card, .lead-backdrop, .lead-fab, .lead-fab__label { transition: none; }
   .lead-modal.on .lead-card { transform: none; }
 }
+
+/* Landing de produto único: o produto já vem escolhido, a pergunta some.
+   Aplicado por lead.js quando o mount tem data-lead-produto-fixo. */
+.lead-card--prodfixo .lead-fs:first-of-type { display: none; }
