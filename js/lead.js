@@ -145,9 +145,14 @@
       st.submitted = true;
       if (data.vendedor_whatsapp) {
         var num = String(data.vendedor_whatsapp).replace(/\D/g, '');
+        /* V.leadContexto: texto extra opcional que a página monta (ex.: a lista da
+           calculadora de drywall). Vai só no handoff do WhatsApp, nunca no payload
+           da Zyvia, que tem contrato fixo de campos. */
+        var ctx = (window.VOCICAL && window.VOCICAL.leadContexto) || '';
         var texto = encodeURIComponent(
           'Olá! Acabei de preencher o formulário do site.\n' +
-          'Meu nome é ' + nome + ' e tenho interesse em ' + (st.produto || 'produtos') + '.'
+          'Meu nome é ' + nome + ' e tenho interesse em ' + (st.produto || 'produtos') + '.' +
+          (ctx ? '\n\n' + ctx : '')
         );
         var wa = q('.lead-wa');
         // api.whatsapp.com (não wa.me): o gatilho do GTM exige 'whatsapp' na Click URL
@@ -299,12 +304,25 @@
     V.openLead = open; window.VOCICAL = V;
   }
 
-  /* ---- instância inline (ex: página de contato) ---- */
+  /* ---- instâncias inline ----
+     #lead-inline (página de contato) e qualquer [data-lead-inline] (landings, que
+     repetem o formulário em mais de um ponto da página). Cada uma é isolada.
+     data-lead-produto="Drywall" já deixa o produto escolhido; data-lead-produto-fixo
+     esconde a escolha de produto, encurtando o formulário numa página de produto só. */
   function initInline() {
-    var mount = document.getElementById('lead-inline');
-    if (!mount) return;
-    mount.classList.add('lead-card', 'lead-card--inline');
-    initCard(mount, false);
+    var mounts = [].slice.call(document.querySelectorAll('#lead-inline,[data-lead-inline]'));
+    mounts.forEach(function (mount) {
+      mount.classList.add('lead-card', 'lead-card--inline');
+      initCard(mount, false);
+      var prod = mount.getAttribute('data-lead-produto');
+      if (prod) {
+        var pill = mount.querySelector('.lead-prods .lead-pill[data-prod="' + prod + '"]');
+        if (pill) {
+          pill.click();
+          if (mount.hasAttribute('data-lead-produto-fixo')) mount.classList.add('lead-card--prodfixo');
+        }
+      }
+    });
   }
 
   /* ---- interceptação dos CTAs do site (abre o modal) ---- */

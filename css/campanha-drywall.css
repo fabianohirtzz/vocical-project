@@ -1,0 +1,231 @@
+/* ============================================================
+   LP de campanha: Drywall Robracon (/campaigns-robracon-drywall/)
+   Reaproveita os componentes reais do site (base, site, pages,
+   unidade, calculadoras, lead). Só o que não existia vive aqui.
+   Prefixo .dw-
+   ============================================================ */
+
+/* ---------- Hero: copy à esquerda, formulário do Vico à direita ---------- */
+.dw-hero { position: relative; overflow: hidden; background: #fff; }
+.dw-hero__grid {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(13,13,13,.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(13,13,13,.06) 1px, transparent 1px);
+  background-size: 46px 46px;
+  -webkit-mask-image: radial-gradient(130% 120% at 42% 45%, #000 55%, transparent 88%);
+          mask-image: radial-gradient(130% 120% at 42% 45%, #000 55%, transparent 88%);
+}
+.dw-hero::before {
+  content: ""; position: absolute; left: 26%; top: 44%;
+  width: min(820px, 70vw); height: 520px; transform: translate(-50%, -44%);
+  background: radial-gradient(closest-side, rgba(166,3,3,.13), rgba(166,3,3,.03) 60%, transparent 78%);
+  filter: blur(52px); z-index: 0; pointer-events: none;
+}
+.dw-hero__inner {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 1.02fr .98fr;
+  gap: clamp(30px, 4.5vw, 72px); align-items: center;
+  padding-block: clamp(40px, 6vh, 82px);
+}
+.dw-hero__title {
+  font-family: var(--display); font-weight: 400;
+  font-size: clamp(2.1rem, 4.4vw, 3.9rem); line-height: 1;
+  letter-spacing: -.025em; color: var(--ink); max-width: 16ch;
+}
+.dw-hero__title .accent { background: none; color: var(--red); padding: 0; border-radius: 0; }
+.dw-hero__bar { width: clamp(64px, 6vw, 88px); height: 5px; border-radius: 999px; background: var(--red); margin: clamp(18px, 2.4vw, 28px) 0; }
+.dw-hero__lede { max-width: 52ch; color: #4a4a4a; font-size: clamp(1rem, 1.15vw, 1.12rem); line-height: 1.6; }
+.dw-hero__selos { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: clamp(20px, 2.6vw, 28px); }
+.dw-selo {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .5em 1em; border-radius: 999px;
+  background: rgba(166,3,3,.06); border: 1px solid rgba(166,3,3,.16);
+  color: #7a1111; font-size: .82rem; font-weight: 600;
+}
+.dw-selo::before { content: ""; flex: 0 0 auto; width: 7px; height: 7px; border-radius: 50%; background: var(--red); }
+.dw-hero__form { position: relative; z-index: 1; }
+.dw-hero__formtag {
+  display: block; margin-bottom: .8rem; text-align: center;
+  font-size: .78rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gray);
+}
+
+/* ---------- Faixa medidor de credibilidade ---------- */
+.dw-medidor { padding-block: clamp(30px, 4vw, 48px); }
+.dw-medidor__grid {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 1px; background: rgba(255,255,255,.16);
+  border-block: 1px solid rgba(255,255,255,.16);
+}
+.dw-medidor__cell { background: var(--red-dark); padding: clamp(18px, 2.4vw, 28px) clamp(14px, 1.8vw, 22px); }
+.dw-medidor__num { font-family: var(--display); font-weight: 400; font-size: clamp(1.7rem, 3vw, 2.5rem); line-height: 1; color: #fff; }
+.dw-medidor__num .u { font-family: var(--font); font-size: .38em; font-weight: 700; color: #ff5a5a; margin-left: .22em; }
+.dw-medidor__label { margin-top: .6rem; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.62); line-height: 1.4; }
+
+/* ---------- Cards de dor ---------- */
+.dw-dor { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(16px, 2vw, 26px); margin-top: clamp(28px, 3.4vw, 44px); }
+.dw-dor__item {
+  background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow-sm); padding: clamp(1.4rem, 2.4vw, 2rem);
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.dw-dor__item:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: #d8d8d8; }
+.dw-dor__n { font-family: var(--display); font-size: 1.1rem; color: var(--red); }
+.dw-dor__h { margin-top: .7rem; font-size: 1.14rem; color: var(--ink); }
+.dw-dor__p { margin-top: .6rem; color: #5a5a5a; font-size: .96rem; line-height: 1.6; }
+
+/* ---------- Grade da linha completa (15 itens) ---------- */
+.dw-itens { display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(10px, 1.2vw, 16px); margin-top: clamp(28px, 3.4vw, 42px); }
+.dw-item {
+  background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+  padding: clamp(1rem, 1.5vw, 1.3rem); box-shadow: var(--shadow-sm);
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.dw-item:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: #d8d8d8; }
+.dw-item__ic { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 11px; color: var(--red); background: rgba(166,3,3,.08); }
+.dw-item__ic svg { width: 24px; height: 24px; display: block; }
+.dw-item__n { margin-top: .85rem; font-weight: 700; font-size: .98rem; color: var(--ink); line-height: 1.25; }
+.dw-item__d { margin-top: .35rem; font-size: .82rem; line-height: 1.5; color: #6a6a6a; }
+
+/* ---------- Tabela técnica ---------- */
+.dw-tablewrap { margin-top: clamp(26px, 3.2vw, 40px); overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; box-shadow: var(--shadow-sm); }
+.dw-table { width: 100%; border-collapse: collapse; min-width: 680px; font-size: .94rem; }
+.dw-table caption { text-align: left; padding: clamp(1rem, 1.6vw, 1.3rem) clamp(1.1rem, 1.8vw, 1.5rem) 0; font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; color: var(--gray); }
+.dw-table th, .dw-table td { padding: .95rem 1.1rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+.dw-table thead th { font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: var(--red); border-bottom: 2px solid var(--line); white-space: nowrap; }
+.dw-table tbody th { font-weight: 700; color: var(--ink); white-space: nowrap; }
+.dw-table tbody tr:last-child th, .dw-table tbody tr:last-child td { border-bottom: 0; }
+.dw-table tbody tr:hover { background: var(--paper); }
+.dw-table td { color: #4a4a4a; }
+/* variante sobre superfície escura */
+.surface--dark .dw-tablewrap, .surface--char .dw-tablewrap { background: rgba(0,0,0,.18); border-color: rgba(255,255,255,.14); box-shadow: none; }
+.surface--dark .dw-table th, .surface--char .dw-table th,
+.surface--dark .dw-table td, .surface--char .dw-table td { border-bottom-color: rgba(255,255,255,.12); }
+.surface--dark .dw-table thead th, .surface--char .dw-table thead th { color: #ff5a5a; border-bottom-color: rgba(255,255,255,.2); }
+.surface--dark .dw-table tbody th, .surface--char .dw-table tbody th { color: #fff; }
+.surface--dark .dw-table td, .surface--char .dw-table td { color: rgba(255,255,255,.78); }
+.surface--dark .dw-table tbody tr:hover, .surface--char .dw-table tbody tr:hover { background: rgba(255,255,255,.04); }
+.dw-nota { margin-top: 1rem; font-size: .84rem; color: var(--gray); max-width: 78ch; line-height: 1.6; }
+.surface--dark .dw-nota, .surface--char .dw-nota { color: rgba(255,255,255,.55); }
+
+/* ---------- Esquema técnico em SVG ---------- */
+.dw-esquema { margin-top: clamp(28px, 3.4vw, 44px); background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-sm); padding: clamp(1.2rem, 2.4vw, 2.2rem); }
+.dw-esquema svg { width: 100%; height: auto; display: block; }
+.dw-esquema figcaption { margin-top: 1rem; font-size: .86rem; color: var(--gray); line-height: 1.6; }
+.dw-duo { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(24px, 3.4vw, 52px); align-items: center; }
+
+/* ---------- Calculadora ---------- */
+.dw-calc { scroll-margin-top: 96px; }
+.dw-calc__grid { display: grid; grid-template-columns: 1.05fr .95fr; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); background: #fff; margin-top: clamp(26px, 3.2vw, 40px); }
+.dw-calc__form { padding: clamp(1.6rem, 3vw, 2.6rem); display: grid; gap: 1.1rem; align-content: start; }
+.dw-calc__row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+.dw-calc__seg { display: flex; gap: .5rem; flex-wrap: wrap; }
+.dw-calc__seg button {
+  flex: 1 1 auto; padding: .72em 1em; border-radius: 999px; font-size: .9rem; font-weight: 700;
+  border: 1px solid var(--line); background: var(--paper); color: #5a5a5a;
+  transition: background .18s ease, color .18s ease, border-color .18s ease;
+}
+.dw-calc__seg button.on { background: var(--red); border-color: var(--red); color: #fff; }
+.dw-calc__out { background: var(--ink); color: #fff; padding: clamp(1.6rem, 3vw, 2.6rem); display: flex; flex-direction: column; }
+.dw-calc__label { font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.55); }
+.dw-calc__big { font-family: var(--display); line-height: .9; letter-spacing: -.02em; font-size: clamp(2.4rem, 5.6vw, 3.8rem); margin-top: .35rem; }
+.dw-calc__big .u { font-family: var(--font); font-size: .28em; font-weight: 700; color: #ff5a5a; margin-left: .25em; }
+.dw-calc__list { margin-top: 1.3rem; padding-top: 1.2rem; border-top: 1px solid rgba(255,255,255,.14); display: grid; gap: .6rem; }
+.dw-calc__li { display: flex; justify-content: space-between; gap: 1rem; font-size: .93rem; align-items: baseline; }
+.dw-calc__li > span { color: rgba(255,255,255,.6); }
+.dw-calc__li b { font-weight: 700; white-space: nowrap; }
+.dw-calc__foot { margin-top: auto; padding-top: 1.4rem; }
+.dw-calc__note { margin-top: .9rem; font-size: .76rem; color: rgba(255,255,255,.45); line-height: 1.5; }
+
+/* ---------- Passos ---------- */
+.dw-passos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; margin-top: clamp(28px, 3.4vw, 44px); }
+.dw-passo { background: #fff; padding: clamp(1.4rem, 2.2vw, 1.9rem); }
+.dw-passo__n { font-family: var(--display); font-size: 1.9rem; color: rgba(166,3,3,.22); line-height: 1; }
+.dw-passo__h { margin-top: .8rem; font-size: 1.04rem; color: var(--ink); }
+.dw-passo__p { margin-top: .5rem; font-size: .9rem; line-height: 1.55; color: #5a5a5a; }
+
+/* ---------- Para quem é ---------- */
+.dw-para { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2vw, 26px); margin-top: clamp(28px, 3.4vw, 44px); }
+.dw-para__card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-sm); padding: clamp(1.4rem, 2.2vw, 1.9rem); }
+.dw-para__h { font-size: 1.1rem; color: var(--ink); margin-top: .9rem; }
+.dw-para__ic { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 11px; color: var(--red); background: rgba(166,3,3,.08); }
+.dw-para__ic svg { width: 22px; height: 22px; }
+.dw-para__list { margin-top: .9rem; display: grid; gap: .55rem; }
+.dw-para__list li { position: relative; padding-left: 1.5rem; font-size: .93rem; line-height: 1.5; color: #5a5a5a; }
+.dw-para__list li::before { content: ""; position: absolute; left: 0; top: .48em; width: 8px; height: 8px; border-radius: 2px; background: var(--red); }
+
+/* ---------- Unidades (NAP) ---------- */
+.dw-nap { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2vw, 26px); margin-top: clamp(28px, 3.4vw, 44px); }
+.dw-nap__card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-sm); padding: clamp(1.4rem, 2.2vw, 1.9rem); display: flex; flex-direction: column; }
+.dw-nap__tag { display: inline-block; align-self: flex-start; padding: .34em .8em; border-radius: 999px; font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; background: rgba(166,3,3,.08); color: var(--red); }
+.dw-nap__tag--full { background: var(--red); color: #fff; }
+.dw-nap__h { margin-top: .9rem; font-size: 1.16rem; color: var(--ink); }
+.dw-nap__l { margin-top: .8rem; display: grid; gap: .5rem; font-size: .92rem; color: #5a5a5a; line-height: 1.5; }
+.dw-nap__l b { color: var(--ink); font-weight: 700; }
+.dw-nap__card .amb, .dw-nap__card .btn { margin-top: auto; align-self: flex-start; }
+.dw-nap__note { margin-top: .9rem; font-size: .84rem; color: var(--gray); line-height: 1.55; }
+
+/* ---------- FAQ (details/summary: conteúdo no HTML, sem depender de JS) ---------- */
+.dw-faq { margin-top: clamp(28px, 3.4vw, 44px); max-width: 900px; }
+.dw-faq__i { border: 1px solid var(--line); border-radius: var(--radius); background: #fff; box-shadow: var(--shadow-sm); margin-bottom: .8rem; overflow: hidden; }
+.dw-faq__i > summary {
+  list-style: none; cursor: pointer; padding: 1.15rem 1.4rem;
+  font-weight: 700; color: var(--ink); display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+}
+.dw-faq__i > summary::-webkit-details-marker { display: none; }
+.dw-faq__i > summary::after { content: "+"; flex: 0 0 auto; color: var(--red); font-size: 1.4rem; line-height: 1; transition: transform .25s var(--ease-weight); }
+.dw-faq__i[open] > summary::after { transform: rotate(45deg); }
+.dw-faq__i > div { padding: 0 1.4rem 1.25rem; }
+.dw-faq__i p { color: #4a4a4a; max-width: 74ch; font-size: .96rem; line-height: 1.65; }
+.dw-faq__i p + p { margin-top: .7rem; }
+
+/* ---------- Glossário ---------- */
+.dw-gloss { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; margin-top: clamp(28px, 3.4vw, 44px); }
+.dw-gloss__i { background: #fff; padding: clamp(1.1rem, 1.8vw, 1.5rem); }
+.dw-gloss__t { font-weight: 700; color: var(--ink); font-size: 1rem; }
+.dw-gloss__d { margin-top: .4rem; font-size: .9rem; line-height: 1.6; color: #5a5a5a; }
+
+/* ---------- Resumo factual (bloco de extração para IA) ---------- */
+.dw-resumo { margin-top: clamp(24px, 3vw, 36px); background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--red); border-radius: var(--radius); padding: clamp(1.4rem, 2.6vw, 2.2rem); box-shadow: var(--shadow-sm); }
+.dw-resumo p { color: #4a4a4a; max-width: 90ch; line-height: 1.7; }
+.dw-resumo p + p { margin-top: .8rem; }
+.dw-resumo dt { font-weight: 700; color: var(--ink); font-size: .93rem; }
+.dw-resumo dd { margin: .2rem 0 .8rem; color: #5a5a5a; font-size: .93rem; line-height: 1.6; }
+
+/* ---------- Marcas fornecedoras ---------- */
+.dw-marcas { display: grid; grid-template-columns: repeat(8, 1fr); gap: clamp(10px, 1.4vw, 18px); margin-top: clamp(26px, 3vw, 38px); align-items: center; }
+.dw-marcas img { width: 100%; height: 46px; object-fit: contain; filter: grayscale(1); opacity: .62; transition: filter .25s ease, opacity .25s ease; }
+.dw-marcas img:hover { filter: none; opacity: 1; }
+
+/* ---------- Conversão final ---------- */
+.dw-conv { display: grid; grid-template-columns: 1fr .9fr; gap: clamp(28px, 4vw, 64px); align-items: center; }
+.dw-conv__h { font-family: var(--display); font-weight: 400; font-size: clamp(1.9rem, 3.6vw, 3rem); line-height: 1.02; color: #fff; }
+.dw-conv__p { margin-top: 1.1rem; color: rgba(255,255,255,.86); max-width: 50ch; font-size: 1.02rem; line-height: 1.6; }
+.dw-conv__list { margin-top: 1.6rem; display: grid; gap: .6rem; }
+.dw-conv__list li { position: relative; padding-left: 1.7rem; color: rgba(255,255,255,.9); font-size: .96rem; }
+.dw-conv__list li::before { content: ""; position: absolute; left: 0; top: .42em; width: 9px; height: 9px; border-radius: 2px; background: #fff; }
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 1020px) {
+  .dw-itens { grid-template-columns: repeat(3, 1fr); }
+  .dw-marcas { grid-template-columns: repeat(4, 1fr); }
+  .dw-passos { grid-template-columns: repeat(2, 1fr); }
+  .dw-medidor__grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 900px) {
+  .dw-hero__inner { grid-template-columns: 1fr; }
+  .dw-hero__title { max-width: 20ch; }
+  .dw-duo, .dw-calc__grid, .dw-conv { grid-template-columns: 1fr; }
+  .dw-para, .dw-nap { grid-template-columns: 1fr; }
+  .dw-gloss { grid-template-columns: 1fr; }
+}
+@media (max-width: 620px) {
+  .dw-dor { grid-template-columns: 1fr; }
+  .dw-itens { grid-template-columns: repeat(2, 1fr); }
+  .dw-medidor__grid { grid-template-columns: repeat(2, 1fr); }
+  .dw-calc__row { grid-template-columns: 1fr; }
+  .dw-marcas { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* logo da unidade no hero (a LP de campanha não tem menu, então a marca entra aqui) */
+.dw-hero__logo { height: clamp(44px, 5vw, 60px); width: auto; margin-bottom: clamp(18px, 2.4vw, 26px); }
