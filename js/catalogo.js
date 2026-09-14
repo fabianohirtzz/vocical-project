@@ -6,7 +6,7 @@ window.CATALOGO = [
     slug: 'materiais-de-construcao', nome: 'Materiais de Construção',
     img: 'Imagens/loja-de-materiais-de-construcao.png',
     itens: [
-      { nome: 'Sacarias', desc: 'Cimento, cal, argamassa, gesso e rejunte.', img: 'Imagens/Produtos/cimento.jpg' },
+      { nome: 'Sacarias', desc: 'Cimento, cal, argamassa, gesso e rejunte.', img: 'Imagens/Produtos/CIMENTO2.png' },
       { nome: 'Impermeabilizantes', desc: 'Aditivos para chapisco e argamassa, mantas líquidas e emulsões asfálticas.', img: 'Imagens/Produtos/impermeabilizantes.jpg' },
       { nome: 'Tubos e Conexões', desc: 'Tubos soldáveis (20 a 60 mm), tubos para esgoto SN (DN 40 a 200), joelhos 90°, curvas 45°, T e reduções, luvas de correr, registros de esfera e adesivos para PVC.', img: 'Imagens/Produtos/tubos-pvc.jpg' },
       { nome: 'Caixas d’água', desc: 'Caixas d’água, tanques, cisternas, biodigestores e acessórios (tampas, flanges, boias) em diferentes capacidades.', img: 'Imagens/Produtos/caixas-dagua.jpg' },
@@ -31,11 +31,11 @@ window.CATALOGO = [
     slug: 'estruturais', nome: 'Estruturais e Serralheria',
     img: 'Imagens/serralheria.png',
     itens: [
-      { nome: 'Tubo Metalon', desc: 'Bobina de calha, tubos metalon, cantoneiras, perfis, guias e barras chatas.', img: 'Imagens/Produtos/calha.jpg' },
+      { nome: 'Tubo Metalon', desc: 'Bobina de calha, tubos metalon, cantoneiras, perfis, guias e barras chatas.', img: 'Imagens/Produtos/serralheria.jpg' },
       { nome: 'Barra Chata', desc: 'Principais bitolas para aplicações estruturais e de serralheria: 19×3, 25×3, 30×3, 40×4,75, 50×6,3 e 100×8mm.', img: 'Imagens/Produtos/barra-chata.jpg' },
       { nome: 'Perfis', desc: 'Perfis metálicos U dobrado, Z leve, T e L, além de perfis para esquadrias (guia, requadro, batente e caixa).', img: 'Imagens/Produtos/perfil.jpg' },
       { nome: 'Chapa', desc: 'Chapas lisas em aço carbono, galvanizadas e tipo xadrez, para estruturas metálicas, pisos e reforços.', img: 'Imagens/Produtos/chapa-metalon.jpg' },
-      { nome: 'Corte e Dobra de Chapa', desc: 'Corte e dobra de chapas conforme projeto, com precisão e sob medida para diferentes aplicações.', img: 'Imagens/Produtos/serralheria.jpg' },
+      { nome: 'Corte e Dobra de Chapa', desc: 'Corte e dobra de chapas conforme projeto, com precisão e sob medida para diferentes aplicações.', img: 'Imagens/Produtos/calha.jpg' },
       { nome: 'Cantoneira', desc: 'Cantoneiras de abas iguais ou desiguais, para reforço, fixação e estruturas metálicas leves.', img: 'Imagens/Produtos/cantoneira.jpg' },
       { nome: 'Bobina Galvalume e Galvanizada', desc: 'Bobinas de aço galvalume ou galvanizado para conformação de calhas, painéis e perfis leves.', img: 'Imagens/Produtos/bobina-galvalume.jpg' },
       { nome: 'Parafusos', desc: 'Parafusos metálicos autobrocantes, autoatarraxantes e para telha metálica com arruela vedante.', img: 'Imagens/Produtos/parafusos.jpg' }

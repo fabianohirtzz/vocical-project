@@ -39,7 +39,13 @@
       }).join('');
     }
     function uniRows() {
-      return (V.UNIDADES_NAV || []).map(function (u) {
+      /* As tres distribuidoras dividem a mesma pagina (mesmo conteudo, mesmo
+         slug), entao o menu mostra uma linha so, com os tres logos. */
+      var rows = [], dist = [];
+      (V.UNIDADES_NAV || []).forEach(function (u) {
+        (u.pageSlug === 'distribuidoras' ? dist : rows).push(u);
+      });
+      var html = rows.map(function (u) {
         var href = u.siteExterno || p(V.urlUnidade(u));
         var ext = u.siteExterno ? ' target="_blank" rel="noopener"' : '';
         return '<a class="uni__item" href="' + href + '"' + ext + '>' +
@@ -47,6 +53,16 @@
           '<span class="uni__txt"><span class="uni__name">' + u.nome + '</span>' +
           '<span class="uni__city">' + u.cidade + '</span></span></a>';
       }).join('');
+      if (dist.length) {
+        var logos = dist.map(function (u) {
+          return '<span class="uni__logo"><img src="' + enc(p(u.logo)) + '" alt="' + u.nome + '" loading="lazy"></span>';
+        }).join('');
+        html += '<a class="uni__item" href="' + p(V.urlUnidade(dist[0])) + '">' +
+          '<span class="uni__logos">' + logos + '</span>' +
+          '<span class="uni__txt"><span class="uni__name">Distribuidoras SP</span>' +
+          '<span class="uni__city">Itu · Piracicaba · Itapetininga</span></span></a>';
+      }
+      return html;
     }
 
     el.className = 'nb' + (LANDING ? ' nb--landing' : '');
@@ -184,12 +200,19 @@
   function renderFooter() {
     var el = document.getElementById('site-footer');
     if (!el) return;
-    var marcasLinks = (V.MARCAS || []).map(function (m) {
-      var uf = (m.unidades || []).filter(function (x) { return x.matriz; })[0] || (m.unidades || [])[0] || {};
-      var href = m.siteExterno || p(V.urlUnidade(uf.pageSlug ? uf : m));
-      var ext = m.siteExterno ? ' target="_blank" rel="noopener"' : '';
-      return '<li><a href="' + href + '"' + ext + '>' + m.nome + '</a></li>';
-    }).join('');
+    /* Rodape lista as unidades, nao as marcas: cidade no rotulo quando o nome
+       repete (Ello Forte, Robracon). As tres distribuidoras viram um item so. */
+    var repet = {};
+    (V.UNIDADES_NAV || []).forEach(function (u) { repet[u.nome] = (repet[u.nome] || 0) + 1; });
+    var temDist = false;
+    var marcasLinks = (V.UNIDADES_NAV || []).map(function (u) {
+      if (u.pageSlug === 'distribuidoras') { temDist = true; return ''; }
+      var rotulo = repet[u.nome] > 1 ? u.nome + ' ' + u.cidade.split('/')[0] : u.nome;
+      var href = u.siteExterno || p(V.urlUnidade(u));
+      var ext = u.siteExterno ? ' target="_blank" rel="noopener"' : '';
+      return '<li><a href="' + href + '"' + ext + '>' + rotulo + '</a></li>';
+    }).join('') + (temDist ?
+      '<li><a href="' + p(V.urlUnidade({ pageSlug: 'distribuidoras' })) + '">Distribuidoras SP</a></li>' : '');
     var s = V.SOCIAL || {};
     var svgAttrs = ' viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"';
     var ICON = {

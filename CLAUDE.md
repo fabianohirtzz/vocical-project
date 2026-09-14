@@ -77,7 +77,10 @@ de teste. Roteamento em JS: `config.js` `URL_UNIDADE` + `VOCICAL.urlUnidade()`.
 - Deploy final: **erehost** via `FTP_SENHA='...' python tools/deploy-erehost.py --alvo novo`
   (`--alvo raiz` para produção, com confirmação digitada). FTP: `ftp.grupovocical.com.br`,
   usuário `ftpvocical@grupovocical.com.br` (o `@domínio` é obrigatório). A raiz do FTP
-  **já é o public_html**.
+  **já é o public_html**. Conta alternativa que também enxerga a raiz do site:
+  `vocica@grupovocical.com.br` (senha própria, é a que o cliente passa); use com
+  `FTP_USUARIO='vocica@grupovocical.com.br'` ou `--usuario`. Deploy parcial: `--lista arquivo.txt`
+  (um caminho por linha) sobe só aqueles arquivos, usado em 31/08/2026 para o favicon.
 
 ## Integrações
 - **Formulário de lead branded "Vico"** — botão flutuante em todas as páginas + todos
@@ -90,6 +93,13 @@ de teste. Roteamento em JS: `config.js` `URL_UNIDADE` + `VOCICAL.urlUnidade()`.
   CANAL/PRODUTOS/TIPOS`) — ponto único de troca. QA sem gerar lead real: `?leaddry=1`
   (`LEAD.DRY_RUN`). Os CTAs mantêm `href=CTA_URL` como fallback se o JS falhar.
   Ver spec em `docs/superpowers/specs/2026-07-14-formulario-lead-vico-design.md`.
+- **Canal do lead (regra dura, 01/09/2026).** O Vico classifica origem pelo campo
+  `canal`: `site` = orgânico, `lp` = tráfego pago. O bloco no fim de `config.js` troca
+  para `lp` quando o pathname contém a pasta `/campaigns-`. **Toda LP de campanha paga
+  precisa nascer com a URL no padrão `/campaigns-<algo>/`** — é isso que liga a
+  classificação de pago. LP fora desse padrão entra como orgânico e falseia a
+  atribuição; se precisar de outra URL, avisar a TI do Vocical antes. O teste casa a
+  pasta em qualquer profundidade, então vale também no preview e em `/novo/`.
 - CTA legado (`CTA_URL` em `config.js`): `https://grupovocical.com.br/produtos/?utm_content=meutrack_533fa7c4ec8b`
   — hoje só fallback dos CTAs (o modal do Vico é o destino real).
 - WhatsApp comercial: (66) 99939-3953 (canal secundário)

@@ -14,7 +14,7 @@ para indexação.
 ## Vocical (Votuporanga/SP)
 
 - [ ] Confirmar CNPJ e razão social da unidade
-- [ ] Confirmar disponibilidade da linha de agronegócio (arames rurais) na unidade
+- [x] Confirmar disponibilidade da linha de agronegócio (arames rurais) na unidade (confirmado em 31/08/2026: a Vocical não trabalha arames rurais; linha retirada do portfólio junto com Pregos)
 - [ ] Confirmar ano exato de fundação da unidade
 
 ## Jacical (Jales/SP)
@@ -46,7 +46,7 @@ para indexação.
       Robracon Rondonópolis (construção, aço, estruturais, coberturas, drywall)
 - [ ] Confirmar ano de fundação e serviços especializados disponíveis
       (corte e dobra de chapas, telhas sob medida) — mix confirmado, serviços não
-- [ ] Confirmar regiões atendidas
+- [x] Confirmar regiões atendidas (confirmado em 31/08/2026: a Robracon atende todo o MT, independente da unidade)
 
 ## Robracon Rondonópolis (Rondonópolis/MT)
 
@@ -60,7 +60,7 @@ para indexação.
       Robracon Rondonópolis (construção, aço, estruturais, coberturas, drywall)
 - [ ] Confirmar ano de fundação e serviços especializados disponíveis
       (corte e dobra de chapas, telhas sob medida) — mix confirmado, serviços não
-- [ ] Confirmar regiões atendidas
+- [x] Confirmar regiões atendidas (confirmado em 31/08/2026: a Robracon atende todo o MT, independente da unidade)
 
 ---
 

@@ -101,6 +101,8 @@ body.is-scrolled .nb__inner {
              background: #fff; border: 1px solid var(--line); display: grid;
              place-items: center; overflow: hidden; }
 .uni__logo img { max-width: 74%; max-height: 74%; object-fit: contain; }
+.uni__logos { display: flex; flex: 0 0 auto; }
+.uni__logos .uni__logo + .uni__logo { margin-left: -12px; }
 .uni__txt { display: flex; flex-direction: column; line-height: 1.15; }
 .uni__name { font-weight: 700; font-size: .92rem; color: var(--ink); }
 .uni__city { font-size: .78rem; color: var(--gray); }

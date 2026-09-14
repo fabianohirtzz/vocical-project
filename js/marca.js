@@ -12,13 +12,25 @@
   // api.whatsapp.com (não wa.me): o gatilho do GTM exige 'whatsapp' na Click URL
   function telLink(t) { return 'https://api.whatsapp.com/send/?phone=' + ('55' + t.replace(/\D/g, '')); }
 
+  /* Marca cujas sub-unidades tem logo proprio (distribuidoras): o hero mostra
+     os logos em chips brancos, em vez do logo unico da marca. */
+  function heroLogos() {
+    var comLogo = (m.unidades || []).filter(function (u) { return u.logoCard; });
+    if (comLogo.length) {
+      return '<div class="mk-hero__logos">' + comLogo.map(function (u) {
+        return '<span class="mk-hero__chip"><img src="' + p(u.logoCard) + '" alt="' + (u.nomeExib || u.cidade) + '"></span>';
+      }).join('') + '</div>';
+    }
+    return '<div class="mk-hero__logo"><img src="' + p(m.logoBranco || m.logo) + '" alt="' + m.nome + '"></div>';
+  }
+
   function hero() {
     var cidades = (m.unidades || []).map(function (u) { return u.cidade + '/' + u.uf; }).join(' · ');
     return '<section class="mk-hero surface--dark grain">' +
       '<div class="mk-hero__bg"><img src="' + p(m.capaFoto || 'Imagens/back2.jpg') + '" alt="" aria-hidden="true"></div>' +
       '<div class="container mk-hero__inner">' +
         '<a class="mk-hero__back" href="../#marcas">&larr; Todas as marcas</a>' +
-        '<div class="mk-hero__logo"><img src="' + p(m.logoBranco || m.logo) + '" alt="' + m.nome + '"></div>' +
+        heroLogos() +
         '<span class="kicker">' + cidades + '</span>' +
         '<h1 class="display mk-hero__title">' + (m.tagline || m.nome) + '</h1>' +
         '<a class="btn btn--cta" id="mk-hero-cta" target="_blank" rel="noopener"><span class="btn__ic" aria-hidden="true">›</span> Fale Conosco</a>' +
@@ -55,6 +67,7 @@
       if (u.email) contato += '<li><span>E-mail</span><a href="mailto:' + u.email + '">' + u.email + '</a></li>';
       if (!contato) contato = '<li class="muted">Contato em atualização.</li>';
       return '<article class="mk-unidade card" data-reveal>' +
+        (u.logoCard ? '<img class="mk-unidade__logo" src="' + p(u.logoCard) + '" alt="' + (u.nomeExib || u.cidade) + '">' : '') +
         '<h3>' + u.cidade + '<span class="mk-unidade__uf">/' + u.uf + '</span></h3>' +
         '<ul class="mk-unidade__contato">' + contato + '</ul>' +
       '</article>';

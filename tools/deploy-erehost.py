@@ -98,6 +98,9 @@ def main():
     ap.add_argument('--alvo', required=True, help='"novo" (teste) ou "raiz" (produção)')
     ap.add_argument('--dry', action='store_true', help='lista o pacote e sai')
     ap.add_argument('--senha', default=os.environ.get('FTP_SENHA'))
+    ap.add_argument('--usuario', default=os.environ.get('FTP_USUARIO', USUARIO),
+                    help='conta FTP (padrao: %s). A conta vocica@grupovocical.com.br '
+                         'tambem enxerga a raiz do site.' % USUARIO)
     ap.add_argument('--so', nargs='*', metavar='CAMINHO',
                     help='envia apenas estes caminhos (relativos a raiz do projeto)')
     ap.add_argument('--lista', metavar='ARQUIVO',
@@ -138,7 +141,7 @@ def main():
         print('Faltou a senha: defina FTP_SENHA ou passe --senha'); sys.exit(1)
 
     ftp = ftplib.FTP(HOST, timeout=60)
-    ftp.login(USUARIO, args.senha)
+    ftp.login(args.usuario, args.senha)
     ftp.set_pasv(True)
     print('Conectado.')
 
