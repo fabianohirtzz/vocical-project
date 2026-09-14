@@ -229,3 +229,61 @@
 
 /* logo da unidade no hero (a LP de campanha não tem menu, então a marca entra aqui) */
 .dw-hero__logo { height: clamp(44px, 5vw, 60px); width: auto; margin-bottom: clamp(18px, 2.4vw, 26px); }
+
+/* ============================================================
+   Fotos. Cor natural, sem duotone (decisão do cliente).
+   As miniaturas de Imagens/Produtos têm 150px: nunca ampliar
+   além disso, senão borram.
+   ============================================================ */
+
+/* linha completa: foto do produto numa moldura; sem foto, o ícone ocupa a mesma moldura */
+.dw-item { display: flex; flex-direction: column; }
+.dw-item__ic, .dw-item__img {
+  display: grid; place-items: center; width: 100%; height: auto; aspect-ratio: 4 / 3;
+  border-radius: 10px; overflow: hidden;
+}
+.dw-item__ic { background: rgba(166,3,3,.06); }
+.dw-item__ic svg { width: 46px; height: 46px; }
+.dw-item__img { background: #fff; border: 1px solid var(--line); }
+.dw-item__img img { width: auto; height: auto; max-width: 82%; max-height: 92%; object-fit: contain; }
+
+/* miniatura da placa no cabeçalho do comparativo */
+.dw-th__img { display: block; width: 104px; height: 78px; object-fit: contain; margin-bottom: .5rem; background: #fff; border: 1px solid var(--line); border-radius: 8px; }
+.dw-table thead th:has(.dw-th__img), .dw-table thead th:first-child { vertical-align: bottom; }
+
+/* foto de referência acima do esquema técnico */
+.dw-esquema__foto { display: block; width: 100%; height: auto; aspect-ratio: 5 / 2; object-fit: cover; border-radius: 10px; margin-bottom: clamp(1.2rem, 2.4vw, 2rem); }
+
+/* faixa de foto sangrada com a operação real */
+.dw-banda { position: relative; display: flex; align-items: flex-end; min-height: clamp(300px, 40vw, 520px); overflow: hidden; background: var(--ink); }
+.dw-banda > img { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: center 60%; }
+.dw-banda::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,13,13,.82) 0%, rgba(13,13,13,.35) 45%, rgba(13,13,13,0) 75%); }
+.dw-banda__inner { position: relative; z-index: 1; padding-block: clamp(28px, 4.4vw, 56px); }
+.dw-banda .kicker { color: #ff5a5a; }
+.dw-banda__t { margin-top: .7rem; font-family: var(--display); font-weight: 400; font-size: clamp(1.6rem, 3.4vw, 2.8rem); line-height: 1.04; letter-spacing: -.02em; color: #fff; max-width: 22ch; }
+
+/* venda cruzada: cards com imagem sobre a superfície escura */
+.dw-mix { display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(12px, 1.6vw, 20px); margin-top: clamp(26px, 3.2vw, 40px); }
+.dw-mix__card { display: flex; flex-direction: column; overflow: hidden; border-radius: var(--radius); background: rgba(0,0,0,.2); border: 1px solid rgba(255,255,255,.14); }
+.dw-mix__img { display: grid; place-items: center; aspect-ratio: 4 / 3; background: #fff; overflow: hidden; }
+.dw-mix__img img { width: auto; height: auto; max-width: 78%; max-height: 90%; object-fit: contain; }
+.dw-mix__img--foto img { width: 100%; height: 100%; max-width: none; max-height: none; object-fit: cover; }
+.dw-mix__h { padding: 1rem 1.1rem 0; font-size: 1rem; line-height: 1.25; color: #fff; }
+.dw-mix__p { padding: .45rem 1.1rem 1.15rem; font-size: .86rem; line-height: 1.5; color: rgba(255,255,255,.72); }
+
+/* foto da unidade sangrando no topo do card */
+.dw-nap__card { overflow: hidden; }
+.dw-nap__foto {
+  --pad: clamp(1.4rem, 2.2vw, 1.9rem);
+  display: block; width: calc(100% + 2 * var(--pad)); max-width: none; height: auto;
+  margin: calc(-1 * var(--pad)) calc(-1 * var(--pad)) 1.2rem;
+  aspect-ratio: 16 / 9; object-fit: cover;
+}
+
+@media (max-width: 1020px) { .dw-mix { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 620px)  {
+  .dw-mix { grid-template-columns: repeat(2, 1fr); }
+  .dw-banda { min-height: 340px; }
+  .dw-banda::after { background: linear-gradient(to top, rgba(13,13,13,.9) 0%, rgba(13,13,13,.62) 50%, rgba(13,13,13,.08) 85%); }
+  .dw-banda__t { font-size: 1.35rem; max-width: 26ch; }
+}

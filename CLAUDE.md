@@ -191,9 +191,12 @@ parece defeito. E `tools/checar-caminhos.py` só confere grafia/existência em d
   alimentam a tabela e a calculadora; (2) política de troca e devolução; (3) formas de
   pagamento aceitas; (4) depoimentos ou avaliações reais (a seção de prova social foi
   substituída por prova de porte enquanto não houver); (5) confirmar que Cuiabá e Sinop
-  atendem drywall por carga combinada de Rondonópolis; (6) trocar os esquemas em SVG por
-  foto real de drywall quando o acervo tiver (os pontos de troca estão marcados em
-  comentário no HTML). A página está `noindex, follow` e fora do sitemap até a aprovação:
+  atendem drywall por carga combinada de Rondonópolis; (6) as duas fotos acima dos esquemas em SVG
+  (`img/lp-drywall/parede-placas.jpg` e `forro-junta.jpg`) são de referência, não da
+  Robracon: trocar por foto real de estoque de placas e de forro montado quando o acervo
+  tiver (pontos de troca marcados em comentário no HTML). As miniaturas de produto vêm de
+  `Imagens/Produtos` (150px, não ampliar); F530, tabica, massa e regulador seguem com ícone
+  por não haver foto no acervo. A página está `noindex, follow` e fora do sitemap até a aprovação:
   é uma linha só para mudar, marcada em comentário no `<head>`. Spec em
   `docs/superpowers/specs/2026-09-13-lp-drywall-robracon-design.md`.
 - **Caminho de imagem com caixa diferente entre repo e produção:** `js/config.js`,
