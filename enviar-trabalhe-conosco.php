@@ -46,8 +46,6 @@ $UNIDADES = [
 
 /* RH central sempre em cópia oculta (espelha o site antigo). */
 $BCC_RH_CENTRAL = 'rh@grupovocical.com.br';
-/* Cópia de monitoramento (Freela). Remover no encerramento do acompanhamento. */
-$BCC_MONITORAMENTO = 'freelainhome@gmail.com';
 /* Remetente no domínio (melhor entregabilidade que o e-mail do candidato). */
 $FROM_EMAIL = 'site@grupovocical.com.br';
 $FROM_NAME  = 'Grupo Vocical SITE';
@@ -128,7 +126,7 @@ $headers .= 'Reply-To: ' . mb_encode_mimeheader($nome) . ' <' . $email . '>' . $
 /* Bcc vai SO no envelope (RCPT TO), nunca no cabecalho: falando SMTP direto,
    um cabecalho Bcc chegaria visivel aos destinatarios e vazaria os enderecos.
    (Com o antigo sendmail -t quem removia o cabecalho era o proprio Exim.) */
-$bccs = array_values(array_unique(array_filter([$BCC_RH_CENTRAL, $BCC_MONITORAMENTO])));
+$bccs = array_values(array_unique(array_filter([$BCC_RH_CENTRAL])));
 $headers .= 'To: ' . $destino . $eol;
 $headers .= 'Subject: ' . '=?UTF-8?B?' . base64_encode($assunto) . '?=' . $eol;
 $headers .= 'Date: ' . date('r') . $eol;
