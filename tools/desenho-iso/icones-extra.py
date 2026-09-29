@@ -61,49 +61,76 @@ def espacamento():
 
 
 def revenda():
-    """Loja de material de construcao: volume com toldo listrado e vitrine."""
+    """Estante de estoque: placas embaixo, perfis no meio, baldes em cima.
+    O que identifica revenda nao e a fachada, e a prateleira abastecida."""
     c = Cena()
-    L, D, H = 22.0, 14.0, 15.0
-    c.caixa((0, 0, 0), (L, D, H), CONCRETO, grupo=0, sw=.85)
-    # toldo avancando sobre a calcada, na frente (y negativo)
-    c.caixa((0, -5.5, H - 4.6), (L, 5.5, 1.2), '#a60303', grupo=1, sw=.8)
-    for i in range(1, 5):
-        x = L * i / 5
-        c.linha((x, -5.5, H - 3.4), (x, 0, H - 3.4), '#ffffff', 1.5, grupo=2)
-    # vitrine e porta na face da frente
-    c.face([(2.5, 0, 2), (11, 0, 2), (11, 0, 9.5), (2.5, 0, 9.5)], VIDRO, grupo=2, sw=.8, lum=1.0)
-    c.face([(13.5, 0, 0), (19, 0, 0), (19, 0, 9.5), (13.5, 0, 9.5)], '#5d656b', grupo=2, sw=.8, lum=1.0)
-    # paletes de placa encostados na fachada
-    c.caixa((2.5, -9.5, 0), (8.5, 4, 5.4), PLACA, grupo=3, sw=.75)
+    L, D, H = 28.0, 11.0, 26.0
+    niveis = (0.0, 9.0, 18.0)
+    # montantes da estante
+    for x in (0.0, L - 2.0):
+        c.caixa((x, 0, 0), (2.0, 2.0, H), '#8b9298', grupo=0, sw=.8)
+        c.caixa((x, D - 2.0, 0), (2.0, 2.0, H), '#8b9298', grupo=0, sw=.8)
+    # prateleiras
+    for z in niveis:
+        c.caixa((-1.0, -.6, z), (L + 2.0, D + 1.2, 1.4), '#b9c0c5', grupo=1, sw=.8)
+    # placas empilhadas no nivel de baixo
+    c.caixa((1.5, 1.0, niveis[0] + 1.4), (23.0, 8.5, 5.2), PLACA, grupo=2, sw=.75)
+    # perfis amarrados no nivel do meio
+    for k in range(3):
+        c.caixa((1.5, 1.2 + k * 2.6, niveis[1] + 1.4), (23.0, 2.2, 2.4), GALV, grupo=2, sw=.7)
+    # baldes de massa no nivel de cima
+    for k in range(3):
+        c.caixa((2.5 + k * 7.5, 3.0, niveis[2] + 1.4), (5.4, 5.4, 5.4), '#e9ecef', grupo=2, sw=.75)
+        c.face([(2.5 + k * 7.5, 3.0, niveis[2] + 3.6), (7.9 + k * 7.5, 3.0, niveis[2] + 3.6),
+                (7.9 + k * 7.5, 3.0, niveis[2] + 4.9), (2.5 + k * 7.5, 3.0, niveis[2] + 4.9)],
+               '#a60303', grupo=3, sw=.6, lum=1.0)
     return c
 
 
 def construtora():
-    """Duas torres, a mais alta ainda em estrutura."""
+    """Estrutura de concreto em execucao: dois pavimentos prontos e a laje de
+    cima ainda pela metade. Predio pronto nao diz construtora, obra em
+    andamento diz."""
     c = Cena()
-    c.caixa((0, 0, 0), (11, 11, 30), CONCRETO, grupo=0, sw=.85)
-    c.caixa((13, 1.5, 0), (9, 9, 19), '#d3d0ca', grupo=0, sw=.85)
-    for z in (3.5, 9.5, 15.5, 21.5):
-        for x in (1.6, 6.2):
-            c.face([(x, 0, z), (x + 3.2, 0, z), (x + 3.2, 0, z + 3.6), (x, 0, z + 3.6)],
-                   VIDRO, grupo=1, sw=.7, lum=1.0)
-    for z in (3.5, 9.5):
-        c.face([(14.6, 1.5, z), (20.4, 1.5, z), (20.4, 1.5, z + 3.6), (14.6, 1.5, z + 3.6)],
-               VIDRO, grupo=1, sw=.7, lum=1.0)
-    # laje de cobertura em execucao na torre alta
-    c.caixa((-1, -1, 30), (13, 13, 1.6), '#b9bcbe', grupo=2, sw=.85)
+    L, D = 24.0, 20.0
+    CONC = '#d9d6d0'
+    PIL = '#cbc7c1'
+    pilares = ((1.5, 1.5), (L - 4.0, 1.5), (1.5, D - 4.0), (L - 4.0, D - 4.0))
+    def laje(z, comp=L, cor=CONC, grupo=0):
+        c.caixa((-1.0, -1.0, z), (comp + 1.0, D + 2.0, 1.6), cor, grupo=grupo, sw=.85)
+    laje(0)
+    for nivel in (1.6, 12.2):
+        for (x, y) in pilares:
+            c.caixa((x, y, nivel), (2.5, 2.5, 9.0), PIL, grupo=1, sw=.8)
+        laje(nivel + 9.0, grupo=2)
+    # laje de cobertura pela metade, com as esperas de ferro aparecendo
+    laje(22.8, comp=13.0, cor='#cfccc6', grupo=3)
+    for (x, y) in pilares[1:]:
+        if x > 12:
+            c.linha((x + 1.25, y + 1.25, 21.8), (x + 1.25, y + 1.25, 26.4), '#a60303', 1.4, grupo=4)
     return c
 
 
 def instalador():
-    """Parafusadeira: corpo, cabo, bateria e ponta."""
+    """Parafusadeira com o parafuso na ponta: a ferramenta de quem monta."""
     c = Cena()
-    c.caixa((0, 0, 8), (16, 8, 8), FERRAMENTA, grupo=1, sw=.85)      # corpo
-    c.caixa((16, 2, 9.5), (7, 4, 4.5), '#6f767c', grupo=1, sw=.8)    # mandril
-    c.caixa((23, 3.2, 10.6), (7, 1.6, 2.2), ACO, grupo=1, sw=.75)    # ponta
-    c.caixa((3.5, 1.5, 0), (6, 5, 8), '#2f3336', grupo=0, sw=.85)    # cabo
-    c.caixa((1.5, .5, -3.4), (10, 7, 3.6), '#3f4549', grupo=0, sw=.85)  # bateria
-    c.linha((0, 0, 13.5), (16, 0, 13.5), '#7c0303', 1.2, grupo=2)
+    CORPO = '#a60303'
+    # corpo, com o motor mais estreito atras
+    c.caixa((0, 1.2, 8.4), (5.5, 5.6, 6.4), '#8d0303', grupo=1, sw=.8)
+    c.caixa((5.5, .6, 7.6), (11.0, 6.8, 8.0), CORPO, grupo=1, sw=.85)
+    # colar e mandril
+    c.caixa((16.5, 2.0, 9.2), (2.2, 4.0, 4.8), '#5f666b', grupo=1, sw=.75)
+    c.caixa((18.7, 2.6, 10.0), (4.6, 2.8, 3.2), '#7b8288', grupo=1, sw=.75)
+    # ponta e parafuso sendo apertado
+    c.caixa((23.3, 3.4, 11.0), (4.0, 1.2, 1.2), ACO, grupo=1, sw=.7)
+    c.caixa((27.3, 3.0, 10.6), (1.2, 2.0, 2.0), '#c9d0d5', grupo=2, sw=.7)
+    c.caixa((28.5, 3.6, 11.2), (3.4, .8, .8), '#b9c0c5', grupo=2, sw=.65)
+    # gatilho
+    c.caixa((5.8, 2.6, 6.0), (2.0, 2.8, 2.0), '#2f3336', grupo=1, sw=.7)
+    # cabo e bateria
+    c.caixa((6.5, 1.6, -1.0), (5.4, 4.8, 8.8), '#33383b', grupo=0, sw=.85)
+    c.caixa((4.6, .8, -4.6), (9.2, 6.4, 3.8), '#464d51', grupo=0, sw=.85)
+    c.linha((5.5, .6, 13.4), (16.5, .6, 13.4), '#6e0202', 1.2, grupo=2)
     return c
 
 
