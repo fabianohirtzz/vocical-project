@@ -329,3 +329,18 @@
 .dw-legenda__sw--gx { background: #c9cbc6; background-image: repeating-linear-gradient(45deg, rgba(0,0,0,.14) 0 1px, transparent 1px 3px), repeating-linear-gradient(-45deg, rgba(0,0,0,.14) 0 1px, transparent 1px 3px); }
 .dw-legenda__nota { margin-top: 1.2rem; font-size: .88rem; color: var(--gray); line-height: 1.6; max-width: 46ch; }
 @media (max-width: 900px) { .dw-duo--foto { grid-template-columns: 1fr; } }
+
+/* ---------- Icones de publico e de glossario: mesma peca desenhada da linha ---------- */
+.dw-para__ic { width: 62px; height: 62px; border-radius: 14px; background: rgba(166,3,3,.055); }
+.dw-para__ic svg { width: 56px; height: 56px; }
+
+.dw-gloss__i {
+  display: grid; grid-template-columns: 46px 1fr;
+  column-gap: clamp(.8rem, 1.1vw, 1.1rem); align-items: start;
+}
+.dw-gloss__ic {
+  grid-row: 1 / span 2; display: grid; place-items: center;
+  width: 46px; height: 46px; border-radius: 12px; background: rgba(166,3,3,.055);
+}
+.dw-gloss__ic svg { width: 42px; height: 42px; display: block; }
+.dw-gloss__i .dw-gloss__t, .dw-gloss__i .dw-gloss__d { grid-column: 2; }

@@ -280,6 +280,11 @@ parece defeito. E `tools/checar-caminhos.py` só confere grafia/existência em d
   (`drywall-calc.js`) são JS. **Não migrar essa página para o template de unidade.**
   Estilo em `css/campanha-drywall.css` (prefixo `.dw-`), reaproveitando base, pages,
   unidade e calculadoras. FAQ em `<details>`, que dispensa JS e continua rastreável.
+  **Os ícones e os dois desenhos técnicos são gerados, não desenhados à mão:**
+  `tools/desenho-iso/` monta a geometria isométrica de cada peça (perfil de chapa
+  dobrada extrudado segmento a segmento, com sombreamento pela orientação da face) e
+  devolve o SVG pronto. São 21 ícones, usados na linha de produto, no glossário e nos
+  cards de público. Ícone novo ou ajuste de peça é lá, não no HTML.
 - **Widget Vico com mais de um formulário na página:** `lead.js` monta instância
   inline em `#lead-inline` **e** em qualquer `[data-lead-inline]`. `data-lead-produto="X"`
   já deixa o produto escolhido e `data-lead-produto-fixo` esconde a pergunta de produto
