@@ -181,7 +181,11 @@ parece defeito. E `tools/checar-caminhos.py` só confere grafia/existência em d
   alimentam a tabela e a calculadora; (2) política de troca e devolução; (3) formas de
   pagamento aceitas; (4) depoimentos ou avaliações reais (a seção de prova social foi
   substituída por prova de porte enquanto não houver); (5) confirmar que Cuiabá e Sinop
-  atendem drywall por carga combinada de Rondonópolis. A página está `noindex, follow` e fora do sitemap até a aprovação:
+  atendem drywall por carga combinada de Rondonópolis; (6) confirmar com a Zyvia se o
+  endpoint aceita `necessidade` no payload e então ligar `LEAD.ENVIAR_NECESSIDADE` no
+  `config.js`; (7) três fotos de placa (ST, RU e Glasroc X) para os cards do guia técnico,
+  que hoje mostram o desenho isométrico da peça e têm o ponto de troca marcado em
+  comentário no HTML. A página está `noindex, follow` e fora do sitemap até a aprovação:
   é uma linha só para mudar, marcada em comentário no `<head>`. Spec em
   `docs/superpowers/specs/2026-09-13-lp-drywall-robracon-design.md`.
 - **Fotos da LP de drywall (`img/drywall/`): são imagens geradas, ilustrativas do sistema
@@ -292,6 +296,26 @@ parece defeito. E `tools/checar-caminhos.py` só confere grafia/existência em d
   `VOCICAL.leadContexto` é um texto livre que a página pode preencher (a calculadora de
   drywall preenche com a lista de material) e que entra **só no handoff do WhatsApp** —
   o payload da Zyvia tem contrato fixo de campos e não aceita extras.
+- **Opções de formulário por página (atributos do `<body>`).** Valem para todos os cards
+  daquela página, modal incluído, sem tocar no resto do site:
+  `data-lead-necessidade` (mostra o campo "O que você precisa?"),
+  `data-lead-submit="..."` (texto do botão de envio; o header da landing segue o mesmo
+  rótulo), `data-lead-produto="X"` + `data-lead-produto-fixo` (produto pré-escolhido e
+  escondido também no modal, não só nos inline).
+- **Campo "O que você precisa?" (`necessidade`).** Opções em `config.js`
+  (`LEAD.NECESSIDADES`, com `id` slug estável e `label` lido pelo usuário). É obrigatório
+  onde aparece. Por onde o dado sai: (1) **handoff do WhatsApp**, sempre, na linha
+  "O que eu preciso:"; (2) **meutrack**, como `necessidade` e `necessidade_label` no
+  `TrackHub.track`; (3) **dataLayer do GTM**, no evento `vico_lead`, com
+  `lead_necessidade` e `lead_necessidade_label` (sem nome e sem telefone, de propósito;
+  nenhum gatilho escuta esse evento ainda, é material para o gestor de tráfego montar
+  dimensão e conversão). **No POST da Zyvia só entra com `LEAD.ENVIAR_NECESSIDADE: true`**,
+  hoje `false`, porque o contrato de campos do endpoint é fixo — é uma linha para trocar
+  quando a Zyvia confirmar que aceita o campo.
+- **Produto pré-escolhido reaplicado depois do reset.** Com `data-lead-produto-fixo` o
+  usuário não tem como reescolher; se o reset limpasse a seleção (botão "Enviar outro
+  pedido"), o formulário travava sem o usuário entender por quê. `aplicaProduto()` roda
+  na montagem e no fim de `resetForm`.
 - Dados (config.js): 6 marcas → 11 unidades; RP Cimento e Cal com `pendenteConteudo` +
   `siteExterno`; 6 categorias; 16 parceiros; `RAZAO_SOCIAL`/`CNPJ` da Vocical preenchidos.
   `unidades-data.js` traz o conteúdo editorial e um campo `seo`/`faq` de referência das

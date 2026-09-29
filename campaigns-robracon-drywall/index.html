@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="../css/unidade.css?v=1d4a5932">
   <link rel="stylesheet" href="../css/calculadoras.css?v=36ccc0b4">
   <link rel="stylesheet" href="../css/lead.css?v=e1f0a67a">
-  <link rel="stylesheet" href="../css/campanha-drywall.css?v=d167e3d6">
+  <link rel="stylesheet" href="../css/campanha-drywall.css?v=c440ba43">
 
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebPage",
@@ -94,7 +94,10 @@
      {"@type":"HowToStep","position":5,"name":"Confirme com o vendedor técnico","text":"Envie a lista para o vendedor da Robracon conferir a especificação de placa e o quantitativo antes de fechar o pedido."}]}
   </script>
 </head>
-<body data-landing>
+<body data-landing
+      data-lead-necessidade
+      data-lead-produto="Drywall" data-lead-produto-fixo
+      data-lead-submit="Solicitar orçamento">
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MGL778C" height="0" width="0" style="display:none;visibility:hidden" aria-hidden="true"></iframe></noscript>
 
   <header id="site-header"></header>
@@ -110,27 +113,22 @@
         <div class="dw-hero__copy">
           <img class="dw-hero__logo" src="../img/robracon-logo.png" alt="Robracon, unidade do Grupo Vocical" width="737" height="165">
           <span class="kicker">Drywall · Mato Grosso</span>
-          <h1 class="dw-hero__title"><span class="dw-l">A linha de <span class="accent">drywall</span></span> <span class="dw-l">inteira, num</span> <span class="dw-l">fornecedor só</span></h1>
+          <h1 class="dw-hero__title"><span class="dw-l dw-l--pre">Da placa ao acabamento:</span> <span class="dw-l">sua linha de <span class="accent">drywall</span></span> <span class="dw-l">em um só fornecedor</span></h1>
           <div class="dw-hero__bar" aria-hidden="true"></div>
           <p class="dw-hero__lede">
             Placa ST, placa RU, Glasroc X, guia, montante, perfil F530, tabica, cantoneira,
             parafuso, fita telada, massa e acessórios. Quinze itens da mesma linha, com um
             vendedor técnico que sabe qual placa serve para cada aplicação.
           </p>
+          <!-- Os números da empresa ficam só na faixa logo abaixo do hero, para não
+               repetir a mesma informação duas vezes na primeira tela. -->
           <div class="dw-hero__selos">
-            <span class="dw-selo">Grupo Vocical desde 1987</span>
-            <span class="dw-selo">Robracon em MT desde 2005</span>
             <span class="dw-selo">Rondonópolis, Cuiabá e Sinop</span>
-            <span class="dw-selo">Atendimento B2B</span>
-          </div>
-          <div class="rr3-stats">
-            <div class="rr3-stat"><span class="rr3-stat__num" data-count="39">0</span><span class="rr3-stat__label">Anos de grupo</span></div>
-            <div class="rr3-stat"><span class="rr3-stat__num" data-count="11">0</span><span class="rr3-stat__label">Unidades SP e MT</span></div>
-            <div class="rr3-stat"><span class="rr3-stat__num" data-count="15">0</span><span class="rr3-stat__label">Itens na linha</span></div>
+            <span class="dw-selo">Atendimento B2B e consultivo</span>
           </div>
         </div>
         <div class="dw-hero__form">
-          <span class="dw-hero__formtag">Peça seu orçamento de drywall</span>
+          <span class="dw-hero__formtag">Solicite seu orçamento de drywall</span>
           <div data-lead-inline data-lead-produto="Drywall" data-lead-produto-fixo></div>
         </div>
       </div>
@@ -219,6 +217,10 @@
               não é chute de vendedor.
             </p>
           </article>
+        </div>
+        <div class="dw-cta-band" data-reveal>
+          <p class="dw-cta-band__p">Evite parar o serviço por falta de material. Solicite sua cotação.</p>
+          <a class="btn btn--cta dw-cta" href="#vico-open" data-cta>Solicitar orçamento</a>
         </div>
       </div>
     </section>
@@ -318,6 +320,10 @@
           A linha completa fica na Robracon Rondonópolis. Cuiabá e Sinop atendem drywall pelo
           comercial, e a disponibilidade de cada item é confirmada pelo vendedor na hora do orçamento.
         </p>
+        <div class="dw-cta-band" data-reveal>
+          <p class="dw-cta-band__p">Já tem sua lista de materiais? Envie para a nossa equipe e receba sua cotação.</p>
+          <a class="btn btn--cta dw-cta" href="#vico-open" data-cta>Solicitar orçamento</a>
+        </div>
       </div>
     </section>
 
@@ -335,22 +341,35 @@
           </p>
         </div>
 
-        <div class="dw-duo dw-duo--foto" data-reveal>
-          <figure class="dw-foto dw-foto--43">
-            <img src="../img/drywall/placas-st-ru-glasroc.jpg" alt="Placa de drywall ST de papel claro, placa RU de papel verde e placa Glasroc X com revestimento em fibra de vidro, lado a lado" loading="lazy" width="1400" height="1120">
-          </figure>
-          <div class="dw-legenda__wrap">
-            <h3 class="dw-legenda__h">Como reconhecer cada uma</h3>
-            <ul class="dw-legenda">
-              <li><span class="dw-legenda__sw dw-legenda__sw--st" aria-hidden="true"></span><span><b>ST</b> tem papel de cor clara. É a placa de área seca.</span></li>
-              <li><span class="dw-legenda__sw dw-legenda__sw--ru" aria-hidden="true"></span><span><b>RU</b> tem papel verde. É a de área úmida, com aditivo hidrofugante no núcleo.</span></li>
-              <li><span class="dw-legenda__sw dw-legenda__sw--gx" aria-hidden="true"></span><span><b>Glasroc X</b> não tem papel: a superfície é manta de fibra de vidro. É a de área externa.</span></li>
-            </ul>
-            <p class="dw-legenda__nota">
-              A cor do papel é o jeito mais rápido de conferir no recebimento se veio a placa que
-              o projeto pediu.
-            </p>
-          </div>
+        <div class="dw-placas" data-reveal>
+          <article class="dw-placa">
+            <!-- TROCA DE IMAGEM: com a foto pronta, trocar o <span class="dw-placa__fig"> inteiro por
+                 <figure class="dw-placa__fig"><img src="../img/drywall/placa-st.jpg" alt="..." loading="lazy" width="1200" height="900"></figure> -->
+            <span class="dw-placa__fig" aria-hidden="true"><svg viewBox="0 0 64 64"><g transform="translate(9.96 -32.20) scale(1.194)"><polygon points="12.00,41.44 42.74,59.19 24.91,69.49 -5.83,51.74" fill="#e0d3ba" stroke="#14161a" stroke-width="0.80" stroke-linejoin="round"/><polygon points="12.00,44.00 42.74,61.75 42.74,59.19 12.00,41.44" fill="#cabea7" stroke="#14161a" stroke-width="0.80" stroke-linejoin="round"/><polygon points="42.74,61.75 24.91,72.05 24.91,69.49 42.74,59.19" fill="#a19886" stroke="#14161a" stroke-width="0.80" stroke-linejoin="round"/><polygon points="42.13,61.68 25.53,71.26 25.53,69.56 42.13,59.98" fill="#f1ebdf" stroke="#14161a" stroke-width="0.45" stroke-linejoin="round"/><polygon points="12.00,38.46 42.74,56.21 24.91,66.51 -5.83,48.76" fill="#e0d3ba" stroke="#14161a" stroke-width="0.80" stroke-linejoin="round"/><polygon points="12.00,41.02 42.74,58.77 42.74,56.21 12.00,38.46" fill="#cabea7" stroke="#14161a" stroke-width="0.80" stroke-linejoin="round"/><polygon points="42.74,58.77 24.91,69.06 24.91,66.51 42.74,56.21" fill="#a19886" stroke="#14161a" stroke-width="0.80" stroke-linejoin="round"/><polygon points="42.13,58.70 25.53,68.28 25.53,66.58 42.13,56.99" fill="#f1ebdf" stroke="#14161a" stroke-width="0.45" stroke-linejoin="round"/><polygon points="12.00,35.48 42.74,53.23 24.91,63.52 -5.83,45.77" fill="#e0d3ba" stroke="#14161a" stroke-width="0.80" stroke-linejoin="round"/><polygon points="12.00,38.04 42.74,55.79 42.74,53.23 12.00,35.48" fill="#cabea7" stroke="#14161a" stroke-width="0.80" stroke-linejoin="round"/><polygon points="42.74,55.79 24.91,66.08 24.91,63.52 42.74,53.23" fill="#a19886" stroke="#14161a" stroke-width="0.80" stroke-linejoin="round"/><polygon points="42.13,55.72 25.53,65.30 25.53,63.60 42.13,54.01" fill="#f1ebdf" stroke="#14161a" stroke-width="0.45" stroke-linejoin="round"/></g></svg></span>
+            <h3 class="dw-placa__h">ST</h3>
+            <p class="dw-placa__u">Área seca. Paredes e forros internos.</p>
+            <p class="dw-placa__id"><span>Como reconhecer</span>Papel de cor clara.</p>
+          </article>
+          <article class="dw-placa">
+            <!-- TROCA DE IMAGEM: com a foto pronta, trocar o <span class="dw-placa__fig"> inteiro por
+                 <figure class="dw-placa__fig"><img src="../img/drywall/placa-ru.jpg" alt="..." loading="lazy" width="1200" height="900"></figure> -->
+            <span class="dw-placa__fig" aria-hidden="true"><svg viewBox="0 0 64 64"><g transform="translate(9.96 -33.98) scale(1.194)"><polygon points="12.00,41.44 42.74,59.19 24.91,69.49 -5.83,51.74" fill="#9cbe9d" stroke="#14161a" stroke-width="0.80" stroke-linejoin="round"/><polygon points="12.00,44.00 42.74,61.75 42.74,59.19 12.00,41.44" fill="#8cab8d" stroke="#14161a" stroke-width="0.80" stroke-linejoin="round"/><polygon points="42.74,61.75 24.91,72.05 24.91,69.49 42.74,59.19" fill="#708971" stroke="#14161a" stroke-width="0.80" stroke-linejoin="round"/><polygon points="42.13,61.68 25.53,71.26 25.53,69.56 42.13,59.98" fill="#f1ebdf" stroke="#14161a" stroke-width="0.45" stroke-linejoin="round"/><polygon points="12.00,38.46 42.74,56.21 24.91,66.51 -5.83,48.76" fill="#9cbe9d" stroke="#14161a" stroke-width="0.80" stroke-linejoin="round"/><polygon points="12.00,41.02 42.74,58.77 42.74,56.21 12.00,38.46" fill="#8cab8d" stroke="#14161a" stroke-width="0.80" stroke-linejoin="round"/><polygon points="42.74,58.77 24.91,69.06 24.91,66.51 42.74,56.21" fill="#708971" stroke="#14161a" stroke-width="0.80" stroke-linejoin="round"/><polygon points="42.13,58.70 25.53,68.28 25.53,66.58 42.13,56.99" fill="#f1ebdf" stroke="#14161a" stroke-width="0.45" stroke-linejoin="round"/><path d="M12.0 43.7 c2.1 2.3 3.1 3.8 3.1 4.9a3.1 3.1 0 0 1-6.2 0c0-1.1 1-2.6 3.1-4.9z" fill="#ffffff" fill-opacity=".92" stroke="#14161a" stroke-width=".9" stroke-linejoin="round"/></g></svg></span>
+            <h3 class="dw-placa__h">RU</h3>
+            <p class="dw-placa__u">Ambientes sujeitos à umidade.</p>
+            <p class="dw-placa__id"><span>Como reconhecer</span>Papel de cor verde.</p>
+          </article>
+          <article class="dw-placa">
+            <!-- TROCA DE IMAGEM: com a foto pronta, trocar o <span class="dw-placa__fig"> inteiro por
+                 <figure class="dw-placa__fig"><img src="../img/drywall/glasroc-x.jpg" alt="..." loading="lazy" width="1200" height="900"></figure> -->
+            <span class="dw-placa__fig" aria-hidden="true"><svg viewBox="0 0 64 64"><g transform="translate(9.96 -35.76) scale(1.194)"><polygon points="12.00,41.44 42.74,59.19 24.91,69.49 -5.83,51.74" fill="#d9c08a" stroke="#14161a" stroke-width="0.80" stroke-linejoin="round"/><polygon points="12.00,44.00 42.74,61.75 42.74,59.19 12.00,41.44" fill="#c3ad7c" stroke="#14161a" stroke-width="0.80" stroke-linejoin="round"/><polygon points="42.74,61.75 24.91,72.05 24.91,69.49 42.74,59.19" fill="#9c8a63" stroke="#14161a" stroke-width="0.80" stroke-linejoin="round"/><polygon points="42.13,61.68 25.53,71.26 25.53,69.56 42.13,59.98" fill="#f1ebdf" stroke="#14161a" stroke-width="0.45" stroke-linejoin="round"/><line x1="16.39" y1="43.98" x2="-1.44" y2="54.27" stroke="#a18e66" stroke-width="0.65" stroke-linecap="round"/><line x1="20.78" y1="46.52" x2="2.95" y2="56.81" stroke="#a18e66" stroke-width="0.65" stroke-linecap="round"/><line x1="25.18" y1="49.05" x2="7.34" y2="59.35" stroke="#a18e66" stroke-width="0.65" stroke-linecap="round"/><line x1="29.57" y1="51.59" x2="11.74" y2="61.88" stroke="#a18e66" stroke-width="0.65" stroke-linecap="round"/><line x1="33.96" y1="54.12" x2="16.13" y2="64.42" stroke="#a18e66" stroke-width="0.65" stroke-linecap="round"/><line x1="38.35" y1="56.66" x2="20.52" y2="66.95" stroke="#a18e66" stroke-width="0.65" stroke-linecap="round"/><line x1="7.54" y1="44.02" x2="38.29" y2="61.77" stroke="#a18e66" stroke-width="0.65" stroke-linecap="round"/><line x1="3.08" y1="46.59" x2="33.83" y2="64.34" stroke="#a18e66" stroke-width="0.65" stroke-linecap="round"/><line x1="-1.37" y1="49.17" x2="29.37" y2="66.92" stroke="#a18e66" stroke-width="0.65" stroke-linecap="round"/></g></svg></span>
+            <h3 class="dw-placa__h">Glasroc X</h3>
+            <p class="dw-placa__u">Fechamentos externos e áreas expostas.</p>
+            <p class="dw-placa__id"><span>Como reconhecer</span>Superfície em manta de fibra de vidro, sem papel.</p>
+          </article>
+        </div>
+        <div class="dw-cta-band" data-reveal>
+          <p class="dw-cta-band__p">Não sabe qual usar? O nosso vendedor técnico ajuda a especificar.</p>
+          <a class="btn btn--cta dw-cta" href="#vico-open" data-cta>Fale com um vendedor</a>
         </div>
 
         <div class="dw-tablewrap" data-reveal>
@@ -661,7 +680,7 @@
               <p class="dw-calc__note" style="margin:0">Preencha as medidas para ver a lista de material.</p>
             </div>
             <div class="dw-calc__foot">
-              <a class="btn btn--cta btn--lg" href="#vico-open" id="dw-calc-envia" hidden>Enviar esta lista para um vendedor</a>
+              <a class="btn btn--cta btn--lg" href="#vico-open" id="dw-calc-envia" hidden>Solicitar orçamento desta lista</a>
               <p class="dw-calc__note">
                 Estimativa para orientar o orçamento. Não substitui o projeto nem o memorial do
                 fabricante. O vendedor técnico confere a especificação e o quantitativo antes do pedido.
@@ -778,10 +797,6 @@
               a unidade de portfólio mais amplo do grupo, atendendo revendas, construtoras, indústrias,
               serralherias e estruturas metálicas, e é a que reúne a linha completa de drywall.
             </p>
-            <p>
-              Ao todo são 11 unidades em São Paulo e Mato Grosso, três delas no estado: Rondonópolis,
-              Cuiabá e Sinop.
-            </p>
           </div>
         </div>
       </div>
@@ -794,7 +809,7 @@
       <div class="container">
         <div class="sec-head" data-reveal>
           <span class="kicker">Cadeia de fornecimento</span>
-          <h2>Marcas que abastecem o <span class="accent">Grupo Vocical</span></h2>
+          <h2>De quem vem o material que <span class="accent">você compra</span></h2>
         </div>
         <div class="dw-marcas" data-reveal>
           <img src="../Imagens/Marcas/placo.png" alt="Placo" loading="lazy">
@@ -807,7 +822,7 @@
           <img src="../Imagens/Marcas/csn-ciderurgica.png" alt="CSN" loading="lazy">
         </div>
         <p class="dw-nota">
-          Fornecedores do Grupo Vocical nas diferentes linhas de produto. A marca de cada item do seu
+          Fabricantes que abastecem as diferentes linhas de produto. A marca de cada item do seu
           pedido é confirmada no orçamento.
         </p>
       </div>
@@ -819,8 +834,8 @@
     <section class="section surface--white" id="unidades">
       <div class="container">
         <div class="sec-head" data-reveal>
-          <span class="kicker">Onde estamos</span>
-          <h2>Três unidades Robracon em <span class="accent">Mato Grosso</span></h2>
+          <span class="kicker">Onde estamos · Mato Grosso</span>
+          <h2>Endereço e telefone das <span class="accent">três unidades</span></h2>
         </div>
 
         <figure class="dw-foto dw-foto--169" data-reveal>
@@ -840,7 +855,7 @@
             <p class="dw-nap__note">
               Unidade matriz da Robracon e a que concentra a linha completa de drywall, de placa a acessório.
             </p>
-            <a class="btn btn--cta dw-cta" href="#vico-open" data-cta>Pedir orçamento</a>
+            <a class="btn btn--cta dw-cta" href="#vico-open" data-cta>Solicitar orçamento</a>
           </article>
           <article class="dw-nap__card">
             <span class="dw-nap__tag">Atendimento comercial</span>
@@ -854,7 +869,7 @@
               Atende pedidos de drywall pelo comercial. A disponibilidade de cada item e a forma de
               retirada ou entrega são combinadas com o vendedor.
             </p>
-            <a class="btn btn--cta dw-cta" href="#vico-open" data-cta>Pedir orçamento</a>
+            <a class="btn btn--cta dw-cta" href="#vico-open" data-cta>Solicitar orçamento</a>
           </article>
           <article class="dw-nap__card">
             <span class="dw-nap__tag">Atendimento comercial</span>
@@ -868,7 +883,7 @@
               Atende pedidos de drywall pelo comercial. A disponibilidade de cada item e a forma de
               retirada ou entrega são combinadas com o vendedor.
             </p>
-            <a class="btn btn--cta dw-cta" href="#vico-open" data-cta>Pedir orçamento</a>
+            <a class="btn btn--cta dw-cta" href="#vico-open" data-cta>Solicitar orçamento</a>
           </article>
         </div>
       </div>
@@ -1109,9 +1124,9 @@
    {"@type":"Question","name":"Quem é o Grupo Vocical?","acceptedAnswer":{"@type":"Answer","text":"O Grupo Vocical distribui materiais de construção desde 1987, quando começou em Votuporanga, São Paulo, com cimento e cal. Hoje são 11 unidades em São Paulo e Mato Grosso, sob as marcas Vocical, Jacical, Ello Forte, Rio Preto Cimento e Cal, Robracon e as distribuidoras de Itu, Piracicaba e Itapetininga."}}]}
   </script>
 
-  <script src="../js/config.js?v=5169248b"></script>
-  <script src="../js/layout.js?v=935a92f7"></script>
-  <script src="../js/lead.js?v=49ff37b3"></script>
+  <script src="../js/config.js?v=01c557ec"></script>
+  <script src="../js/layout.js?v=65492f7a"></script>
+  <script src="../js/lead.js?v=fce9d687"></script>
   <script src="../js/main.js?v=b41b8c8d"></script>
   <script src="../js/drywall-calc.js?v=22eeda8b"></script>
   <script src="../js/cta.js?v=44c5fb9a"></script>

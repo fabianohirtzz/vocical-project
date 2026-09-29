@@ -57,6 +57,22 @@ window.VOCICAL = {
       { id: 'pessoa_fisica',   label: 'Pessoa Física',   icon: 'pf' },
       { id: 'pessoa_juridica', label: 'Pessoa Jurídica', icon: 'pj' }
     ],
+    /* Qualificação extra do pedido ("O que você precisa?").
+       Só aparece nas páginas que pedem, via data-lead-necessidade no <body>.
+       'id' é o valor enviado (slug, estável para relatório); 'label' é o texto
+       que o usuário lê e que vai no handoff do WhatsApp. */
+    NECESSIDADES: [
+      { id: 'placas',        label: 'Placas de drywall' },
+      { id: 'perfis',        label: 'Perfis / estrutura' },
+      { id: 'linha_completa',label: 'Linha completa' },
+      { id: 'lista',         label: 'Tenho uma lista de materiais' },
+      { id: 'quantitativo',  label: 'Preciso de ajuda com o quantitativo' }
+    ],
+    /* O endpoint da Zyvia tem contrato fixo de campos (emp, canal, tipo_cliente,
+       produto, nome, telefone, cidade, estado) e por padrão NÃO recebe extras.
+       Quando a Zyvia confirmar que aceita 'necessidade' no payload, é só trocar
+       para true: o campo passa a ir junto no POST, além do WhatsApp e do rastreio. */
+    ENVIAR_NECESSIDADE: false,
     UFS: ['AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO']
   },
 

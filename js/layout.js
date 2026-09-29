@@ -61,7 +61,10 @@
           '<div class="nb__right">' +
             // Landing de campanha não expõe WhatsApp: o lead precisa passar pelo
             // formulário, que é o que dá ao Vico a origem (pago x orgânico).
-            '<a class="nb__cta" href="#vico-open" data-cta>Peça seu orçamento</a>' +
+            // O rótulo segue o padrão declarado pela página em data-lead-submit,
+            // para o header não falar diferente dos botões do corpo.
+            '<a class="nb__cta" href="#vico-open" data-cta>' +
+              (document.body.getAttribute('data-lead-submit') || 'Peça seu orçamento') + '</a>' +
           '</div>' +
         '</div>';
       var setH = function () { document.documentElement.style.setProperty('--nb-h', el.offsetHeight + 'px'); };

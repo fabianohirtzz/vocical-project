@@ -12,6 +12,22 @@
   var DRY = L.DRY_RUN || /[?&]lead(dry|test)=1/.test(location.search);
   var seq = 0;   // sufixo único por instância (label/for)
 
+  /* Opções de página, declaradas em atributos do <body>. Valem para TODOS os cards
+     daquela página (modal incluído), sem tocar no resto do site:
+       data-lead-necessidade   -> mostra o campo "O que você precisa?"
+       data-lead-submit="..."  -> troca o texto do botão de envio
+       data-lead-produto="X"   -> já deixa o produto escolhido também no modal
+       data-lead-produto-fixo  -> esconde a pergunta de produto */
+  function pageOpt(attr) {
+    var b = document.body;
+    return b ? b.getAttribute('data-lead-' + attr) : null;
+  }
+  function pageHas(attr) {
+    var b = document.body;
+    return !!(b && b.hasAttribute('data-lead-' + attr));
+  }
+  function rotuloEnvio() { return pageOpt('submit') || 'Quero ser atendido'; }
+
   /* ---- ícones hairline (sem emoji) ---- */
   var svg = ' viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"';
   var ICON = {
@@ -36,6 +52,19 @@
 
   /* ---- markup interno do card (compartilhado por modal e inline) ---- */
   function cardInner(uid, modal) {
+    /* "O que você precisa?" — qualificação extra do pedido. Só entra no card se a
+       página pedir (data-lead-necessidade no <body>). Ver LEAD.NECESSIDADES. */
+    var necBlock = '';
+    if (pageHas('necessidade') && (L.NECESSIDADES || []).length) {
+      var necOpts = '<option value="">Selecione</option>' + L.NECESSIDADES.map(function (n) {
+        return '<option value="' + esc(n.id) + '">' + esc(n.label) + '</option>';
+      }).join('');
+      necBlock =
+        '<div class="lead-field">' +
+          '<label class="lead-lbl" for="lead-nec-' + uid + '">O que você precisa?</label>' +
+          '<select class="lead-input lead-select lead-nec" id="lead-nec-' + uid + '" name="necessidade" required>' + necOpts + '</select>' +
+        '</div>';
+    }
     var prodPills = (L.PRODUTOS || []).map(function (x) {
       return '<button type="button" class="lead-pill" data-prod="' + esc(x.id) + '">' +
         '<span class="lead-pill__ic">' + (ICON[x.icon] || '') + '</span>' +
@@ -65,6 +94,7 @@
             '<legend class="lead-lbl">Produto de interesse</legend>' +
             '<div class="lead-pills lead-prods">' + prodPills + '</div>' +
           '</fieldset>' +
+          necBlock +
           '<fieldset class="lead-fs">' +
             '<legend class="lead-lbl">Tipo</legend>' +
             '<div class="lead-pills lead-pills--2 lead-tipos">' + tipoPills + '</div>' +
@@ -89,7 +119,7 @@
           '</div>' +
           '<p class="lead-note">Seus dados são usados só para este atendimento. Não compartilhamos com terceiros.</p>' +
           '<button class="lead-submit" type="submit" disabled>' +
-            '<span class="lead-submit__tx">Quero ser atendido</span>' + ICON.arrow +
+            '<span class="lead-submit__tx">' + esc(rotuloEnvio()) + '</span>' + ICON.arrow +
           '</button>' +
         '</form>' +
       '</div>' +
@@ -104,10 +134,11 @@
   }
 
   /* ---- inicializa um card (instância isolada) num container ---- */
-  function initCard(card, modal) {
+  function initCard(card, modal, opts) {
+    opts = opts || {};
     var uid = 'l' + (++seq);
     card.innerHTML = cardInner(uid, modal);
-    var st = { produto: '', tipo: '', submitted: false };
+    var st = { produto: '', tipo: '', necessidade: '', necessidadeLabel: '', submitted: false };
     var q = function (s) { return card.querySelector(s); };
     var qa = function (s) { return card.querySelectorAll(s); };
 
@@ -126,19 +157,34 @@
       var t = (q('.lead-tel').value || '').replace(/\D/g, '');
       var c = (q('.lead-cidade').value || '').trim();
       var e = q('.lead-estado').value;
-      var ok = st.tipo && st.produto && n.length >= 3 && t.length >= 10 && c.length >= 2 && e;
+      var nec = q('.lead-nec');
+      var ok = st.tipo && st.produto && n.length >= 3 && t.length >= 10 && c.length >= 2 && e
+        && (!nec || !!nec.value);
       q('.lead-submit').disabled = !ok;
       return ok;
     }
 
     function resetForm() {
       st.produto = ''; st.tipo = ''; st.submitted = false;
+      st.necessidade = ''; st.necessidadeLabel = '';
       q('.lead-form').reset();
       qa('.lead-pill.on').forEach(function (el) { el.classList.remove('on'); });
       q('.lead-body').style.display = '';
       q('.lead-success').classList.remove('on');
       var wa = q('.lead-wa'); wa.hidden = true;
-      q('.lead-submit').disabled = true; setLabel('Quero ser atendido');
+      q('.lead-submit').disabled = true; setLabel(rotuloEnvio());
+      aplicaProduto();
+    }
+
+    /* Produto pré-escolhido (landing de produto único). Precisa rodar também depois
+       de cada reset: com a pergunta de produto escondida, o usuário não tem como
+       reescolher e o formulário ficaria travado. */
+    function aplicaProduto() {
+      if (!opts.produto) return;
+      var pill = card.querySelector('.lead-prods .lead-pill[data-prod="' + opts.produto + '"]');
+      if (!pill) return;
+      pill.click();
+      if (opts.produtoFixo) card.classList.add('lead-card--prodfixo');
     }
 
     function showSuccess(data, nome) {
@@ -152,6 +198,7 @@
         var texto = encodeURIComponent(
           'Olá! Acabei de preencher o formulário do site.\n' +
           'Meu nome é ' + nome + ' e tenho interesse em ' + (st.produto || 'produtos') + '.' +
+          (st.necessidadeLabel ? '\nO que eu preciso: ' + st.necessidadeLabel + '.' : '') +
           (ctx ? '\n\n' + ctx : '')
         );
         var wa = q('.lead-wa');
@@ -179,6 +226,26 @@
         produto: payload.produto, tipo: tipo,
         cidade: payload.cidade, estado: payload.estado
       };
+      /* Qualificação "O que você precisa?": vai no meutrack e no dataLayer do GTM.
+         necessidade = slug estável (relatório), necessidade_label = texto lido. */
+      if (st.necessidade) {
+        dados.necessidade = st.necessidade;
+        dados.necessidade_label = st.necessidadeLabel;
+      }
+      /* Evento no dataLayer para o GTM. Sem nome e sem telefone de propósito.
+         Nenhum gatilho existente escuta 'vico_lead': é material novo para o
+         gestor de tráfego montar dimensão/conversão sem mexer no envio do lead. */
+      var dl = {
+        event: 'vico_lead',
+        lead_produto: payload.produto, lead_tipo: tipo,
+        lead_cidade: payload.cidade, lead_estado: payload.estado
+      };
+      if (st.necessidade) {
+        dl.lead_necessidade = st.necessidade;
+        dl.lead_necessidade_label = st.necessidadeLabel;
+      }
+      if (DRY) { console.log('[lead][dry] dataLayer.push', dl); }
+      else { window.dataLayer = window.dataLayer || []; try { window.dataLayer.push(dl); } catch (e) { /* rastreio nunca derruba o lead */ } }
       // ?leaddry=1 nao gera lead nem polui o meutrack, mas mostra o que iria
       if (DRY) { console.log('[lead][dry] TrackHub.track', evento, dados); return; }
       if (!window.TrackHub) return;
@@ -201,6 +268,9 @@
         cidade: q('.lead-cidade').value.trim(),
         estado: q('.lead-estado').value.trim()
       };
+      /* Só entra no POST da Zyvia quando LEAD.ENVIAR_NECESSIDADE for true (ver config.js):
+         o contrato de campos do endpoint é fixo e não aceita extras hoje. */
+      if (L.ENVIAR_NECESSIDADE && st.necessidade) payload.necessidade = st.necessidade;
       try {
         var data;
         if (DRY) {
@@ -216,11 +286,11 @@
           trackLead(payload, nome);
           showSuccess(data, nome);
         } else {
-          btn.disabled = false; setLabel('Quero ser atendido');
+          btn.disabled = false; setLabel(rotuloEnvio());
           alert('Não foi possível enviar agora. Tente novamente.');
         }
       } catch (e) {
-        btn.disabled = false; setLabel('Quero ser atendido');
+        btn.disabled = false; setLabel(rotuloEnvio());
         alert('Erro de conexão. Tente novamente.');
       }
     }
@@ -240,7 +310,14 @@
     ['.lead-nome', '.lead-cidade', '.lead-estado'].forEach(function (s) {
       q(s).addEventListener('input', validate);
     });
+    var nec = q('.lead-nec');
+    if (nec) nec.addEventListener('change', function () {
+      st.necessidade = nec.value;
+      st.necessidadeLabel = nec.value ? nec.options[nec.selectedIndex].text : '';
+      validate();
+    });
     q('.lead-form').addEventListener('submit', submit);
+    aplicaProduto();
     // inline: "Enviar outro pedido" reseta em lugar; modal: fechar é wired em buildModal
     if (!modal) q('.lead-success__close').addEventListener('click', resetForm);
 
@@ -273,7 +350,10 @@
     var modal = root.querySelector('#lead-modal');
     var backdrop = root.querySelector('#lead-backdrop');
     var card = root.querySelector('.lead-card');
-    var inst = initCard(card, true);
+    var inst = initCard(card, true, {
+      produto: pageOpt('produto'),
+      produtoFixo: pageHas('produto-fixo')
+    });
     var lastFocus = null;
 
     function open() {
@@ -313,15 +393,10 @@
     var mounts = [].slice.call(document.querySelectorAll('#lead-inline,[data-lead-inline]'));
     mounts.forEach(function (mount) {
       mount.classList.add('lead-card', 'lead-card--inline');
-      initCard(mount, false);
-      var prod = mount.getAttribute('data-lead-produto');
-      if (prod) {
-        var pill = mount.querySelector('.lead-prods .lead-pill[data-prod="' + prod + '"]');
-        if (pill) {
-          pill.click();
-          if (mount.hasAttribute('data-lead-produto-fixo')) mount.classList.add('lead-card--prodfixo');
-        }
-      }
+      initCard(mount, false, {
+        produto: mount.getAttribute('data-lead-produto') || pageOpt('produto'),
+        produtoFixo: mount.hasAttribute('data-lead-produto-fixo') || pageHas('produto-fixo')
+      });
     });
   }
 

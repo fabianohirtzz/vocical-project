@@ -30,7 +30,7 @@
 }
 .dw-hero__title {
   font-family: var(--display); font-weight: 400;
-  font-size: clamp(2.05rem, 4.2vw, 3.15rem); line-height: 1.02;
+  font-size: clamp(2rem, 4.02vw, 2.95rem); line-height: 1.02;
   letter-spacing: -.025em; color: var(--ink); max-width: 16ch;
 }
 .dw-hero__title .accent { background: none; color: var(--red); padding: 0; border-radius: 0; }
@@ -240,15 +240,12 @@
 .dw-hero__logo { height: clamp(44px, 5vw, 60px); width: auto; margin-bottom: clamp(18px, 2.4vw, 26px); }
 
 /* ---------- Ajustes de quebra de linha e enquadramento ---------- */
-/* Hero: o titulo quebra em tres linhas escolhidas no desktop e flui no mobile. */
+/* Hero: o titulo quebra em tres linhas escolhidas no desktop e flui no mobile.
+   A primeira linha e uma entrada, menor que as duas que carregam a promessa. */
 .dw-hero__title .dw-l { display: inline; }
+.dw-hero__title .dw-l--pre { display: block; font-size: .62em; margin-bottom: .12em; }
 @media (min-width: 900px) { .dw-hero__title .dw-l { display: block; } }
 
-/* Faixa de numeros do hero: tres em uma linha so, sem quebrar rotulo. */
-.dw-hero .rr3-stats { gap: clamp(16px, 2vw, 34px); flex-wrap: nowrap; }
-.dw-hero .rr3-stat__label { font-size: .64rem; letter-spacing: .07em; }
-.dw-hero .rr3-stat__num { font-size: clamp(1.7rem, 2.6vw, 2.4rem); }
-@media (max-width: 420px) { .dw-hero .rr3-stats { flex-wrap: wrap; } }
 
 /* Titulo de secao que precisa de largura maior que os 720px padrao. */
 @media (min-width: 900px) {
@@ -315,20 +312,6 @@
 .dw-medidor--foto > .container { position: relative; z-index: 1; }
 
 
-/* Legenda de identificacao das placas, ao lado da foto */
-.dw-duo--foto { margin-top: clamp(26px, 3.2vw, 40px); grid-template-columns: 1.15fr .85fr; align-items: center; }
-.dw-duo--foto .dw-foto { margin-top: 0; }
-.dw-legenda__wrap { align-self: center; }
-.dw-legenda__h { font-size: clamp(1.15rem, 1.7vw, 1.4rem); color: var(--ink); }
-.dw-legenda { margin-top: 1.2rem; display: grid; gap: .9rem; }
-.dw-legenda li { display: grid; grid-template-columns: 22px 1fr; gap: .8rem; align-items: start; font-size: .96rem; line-height: 1.55; color: #4a4a4a; }
-.dw-legenda b { color: var(--ink); }
-.dw-legenda__sw { width: 22px; height: 22px; border-radius: 6px; border: 1px solid rgba(13,13,13,.22); margin-top: .12em; }
-.dw-legenda__sw--st { background: #e9e2d2; }
-.dw-legenda__sw--ru { background: #9dbf9e; }
-.dw-legenda__sw--gx { background: #c9cbc6; background-image: repeating-linear-gradient(45deg, rgba(0,0,0,.14) 0 1px, transparent 1px 3px), repeating-linear-gradient(-45deg, rgba(0,0,0,.14) 0 1px, transparent 1px 3px); }
-.dw-legenda__nota { margin-top: 1.2rem; font-size: .88rem; color: var(--gray); line-height: 1.6; max-width: 46ch; }
-@media (max-width: 900px) { .dw-duo--foto { grid-template-columns: 1fr; } }
 
 /* ---------- Icones de publico e de glossario: mesma peca desenhada da linha ---------- */
 .dw-para__ic { width: 62px; height: 62px; border-radius: 14px; background: rgba(166,3,3,.055); }
@@ -344,3 +327,69 @@
 }
 .dw-gloss__ic svg { width: 42px; height: 42px; display: block; }
 .dw-gloss__i .dw-gloss__t, .dw-gloss__i .dw-gloss__d { grid-column: 2; }
+
+/* ============================================================
+   Faixa de CTA no meio da pagina
+   Frase curta + botao, encerrando uma secao de conteudo.
+   ============================================================ */
+.dw-cta-band {
+  margin-top: clamp(26px, 3.2vw, 40px);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: clamp(14px, 2vw, 28px);
+  background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--red);
+  border-radius: var(--radius); box-shadow: var(--shadow-sm);
+  padding: clamp(1.1rem, 2vw, 1.6rem) clamp(1.2rem, 2.2vw, 1.9rem);
+}
+.dw-cta-band__p {
+  margin: 0; flex: 1 1 22ch; min-width: 0;
+  font-size: clamp(1rem, 1.25vw, 1.15rem); line-height: 1.45; color: var(--ink); font-weight: 700;
+}
+.surface--paper .dw-cta-band { background: #fff; }
+.surface--dark .dw-cta-band, .surface--char .dw-cta-band {
+  background: rgba(0,0,0,.18); border-color: rgba(255,255,255,.14); box-shadow: none;
+}
+.surface--dark .dw-cta-band__p, .surface--char .dw-cta-band__p { color: #fff; }
+@media (max-width: 620px) {
+  .dw-cta-band { flex-direction: column; align-items: stretch; text-align: left; }
+}
+
+/* ============================================================
+   Guia tecnico: tres cards de placa (ST, RU, Glasroc X)
+   A figura hoje e o desenho isometrico da peca; quando as fotos
+   de cada placa existirem, e so trocar o conteudo de .dw-placa__fig.
+   ============================================================ */
+.dw-placas {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 2vw, 26px); margin-top: clamp(28px, 3.4vw, 44px);
+}
+.dw-placa {
+  background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow-sm); overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: transform .25s var(--ease-weight), box-shadow .25s var(--ease-weight), border-color .25s ease;
+}
+.dw-placa:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: #d8d8d8; }
+.dw-placa__fig {
+  display: grid; place-items: center; margin: 0;
+  aspect-ratio: 4 / 3; background: var(--paper); border-bottom: 1px solid var(--line);
+}
+.dw-placa__fig svg { width: 62%; height: auto; display: block; }
+.dw-placa__fig img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.dw-placa__h {
+  margin: clamp(1.1rem, 1.8vw, 1.5rem) clamp(1.2rem, 2vw, 1.6rem) 0;
+  font-family: var(--display); font-weight: 400; letter-spacing: -.01em;
+  font-size: clamp(1.5rem, 2.2vw, 1.95rem); line-height: 1; color: var(--ink);
+}
+.dw-placa__u {
+  margin: .7rem clamp(1.2rem, 2vw, 1.6rem) 0;
+  font-size: 1rem; line-height: 1.5; color: #4a4a4a;
+}
+.dw-placa__id {
+  margin: .9rem clamp(1.2rem, 2vw, 1.6rem) clamp(1.2rem, 2vw, 1.6rem);
+  font-size: .88rem; line-height: 1.5; color: #6a6a6a;
+}
+.dw-placa__id span {
+  display: block; font-size: .7rem; letter-spacing: .1em; text-transform: uppercase;
+  font-weight: 700; color: var(--red); margin-bottom: .25rem;
+}
+@media (max-width: 860px) { .dw-placas { grid-template-columns: 1fr; } }
