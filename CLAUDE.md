@@ -181,11 +181,18 @@ parece defeito. E `tools/checar-caminhos.py` só confere grafia/existência em d
   alimentam a tabela e a calculadora; (2) política de troca e devolução; (3) formas de
   pagamento aceitas; (4) depoimentos ou avaliações reais (a seção de prova social foi
   substituída por prova de porte enquanto não houver); (5) confirmar que Cuiabá e Sinop
-  atendem drywall por carga combinada de Rondonópolis; (6) trocar os esquemas em SVG por
-  foto real de drywall quando o acervo tiver (os pontos de troca estão marcados em
-  comentário no HTML). A página está `noindex, follow` e fora do sitemap até a aprovação:
+  atendem drywall por carga combinada de Rondonópolis. A página está `noindex, follow` e fora do sitemap até a aprovação:
   é uma linha só para mudar, marcada em comentário no `<head>`. Spec em
   `docs/superpowers/specs/2026-09-13-lp-drywall-robracon-design.md`.
+- **Fotos da LP de drywall (`img/drywall/`): são imagens geradas, ilustrativas do sistema
+  construtivo, não registro das unidades.** Sete no total: estoque, as três placas lado a
+  lado, perfis, forro, montagem de parede, tratamento de junta e carregamento. Ficam em
+  `img/` (assets do projeto) e não em `Imagens/` (acervo do cliente), de propósito: a
+  distinção entre foto real e foto gerada precisa continuar óbvia. **Regra de legenda e de
+  alt: descrever o produto e o processo, nunca em primeira pessoa** ("estoque de placas e
+  perfis", jamais "o nosso galpão"). Onde a página fala da Robracon em primeira pessoa, como
+  a seção de autoridade, a foto é real, de `Imagens/Capas Unidades/`. Os desenhos isométricos
+  continuam: desenho explica o sistema, foto mostra a peça, os dois se reforçam.
 - **Caminho de imagem com caixa diferente entre repo e produção:** `js/config.js`,
   `sobre/index.html` e o manifesto `tools/corte-fase1-assets.txt` citam
   `Imagens/logos unidades/...` em minúsculo, mas a pasta no repositório é
