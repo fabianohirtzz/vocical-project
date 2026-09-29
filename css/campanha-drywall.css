@@ -24,16 +24,17 @@
 }
 .dw-hero__inner {
   position: relative; z-index: 1;
-  display: grid; grid-template-columns: 1.02fr .98fr;
+  display: grid; grid-template-columns: 1.07fr .93fr;
   gap: clamp(30px, 4.5vw, 72px); align-items: center;
   padding-block: clamp(40px, 6vh, 82px);
 }
 .dw-hero__title {
   font-family: var(--display); font-weight: 400;
-  font-size: clamp(2.1rem, 4.4vw, 3.9rem); line-height: 1;
+  font-size: clamp(2.05rem, 4.2vw, 3.15rem); line-height: 1.02;
   letter-spacing: -.025em; color: var(--ink); max-width: 16ch;
 }
 .dw-hero__title .accent { background: none; color: var(--red); padding: 0; border-radius: 0; }
+.dw-hero__title { max-width: 22ch; }
 .dw-hero__bar { width: clamp(64px, 6vw, 88px); height: 5px; border-radius: 999px; background: var(--red); margin: clamp(18px, 2.4vw, 28px) 0; }
 .dw-hero__lede { max-width: 52ch; color: #4a4a4a; font-size: clamp(1rem, 1.15vw, 1.12rem); line-height: 1.6; }
 .dw-hero__selos { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: clamp(20px, 2.6vw, 28px); }
@@ -229,3 +230,48 @@
 
 /* logo da unidade no hero (a LP de campanha não tem menu, então a marca entra aqui) */
 .dw-hero__logo { height: clamp(44px, 5vw, 60px); width: auto; margin-bottom: clamp(18px, 2.4vw, 26px); }
+
+/* ---------- Ajustes de quebra de linha e enquadramento ---------- */
+/* Hero: o titulo quebra em tres linhas escolhidas no desktop e flui no mobile. */
+.dw-hero__title .dw-l { display: inline; }
+@media (min-width: 900px) { .dw-hero__title .dw-l { display: block; } }
+
+/* Faixa de numeros do hero: tres em uma linha so, sem quebrar rotulo. */
+.dw-hero .rr3-stats { gap: clamp(16px, 2vw, 34px); flex-wrap: nowrap; }
+.dw-hero .rr3-stat__label { font-size: .64rem; letter-spacing: .07em; }
+.dw-hero .rr3-stat__num { font-size: clamp(1.7rem, 2.6vw, 2.4rem); }
+@media (max-width: 420px) { .dw-hero .rr3-stats { flex-wrap: wrap; } }
+
+/* Titulo de secao que precisa de largura maior que os 720px padrao. */
+@media (min-width: 900px) {
+  .sec-head.dw-sec--wide { max-width: none; }
+  .sec-head.dw-sec--wide h2 { white-space: nowrap; }
+}
+
+/* ---------- Icones da linha: peca desenhada, nao pictograma ---------- */
+.dw-item__ic { width: 62px; height: 62px; border-radius: 14px; background: rgba(166,3,3,.055); }
+.dw-item__ic svg { width: 56px; height: 56px; }
+
+/* ---------- Desenhos tecnicos: rolagem propria no mobile ---------- */
+.dw-esquema__scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.dw-esquema__scroll svg { width: 100%; min-width: 580px; height: auto; display: block; }
+
+/* ---------- Foto da unidade com recorte de apoio ---------- */
+.dw-fachada { position: relative; }
+.dw-fachada .dw-fachada__main { border-radius: var(--radius); width: 100%; aspect-ratio: 4/3; object-fit: cover; box-shadow: var(--shadow); }
+.dw-fachada .dw-fachada__inset {
+  position: absolute; right: clamp(-14px, -1.2vw, -8px); bottom: clamp(-18px, -1.6vw, -12px);
+  width: clamp(120px, 34%, 210px); aspect-ratio: 4/3; object-fit: cover;
+  border-radius: calc(var(--radius) - 2px); border: 5px solid #fff;
+  box-shadow: 0 22px 44px -18px rgba(13,13,13,.55);
+}
+.dw-fachada__tag {
+  position: absolute; left: 14px; top: 14px;
+  padding: .42em 1em; border-radius: 999px;
+  background: rgba(13,13,13,.72); color: #fff;
+  font-size: .74rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+}
+@media (max-width: 820px) { .dw-fachada .dw-fachada__inset { width: 38%; right: 8px; bottom: -10px; } }
+.dw-esquema__hint { display: none; margin-top: .7rem; font-size: .78rem; color: var(--gray); }
+@media (max-width: 760px) { .dw-esquema__hint { display: block; } }
