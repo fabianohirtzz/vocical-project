@@ -52,16 +52,24 @@
 }
 
 /* ---------- Faixa medidor de credibilidade ---------- */
-.dw-medidor { padding-block: clamp(30px, 4vw, 48px); }
+.dw-medidor { padding-block: clamp(32px, 4.2vw, 56px); }
 .dw-medidor__grid {
   display: grid; grid-template-columns: repeat(5, 1fr);
-  gap: 1px; background: rgba(255,255,255,.16);
-  border-block: 1px solid rgba(255,255,255,.16);
+  gap: clamp(10px, 1.2vw, 16px);
 }
-.dw-medidor__cell { background: var(--red-dark); padding: clamp(18px, 2.4vw, 28px) clamp(14px, 1.8vw, 22px); }
+/* cartões soltos sobre o vermelho da marca, na mesma linguagem dos selos do hero */
+.dw-medidor__cell {
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.26);
+  border-radius: var(--radius);
+  padding: clamp(16px, 2vw, 24px) clamp(14px, 1.7vw, 20px);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  transition: background .22s var(--ease-weight), border-color .22s var(--ease-weight);
+}
+.dw-medidor__cell:hover { background: rgba(255,255,255,.17); border-color: rgba(255,255,255,.38); }
 .dw-medidor__num { font-family: var(--display); font-weight: 400; font-size: clamp(1.7rem, 3vw, 2.5rem); line-height: 1; color: #fff; }
 .dw-medidor__num .u { font-family: var(--font); font-size: .38em; font-weight: 700; color: #ff5a5a; margin-left: .22em; }
-.dw-medidor__label { margin-top: .6rem; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.62); line-height: 1.4; }
+.dw-medidor__label { margin-top: .6rem; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.76); line-height: 1.4; }
 
 /* ---------- Cards de dor ---------- */
 .dw-dor { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(16px, 2vw, 26px); margin-top: clamp(28px, 3.4vw, 44px); }
@@ -299,13 +307,13 @@
 .dw-medidor--foto { position: relative; overflow: hidden; }
 .dw-medidor--foto .dw-medidor__bg { position: absolute; inset: 0; z-index: 0; }
 .dw-medidor--foto .dw-medidor__bg img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* véu no vermelho da marca: a foto vira textura, a cor continua sendo #a60303 */
 .dw-medidor--foto .dw-medidor__bg::after {
   content: ""; position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(115,10,10,.90) 0%, rgba(115,10,10,.82) 55%, rgba(90,8,8,.93) 100%);
+  background: linear-gradient(180deg, rgba(166,3,3,.93) 0%, rgba(166,3,3,.88) 55%, rgba(150,3,3,.94) 100%);
 }
 .dw-medidor--foto > .container { position: relative; z-index: 1; }
-.dw-medidor--foto .dw-medidor__cell { background: transparent; }
-.dw-medidor--foto .dw-medidor__grid { background: rgba(255,255,255,.2); }
+
 
 /* Legenda de identificacao das placas, ao lado da foto */
 .dw-duo--foto { margin-top: clamp(26px, 3.2vw, 40px); grid-template-columns: 1.15fr .85fr; align-items: center; }
