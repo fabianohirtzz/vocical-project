@@ -341,6 +341,12 @@ parece defeito. E `tools/checar-caminhos.py` só confere grafia/existência em d
   dobrada extrudado segmento a segmento, com sombreamento pela orientação da face) e
   devolve o SVG pronto. São 21 ícones, usados na linha de produto, no glossário e nos
   cards de público. Ícone novo ou ajuste de peça é lá, não no HTML.
+- **Regex com `.*?` sobre HTML: a armadilha voltou a morder (30/09).** Ao inserir três
+  verbetes no glossário da LP de telha, usei regex para reaproveitar o `<svg>` de um
+  verbete vizinho. O `.*?` atravessou o fim do elemento e trouxe entradas inteiras
+  junto: o glossário foi de 16 para 28 verbetes, com "Galvalume" repetido quatro vezes.
+  Foi pego pela contagem no QA. **Para montar HTML a partir da geometria, ler o JSON de
+  `tools/desenho-iso/` e remontar o bloco inteiro, nunca recortar HTML com regex.**
 - **LP de campanha de telha galvalume (`/campaigns-robracon-telha-galvalume/`).**
   Segunda LP do padrão, construída a partir de `docs/playbook-lp-campanha.md`. Mesmas
   regras duras da de drywall: HTML estático por causa do GEO, `noindex` até aprovar,
@@ -371,6 +377,36 @@ parece defeito. E `tools/checar-caminhos.py` só confere grafia/existência em d
   **Calculadora:** `js/telha-calc.js`. Calcula pela medida do vão, e o resultado
   principal é o **comprimento de cada telha**, porque a unidade produz sob medida. A
   margem de perda entra nos acessórios e **não** na telha, que sai na medida exata.
+- **O vocabulário da LP de telha vem do Google Ads, não do catálogo (30/09).**
+  A spec `docs/superpowers/specs/2026-09-29-lp-telha-galvalume/` traz 4 meses de dados
+  reais da campanha. O que eles mostram, e que reposicionou a página inteira:
+  **quem procura não usa a palavra "galvalume"**. Nos 979 termos de pesquisa reais,
+  ponderando por impressão: isotérmica e sanduíche somam **58,4%**, zinco **27,4%**,
+  galvanizada 4,0% e **galvalume mais aluzinco só 2,8%**. Trapezoidal e ondulada,
+  que são os nomes técnicos do formato, somam 1,7%.
+  Por isso a página chama o painel de **telha sanduíche** (com isotérmica e
+  termoacústica como sinônimos declarados), abre com esses nomes no title e no `h1`,
+  e tem uma seção própria, "Telha de zinco, isotérmica, sanduíche: quem é quem", que
+  mapeia nome popular para especificação. **Não "corrigir" isso para o nome técnico:**
+  o nome técnico continua na página, mas não é por ele que a pessoa chega.
+  **A segunda intenção é preço:** 31,4% das buscas trazem "valor", "preço" ou "quanto
+  custa". A seção `#preco` responde sem publicar tabela, explicando o que mexe no preço
+  e por que comparar "preço por metro" engana, já que a largura útil muda por perfil.
+  **Comprimento aparece em 9%** ("telha de zinco 6 metros", "telha sanduíche 7 metros
+  preço"), o que sustenta a seção de telha sob medida.
+  Outros números: 97% das impressões são de celular; Mercado Livre tem 39,17% de
+  parcela de impressões contra 18,01% do cliente; as 4 conversões do relatório são
+  cliques em link de WhatsApp, que é a única conversão configurada na conta, então não
+  são leads e não devem ser lidas como tal sem confirmar com o gestor.
+- **⚠️ A spec da telha afirma que o `config.js` marca o lead como pago (`canal: lp`)
+  olhando a pasta `/campaigns-`. Isso NÃO existe no código.** `LEAD.CANAL` é a string
+  fixa `'site'` e não há nenhuma detecção de caminho em lugar nenhum do `js/`. Ou seja,
+  hoje o lead das duas LPs de campanha sai com `canal: 'site'`, igual ao do resto do
+  site. A atribuição pago vs orgânico acontece no Vico/meutrack pelo `TrackHub.track`,
+  como já está documentado acima, e não por esse campo. Se o cliente quiser de fato
+  distinguir LP no `canal`, é uma linha no `config.js`, **mas muda o valor de um campo
+  do contrato da Zyvia e precisa ser combinado com eles antes.** A URL continua tendo
+  de começar com `/campaigns-`, por causa da lista dura de URLs e das campanhas do Ads.
 - **Rolagem lateral herdada do reveal (achado durante o QA, 30/09).**
   `[data-reveal="left"/"right"]` entram deslocados 44px no eixo X (`base.css`).
   Enquanto a seção não é revelada, esse deslocamento empurra a borda direita e a

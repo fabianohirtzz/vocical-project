@@ -38,7 +38,7 @@
 }
 .tg-hero__title {
   font-family: var(--display); font-weight: 400;
-  font-size: clamp(2rem, 4.02vw, 2.95rem); line-height: 1.02;
+  font-size: clamp(1.95rem, 3.82vw, 2.84rem); line-height: 1.02;
   letter-spacing: -.025em; color: var(--ink); max-width: 16ch;
 }
 .tg-hero__title .accent { background: none; color: var(--red); padding: 0; border-radius: 0; }
