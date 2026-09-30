@@ -4,8 +4,9 @@
 import pkg from '/opt/node22/lib/node_modules/playwright/index.js';
 const { chromium } = pkg;
 import fs from 'fs';
+import path from 'path';
 
-const SP = process.argv[2];
+const SP = path.resolve(process.argv[2]);
 const icons = JSON.parse(fs.readFileSync(SP + '/coberturas-raw.json', 'utf8'));
 const b = await chromium.launch({
   executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome',

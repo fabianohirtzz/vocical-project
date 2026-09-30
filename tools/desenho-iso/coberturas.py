@@ -115,6 +115,25 @@ def telha_termoacustica():
     return o
 
 
+def telha_semi_sanduiche():
+    """Semi-sanduiche: chapa trapezoidal em cima e EPS colado por baixo, SEM a
+    chapa lisa de fechamento. E o que a diferencia da sanduiche inteira, entao o
+    nucleo fica exposto na face de baixo e o corte tem que mostrar isso."""
+    s, ox, oy = 1.42, 12, 46
+    comp = 23.0
+    nucleo = 4.6
+    sec_topo = sec_trapezoidal(3)
+    larg = sec_topo[-1][0]
+    o = ''
+    # nucleo de EPS, agora apoiado no vazio: sem liner embaixo
+    o += box((0, 0, 0.0), (comp, larg, nucleo), EPS, s, ox, oy,
+             sw=0.7, topmul=1.0, leftmul=0.94, rightmul=0.84)
+    # chapa trapezoidal apoiada no nucleo
+    o += perfil(rev([(y, z + nucleo) for (y, z) in sec_topo]), comp, GALVALUME,
+                s, ox, oy, sw=0.8, espessura=0.9)
+    return o
+
+
 # ---------------------------------------------------------------- acessorios
 def cumeeira():
     """Cumeeira: duas aguas dobradas sobre a crista, com o lip virado para baixo."""
@@ -225,6 +244,7 @@ ICONES = {
     'telha-trapezoidal': telha_trapezoidal(),
     'telha-ondulada': telha_ondulada(),
     'telha-termoacustica': telha_termoacustica(),
+    'telha-semi-sanduiche': telha_semi_sanduiche(),
     'telha-galvanizada': telha_galvanizada(),
     'telha-translucida': telha_translucida(),
     'telha-fibrocimento': telha_fibrocimento(),

@@ -35,6 +35,16 @@ def main():
         print('nenhum token no HTML, nada a fazer')
         return 0
 
+    # O token de icone precisa estar DENTRO de um <svg>: a geometria e so um <g>,
+    # e solta no HTML ela nao renderiza nada. Aconteceu em 01/10, com o icone da
+    # telha semi-sanduie, e so apareceu na contagem do QA.
+    for m in re.finditer(r'\{\{ICONE:([a-z0-9-]+)\}\}', html):
+        antes = html[max(0, m.start() - 60):m.start()]
+        if '<svg' not in antes:
+            print('ERRO: o token {{ICONE:%s}} nao esta dentro de um <svg>' % m.group(1),
+                  file=sys.stderr)
+            return 1
+
     faltando = [n for n in sorted(pedidos) if n not in icones and n not in desenhos]
     if faltando:
         print('ERRO: sem geometria para: ' + ', '.join(faltando), file=sys.stderr)

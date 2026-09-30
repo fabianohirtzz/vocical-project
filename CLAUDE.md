@@ -230,6 +230,40 @@ parece defeito. E `tools/checar-caminhos.py` só confere grafia/existência em d
   (4) confirmar quais marcas fornecem a linha de cobertura: o marquee hoje traz
   ArcelorMittal, CSN, Usiminas, Gerdau, Belgo, Brasilit, Imbralit e Infibra, escolhidas
   pelo que existe em `Imagens/Marcas/`. (5) `noindex` e fora do sitemap até aprovar.
+- **Revisão da diretoria nas duas LPs (01/10). Decisões que não devem ser revertidas:**
+  - **A LP de drywall é dividida em duas metades** (pedido do Bruno, BP Mídia): comercial
+    em cima (hero, medidor, dores, linha, ST/RU/Glasroc, calculadora, como comprar, para
+    quem é, autoridade, marcas, unidades, complemento, conversão) e, abaixo de um cabeçalho
+    **"Guia técnico de drywall — Informações para especificação, montagem e quantitativo"**,
+    a parte técnica: desenho da parede, perfis, desenho do forro, quantitativos, FAQ e
+    glossário. Os dois desenhos moravam dentro das seções de placas e de perfis e foram
+    destacados em seções próprias, cada um levando junto a foto que os ilustra, porque a
+    legenda dela diz "o mesmo sistema do desenho acima".
+  - **"O resto do pedido sai do mesmo lugar" virou uma faixa de uma linha** (`.dw-mais` /
+    `.tg-mais`), depois da parte institucional, com a copy do cliente: "Precisa complementar
+    o pedido? A Robracon também fornece...". Era uma seção escura inteira com lista de
+    cinco itens. **Não voltar a inflar.**
+  - **⚠️ O vendedor da Robracon NÃO faz especificação técnica** (confirmado pela Mariana, do
+    cliente). A LP de telha prometia isso em 6 lugares e vendia como diferencial em duas das
+    quatro dores. Tudo reescrito: a página agora promete **fornecimento completo contra a
+    especificação que o cliente traz**, não assessoria. As dores 3 e 4 viraram "Chega
+    diferente do especificado" e "Orçamento que demora a voltar". **Não reintroduzir
+    "vendedor técnico ajuda a especificar" em nenhuma página.**
+  - **Quem compra telha em geral já tem o quantitativo no projeto.** A seção de consumo e a
+    calculadora continuam, mas como **conferência** e para quem não tem projeto (telhado
+    menor, reforma, casa caixote), não como a promessa principal.
+  - **Telha semi-sanduíche existe e faltava:** só a chapa de cima com o isopor colado por
+    baixo, **sem a segunda chapa**. Entrou na grade, na tabela de nomes, no guia, no
+    glossário, na FAQ e no JSON-LD, com ícone próprio em `coberturas.py`.
+  - **Fibrocimento e translúcida saíram da grade de produtos da LP de telha**, que ficou só
+    com a linha metálica (11 itens). As duas são citadas na faixa de complemento.
+  - **Casa caixote** é uso corrente de telha galvalume na região e entrou no card de
+    trapezoidal e no card de revendas.
+- **⚠️ Token de ícone tem que nascer dentro de um `<svg>` (01/10).** A geometria em
+  `coberturas-final.json` é só um `<g transform=...>`, sem o elemento `<svg>`. Escrevi
+  `<span class="tg-item__ic">{{ICONE:x}}</span>` sem o `<svg viewBox="0 0 64 64">` em volta
+  e o ícone simplesmente não renderizou, sem erro nenhum: só apareceu na contagem do QA.
+  O `tools/injeta-icones-telha.py` agora recusa um token que não esteja dentro de um `<svg>`.
 - **Fotos da LP de drywall (`img/drywall/`): são imagens geradas, ilustrativas do sistema
   construtivo, não registro das unidades.** Dez no total: estoque, as três placas lado a
   lado, perfis, forro, montagem de parede, tratamento de junta, carregamento e as três de

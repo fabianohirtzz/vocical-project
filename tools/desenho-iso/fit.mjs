@@ -1,6 +1,7 @@
 import { chromium } from 'playwright';
 import fs from 'fs';
-const SP = process.argv[2];
+import path from 'path';
+const SP = path.resolve(process.argv[2]);
 const icons = JSON.parse(fs.readFileSync(SP + '/icones-raw.json', 'utf8'));
 const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' });
 const p = await b.newPage();
