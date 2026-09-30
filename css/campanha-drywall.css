@@ -542,3 +542,25 @@ body.dwz-open { overflow: hidden; }
   -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
   mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
 }
+
+/* ============================================================
+   Rodape no mobile: o caminhao logo abaixo do card, com respiro
+   ------------------------------------------------------------
+   A regra global usa a foto como fundo de TODO o rodape, entao o tamanho da cena
+   passava a depender da altura do card e o caminhao caia fora da area visivel.
+   Aqui a cena vira uma faixa propria, colada no rodape, com a janela de recorte
+   travada na proporcao da foto: --cena-h define a altura e o background-size sai
+   dela, entao o enquadramento e o mesmo em qualquer largura. O max(...,100%)
+   garante que a foto cubra a largura quando a altura bate no teto do clamp.
+   Escopo: este arquivo so carrega nesta pagina.
+   ============================================================ */
+@media (max-width: 880px) {
+  #site-footer { --cena-h: clamp(210px, 65vw, 400px); background: #fefefe; }
+  .ft-hero__bg {
+    top: auto; bottom: 0; height: var(--cena-h);
+    background: url(../Imagens/footer-mobile.jpg) center bottom / max(calc(var(--cena-h) * 2.08), 100%) auto no-repeat, #fefefe;
+    /* geometria travada: o parallax deslocaria a faixa e abriria falha embaixo */
+    transform: none !important;
+  }
+  .ft-hero__inner { padding-bottom: calc(var(--cena-h) + clamp(28px, 7vw, 52px)); }
+}

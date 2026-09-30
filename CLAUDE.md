@@ -292,6 +292,14 @@ parece defeito. E `tools/checar-caminhos.py` só confere grafia/existência em d
   (`drywall-calc.js`) são JS. **Não migrar essa página para o template de unidade.**
   Estilo em `css/campanha-drywall.css` (prefixo `.dw-`), reaproveitando base, pages,
   unidade e calculadoras. FAQ em `<details>`, que dispensa JS e continua rastreável.
+  **Rodapé no mobile (só nesta página):** a regra global de `site.css` usa a foto como
+  fundo do rodapé inteiro, então o tamanho da cena passa a depender da altura do card e
+  o caminhão sai da área visível. Aqui a cena vira uma faixa própria colada no rodapé,
+  com a janela de recorte travada: `--cena-h` define a altura e o `background-size` sai
+  dela, então o enquadramento é o mesmo em qualquer largura. O parallax é neutralizado
+  nessa faixa, senão o deslocamento abriria falha embaixo. O override mora em
+  `campanha-drywall.css`, que só carrega nesta página: o rodapé das outras 14 segue
+  como estava. **Se for padronizar no site todo, o lugar é `site.css`.**
   **Padrões de mobile dessa página (30/09):** as duas tabelas viram blocos empilhados
   abaixo de 760px, com o cabeçalho de coluna repetido em cada célula por
   `td[data-col]` e `::before` — nada de rolagem lateral. Os dois desenhos técnicos
