@@ -35,7 +35,7 @@ CSS = ['base', 'site', 'pages', 'unidade', 'calculadoras', 'lead', 'fonts']
 # Aviso de foto por LP. Sem entrada, vale o texto genérico.
 AVISO_FOTO = {
     'campaigns-robracon-telha-galvalume':
-        'Só a foto da telha ondulada ainda é provisória.',
+        'Os números técnicos ainda dependem de validação com a equipe da Robracon.',
 }
 JS = ['config', 'layout', 'lead', 'main', 'cta']
 

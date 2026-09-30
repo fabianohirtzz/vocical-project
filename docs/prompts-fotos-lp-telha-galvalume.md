@@ -4,13 +4,13 @@ Dez fotos, no mesmo padrão das dez da LP de drywall. Vão para `img/telha/`, nu
 para `Imagens/`, que é o acervo do cliente: a distinção entre foto real e foto
 gerada precisa continuar óbvia.
 
-## Situação (30/09, atualizada)
+## Situação (fechada em 30/09)
 
-**Falta uma: a número 3, `telha-ondulada.jpg`.** Todas as outras nove estão no lugar.
+**As dez estão no lugar.** Nada pendente de geração.
 
 Três slots foram resolvidos com **foto real** do acervo do cliente, da operação de
-Rondonópolis, e são melhores que qualquer foto gerada — por serem reais e da unidade,
-a legenda ali pode falar em primeira pessoa, o que o resto das fotos da página não pode:
+Rondonópolis, e são melhores que qualquer foto gerada: por serem reais e da unidade,
+a legenda ali pode falar em primeira pessoa, o que o resto das fotos da página não pode.
 
 | Slot | Resolvido por | O que mostra |
 |---|---|---|
@@ -18,48 +18,46 @@ a legenda ali pode falar em primeira pessoa, o que o resto das fotos da página 
 | 10. `bobina-galvalume.jpg` | `Imagens/Robracon ROO/robracon1 (14).png` | Bobina na desbobinadeira, alimentando a linha |
 | extra: `corte-dobra-chapa.jpg` | `Imagens/Robracon ROO/corte-dobra-chapa.png` | Dobradeira conformando chapa, de onde saem calha e rufo |
 
-As geradas entraram em 30/09: a 9 primeiro, depois as seis restantes (1, 2, 4, 5,
-6 e 7). Recortadas na
-proporção de cada slot, 1500 x 1000 (3:2), 1200 x 900 (4:3) ou 1500 x 844 (16:9),
-JPEG 82 progressivo. **Não passam pelo `tools/tratar-foto.py`:** aquilo é para foto
-de acervo escura, e estas já nascem limpas do gerador; mexer só degradaria.
+**Antes de escrever prompt, varrer o acervo.** As fotos de cobertura em
+`Imagens/Produtos/` são miniaturas de 150 por 150 pixels e não servem, mas as das
+pastas de unidade servem, e eu quase gerei foto para algo que o cliente já tinha
+fotografado.
 
-Sobrou uma reserva, `montagem-cobertura-alt.jpg`, que é um segundo enquadramento do
-telhado em montagem. Está no repositório mas fora da página, para o caso de querer
-trocar sem gerar de novo.
+As outras sete são geradas, porque são produto isolado e telhado montado, que o acervo
+não tem. Recortadas na proporção de cada slot, 1500 x 1000 (3:2), 1200 x 900 (4:3) ou
+1500 x 844 (16:9), JPEG 82 progressivo. **Não passam pelo `tools/tratar-foto.py`:**
+aquilo é para foto de acervo escura, e estas já nascem limpas do gerador; mexer só
+degradaria.
 
-### A 3 precisa de outra rodada, e o motivo importa
+Sobrou uma reserva, `montagem-cobertura-alt.jpg`, segundo enquadramento do telhado em
+montagem. Está no repositório mas fora da página, para trocar sem gerar de novo.
 
-O gerador entregou **trapezoidal de passo estreito**, não ondulada: dobra viva e vale
-plano, só com as ondas mais juntas. O card diz, na linha "Como reconhecer", **"ondas
-curvas e contínuas, sem vale plano"** — colocar essa foto ali contradiz o próprio texto
-que ensina a distinguir uma da outra, que é a razão de ser do card.
+### A ondulada custou duas rodadas, e o motivo vale para a próxima LP
 
-É a mesma classe de armadilha da proporção no drywall: **"corrugated roofing sheet"
-em metal quase sempre devolve chapa nervurada**, porque é isso que domina o
-treinamento. A correção é descrever a seção como senoide, proibir explicitamente
-segmento reto e dobra viva, e pôr "trapezoidal" no negative prompt. O prompt 3 abaixo
-já está reescrito assim.
+A primeira rodada devolveu **trapezoidal de passo estreito**, não ondulada: dobra viva
+e vale plano, só com as ondas mais juntas. Não dava para usar, porque o card diz na
+linha "Como reconhecer" que a ondulada tem **"ondas curvas e contínuas, sem vale plano"**
+— a foto contradiria o próprio texto que ensina a distinguir uma da outra, que é a razão
+de ser do card.
 
----|---|---|
-| 8. `producao-sob-medida.jpg` | `Imagens/Robracon ROO/robracon1 (13).png` | Telha trapezoidal saindo conformada dos rolos da perfiladeira |
-| 10. `bobina-galvalume.jpg` | `Imagens/Robracon ROO/robracon1 (14).png` | Bobina na desbobinadeira, alimentando a linha |
-| extra: `corte-dobra-chapa.jpg` | `Imagens/Robracon ROO/corte-dobra-chapa.png` | Dobradeira conformando chapa, de onde saem calha e rufo |
+A causa é a mesma classe da proporção no drywall: **"corrugated roofing sheet" em metal
+quase sempre devolve chapa nervurada**, porque é isso que domina o treinamento.
 
-**São muito melhores que uma foto gerada**, porque são a operação real da unidade
-e permitem a página falar em primeira pessoa justamente na seção que é o
-diferencial dela. Já estão processadas em `img/telha/`, recortadas em 3:2,
-1500 x 1000, JPEG 82. Os originais em `Imagens/` não foram tocados.
+O que resolveu, e que está no prompt 3 abaixo:
 
-**Ainda falta gerar: só a número 9**, `carregamento-telhas.jpg`. O acervo tem uma
-foto de carregamento (`robracon1 (7).png`), mas o caminhão está sendo carregado
-com sacos de cimento, e a legenda da seção fala de telha comprida. Usar essa seria
-mentir na legenda.
-
-As de 1 a 7 seguem valendo como geradas: são produto isolado e telhado montado, que
-o acervo não tem.
-
----
+1. **Repetir a proibição de três formas.** Uma só o gerador atropela. Seção como senoide
+   pura; depois "no straight segments anywhere, no flat valleys, no flat crests and no
+   sharp folds or creases of any kind"; e por fim o comportamento da luz, que "grades
+   softly and continuously around each curve instead of breaking at an edge". O terceiro
+   costuma pesar mais que a descrição da forma, porque o modelo entende bem o que é uma
+   quina refletindo.
+2. **Referência de produto conhecido:** "the same wave shape as a classic corrugated
+   fibre cement or corrugated zinc sheet".
+3. **Medida da onda em número:** 18 mm de profundidade, passo de 76 mm, cerca de treze
+   ondas na largura. Número já tinha resolvido a proporção da placa no drywall, e aqui
+   evitou três ondas gigantes.
+4. **"trapezoidal" no negative prompt**, junto de straight ribs, flat valleys, sharp
+   folds e box profile.
 
 **Por que gerar.** As fotos de cobertura que existem no acervo
 (`Imagens/Produtos/TELHAS.jpg`, `bobina-galvalume.jpg`, `telha-termoacustica.jpg`,
@@ -129,7 +127,7 @@ no labels, no logos, no watermarks, no people. Photorealistic, 4:3 landscape,
 high detail.
 ```
 
-## 3. `telha-ondulada.jpg` · 4:3 · **A ÚNICA QUE AINDA FALTA**
+## 3. `telha-ondulada.jpg` · 4:3 · card do guia técnico — PRONTA na segunda rodada
 
 Negative prompt desta aqui, além do comum: `trapezoidal profile, straight ribs,
 flat valleys, sharp folds, angular creases, box profile, standing seam`.

@@ -208,18 +208,22 @@ parece defeito. E `tools/checar-caminhos.py` só confere grafia/existência em d
   **Antes de escrever prompt, varrer o acervo.** As de cobertura em `Imagens/Produtos/`
   são miniaturas de 150px e não servem, mas as das pastas de unidade servem, e eu quase
   gerei foto para algo que o cliente já tinha fotografado.
-  **Pendências antes de publicar:** (1) falta gerar só a `telha-ondulada.jpg`. As
-  outras nove estão no lugar desde 30/09. **A ondulada já voltou errada uma vez:** o
-  gerador entregou trapezoidal de passo estreito, com dobra viva e vale plano, e o card
-  diz na linha "Como reconhecer" que a ondulada tem "ondas curvas e contínuas, sem vale
-  plano" — a foto contradizia o texto que ensina a distinguir uma da outra, que é a razão
-  de ser do card. **"corrugated roofing sheet" em metal quase sempre devolve chapa
-  nervurada.** O prompt 3 em `docs/prompts-fotos-lp-telha-galvalume.md` foi reescrito
-  descrevendo a seção como senoide, proibindo segmento reto e dobra viva, e com
-  "trapezoidal" no negative prompt. Há uma reserva no repositório, fora da página:
-  `montagem-cobertura-alt.jpg`, segundo enquadramento do telhado em montagem.
+  ✅ **As dez fotos estão no lugar desde 30/09**, nada pendente de geração.
+  **A ondulada voltou errada na primeira rodada e a lição fica:** o gerador entregou
+  trapezoidal de passo estreito, com dobra viva e vale plano, e o card diz na linha
+  "Como reconhecer" que a ondulada tem "ondas curvas e contínuas, sem vale plano" — a
+  foto contradizia o texto que ensina a distinguir uma da outra, que é a razão de ser do
+  card. **"corrugated roofing sheet" em metal quase sempre devolve chapa nervurada.**
+  O que resolveu, no prompt 3 de `docs/prompts-fotos-lp-telha-galvalume.md`: repetir a
+  proibição de três formas (seção como senoide pura; "no straight segments, no flat
+  valleys, no flat crests, no sharp folds"; e o comportamento da luz, que grada na curva
+  em vez de quebrar na quina), somar a referência de produto conhecido (telha ondulada de
+  fibrocimento ou de zinco), dar a medida da onda em número (18 mm de profundidade, passo
+  de 76 mm) e pôr "trapezoidal" no negative prompt. Há uma reserva no repositório, fora da
+  página: `montagem-cobertura-alt.jpg`, segundo enquadramento do telhado em montagem.
   **As geradas não passam pelo `tools/tratar-foto.py`** — aquilo é para foto de acervo
-  escura; estas já nascem limpas e o tratamento só degradaria. (2) validar com a equipe técnica da Robracon a inclinação mínima por perfil,
+  escura; estas já nascem limpas e o tratamento só degradaria.
+  **Pendências antes de publicar:** (1) validar com a equipe técnica da Robracon a inclinação mínima por perfil,
   a largura útil das telhas que a unidade trabalha, o consumo de parafuso por m² e o
   vão entre terças; a página já diz que são referências a confirmar, e a calculadora
   também. (3) confirmar o comprimento máximo de produção sob medida e o prazo.
