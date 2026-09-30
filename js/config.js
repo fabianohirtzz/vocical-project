@@ -168,8 +168,8 @@ window.VOCICAL = {
   CATEGORIAS: [
     { slug: 'materiais-de-construcao', nome: 'Materiais de Construção', desc: 'Cimento, cal, argamassas, tubos, conexões, caixas d’água e louças.', img: 'Imagens/back2.jpg' },
     { slug: 'aco', nome: 'Aço Construção Civil', desc: 'Vergalhões, telas, treliças, colunas, sapatas e estribos.', img: 'Imagens/corte-e-dobra-de-vergalhao.png' },
-    { slug: 'estruturais', nome: 'Estruturais e Serralheria', desc: 'Metalon, perfis, chapas, cantoneiras e barras chatas.', img: 'Imagens/serralheria.png' },
-    { slug: 'coberturas', nome: 'Coberturas', desc: 'Telhas galvalume, termoacústicas, fibrocimento e transparentes.', img: 'Imagens/industrias.png' },
+    { slug: 'estruturais', nome: 'Estruturais e Serralheria', desc: 'Metalon, perfis, chapas, cantoneiras e barras chatas.', img: 'Imagens/Robracon ROO Drive/estruturais-tubos-pintados.jpg' },
+    { slug: 'coberturas', nome: 'Coberturas', desc: 'Telhas galvalume, termoacústicas, fibrocimento e transparentes.', img: 'Imagens/Robracon ROO/robracon1 (13).png' },
     { slug: 'drywall', nome: 'Drywall', desc: 'Placas ST, RU e Glasroc, perfis, gesso e acessórios.', img: 'Imagens/drywall.jpg' },
     { slug: 'agronegocio', nome: 'Agronegócio', desc: 'Arames farpados e ovalados galvanizados para cercas.', img: 'Imagens/agronegocio.png' }
   ],
