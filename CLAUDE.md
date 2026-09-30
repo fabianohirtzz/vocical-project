@@ -183,14 +183,17 @@ parece defeito. E `tools/checar-caminhos.py` só confere grafia/existência em d
   substituída por prova de porte enquanto não houver); (5) confirmar que Cuiabá e Sinop
   atendem drywall por carga combinada de Rondonópolis; (6) confirmar com a Zyvia se o
   endpoint aceita `necessidade` no payload e então ligar `LEAD.ENVIAR_NECESSIDADE` no
-  `config.js`; (7) três fotos de placa (ST, RU e Glasroc X) para os cards do guia técnico,
-  que hoje mostram o desenho isométrico da peça e têm o ponto de troca marcado em
-  comentário no HTML. A página está `noindex, follow` e fora do sitemap até a aprovação:
+  `config.js`. A página está `noindex, follow` e fora do sitemap até a aprovação:
   é uma linha só para mudar, marcada em comentário no `<head>`. Spec em
   `docs/superpowers/specs/2026-09-13-lp-drywall-robracon-design.md`.
 - **Fotos da LP de drywall (`img/drywall/`): são imagens geradas, ilustrativas do sistema
-  construtivo, não registro das unidades.** Sete no total: estoque, as três placas lado a
-  lado, perfis, forro, montagem de parede, tratamento de junta e carregamento. Ficam em
+  construtivo, não registro das unidades.** Dez no total: estoque, as três placas lado a
+  lado, perfis, forro, montagem de parede, tratamento de junta, carregamento e as três de
+  placa isolada (`placa-st`, `placa-ru`, `glasroc-x`) que ilustram os cards do guia técnico.
+  `placas-st-ru-glasroc.jpg`, das três lado a lado, saiu da página quando a seção virou três
+  cards, e ficou no repositório para o caso de voltar.
+  **As três de placa isolada foram geradas com a proporção declarada no prompt** (1,20 por
+  2,40 m, duas vezes mais comprida que larga): sem isso o gerador entrega a placa quadrada. Ficam em
   `img/` (assets do projeto) e não em `Imagens/` (acervo do cliente), de propósito: a
   distinção entre foto real e foto gerada precisa continuar óbvia. **Regra de legenda e de
   alt: descrever o produto e o processo, nunca em primeira pessoa** ("estoque de placas e
