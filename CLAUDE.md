@@ -49,14 +49,16 @@ vocical-project/
 │   distribuidoras-sp/  rp-cimento-cal/[redirect]
 ├── campaigns-robracon-roo/                      # LP de campanha (sem menu)
 ├── campaigns-robracon-drywall/                  # LP de campanha drywall (HTML estático)
+├── campaigns-robracon-telha-galvalume/          # LP de telha galvalume (idem)
 ├── 404.html  robots.txt  sitemap.xml  .htaccess
 ├── enviar-trabalhe-conosco.php                  # handler PHP do form (roda só na erehost)
 ├── marcas/                                      # só protótipos de dev (não sobem)
 ├── css/   base, site, pages, home, hero-preview, lead, contato, calculadoras,
-│          campanha-drywall, fonts
+│          campanha-drywall, campanha-telha, fonts
 ├── js/    config, marcas-data, catalogo, layout, lead, home, produtos, marca, unidade,
 │          unidades-data, mapa, mapa-geo(gerado), hero-preview, produtos-hero, blur-text,
-│          timeline, main, cta, calculadoras, trabalhe-conosco, drywall-calc, drywall-zoom
+│          timeline, main, cta, calculadoras, trabalhe-conosco, drywall-calc, drywall-zoom,
+│          telha-calc, desenho-zoom
 ├── fonts/ (Archivo + Archivo Black, woff2)  ·  img/  videos/
 └── tools/gerar-mapa.mjs                         # gera js/mapa-geo.js
 ```
@@ -69,7 +71,7 @@ cima delas. **Nunca renomear uma pasta de página sem 301 correspondente.**
 `/vocical-votuporanga-sp/` · `/jacical-jales-sp/` · `/ello-forte-ribeirao-preto-sp/` ·
 `/ello-forte-sao-carlos-sp/` · `/robracon-cuiaba-mt/` · `/robracon-rondonopolis-mt/` ·
 `/robracon-sinop-mt/` · `/distribuidoras-sp/` · `/campaigns-robracon-roo/` ·
-`/campaigns-robracon-drywall/`
+`/campaigns-robracon-drywall/` · `/campaigns-robracon-telha-galvalume/`
 Pasta com `index.html` (barra final), sem rewrite: o DirectoryIndex resolve e os
 caminhos relativos (`../css/`) seguem válidos em qualquer profundidade e na subpasta
 de teste. Roteamento em JS: `config.js` `URL_UNIDADE` + `VOCICAL.urlUnidade()`.
@@ -193,6 +195,18 @@ parece defeito. E `tools/checar-caminhos.py` só confere grafia/existência em d
   incomodava na leitura. Os fatos seguem no JSON-LD (FAQPage com 18 perguntas,
   HardwareStore com as 3 unidades e o OfferCatalog) e no corpo do texto, que é o que
   os crawlers de IA leem. **Não reabrir como bug.**
+- **LP de telha galvalume, pendências antes de publicar:** (1) **as dez fotos ainda
+  são placeholders**, cinza com a faixa "FOTO A GERAR", em `img/telha/`. Os prompts
+  estão em `docs/prompts-fotos-lp-telha-galvalume.md`, já com a proporção escrita com
+  número. Os nomes e as proporções dos arquivos são os definitivos: é só substituir
+  arquivo por arquivo, sem tocar no HTML. As do acervo não servem, são miniaturas de
+  150px. (2) validar com a equipe técnica da Robracon a inclinação mínima por perfil,
+  a largura útil das telhas que a unidade trabalha, o consumo de parafuso por m² e o
+  vão entre terças; a página já diz que são referências a confirmar, e a calculadora
+  também. (3) confirmar o comprimento máximo de produção sob medida e o prazo.
+  (4) confirmar quais marcas fornecem a linha de cobertura: o marquee hoje traz
+  ArcelorMittal, CSN, Usiminas, Gerdau, Belgo, Brasilit, Imbralit e Infibra, escolhidas
+  pelo que existe em `Imagens/Marcas/`. (5) `noindex` e fora do sitemap até aprovar.
 - **Fotos da LP de drywall (`img/drywall/`): são imagens geradas, ilustrativas do sistema
   construtivo, não registro das unidades.** Dez no total: estoque, as três placas lado a
   lado, perfis, forro, montagem de parede, tratamento de junta, carregamento e as três de
@@ -286,6 +300,9 @@ parece defeito. E `tools/checar-caminhos.py` só confere grafia/existência em d
   combinadas `robracon.html` e `ello-forte.html` (uma página por marca, várias
   unidades) foram removidas em favor das landings por cidade.
 - **Para construir a PRÓXIMA LP de campanha: `docs/playbook-lp-campanha.md`.**
+  Já foi usado uma vez, na LP de telha galvalume, e funcionou: o que mudou de método
+  ali (injeção por token, zoom genérico, conjunto de opções por página) está descrito
+  nos blocos das duas LPs abaixo.
   O método completo, escrito a partir da LP de drywall, que é o modelo: blueprint das 17
   seções, SEO e GEO, contrato do formulário, assets gerados com os prompts, as regras de
   mobile que reprovaram em revisão, o roteiro de QA, a receita da prévia, um catálogo de
@@ -324,6 +341,44 @@ parece defeito. E `tools/checar-caminhos.py` só confere grafia/existência em d
   dobrada extrudado segmento a segmento, com sombreamento pela orientação da face) e
   devolve o SVG pronto. São 21 ícones, usados na linha de produto, no glossário e nos
   cards de público. Ícone novo ou ajuste de peça é lá, não no HTML.
+- **LP de campanha de telha galvalume (`/campaigns-robracon-telha-galvalume/`).**
+  Segunda LP do padrão, construída a partir de `docs/playbook-lp-campanha.md`. Mesmas
+  regras duras da de drywall: HTML estático por causa do GEO, `noindex` até aprovar,
+  rastreamento portado, `api.whatsapp.com`. Estilo em `css/campanha-telha.css`
+  (prefixo `.tg-`), derivado do arquivo da LP de drywall para que as regras de mobile
+  que reprovaram em revisão lá já nascessem aplicadas aqui.
+  **18 seções**, uma a mais que o blueprint: "Telha no comprimento do seu projeto",
+  porque a produção sob medida é o diferencial da unidade de Rondonópolis e não cabia
+  dentro de nenhuma das outras.
+  **Ícones e desenhos:** `tools/desenho-iso/coberturas.py` (13 ícones) e
+  `desenhos-cobertura.py` (2 desenhos técnicos). Telha é chapa dobrada, então
+  trapezoidal, ondulada, cumeeira, rufo, calha, terça e tapa-onda saem de `perfil()`,
+  com a forma real da peça. **As seções de telha são percorridas ao contrário de
+  propósito** (`rev()`): `perfil()` tira a normal do sentido do percurso, e sem
+  inverter a telha renderiza com a luz vindo de baixo e sai chapada de escuro.
+  A telha dos desenhos é inclinada, o que `Cena.perfil` não faz, então a seção anda
+  junto com o caimento.
+  **Injeção por token, não por regex.** `tools/injeta-icones-telha.py` substitui
+  `{{ICONE:nome}}` e `{{DESENHO:nome}}` por igualdade exata. Na LP de drywall a
+  injeção foi por regex ancorada no `<h3>` do card, o `.*?` atravessou o fim do bloco
+  e duplicou artigos inteiros dentro dos cards. **Token não tem esse risco. Usar este
+  caminho nas próximas.**
+  **Visualizador de desenho:** `js/desenho-zoom.js`, versão genérica do
+  `drywall-zoom.js`. Atende qualquer `[data-zoom]` e aceita tanto
+  `data-zoom-abrir`/`data-zoom-area` quanto as classes das LPs existentes. É o que a
+  próxima LP reusa; o `drywall-zoom.js` continua só para a LP de drywall, que não foi
+  tocada.
+  **Calculadora:** `js/telha-calc.js`. Calcula pela medida do vão, e o resultado
+  principal é o **comprimento de cada telha**, porque a unidade produz sob medida. A
+  margem de perda entra nos acessórios e **não** na telha, que sai na medida exata.
+- **Rolagem lateral herdada do reveal (achado durante o QA, 30/09).**
+  `[data-reveal="left"/"right"]` entram deslocados 44px no eixo X (`base.css`).
+  Enquanto a seção não é revelada, esse deslocamento empurra a borda direita e a
+  página ganha **24px de rolagem lateral num celular de 390**. Medido em home,
+  unidade, LP da ROO e LP de drywall: é geral, não é desta página. Na LP de telha
+  está corrigido na causa, dentro de `campanha-telha.css`: abaixo de 900px esses dois
+  reveals entram por baixo, como o padrão. **Se for padronizar no site todo, o lugar
+  é o `base.css`.**
 - **Widget Vico com mais de um formulário na página:** `lead.js` monta instância
   inline em `#lead-inline` **e** em qualquer `[data-lead-inline]`. `data-lead-produto="X"`
   já deixa o produto escolhido e `data-lead-produto-fixo` esconde a pergunta de produto
@@ -338,7 +393,13 @@ parece defeito. E `tools/checar-caminhos.py` só confere grafia/existência em d
   rótulo), `data-lead-produto="X"` + `data-lead-produto-fixo` (produto pré-escolhido e
   escondido também no modal, não só nos inline).
 - **Campo "O que você precisa?" (`necessidade`).** Opções em `config.js`
-  (`LEAD.NECESSIDADES`, com `id` slug estável e `label` lido pelo usuário). É obrigatório
+  (`LEAD.NECESSIDADES`, com `id` slug estável e `label` lido pelo usuário).
+  **Conjunto por página:** `data-lead-necessidade="<chave>"` escolhe
+  `LEAD.NECESSIDADES_POR_PAGINA[chave]`; sem valor no atributo vale o conjunto padrão.
+  Cada LP qualifica o pedido com as opções da sua linha, senão a página de telha
+  ofereceria "Placas de drywall". Hoje existe a chave `telha` (7 opções). Os `id`
+  continuam sendo slugs estáveis, porque é por eles que o gestor de tráfego monta
+  dimensão e relatório. É obrigatório
   onde aparece. Por onde o dado sai: (1) **handoff do WhatsApp**, sempre, na linha
   "O que eu preciso:"; (2) **meutrack**, como `necessidade` e `necessidade_label` no
   `TrackHub.track`; (3) **dataLayer do GTM**, no evento `vico_lead`, com

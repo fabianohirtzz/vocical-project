@@ -28,6 +28,17 @@
   }
   function rotuloEnvio() { return pageOpt('submit') || 'Quero ser atendido'; }
 
+  /* Opções do campo "O que você precisa?". Sem valor no atributo vale o conjunto
+     padrão (LEAD.NECESSIDADES). Com valor, data-lead-necessidade="telha" escolhe o
+     conjunto LEAD.NECESSIDADES_POR_PAGINA.telha, porque cada LP qualifica o pedido
+     com as opções da sua linha: "Placas de drywall" não faz sentido numa página
+     de cobertura. */
+  function opcoesNecessidade() {
+    var chave = pageOpt('necessidade');
+    var porPagina = L.NECESSIDADES_POR_PAGINA || {};
+    return (chave && porPagina[chave]) || L.NECESSIDADES || [];
+  }
+
   /* ---- ícones hairline (sem emoji) ---- */
   var svg = ' viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"';
   var ICON = {
@@ -55,8 +66,9 @@
     /* "O que você precisa?" — qualificação extra do pedido. Só entra no card se a
        página pedir (data-lead-necessidade no <body>). Ver LEAD.NECESSIDADES. */
     var necBlock = '';
-    if (pageHas('necessidade') && (L.NECESSIDADES || []).length) {
-      var necOpts = '<option value="">Selecione</option>' + L.NECESSIDADES.map(function (n) {
+    var necLista = opcoesNecessidade();
+    if (pageHas('necessidade') && necLista.length) {
+      var necOpts = '<option value="">Selecione</option>' + necLista.map(function (n) {
         return '<option value="' + esc(n.id) + '">' + esc(n.label) + '</option>';
       }).join('');
       necBlock =

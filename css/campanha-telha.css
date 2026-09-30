@@ -92,7 +92,7 @@
 .tg-dor__p { margin-top: .6rem; color: #5a5a5a; font-size: .96rem; line-height: 1.6; }
 
 /* ---------- Grade da linha completa (15 itens) ---------- */
-.tg-itens { display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(10px, 1.2vw, 16px); margin-top: clamp(28px, 3.4vw, 42px); }
+.tg-itens { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(10px, 1.2vw, 16px); margin-top: clamp(28px, 3.4vw, 42px); }
 .tg-item {
   background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
   padding: clamp(1rem, 1.5vw, 1.3rem); box-shadow: var(--shadow-sm);
@@ -545,6 +545,18 @@ body.dwz-open { overflow: hidden; }
   .surface--dark .tg-table caption, .surface--char .tg-table caption,
   .surface--red .tg-table caption { color: rgba(255,255,255,.62); }
 }
+/* ---------- Rolagem lateral herdada do reveal ----------
+   [data-reveal="left"/"right"] entram deslocados 44px no eixo X (base.css). Enquanto
+   a secao nao e revelada, esse deslocamento empurra a borda direita e a pagina ganha
+   rolagem lateral: 24px num celular de 390. Deslizar na horizontal numa tela estreita
+   nao acrescenta nada, entao aqui esses dois reveals entram por baixo, como o padrao.
+   Corrige a causa, em vez de esconder com overflow.
+   Escopo: este arquivo so carrega nesta pagina. A mesma coisa acontece na LP de
+   drywall e nas demais; se for padronizar, o lugar e o base.css. */
+@media (max-width: 900px) {
+  [data-reveal="left"], [data-reveal="right"] { transform: translateY(34px); }
+}
+
 /* marquee: as pontas somem em vez de cortar no meio do logo */
 .tg-marquee {
   -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);

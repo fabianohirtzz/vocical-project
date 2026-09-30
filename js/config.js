@@ -68,6 +68,22 @@ window.VOCICAL = {
       { id: 'lista',         label: 'Tenho uma lista de materiais' },
       { id: 'quantitativo',  label: 'Preciso de ajuda com o quantitativo' }
     ],
+    /* Conjuntos por página, escolhidos por data-lead-necessidade="<chave>".
+       Cada LP qualifica o pedido com as opções da sua própria linha: as de
+       drywall acima não servem numa página de cobertura. Sem chave no atributo,
+       vale o conjunto NECESSIDADES padrão. Os 'id' são slugs estáveis, porque é
+       por eles que o gestor de tráfego monta dimensão e relatório. */
+    NECESSIDADES_POR_PAGINA: {
+      telha: [
+        { id: 'telhas',        label: 'Telhas' },
+        { id: 'sob_medida',    label: 'Telha em comprimento sob medida' },
+        { id: 'estrutura',     label: 'Terças e estrutura de apoio' },
+        { id: 'arremates',     label: 'Cumeeira, rufo, calha e arremates' },
+        { id: 'linha_completa',label: 'Linha completa de cobertura' },
+        { id: 'lista',         label: 'Tenho uma lista ou o projeto' },
+        { id: 'quantitativo',  label: 'Preciso de ajuda com o quantitativo' }
+      ]
+    },
     /* O endpoint da Zyvia tem contrato fixo de campos (emp, canal, tipo_cliente,
        produto, nome, telefone, cidade, estado) e por padrão NÃO recebe extras.
        Quando a Zyvia confirmar que aceita 'necessidade' no payload, é só trocar
