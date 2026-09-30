@@ -1,5 +1,9 @@
 # LP de campanha: Drywall Robracon (MT)
 
+> Esta spec e o caso: objetivo, decisoes fechadas com o cliente, publico e
+> pendencias desta pagina. O **metodo**, generalizado para as proximas LPs,
+> esta em `docs/playbook-lp-campanha.md`, escrito depois que esta foi ao ar.
+
 Data: 2026-09-13
 URL: `/campaigns-robracon-drywall/`
 Origem: briefing do gestor de trafego (metodologia PROSP, 17 pecas) + decisoes do cliente.

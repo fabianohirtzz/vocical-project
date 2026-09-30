@@ -172,6 +172,8 @@ parece defeito. E `tools/checar-caminhos.py` só confere grafia/existência em d
   referência de copy/mix; itens marcados "a validar" (CNPJs, anos, serviços por local) só
   publicar após confirmação.
 - `copy-novo-site.md` — copy redigida para o novo site.
+- `docs/playbook-lp-campanha.md` — **método de construção de landing page de campanha**,
+  extraído da LP de drywall. É o documento a seguir para fazer a próxima.
 - Catálogo de produtos (página): 6 categorias reais (config.js `CATEGORIAS`):
   materiais-de-construcao, aco, estruturais, coberturas, drywall, agronegocio.
 
@@ -283,6 +285,11 @@ parece defeito. E `tools/checar-caminhos.py` só confere grafia/existência em d
   URL de cada unidade na ordem `siteExterno → pageSlug → slug`. As antigas páginas
   combinadas `robracon.html` e `ello-forte.html` (uma página por marca, várias
   unidades) foram removidas em favor das landings por cidade.
+- **Para construir a PRÓXIMA LP de campanha: `docs/playbook-lp-campanha.md`.**
+  O método completo, escrito a partir da LP de drywall, que é o modelo: blueprint das 17
+  seções, SEO e GEO, contrato do formulário, assets gerados com os prompts, as regras de
+  mobile que reprovaram em revisão, o roteiro de QA, a receita da prévia, um catálogo de
+  armadilhas já cometidas e o checklist de clonagem. **Ler antes de abrir arquivo.**
 - **LP de campanha de drywall (`/campaigns-robracon-drywall/`): HTML estático, de propósito.**
   As páginas de unidade e a LP `/campaigns-robracon-roo/` nascem em JS (`unidade.js`),
   o que o Google renderiza sem problema. Os crawlers de IA (GPTBot, ClaudeBot,
