@@ -34,6 +34,17 @@ def _cross(a, b):
     return (a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0])
 
 
+# Geometria da chamada numerada.
+# A pilula branca do rotulo comeca a PAD_PILULA antes do texto, entao o texto tem
+# que arrancar longe o bastante da bolinha para a pilula nao invadi-la:
+#   borda da pilula = cxn +- (GAP_NUM - PAD_PILULA)  >  borda da bolinha = cxn +- R_NUM
+# Com R_NUM 10.5 e PAD_PILULA 7.5, GAP_NUM 24 deixa 6px de respiro. Antes era 16,
+# o que punha a pilula 1.5px DENTRO da bolinha e comia o numero.
+R_NUM = 10.5
+PAD_PILULA = 7.5
+GAP_NUM = R_NUM + PAD_PILULA + 6.0
+
+
 class Cena:
     def __init__(self):
         self.grupos = []          # [(ordem, [faces])]
@@ -127,7 +138,7 @@ class Cena:
         for ancora, dx, dy, texto, num, anchor in self.marcas:
             ax, ay = T(ancora)
             tx, ty = ax + dx, ay + dy
-            larg = len(texto) * fonte * 0.60 + (30 if num is not None else 0)
+            larg = len(texto) * fonte * 0.60 + (R_NUM + GAP_NUM if num is not None else 0)
             if anchor == 'end':
                 tx = max(tx, larg + 8)
             elif anchor == 'start':
@@ -139,11 +150,11 @@ class Cena:
                         % (ax, ay, tx, ty))
             anot.append('<circle cx="%.1f" cy="%.1f" r="2.6" fill="#a60303"/>' % (ax, ay))
             if num is not None:
-                cxn = tx + (11 if anchor == 'start' else -11)
-                anot.append('<circle cx="%.1f" cy="%.1f" r="10.5" fill="#a60303"/>' % (cxn, ty))
+                cxn = tx + (R_NUM + .5 if anchor == 'start' else -(R_NUM + .5))
+                anot.append('<circle cx="%.1f" cy="%.1f" r="%.1f" fill="#a60303"/>' % (cxn, ty, R_NUM))
                 anot.append('<text x="%.1f" y="%.1f" text-anchor="middle" font-size="%d" font-weight="700" '
                             'fill="#fff">%s</text>' % (cxn, ty + 4.4, fonte - 2, num))
-                tx = cxn + (16 if anchor == 'start' else -16)
+                tx = cxn + (GAP_NUM if anchor == 'start' else -GAP_NUM)
             rotulo = ('<text x="%.1f" y="%.1f" text-anchor="%s" font-size="%d" fill="#3a3a3a">%s</text>'
                       % (tx, ty + 4.6, anchor, fonte, texto))
             if classe:
@@ -153,7 +164,7 @@ class Cena:
                 # que mede o bbox no navegador. O grupo leva a classe porque e ele
                 # que some no mobile, levando junto a pilula.
                 lt = len(texto) * fonte * 0.60
-                px, py = 7.0, 4.0
+                px, py = PAD_PILULA, 4.5   # mesmos valores do ajusta-rotulos.mjs
                 rx0 = tx - px if anchor == 'start' else (tx - lt - px if anchor == 'end' else tx - lt / 2 - px)
                 anot.append('<g class="%s"><rect data-fit="1" x="%.1f" y="%.1f" width="%.1f" height="%.1f" '
                             'rx="7" fill="#ffffff" fill-opacity="0.90"/>%s</g>'

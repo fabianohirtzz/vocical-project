@@ -380,6 +380,12 @@ parece defeito. E `tools/checar-caminhos.py` só confere grafia/existência em d
   onde cruza o desenho, ela salva a leitura. **A classe vai no `<g>`, não no `<text>`:**
   é o grupo que some no mobile, e assim a pílula some junto, e o `getBBox()` que
   reaperta o `viewBox` continua ignorando os dois.
+  **A pílula precisa arrancar longe da bolinha numerada (01/10).** A primeira versão
+  punha o texto a 16px do centro da bolinha; com raio 10.5 e padding 7.5 a pílula
+  começava 1,5px **dentro** dela e comia o número. A geometria agora sai de três
+  constantes no topo do `cena.py` (`R_NUM`, `PAD_PILULA`, `GAP_NUM = R_NUM + PAD_PILULA
+  + 6`), que deixam 6px de respiro. Mexer no raio ou no padding sem mexer no `GAP_NUM`
+  traz o problema de volta.
   **O encaixe é medido na página servida, não num HTML solto.** A Archivo só carrega
   por http; medir com a fonte de fallback do sistema dava pílula com 35px de sobra de
   um lado e 7 do outro, porque o texto de fallback é mais largo e, com
