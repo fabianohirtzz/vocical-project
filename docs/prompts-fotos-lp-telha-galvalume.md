@@ -4,14 +4,44 @@ Dez fotos, no mesmo padrão das dez da LP de drywall. Vão para `img/telha/`, nu
 para `Imagens/`, que é o acervo do cliente: a distinção entre foto real e foto
 gerada precisa continuar óbvia.
 
-## Situação (30/09)
+## Situação (30/09, atualizada)
 
-Varri o acervo do cliente atrás de foto real antes de gerar mais nada. A pasta
-`Imagens/Robracon ROO/` tem 17 fotos grandes da unidade, e três delas resolvem
-slots que estavam na lista para gerar:
+**Falta uma: a número 3, `telha-ondulada.jpg`.** Todas as outras nove estão no lugar.
+
+Três slots foram resolvidos com **foto real** do acervo do cliente, da operação de
+Rondonópolis, e são melhores que qualquer foto gerada — por serem reais e da unidade,
+a legenda ali pode falar em primeira pessoa, o que o resto das fotos da página não pode:
 
 | Slot | Resolvido por | O que mostra |
 |---|---|---|
+| 8. `producao-sob-medida.jpg` | `Imagens/Robracon ROO/robracon1 (13).png` | Telha trapezoidal saindo conformada dos rolos da perfiladeira |
+| 10. `bobina-galvalume.jpg` | `Imagens/Robracon ROO/robracon1 (14).png` | Bobina na desbobinadeira, alimentando a linha |
+| extra: `corte-dobra-chapa.jpg` | `Imagens/Robracon ROO/corte-dobra-chapa.png` | Dobradeira conformando chapa, de onde saem calha e rufo |
+
+As geradas entraram em 30/09: a 9 primeiro, depois as seis restantes (1, 2, 4, 5,
+6 e 7). Recortadas na
+proporção de cada slot, 1500 x 1000 (3:2), 1200 x 900 (4:3) ou 1500 x 844 (16:9),
+JPEG 82 progressivo. **Não passam pelo `tools/tratar-foto.py`:** aquilo é para foto
+de acervo escura, e estas já nascem limpas do gerador; mexer só degradaria.
+
+Sobrou uma reserva, `montagem-cobertura-alt.jpg`, que é um segundo enquadramento do
+telhado em montagem. Está no repositório mas fora da página, para o caso de querer
+trocar sem gerar de novo.
+
+### A 3 precisa de outra rodada, e o motivo importa
+
+O gerador entregou **trapezoidal de passo estreito**, não ondulada: dobra viva e vale
+plano, só com as ondas mais juntas. O card diz, na linha "Como reconhecer", **"ondas
+curvas e contínuas, sem vale plano"** — colocar essa foto ali contradiz o próprio texto
+que ensina a distinguir uma da outra, que é a razão de ser do card.
+
+É a mesma classe de armadilha da proporção no drywall: **"corrugated roofing sheet"
+em metal quase sempre devolve chapa nervurada**, porque é isso que domina o
+treinamento. A correção é descrever a seção como senoide, proibir explicitamente
+segmento reto e dobra viva, e pôr "trapezoidal" no negative prompt. O prompt 3 abaixo
+já está reescrito assim.
+
+---|---|---|
 | 8. `producao-sob-medida.jpg` | `Imagens/Robracon ROO/robracon1 (13).png` | Telha trapezoidal saindo conformada dos rolos da perfiladeira |
 | 10. `bobina-galvalume.jpg` | `Imagens/Robracon ROO/robracon1 (14).png` | Bobina na desbobinadeira, alimentando a linha |
 | extra: `corte-dobra-chapa.jpg` | `Imagens/Robracon ROO/corte-dobra-chapa.png` | Dobradeira conformando chapa, de onde saem calha e rufo |
@@ -99,22 +129,30 @@ no labels, no logos, no watermarks, no people. Photorealistic, 4:3 landscape,
 high detail.
 ```
 
-## 3. `telha-ondulada.jpg` · 4:3 · card do guia técnico
+## 3. `telha-ondulada.jpg` · 4:3 · **A ÚNICA QUE AINDA FALTA**
+
+Negative prompt desta aqui, além do comum: `trapezoidal profile, straight ribs,
+flat valleys, sharp folds, angular creases, box profile, standing seam`.
 
 ```
-Commercial product photograph of a single galvalume corrugated roofing sheet
-inside a clean, well organized warehouse. The sheet measures 1 metre wide by
-3 metres long, exactly three times as long as it is wide, clearly elongated and
-never square. It leans at a diagonal against a smooth light grey concrete wall,
-and the entire sheet is visible within the frame from one end to the other. The
-defining trait: continuous rounded sinusoidal waves running the full length of
-the sheet, soft and repetitive, with no flat valleys and no sharp folds, clearly
-different from a trapezoidal profile. Galvalume finish: matte aluminium-zinc
-coated steel, light neutral silver with a faint crystalline spangle, not
-mirrored. Soft even daylight from a large side opening, shallow depth of field.
-Neutral color grading, modern and well maintained space, smooth level concrete
-floor in good repair. No text, no labels, no logos, no watermarks, no people.
-Photorealistic, 4:3 landscape, high detail.
+Commercial product photograph of a single corrugated metal roofing sheet with a
+sinusoidal wave profile, inside a clean, well organized warehouse. The sheet
+measures 1 metre wide by 3 metres long, exactly three times as long as it is
+wide, clearly elongated and never square. It leans at a diagonal against a
+smooth light grey concrete wall, and the entire sheet is visible within the
+frame from one end to the other. The defining trait, which must be unmistakable:
+the cross section is a pure sine wave, a continuous smooth curve from crest to
+trough with no straight segments anywhere, no flat valleys, no flat crests and
+no sharp folds or creases of any kind, the same wave shape as a classic
+corrugated fibre cement or corrugated zinc sheet, about 18 mm deep with a wave
+pitch of about 76 mm, so roughly thirteen full waves across the width. The light
+grades softly and continuously around each curve instead of breaking at an edge.
+Galvalume finish: matte aluminium-zinc coated steel, light neutral silver with a
+faint crystalline spangle, not mirrored. Soft even daylight from a large side
+opening, shallow depth of field. Neutral color grading, modern and well
+maintained space, smooth level concrete floor in good repair. No text, no
+labels, no logos, no watermarks, no people. Photorealistic, 4:3 landscape, high
+detail.
 ```
 
 ## 4. `telha-termoacustica.jpg` · 4:3 · card do guia técnico
@@ -190,7 +228,7 @@ level concrete floor in good repair. Neutral color grading. No text, no labels,
 no logos, no watermarks, no people. Photorealistic, 3:2 landscape, high detail.
 ```
 
-## 9. `carregamento-telhas.jpg` · 16:9 · **A ÚNICA QUE AINDA FALTA**
+## 9. `carregamento-telhas.jpg` · 16:9 · pátio de carregamento — PRONTA
 
 ```
 Commercial photograph of long galvalume roofing sheets being loaded onto a modern
