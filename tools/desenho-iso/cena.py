@@ -88,7 +88,7 @@ class Cena:
     def marca(self, ancora, dx, dy, texto, num=None, anchor='start'):
         self.marcas.append((ancora, dx, dy, texto, num, anchor))
 
-    def svg(self, w, h, margem=14, escala_max=None, fonte=15, margem_y=None):
+    def svg(self, w, h, margem=14, escala_max=None, fonte=15, margem_y=None, classe=None):
         pontos = []
         for g in self.grupos:
             pontos += [proj(p) for p in g[1]]
@@ -144,6 +144,21 @@ class Cena:
                 anot.append('<text x="%.1f" y="%.1f" text-anchor="middle" font-size="%d" font-weight="700" '
                             'fill="#fff">%s</text>' % (cxn, ty + 4.4, fonte - 2, num))
                 tx = cxn + (16 if anchor == 'start' else -16)
-            anot.append('<text x="%.1f" y="%.1f" text-anchor="%s" font-size="%d" fill="#3a3a3a">%s</text>'
-                        % (tx, ty + 4.6, anchor, fonte, texto))
+            rotulo = ('<text x="%.1f" y="%.1f" text-anchor="%s" font-size="%d" fill="#3a3a3a">%s</text>'
+                      % (tx, ty + 4.6, anchor, fonte, texto))
+            if classe:
+                # Pilula atras do rotulo: sem ela o texto cai em cima do desenho e
+                # fica ilegivel. As medidas aqui sao estimadas pela contagem de
+                # caracteres; quem ajusta ao texto de verdade e o ajusta-rotulos.mjs,
+                # que mede o bbox no navegador. O grupo leva a classe porque e ele
+                # que some no mobile, levando junto a pilula.
+                lt = len(texto) * fonte * 0.60
+                px, py = 7.0, 4.0
+                rx0 = tx - px if anchor == 'start' else (tx - lt - px if anchor == 'end' else tx - lt / 2 - px)
+                anot.append('<g class="%s"><rect data-fit="1" x="%.1f" y="%.1f" width="%.1f" height="%.1f" '
+                            'rx="7" fill="#ffffff" fill-opacity="0.90"/>%s</g>'
+                            % (classe, rx0, ty + 4.6 - fonte * 0.82 - py,
+                               lt + 2 * px, fonte * 1.12 + 2 * py, rotulo))
+            else:
+                anot.append(rotulo)
         return corpo + ''.join(anot)

@@ -341,6 +341,22 @@ parece defeito. E `tools/checar-caminhos.py` só confere grafia/existência em d
   dobrada extrudado segmento a segmento, com sombreamento pela orientação da face) e
   devolve o SVG pronto. São 21 ícones, usados na linha de produto, no glossário e nos
   cards de público. Ícone novo ou ajuste de peça é lá, não no HTML.
+- **Rótulo dos desenhos técnicos com pílula de fundo (30/09, vale nas duas LPs).**
+  O texto das chamadas caía em cima do desenho e ficava ilegível. Agora cada rótulo
+  sai dentro de `<g class="dw-esq__lbl">` (ou `tg-`) com um `<rect>` branco a 90% e
+  `rx="7"` atrás do texto. Onde o rótulo está sobre área branca a pílula desaparece;
+  onde cruza o desenho, ela salva a leitura. **A classe vai no `<g>`, não no `<text>`:**
+  é o grupo que some no mobile, e assim a pílula some junto, e o `getBBox()` que
+  reaperta o `viewBox` continua ignorando os dois.
+  **O encaixe é medido na página servida, não num HTML solto.** A Archivo só carrega
+  por http; medir com a fonte de fallback do sistema dava pílula com 35px de sobra de
+  um lado e 7 do outro, porque o texto de fallback é mais largo e, com
+  `text-anchor="end"`, a diferença toda cai num lado só. Com a medição certa a folga
+  fica em 7,5px na horizontal e 4,5 na vertical, simétrica.
+  **Ordem para refazer:** `python3 tools/desenho-iso/desenhos.py` (ou
+  `desenhos-cobertura.py`) → `python3 tools/injeta-desenhos.py` → subir um servidor na
+  raiz → `node tools/desenho-iso/ajusta-rotulos.mjs`. O último corrige o HTML já
+  injetado, não o JSON de geometria, então **não pule essa etapa** depois de regerar.
 - **Regex com `.*?` sobre HTML: a armadilha voltou a morder (30/09).** Ao inserir três
   verbetes no glossário da LP de telha, usei regex para reaproveitar o `<svg>` de um
   verbete vizinho. O `.*?` atravessou o fim do elemento e trouxe entradas inteiras

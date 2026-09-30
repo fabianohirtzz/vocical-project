@@ -292,6 +292,16 @@ tentar. Com os rótulos fora, sobra branco em volta do desenho, e aí o `viewBox
 reapertado pelo `getBBox()` do que ficou visível (`getBBox` ignora `display:none`). No
 drywall isso levou o desenho de 940x560 para 469x467, mais que dobrando o tamanho útil.
 
+**O rótulo que fica sobre o desenho precisa de fundo.** No desktop as chamadas ficam
+dentro da figura, e boa parte delas cai em cima do desenho, onde texto cinza sobre
+peça cinza não se lê. Cada rótulo sai dentro de um `<g>` com um retângulo branco a 90%
+e canto arredondado atrás do texto: sobre área branca a pílula some, sobre o desenho
+ela resolve. A classe que o mobile esconde vai **no grupo**, nunca no `<text>`, senão a
+pílula fica órfã na tela e o `getBBox()` que reaperta o `viewBox` passa a contá-la.
+O encaixe é medido **na página servida**, com a fonte real carregada: medir num HTML
+solto usa a fallback do sistema, que é mais larga, e a pílula sai torta justamente nos
+rótulos alinhados à direita.
+
 **Quem quiser detalhe, amplia.** Botão "Ampliar o desenho" abre um visualizador em tela
 cheia com o desenho completo e os rótulos de volta, arrasto por ponteiro, pinça de dois
 dedos, roda do mouse, duplo clique e ESC. Está em `js/drywall-zoom.js`, genérico o
@@ -387,6 +397,8 @@ Erros que já aconteceram nesta LP. Ler antes de repetir.
 | Rótulo do desenho cortado fora do viewBox | Falta estimar a largura do texto ao calcular a margem |
 | Ícone errado repetido em cards diferentes | Regex com `.*?` atravessando o fim do bloco; use split por elemento, não regex |
 | Legenda da tabela quebrando palavra por linha | `table-caption` num `table` que virou `display: block` |
+| Rótulo do desenho ilegível sobre a peça | Falta pílula de fundo atrás do texto |
+| Pílula de fundo torta, sobrando de um lado só | Texto medido sem a fonte real; medir na página servida |
 
 ---
 

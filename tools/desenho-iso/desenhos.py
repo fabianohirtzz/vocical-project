@@ -110,8 +110,8 @@ def forro():
 if __name__ == '__main__':
     aq = os.path.dirname(os.path.abspath(__file__))
     svgs = {
-        'parede': (parede().svg(940, 560, margem=178, margem_y=64, fonte=15), 940, 560),
-        'forro': (forro().svg(940, 540, margem=186, margem_y=70, fonte=15), 940, 540),
+        'parede': (parede().svg(940, 560, margem=178, margem_y=64, fonte=15, classe='dw-esq__lbl'), 940, 560),
+        'forro': (forro().svg(940, 540, margem=186, margem_y=70, fonte=15, classe='dw-esq__lbl'), 940, 540),
     }
     html = ''.join('<figure><svg viewBox="0 0 %d %d">%s</svg><figcaption>%s</figcaption></figure>'
                    % (w, h, s, k) for k, (s, w, h) in svgs.items())

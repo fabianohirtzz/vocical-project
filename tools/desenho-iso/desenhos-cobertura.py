@@ -103,7 +103,7 @@ def sistema():
             'Terça, o apoio da telha', '3', 'start')
     c.marca((22, sec[2][0] + 3.5, ZT - CAI * 22 + 8.6), -66, -26,
             'Parafuso com vedação, na crista', '4', 'end')
-    return c.svg(940, 560, margem=16, fonte=15)
+    return c.svg(940, 560, margem=16, fonte=15, classe='tg-esq__lbl')
 
 
 # ------------------------------------------------------------------ desenho 2
@@ -154,7 +154,7 @@ def arremates():
     c.marca((110, larg * .55, zb - 4.0), 96, 54, 'Calha no beiral', '3', 'start')
     c.marca((102, sec[1][0] + 8.0, zb + 6.8), -96, 62,
             'Tapa-onda fecha o vão da onda', '4', 'end')
-    return c.svg(940, 560, margem=16, fonte=15)
+    return c.svg(940, 560, margem=16, fonte=15, classe='tg-esq__lbl')
 
 
 if __name__ == '__main__':
