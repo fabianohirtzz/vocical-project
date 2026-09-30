@@ -23,3 +23,8 @@ home-desktop.jpeg
 
 # Credencial de SMTP do formulario (nunca versionar)
 smtp-config.php
+
+# Cache do Python e capturas de conferencia do gerador de desenho
+__pycache__/
+*.pyc
+tools/desenho-iso/*.png
