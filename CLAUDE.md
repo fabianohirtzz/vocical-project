@@ -56,7 +56,7 @@ vocical-project/
 │          campanha-drywall, fonts
 ├── js/    config, marcas-data, catalogo, layout, lead, home, produtos, marca, unidade,
 │          unidades-data, mapa, mapa-geo(gerado), hero-preview, produtos-hero, blur-text,
-│          timeline, main, cta, calculadoras, trabalhe-conosco, drywall-calc
+│          timeline, main, cta, calculadoras, trabalhe-conosco, drywall-calc, drywall-zoom
 ├── fonts/ (Archivo + Archivo Black, woff2)  ·  img/  videos/
 └── tools/gerar-mapa.mjs                         # gera js/mapa-geo.js
 ```
@@ -186,6 +186,11 @@ parece defeito. E `tools/checar-caminhos.py` só confere grafia/existência em d
   `config.js`. A página está `noindex, follow` e fora do sitemap até a aprovação:
   é uma linha só para mudar, marcada em comentário no `<head>`. Spec em
   `docs/superpowers/specs/2026-09-13-lp-drywall-robracon-design.md`.
+- **Seção de resumo factual removida da LP de drywall (pedido do cliente, 30/09):** era
+  um bloco de extração pensado para GEO, mas repetia o que o resto da página já diz e
+  incomodava na leitura. Os fatos seguem no JSON-LD (FAQPage com 18 perguntas,
+  HardwareStore com as 3 unidades e o OfferCatalog) e no corpo do texto, que é o que
+  os crawlers de IA leem. **Não reabrir como bug.**
 - **Fotos da LP de drywall (`img/drywall/`): são imagens geradas, ilustrativas do sistema
   construtivo, não registro das unidades.** Dez no total: estoque, as três placas lado a
   lado, perfis, forro, montagem de parede, tratamento de junta, carregamento e as três de
@@ -287,6 +292,18 @@ parece defeito. E `tools/checar-caminhos.py` só confere grafia/existência em d
   (`drywall-calc.js`) são JS. **Não migrar essa página para o template de unidade.**
   Estilo em `css/campanha-drywall.css` (prefixo `.dw-`), reaproveitando base, pages,
   unidade e calculadoras. FAQ em `<details>`, que dispensa JS e continua rastreável.
+  **Padrões de mobile dessa página (30/09):** as duas tabelas viram blocos empilhados
+  abaixo de 760px, com o cabeçalho de coluna repetido em cada célula por
+  `td[data-col]` e `::before` — nada de rolagem lateral. Os dois desenhos técnicos
+  cabem inteiros na tela: os rótulos de dentro do SVG (`.dw-esq__lbl`) somem, viram
+  legenda numerada em `<ol class="dw-esq__leg">` e o `viewBox` é reapertado por
+  `js/drywall-zoom.js` no `getBBox()` do que sobrou visível, o que faz o desenho
+  ocupar o card inteiro. O botão "Ampliar o desenho" abre o visualizador em tela
+  cheia (`.dwz`), com arrasto por ponteiro, pinça de dois dedos, roda do mouse,
+  duplo clique e ESC. **Nunca voltar a rolagem lateral** em tabela ou desenho: foi
+  reprovado em revisão. As marcas fornecedoras usam o mesmo marquee da home, com a
+  lista duplicada direto no HTML (a página é estática de propósito, sem JS de
+  renderização) e máscara de fade nas pontas.
   **Os ícones e os dois desenhos técnicos são gerados, não desenhados à mão:**
   `tools/desenho-iso/` monta a geometria isométrica de cada peça (perfil de chapa
   dobrada extrudado segmento a segmento, com sombreamento pela orientação da face) e
