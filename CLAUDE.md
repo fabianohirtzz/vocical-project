@@ -240,6 +240,15 @@ parece defeito. E `tools/checar-caminhos.py` só confere grafia/existência em d
   do corte veio em minúsculo, é provável que a erehost tenha a pasta em minúsculo e só o
   repositório esteja fora de padrão. **Conferir no FTP antes de mexer** e então padronizar
   os dois lados.
+  **Confirmado em 30/09, não é hipótese:** varredura no navegador em home, produtos,
+  sobre, contato e Robracon Rondonópolis, com o lazy desligado, deu **156 imagens
+  quebradas nessas 5 páginas, todas deste bug** — num servidor sensível a caixa (o
+  preview do GitHub Pages é um) nenhum logo de unidade carrega hoje.
+  **A mesma classe de erro existe em `Imagens/Jacical/`:** `unidades-data.js` cita
+  `Imagens/jacical/...` em minúsculo (7 imagens: `sobre.jpg` e a galeria de 6) e a
+  pasta no repositório é `Imagens/Jacical/`. O manifesto `tools/corte-fase1-assets.txt`
+  também traz minúsculo, o mesmo indício de que a erehost está em minúsculo e só o
+  repositório está fora de padrão. Resolver os dois juntos, na mesma passada.
 - **Fotos faltando no acervo (grandes):** Coberturas (telhas) e Agronegócio (arame/rural)
   só têm thumbnail 150px — pedir ao parceiro fotos ≥800px. Cards usam stopgap suave.
 - **✅ Ello Forte São Carlos sem galeria (decisão do cliente, 20/08/2026):** o acervo
