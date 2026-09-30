@@ -31,6 +31,12 @@ EXTRAS = [
     'img/vico-avatar.jpg',             # avatar do widget de lead
 ]
 CSS = ['base', 'site', 'pages', 'unidade', 'calculadoras', 'lead', 'fonts']
+
+# Aviso de foto por LP. Sem entrada, vale o texto genérico.
+AVISO_FOTO = {
+    'campaigns-robracon-telha-galvalume':
+        'Só a foto da telha ondulada ainda é provisória.',
+}
 JS = ['config', 'layout', 'lead', 'main', 'cta']
 
 
@@ -106,10 +112,13 @@ def main(pasta_lp, saida):
 
     links = '\n'.join('<link rel="stylesheet" href="css/%s.css">' % n for n in CSS[:-1] + [css_lp])
     set_attrs = ';'.join("d.setAttribute('%s','%s')" % (k, v or '') for k, v in attrs.items())
+    # O aviso das fotos muda por LP: na de telha só a ondulada segue placeholder,
+    # dizer "as fotos são provisórias" ali passaria a ser mentira.
     faixa = (
         '<div id="previa-aviso">Prévia para aprovação. '
         'O rastreamento está desligado e o formulário <b>não envia lead real</b>. '
-        'As fotos ainda são provisórias.</div>')
+        + AVISO_FOTO.get(os.path.basename(pasta_lp.rstrip('/')), 'As fotos ainda são provisórias.')
+        + '</div>')
     estilo = (
         '<style>\n'
         '#previa-aviso{position:sticky;top:0;z-index:300;background:#0d0d0d;color:#fff;'
