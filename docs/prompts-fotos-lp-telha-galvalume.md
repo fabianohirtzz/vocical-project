@@ -4,6 +4,33 @@ Dez fotos, no mesmo padrão das dez da LP de drywall. Vão para `img/telha/`, nu
 para `Imagens/`, que é o acervo do cliente: a distinção entre foto real e foto
 gerada precisa continuar óbvia.
 
+## Situação (30/09)
+
+Varri o acervo do cliente atrás de foto real antes de gerar mais nada. A pasta
+`Imagens/Robracon ROO/` tem 17 fotos grandes da unidade, e três delas resolvem
+slots que estavam na lista para gerar:
+
+| Slot | Resolvido por | O que mostra |
+|---|---|---|
+| 8. `producao-sob-medida.jpg` | `Imagens/Robracon ROO/robracon1 (13).png` | Telha trapezoidal saindo conformada dos rolos da perfiladeira |
+| 10. `bobina-galvalume.jpg` | `Imagens/Robracon ROO/robracon1 (14).png` | Bobina na desbobinadeira, alimentando a linha |
+| extra: `corte-dobra-chapa.jpg` | `Imagens/Robracon ROO/corte-dobra-chapa.png` | Dobradeira conformando chapa, de onde saem calha e rufo |
+
+**São muito melhores que uma foto gerada**, porque são a operação real da unidade
+e permitem a página falar em primeira pessoa justamente na seção que é o
+diferencial dela. Já estão processadas em `img/telha/`, recortadas em 3:2,
+1500 x 1000, JPEG 82. Os originais em `Imagens/` não foram tocados.
+
+**Ainda falta gerar: só a número 9**, `carregamento-telhas.jpg`. O acervo tem uma
+foto de carregamento (`robracon1 (7).png`), mas o caminhão está sendo carregado
+com sacos de cimento, e a legenda da seção fala de telha comprida. Usar essa seria
+mentir na legenda.
+
+As de 1 a 7 seguem valendo como geradas: são produto isolado e telhado montado, que
+o acervo não tem.
+
+---
+
 **Por que gerar.** As fotos de cobertura que existem no acervo
 (`Imagens/Produtos/TELHAS.jpg`, `bobina-galvalume.jpg`, `telha-termoacustica.jpg`,
 `telha-fibrocimento.jpg`, `telha-transparente.jpg`) são todas miniaturas de
@@ -150,7 +177,7 @@ building. No text, no labels, no logos, no watermarks, no people. Photorealistic
 3:2 landscape, high detail.
 ```
 
-## 8. `producao-sob-medida.jpg` · 3:2 · seção de telha sob medida
+## 8. `producao-sob-medida.jpg` · 3:2 · **RESOLVIDO com foto real, não gerar**
 
 ```
 Commercial photograph of a modern late-model roll forming machine producing a
@@ -163,7 +190,7 @@ level concrete floor in good repair. Neutral color grading. No text, no labels,
 no logos, no watermarks, no people. Photorealistic, 3:2 landscape, high detail.
 ```
 
-## 9. `carregamento-telhas.jpg` · 16:9 · seção das unidades
+## 9. `carregamento-telhas.jpg` · 16:9 · **A ÚNICA QUE AINDA FALTA**
 
 ```
 Commercial photograph of long galvalume roofing sheets being loaded onto a modern
@@ -176,7 +203,7 @@ surroundings. Neutral color grading. No text, no labels, no logos, no watermarks
 no people. Photorealistic, 16:9 landscape, high detail.
 ```
 
-## 10. `bobina-galvalume.jpg` · 3:2 · seção de fornecimento
+## 10. `bobina-galvalume.jpg` · 3:2 · **RESOLVIDO com foto real, não gerar**
 
 ```
 Commercial photograph of galvalume steel coils standing on end in a clean, well

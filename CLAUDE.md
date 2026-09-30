@@ -195,12 +195,23 @@ parece defeito. E `tools/checar-caminhos.py` só confere grafia/existência em d
   incomodava na leitura. Os fatos seguem no JSON-LD (FAQPage com 18 perguntas,
   HardwareStore com as 3 unidades e o OfferCatalog) e no corpo do texto, que é o que
   os crawlers de IA leem. **Não reabrir como bug.**
-- **LP de telha galvalume, pendências antes de publicar:** (1) **as dez fotos ainda
-  são placeholders**, cinza com a faixa "FOTO A GERAR", em `img/telha/`. Os prompts
-  estão em `docs/prompts-fotos-lp-telha-galvalume.md`, já com a proporção escrita com
-  número. Os nomes e as proporções dos arquivos são os definitivos: é só substituir
-  arquivo por arquivo, sem tocar no HTML. As do acervo não servem, são miniaturas de
-  150px. (2) validar com a equipe técnica da Robracon a inclinação mínima por perfil,
+- **LP de telha galvalume, fotos: três são REAIS, o resto é gerado (30/09).**
+  A pasta `Imagens/Robracon ROO/` tem 17 fotos grandes da unidade, e a varredura achou
+  três que resolvem slots que iriam para o gerador, todas da operação de Rondonópolis:
+  `robracon1 (13).png` (telha trapezoidal saindo da perfiladeira) virou
+  `img/telha/producao-sob-medida.jpg`; `robracon1 (14).png` (bobina na desbobinadeira)
+  virou `bobina-galvalume.jpg`; e `corte-dobra-chapa.png` (dobradeira conformando chapa)
+  virou `corte-dobra-chapa.jpg`. Recortadas em 3:2, 1500x1000, JPEG 82; os originais em
+  `Imagens/` não foram tocados. **São melhores que qualquer foto gerada** e, por serem
+  reais e da unidade, a legenda ali pode falar em primeira pessoa ("a nossa
+  perfiladeira"), o que o resto das fotos da página não pode.
+  **Antes de escrever prompt, varrer o acervo.** As de cobertura em `Imagens/Produtos/`
+  são miniaturas de 150px e não servem, mas as das pastas de unidade servem, e eu quase
+  gerei foto para algo que o cliente já tinha fotografado.
+  **Pendências antes de publicar:** (1) falta gerar só a `carregamento-telhas.jpg`;
+  o acervo tem `robracon1 (7).png` de carregamento, mas com sacos de cimento, e a
+  legenda da seção fala de telha comprida. As demais seguem geradas, porque são produto
+  isolado e telhado montado, que o acervo não tem. (2) validar com a equipe técnica da Robracon a inclinação mínima por perfil,
   a largura útil das telhas que a unidade trabalha, o consumo de parafuso por m² e o
   vão entre terças; a página já diz que são referências a confirmar, e a calculadora
   também. (3) confirmar o comprimento máximo de produção sob medida e o prazo.
