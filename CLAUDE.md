@@ -237,7 +237,12 @@ parece defeito. E `tools/checar-caminhos.py` só confere grafia/existência em d
   ArcelorMittal, CSN, Usiminas, Gerdau, Belgo, Brasilit, Imbralit e Infibra, escolhidas
   pelo que existe em `Imagens/Marcas/`. (5) `noindex` e fora do sitemap até aprovar.
 - **Revisão da diretoria nas duas LPs (01/10). Decisões que não devem ser revertidas:**
-  - **A LP de drywall é dividida em duas metades** (pedido do Bruno, BP Mídia): comercial
+  - **As DUAS LPs são divididas em duas metades** (pedido do Bruno, BP Mídia; aplicado na de
+    drywall e, em 01/10, também na de telha, sob o cabeçalho "Guia técnico de cobertura
+    metálica"). Na de telha o comercial vai até a conversão e o técnico embaixo é: os dois
+    desenhos, o consumo e quantitativo, a FAQ e o glossário. O "quem é quem" dos nomes e o
+    guia de perfis ficam **em cima**, porque são o que faz a pessoa se reconhecer na busca,
+    não conteúdo de especificação. Na de drywall: comercial
     em cima (hero, medidor, dores, linha, ST/RU/Glasroc, calculadora, como comprar, para
     quem é, autoridade, marcas, unidades, complemento, conversão) e, abaixo de um cabeçalho
     **"Guia técnico de drywall — Informações para especificação, montagem e quantitativo"**,
