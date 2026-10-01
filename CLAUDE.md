@@ -174,6 +174,12 @@ parece defeito. E `tools/checar-caminhos.py` só confere grafia/existência em d
   referência de copy/mix; itens marcados "a validar" (CNPJs, anos, serviços por local) só
   publicar após confirmação.
 - `copy-novo-site.md` — copy redigida para o novo site.
+- `docs/cliente/grupo-de-produtos-por-unidade.pdf` — **matriz do cliente (01/10/2026)**
+  de quais linhas cada unidade trabalha, por "sim", mais as colunas "Setores site" e
+  "Subsetores site", que é como o cliente pensa a navegação de produtos. O resumo em
+  `.md` ao lado é **extração parcial**: o PDF usa fonte com subset e strings UTF-16BE
+  deslocadas 29, e 13 das 36 linhas não trazem o rótulo no fluxo de texto. O PDF é a
+  fonte de verdade; o `.md` traz a receita de extração e as 23 linhas que saíram limpas.
 - `docs/playbook-lp-campanha.md` — **método de construção de landing page de campanha**,
   extraído da LP de drywall. É o documento a seguir para fazer a próxima.
 - Catálogo de produtos (página): 6 categorias reais (config.js `CATEGORIAS`):
@@ -244,11 +250,15 @@ parece defeito. E `tools/checar-caminhos.py` só confere grafia/existência em d
     o pedido? A Robracon também fornece...". Era uma seção escura inteira com lista de
     cinco itens. **Não voltar a inflar.**
   - **⚠️ O vendedor da Robracon NÃO faz especificação técnica** (confirmado pela Mariana, do
-    cliente). A LP de telha prometia isso em 6 lugares e vendia como diferencial em duas das
-    quatro dores. Tudo reescrito: a página agora promete **fornecimento completo contra a
-    especificação que o cliente traz**, não assessoria. As dores 3 e 4 viraram "Chega
-    diferente do especificado" e "Orçamento que demora a voltar". **Não reintroduzir
-    "vendedor técnico ajuda a especificar" em nenhuma página.**
+    cliente). É um fato sobre a empresa, não sobre uma página: **a correção vale nas duas LPs**
+    e foi aplicada na de telha em 30/09 (20 trechos) e na de drywall em 01/10 (21 trechos,
+    incluindo os dois gêmeos no JSON-LD da FAQ). As duas prometiam isso no hero, na faixa de
+    CTA, no "como comprar", na FAQ, no JSON-LD e, pior, **vendiam como diferencial em duas das
+    quatro dores**. Agora as páginas prometem **fornecimento completo contra a especificação
+    que o cliente traz**, não assessoria: as dores viraram "Chega diferente do especificado" e
+    "Orçamento que demora a voltar", e o selo "Atendimento B2B e consultivo" saiu.
+    **Não reintroduzir "vendedor técnico ajuda a especificar" em nenhuma página.**
+    Conferir com `grep -in "vendedor técnico\|consultivo\|atendimento técnico"`.
   - **Quem compra telha em geral já tem o quantitativo no projeto.** A seção de consumo e a
     calculadora continuam, mas como **conferência** e para quem não tem projeto (telhado
     menor, reforma, casa caixote), não como a promessa principal.
