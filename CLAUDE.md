@@ -263,7 +263,12 @@ parece defeito. E `tools/checar-caminhos.py` só confere grafia/existência em d
     que o cliente traz**, não assessoria: as dores viraram "Chega diferente do especificado" e
     "Orçamento que demora a voltar", e o selo "Atendimento B2B e consultivo" saiu.
     **Não reintroduzir "vendedor técnico ajuda a especificar" em nenhuma página.**
-    Conferir com `grep -in "vendedor técnico\|consultivo\|atendimento técnico"`.
+    **Dois escaparam da primeira passada no drywall**, nos cards de "quem atendemos":
+    "Precisa de apoio técnico no quantitativo" e "Quer conversar com quem entende de
+    placa, perfil e acabamento". Por isso o grep de conferência tem que ser largo:
+    `grep -inE "vendedor técnico|atendimento técnico|apoio técnico|consultiv|assessor|"`
+    `"suporte técnico|ajuda a especificar|quem entende|sabe qual|tira (a )?dúvida"`
+    nas duas LPs. Hoje dá zero nas duas.
   - **Quem compra telha em geral já tem o quantitativo no projeto.** A seção de consumo e a
     calculadora continuam, mas como **conferência** e para quem não tem projeto (telhado
     menor, reforma, casa caixote), não como a promessa principal.
